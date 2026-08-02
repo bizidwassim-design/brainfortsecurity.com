@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 84" role="img" aria-label="BrainFort Security">
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f1d68a"/>
+      <stop offset="0.55" stop-color="#d4af37"/>
+      <stop offset="1" stop-color="#9a7a1f"/>
+    </linearGradient>
+  </defs>
+  <!-- Shield -->
+  <g transform="translate(8 6)">
+    <path d="M6 40 V4 H16 V10 H26 V4 H38 V10 H48 V4 H58 V40 C58 54 46 63.5 32 69 C18 63.5 6 54 6 40 Z"
+      fill="rgba(212,175,55,0.06)" stroke="url(#gold)" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M28 20 c-5 -1 -9 2 -9 6 c-3 1 -4 4 -2.5 6.5 c-2 2.5 -1 6 1.5 7 c0 3.5 3.5 6 7 5 M21.5 27.5 c2 -.5 3.5 .5 4 2 M20 34 c2.5 -.5 4.5 1 5 3"
+      fill="none" stroke="url(#gold)" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="M42 18 l1.8 3.4 2.6 -1.2 -0.6 3.4 3.4 0.4 -2.4 2.6 1.8 3 -3.4 -0.4 -0.4 3.4 -2.8 -2.6 -2.8 2.6 -0.4 -3.4 -3.4 0.4 1.8 -3 -2.4 -2.6 3.4 -0.4 -0.6 -3.4 2.6 1.2 Z"
+      fill="#e3342f"/>
+    <path d="M42 32 v9 M37.5 34 v6 M46.5 34 v6" stroke="#e3342f" stroke-width="1.6" stroke-linecap="round"/>
+    <circle cx="37.5" cy="41.5" r="1.4" fill="#e3342f"/>
+    <circle cx="46.5" cy="41.5" r="1.4" fill="#e3342f"/>
+    <circle cx="42" cy="43" r="1.4" fill="#e3342f"/>
+    <circle cx="32" cy="47" r="4" fill="none" stroke="url(#gold)" stroke-width="2.4"/>
+    <path d="M32 51 l-2.4 8.5 h4.8 Z" fill="url(#gold)"/>
+  </g>
+  <!-- Wordmark -->
+  <text x="86" y="44" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="800" letter-spacing="1">
+    <tspan fill="url(#gold)">BR</tspan><tspan fill="#e3342f">AI</tspan><tspan fill="url(#gold)">NFORT</tspan>
+  </text>
+  <text x="88" y="66" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="600" letter-spacing="9" fill="#d4af37">SECURITY</text>
+</svg>
