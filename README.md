@@ -107,13 +107,20 @@ English ships today. The architecture is ready for **French** and **Arabic**:
 3. Introduce a `[locale]` route segment when translations are ready.
 4. Arabic renders right-to-left automatically via `localeDirection` (the
    root layout sets `dir` from it).
-5. The brand logo (gold/red lockup) is shared across all locales.
+5. Brand logos are locale-aware (`<Logo locale="fr" />`): English and
+   Arabic share the gold "BRAINFORT SECURITY" lockup; French uses the
+   fleur-de-lys "BrAInFort Sécurité Inc." lockup.
 
 ## Branding
 
-- `public/logo.svg` and `src/components/layout/brand-mark.tsx` contain an
-  SVG recreation of the official shield + wordmark. If the brand team
-  exports official vector assets, drop them in as replacements.
+- `public/logo.svg` + `src/components/layout/brand-mark.tsx` — SVG
+  recreation of the official EN/AR shield (circuit-brain + maple leaf,
+  gold/red).
+- `public/logo-fr.svg` + `src/components/layout/brand-mark-fr.tsx` — SVG
+  recreation of the official FR shield (fleur-de-lys + circuit brain,
+  navy/red/blue; the site header uses a light-on-dark recolor).
+- If the brand team exports official vector assets, drop them in as
+  replacements.
 - Brand palette: black/deep-navy background, gold `#D4AF37`, red `#E3342F`
   (the "AI" in BR**AI**NFORT), blue `#0057FF` and teal `#14B8A6` as digital
   accents.

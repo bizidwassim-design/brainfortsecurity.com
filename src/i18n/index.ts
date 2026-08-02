@@ -11,8 +11,10 @@ import { en } from "./en";
  *     translated content is ready.
  *  3. For Arabic, set `dir="rtl"` on <html> — see `localeDirection` below;
  *     the layout reads it so RTL comes for free when `ar` ships.
- *  4. The brand logo (`public/logo.svg`, header wordmark) is shared across
- *     all locales per brand guidelines.
+ *  4. Brand logos are locale-aware (see `components/layout/logo.tsx`):
+ *     EN and AR share the gold "BRAINFORT SECURITY" lockup
+ *     (`public/logo.svg`); FR uses the fleur-de-lys "BrAInFort
+ *     Sécurité Inc." lockup (`public/logo-fr.svg`).
  */
 export const locales = ["en", "fr", "ar"] as const;
 export type Locale = (typeof locales)[number];
