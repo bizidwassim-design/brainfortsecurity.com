@@ -1,10 +1,12 @@
 import { Reveal } from "@/components/motion/reveal";
 import { SectionHeading } from "@/components/section-heading";
-import { getDictionary } from "@/i18n";
+import type { Dictionary } from "@/i18n";
 
-const dict = getDictionary();
+interface StatsSectionProps {
+  dict: Dictionary;
+}
 
-export function StatsSection() {
+export function StatsSection({ dict }: StatsSectionProps) {
   return (
     <section className="py-20 sm:py-28" aria-labelledby="stats">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -23,7 +25,7 @@ export function StatsSection() {
                 <dt className="order-2 mt-2 block text-sm leading-relaxed text-muted-foreground">
                   {stat.label}
                 </dt>
-                <dd className="order-1 bg-gradient-to-r from-blue-400 to-secondary bg-clip-text text-4xl font-extrabold tracking-tight text-transparent sm:text-5xl">
+                <dd className="order-1 bg-gradient-to-r from-[#f1d68a] to-[#d4af37] bg-clip-text text-4xl font-extrabold tracking-tight text-transparent sm:text-5xl">
                   {stat.value}
                 </dd>
               </div>

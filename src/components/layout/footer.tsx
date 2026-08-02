@@ -2,11 +2,8 @@ import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 
 import { Logo } from "@/components/layout/logo";
-import { getDictionary } from "@/i18n";
-import { services } from "@/lib/services";
+import type { Dictionary, Locale } from "@/i18n";
 import { siteConfig } from "@/lib/site";
-
-const dict = getDictionary();
 
 /* lucide-react dropped brand icons, so LinkedIn is inlined. */
 function LinkedinIcon({ className }: { className?: string }) {
@@ -25,13 +22,18 @@ function LinkedinIcon({ className }: { className?: string }) {
 const footerLinkClass =
   "text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded";
 
-export function Footer() {
+interface FooterProps {
+  locale: Locale;
+  dict: Dictionary;
+}
+
+export function Footer({ locale, dict }: FooterProps) {
   return (
     <footer className="border-t border-border bg-card/40">
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-4">
-            <Logo />
+            <Logo locale={locale} />
             <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
               {dict.footer.tagline}
             </p>
@@ -40,14 +42,14 @@ export function Footer() {
                 href={siteConfig.links.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="BrainFort Security on LinkedIn"
+                aria-label="LinkedIn"
                 className="flex size-9 items-center justify-center rounded-lg border border-border text-muted-foreground transition-colors hover:border-primary hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
                 <LinkedinIcon className="size-4" />
               </a>
               <a
                 href={`mailto:${siteConfig.email}`}
-                aria-label={`Email ${siteConfig.name}`}
+                aria-label={siteConfig.email}
                 className="flex size-9 items-center justify-center rounded-lg border border-border text-muted-foreground transition-colors hover:border-primary hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
                 <Mail className="size-4" aria-hidden="true" />
@@ -55,15 +57,15 @@ export function Footer() {
             </div>
           </div>
 
-          <nav aria-label="Footer services">
+          <nav aria-label={dict.footer.servicesTitle}>
             <h2 className="mb-4 text-sm font-semibold uppercase tracking-wider text-foreground">
               {dict.footer.servicesTitle}
             </h2>
             <ul className="space-y-2.5">
-              {services.slice(0, 6).map((service) => (
+              {dict.services.slice(0, 6).map((service) => (
                 <li key={service.id}>
                   <Link
-                    href={`/services/#${service.id}`}
+                    href={`/${locale}/services/#${service.id}`}
                     className={footerLinkClass}
                   >
                     {service.title}
@@ -73,23 +75,23 @@ export function Footer() {
             </ul>
           </nav>
 
-          <nav aria-label="Footer company">
+          <nav aria-label={dict.footer.companyTitle}>
             <h2 className="mb-4 text-sm font-semibold uppercase tracking-wider text-foreground">
               {dict.footer.companyTitle}
             </h2>
             <ul className="space-y-2.5">
               <li>
-                <Link href="/about" className={footerLinkClass}>
+                <Link href={`/${locale}/about/`} className={footerLinkClass}>
                   {dict.nav.about}
                 </Link>
               </li>
               <li>
-                <Link href="/services" className={footerLinkClass}>
+                <Link href={`/${locale}/services/`} className={footerLinkClass}>
                   {dict.nav.services}
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className={footerLinkClass}>
+                <Link href={`/${locale}/contact/`} className={footerLinkClass}>
                   {dict.nav.contact}
                 </Link>
               </li>
@@ -102,12 +104,12 @@ export function Footer() {
             </h2>
             <ul className="space-y-2.5">
               <li>
-                <Link href="/privacy" className={footerLinkClass}>
+                <Link href={`/${locale}/privacy/`} className={footerLinkClass}>
                   {dict.footer.privacy}
                 </Link>
               </li>
               <li>
-                <Link href="/terms" className={footerLinkClass}>
+                <Link href={`/${locale}/terms/`} className={footerLinkClass}>
                   {dict.footer.terms}
                 </Link>
               </li>
@@ -117,6 +119,7 @@ export function Footer() {
                 <a
                   href={`tel:${siteConfig.phoneHref}`}
                   className="flex items-start gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
+                  dir="ltr"
                 >
                   <Phone className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
                   {siteConfig.phone}
@@ -124,7 +127,9 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-2 text-sm text-muted-foreground">
                 <MapPin className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
-                <span>{siteConfig.regions.join(" · ")}</span>
+                <span>
+                  {dict.offices.items.map((o) => o.label).join(" · ")}
+                </span>
               </li>
             </ul>
           </div>

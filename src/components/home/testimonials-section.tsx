@@ -3,11 +3,13 @@ import { Quote } from "lucide-react";
 import { Reveal } from "@/components/motion/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { getDictionary } from "@/i18n";
+import type { Dictionary } from "@/i18n";
 
-const dict = getDictionary();
+interface TestimonialsSectionProps {
+  dict: Dictionary;
+}
 
-export function TestimonialsSection() {
+export function TestimonialsSection({ dict }: TestimonialsSectionProps) {
   return (
     <section className="py-20 sm:py-28" aria-labelledby="testimonials">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -26,7 +28,7 @@ export function TestimonialsSection() {
               <Card className="h-full">
                 <CardHeader>
                   <Quote
-                    className="size-8 text-primary/40"
+                    className="size-8 text-primary/40 rtl:rotate-180"
                     aria-hidden="true"
                   />
                 </CardHeader>

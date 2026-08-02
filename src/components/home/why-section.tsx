@@ -1,14 +1,16 @@
-import { Award, Bot, Map, MapPin } from "lucide-react";
+import { Award, Bot, Globe2, Map } from "lucide-react";
 
 import { Reveal } from "@/components/motion/reveal";
 import { SectionHeading } from "@/components/section-heading";
-import { getDictionary } from "@/i18n";
+import type { Dictionary } from "@/i18n";
 
-const dict = getDictionary();
+const icons = [Award, Bot, Map, Globe2];
 
-const icons = [Award, Bot, Map, MapPin];
+interface WhySectionProps {
+  dict: Dictionary;
+}
 
-export function WhySection() {
+export function WhySection({ dict }: WhySectionProps) {
   return (
     <section
       className="border-y border-border bg-card/30 py-20 sm:py-28"
@@ -30,7 +32,7 @@ export function WhySection() {
             return (
               <Reveal key={item.title} delay={index * 0.08}>
                 <div className="glass h-full rounded-2xl p-6">
-                  <div className="mb-4 flex size-11 items-center justify-center rounded-lg bg-secondary/10 text-secondary">
+                  <div className="mb-4 flex size-11 items-center justify-center rounded-lg bg-primary/10 text-primary">
                     <Icon className="size-5" aria-hidden="true" />
                   </div>
                   <h3 className="mb-2 text-base font-semibold text-foreground">

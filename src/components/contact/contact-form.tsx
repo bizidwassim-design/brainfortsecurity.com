@@ -7,11 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { getDictionary } from "@/i18n";
+import type { Dictionary } from "@/i18n";
 import { siteConfig } from "@/lib/site";
-
-const dict = getDictionary();
-const t = dict.contactPage.form;
 
 /**
  * Form backend endpoint (Formspree, Cloudflare Worker, etc.).
@@ -22,7 +19,11 @@ const endpoint = process.env.NEXT_PUBLIC_CONTACT_FORM_ENDPOINT;
 
 type Status = "idle" | "submitting" | "success" | "error";
 
-export function ContactForm() {
+interface ContactFormProps {
+  dict: Dictionary["contactPage"]["form"];
+}
+
+export function ContactForm({ dict: t }: ContactFormProps) {
   const [status, setStatus] = useState<Status>("idle");
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -58,7 +59,7 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} noValidate={false} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-6">
       <p className="text-sm text-muted-foreground">{t.requiredHint}</p>
 
       <div className="grid gap-6 sm:grid-cols-2">
@@ -143,7 +144,7 @@ export function ContactForm() {
           </>
         ) : (
           <>
-            <Send aria-hidden="true" />
+            <Send className="rtl:-scale-x-100" aria-hidden="true" />
             {t.submit}
           </>
         )}
@@ -151,7 +152,7 @@ export function ContactForm() {
 
       <div role="status" aria-live="polite">
         {status === "success" && (
-          <p className="rounded-lg border border-secondary/40 bg-secondary/10 px-4 py-3 text-sm text-teal-300">
+          <p className="rounded-lg border border-primary/40 bg-primary/10 px-4 py-3 text-sm text-[#e9d18b]">
             {t.success}
           </p>
         )}
@@ -165,6 +166,7 @@ export function ContactForm() {
                 <a
                   href={`mailto:${siteConfig.email}`}
                   className="font-semibold underline underline-offset-2"
+                  dir="ltr"
                 >
                   {siteConfig.email}
                 </a>

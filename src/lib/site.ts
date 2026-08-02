@@ -4,7 +4,7 @@ export const siteConfig = {
   tagline: "Building Trust. Securing Tomorrow.",
   url: "https://brainfortsecurity.com",
   description:
-    "Canadian cybersecurity consulting firm specializing in identity security, Zero Trust, Microsoft security, cloud security, and AI-powered security automation.",
+    "Canadian cybersecurity consulting firm headquartered in Montréal, serving clients across Canada and the Middle East — identity security, Zero Trust, Microsoft security, cloud security, and AI-powered security automation.",
   locale: "en_CA",
   country: "Canada",
   city: "Montréal",

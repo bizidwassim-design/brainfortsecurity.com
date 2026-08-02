@@ -1,23 +1,33 @@
 import type { Metadata } from "next";
-import { Mail, MapPin, Phone } from "lucide-react";
+import Image from "next/image";
+import { Mail, Phone } from "lucide-react";
 
 import { ContactForm } from "@/components/contact/contact-form";
 import { Reveal } from "@/components/motion/reveal";
 import { Badge } from "@/components/ui/badge";
-import { getDictionary } from "@/i18n";
+import { alternatesFor, getDictionary, type Locale } from "@/i18n";
 import { siteConfig } from "@/lib/site";
 
-const dict = getDictionary();
+interface PageProps {
+  params: Promise<{ locale: Locale }>;
+}
 
-export const metadata: Metadata = {
-  title: dict.contactPage.metaTitle,
-  description: dict.contactPage.metaDescription,
-  alternates: {
-    canonical: "/contact/",
-  },
-};
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const dict = getDictionary(locale);
+  return {
+    title: dict.contactPage.metaTitle,
+    description: dict.contactPage.metaDescription,
+    alternates: alternatesFor(locale, "/contact/"),
+  };
+}
 
-export default function ContactPage() {
+export default async function ContactPage({ params }: PageProps) {
+  const { locale } = await params;
+  const dict = getDictionary(locale);
+
   return (
     <section className="hero-glow py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -36,7 +46,7 @@ export default function ContactPage() {
         <div className="mx-auto mt-16 grid max-w-5xl gap-10 lg:grid-cols-[1fr_360px]">
           <Reveal>
             <div className="glass rounded-3xl p-6 sm:p-10">
-              <ContactForm />
+              <ContactForm dict={dict.contactPage.form} />
             </div>
           </Reveal>
 
@@ -54,7 +64,8 @@ export default function ContactPage() {
                 </p>
                 <a
                   href={`mailto:${siteConfig.email}`}
-                  className="text-sm font-semibold text-secondary underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
+                  className="text-sm font-semibold text-primary underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
+                  dir="ltr"
                 >
                   {siteConfig.email}
                 </a>
@@ -69,22 +80,39 @@ export default function ContactPage() {
                 </h2>
                 <a
                   href={`tel:${siteConfig.phoneHref}`}
-                  className="text-sm font-semibold text-secondary underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
+                  className="text-sm font-semibold text-primary underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
+                  dir="ltr"
                 >
                   {siteConfig.phone}
                 </a>
               </div>
 
               <div className="glass rounded-2xl p-6">
-                <div className="mb-3 flex size-11 items-center justify-center rounded-lg bg-secondary/10 text-secondary">
-                  <MapPin className="size-5" aria-hidden="true" />
-                </div>
-                <h2 className="mb-1 text-base font-semibold text-foreground">
-                  {dict.contactPage.locationTitle}
+                <h2 className="mb-4 text-base font-semibold text-foreground">
+                  {dict.contactPage.officesTitle}
                 </h2>
-                <p className="text-sm leading-relaxed text-muted-foreground">
-                  {dict.contactPage.location}
-                </p>
+                <ul className="space-y-4">
+                  {dict.offices.items.map((office) => (
+                    <li key={office.flag} className="flex items-center gap-3">
+                      <Image
+                        src={`/flags/${office.flag}.svg`}
+                        alt=""
+                        width={40}
+                        height={26}
+                        className="h-6 w-auto rounded-sm border border-border"
+                        aria-hidden="true"
+                      />
+                      <div>
+                        <p className="text-sm font-medium text-foreground">
+                          {office.label}
+                        </p>
+                        <p className="text-xs text-muted-foreground">
+                          {office.sublabel}
+                        </p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </aside>
           </Reveal>

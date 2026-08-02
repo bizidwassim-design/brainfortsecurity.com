@@ -1,21 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0b1220;
-  --foreground: #f1f5f9;
-  --card: #101a30;
-  --card-foreground: #f1f5f9;
-  --primary: #0057ff;
-  --primary-foreground: #ffffff;
-  --secondary: #14b8a6;
-  --secondary-foreground: #04201c;
+  --background: #0a0a0c;
+  --foreground: #f4f1e8;
+  --card: #141311;
+  --card-foreground: #f4f1e8;
+  --primary: #d4af37;
+  --primary-foreground: #171204;
+  --secondary: #d92b2b;
+  --secondary-foreground: #ffffff;
   --accent: #ef4444;
   --accent-foreground: #ffffff;
-  --muted: #16213a;
-  --muted-foreground: #9aa8bd;
-  --border: rgba(148, 163, 184, 0.16);
-  --input: rgba(148, 163, 184, 0.24);
-  --ring: #3b82f6;
+  --muted: #1d1b15;
+  --muted-foreground: #aaa494;
+  --border: rgba(212, 175, 55, 0.18);
+  --input: rgba(212, 175, 55, 0.28);
+  --ring: #d4af37;
   --gold: #d4af37;
   --gold-light: #f1d68a;
   --gold-dark: #9a7a1f;
@@ -53,8 +53,8 @@ body {
 }
 
 ::selection {
-  background: color-mix(in srgb, var(--primary) 60%, transparent);
-  color: #ffffff;
+  background: color-mix(in srgb, var(--primary) 70%, transparent);
+  color: #171204;
 }
 
 /* Gold gradient wordmark text (brand logo). */
@@ -67,10 +67,10 @@ body {
 
 /* Frosted glass surface used across sections. */
 .glass {
-  background: rgba(16, 26, 48, 0.6);
+  background: rgba(20, 19, 17, 0.6);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(148, 163, 184, 0.14);
+  border: 1px solid rgba(212, 175, 55, 0.16);
 }
 
 /* Soft radial glow behind hero content. */
@@ -78,12 +78,12 @@ body {
   background:
     radial-gradient(
       600px circle at 20% 10%,
-      rgba(0, 87, 255, 0.18),
+      rgba(212, 175, 55, 0.14),
       transparent 60%
     ),
     radial-gradient(
       500px circle at 80% 30%,
-      rgba(20, 184, 166, 0.12),
+      rgba(217, 43, 43, 0.09),
       transparent 60%
     );
 }
@@ -91,9 +91,20 @@ body {
 /* Subtle grid backdrop for technical feel. */
 .grid-pattern {
   background-image:
-    linear-gradient(rgba(148, 163, 184, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(148, 163, 184, 0.05) 1px, transparent 1px);
+    linear-gradient(rgba(212, 175, 55, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212, 175, 55, 0.05) 1px, transparent 1px);
   background-size: 48px 48px;
+}
+
+/* Arabic: dedicated font and no letter-spacing (spacing breaks the
+   connected script). Unlayered rules deliberately outrank utilities. */
+html[lang="ar"] body {
+  font-family: var(--font-noto-arabic), ui-sans-serif, system-ui, sans-serif;
+}
+
+html[lang="ar"],
+html[lang="ar"] * {
+  letter-spacing: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {

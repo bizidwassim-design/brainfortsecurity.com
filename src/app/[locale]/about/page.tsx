@@ -6,22 +6,31 @@ import { Reveal } from "@/components/motion/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
-import { getDictionary } from "@/i18n";
+import { alternatesFor, getDictionary, type Locale } from "@/i18n";
 import { cn } from "@/lib/utils";
-
-const dict = getDictionary();
-
-export const metadata: Metadata = {
-  title: dict.aboutPage.metaTitle,
-  description: dict.aboutPage.metaDescription,
-  alternates: {
-    canonical: "/about/",
-  },
-};
 
 const valueIcons = [Eye, Compass, Handshake, Lightbulb];
 
-export default function AboutPage() {
+interface PageProps {
+  params: Promise<{ locale: Locale }>;
+}
+
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const dict = getDictionary(locale);
+  return {
+    title: dict.aboutPage.metaTitle,
+    description: dict.aboutPage.metaDescription,
+    alternates: alternatesFor(locale, "/about/"),
+  };
+}
+
+export default async function AboutPage({ params }: PageProps) {
+  const { locale } = await params;
+  const dict = getDictionary(locale);
+
   return (
     <>
       <section className="hero-glow py-20 sm:py-24">
@@ -77,7 +86,7 @@ export default function AboutPage() {
               return (
                 <Reveal key={value.title} delay={index * 0.08}>
                   <div className="glass h-full rounded-2xl p-6">
-                    <div className="mb-4 flex size-11 items-center justify-center rounded-lg bg-secondary/10 text-secondary">
+                    <div className="mb-4 flex size-11 items-center justify-center rounded-lg bg-primary/10 text-primary">
                       <Icon className="size-5" aria-hidden="true" />
                     </div>
                     <h3 className="mb-2 text-base font-semibold text-foreground">
@@ -124,12 +133,12 @@ export default function AboutPage() {
               </h2>
               <div className="mt-6">
                 <Link
-                  href="/contact"
+                  href={`/${locale}/contact/`}
                   className={cn(buttonVariants({ size: "lg" }), "group")}
                 >
                   {dict.aboutPage.ctaButton}
                   <ArrowRight
-                    className="transition-transform group-hover:translate-x-1"
+                    className="transition-transform group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1"
                     aria-hidden="true"
                   />
                 </Link>

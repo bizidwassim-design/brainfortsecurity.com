@@ -5,9 +5,13 @@ import { buttonVariants } from "@/components/ui/button";
 import { getDictionary } from "@/i18n";
 import { cn } from "@/lib/utils";
 
-const dict = getDictionary();
-
+/**
+ * Locale-segment not-found (triggered by notFound() within /[locale]).
+ * Uses the default locale copy because the params are not available here.
+ */
 export default function NotFound() {
+  const dict = getDictionary();
+
   return (
     <section className="hero-glow flex min-h-[60vh] items-center py-20">
       <div className="mx-auto max-w-xl px-4 text-center sm:px-6">
@@ -21,7 +25,7 @@ export default function NotFound() {
           {dict.notFound.description}
         </p>
         <div className="mt-8">
-          <Link href="/" className={cn(buttonVariants({ size: "lg" }))}>
+          <Link href="/en/" className={cn(buttonVariants({ size: "lg" }))}>
             {dict.notFound.back}
           </Link>
         </div>

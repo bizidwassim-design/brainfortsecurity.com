@@ -8,13 +8,15 @@ import {
 
 import { Reveal } from "@/components/motion/reveal";
 import { SectionHeading } from "@/components/section-heading";
-import { getDictionary } from "@/i18n";
-
-const dict = getDictionary();
+import type { Dictionary } from "@/i18n";
 
 const icons = [Building2, Factory, HeartPulse, Banknote, Landmark];
 
-export function IndustriesSection() {
+interface IndustriesSectionProps {
+  dict: Dictionary;
+}
+
+export function IndustriesSection({ dict }: IndustriesSectionProps) {
   return (
     <section
       className="border-y border-border bg-card/30 py-20 sm:py-28"

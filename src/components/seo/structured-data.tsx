@@ -1,11 +1,23 @@
-import { services } from "@/lib/services";
+import { getDictionary, type Locale } from "@/i18n";
 import { siteConfig } from "@/lib/site";
 
+const inLanguage: Record<Locale, string> = {
+  en: "en-CA",
+  fr: "fr-CA",
+  ar: "ar",
+};
+
+interface StructuredDataProps {
+  locale: Locale;
+}
+
 /**
- * Organization + WebSite structured data (schema.org), rendered once in the
- * root layout.
+ * Organization + WebSite structured data (schema.org), rendered once per
+ * locale layout.
  */
-export function StructuredData() {
+export function StructuredData({ locale }: StructuredDataProps) {
+  const dict = getDictionary(locale);
+
   const organization = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -13,22 +25,25 @@ export function StructuredData() {
     alternateName: siteConfig.name,
     url: siteConfig.url,
     logo: `${siteConfig.url}/og.png`,
-    description: siteConfig.description,
+    description: dict.meta.description,
     email: siteConfig.email,
+    telephone: siteConfig.phone,
     address: {
       "@type": "PostalAddress",
+      addressLocality: "Montréal",
       addressCountry: "CA",
     },
     sameAs: [siteConfig.links.linkedin],
-    knowsAbout: services.map((service) => service.title),
+    areaServed: ["CA", "AE", "SA"],
+    knowsAbout: dict.services.map((service) => service.title),
   };
 
   const website = {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: siteConfig.name,
-    url: siteConfig.url,
-    inLanguage: "en-CA",
+    url: `${siteConfig.url}/${locale}/`,
+    inLanguage: inLanguage[locale],
     publisher: {
       "@type": "Organization",
       name: siteConfig.legalName,

@@ -121,9 +121,9 @@ English ships today. The architecture is ready for **French** and **Arabic**:
   navy/red/blue; the site header uses a light-on-dark recolor).
 - If the brand team exports official vector assets, drop them in as
   replacements.
-- Brand palette: black/deep-navy background, gold `#D4AF37`, red `#E3342F`
-  (the "AI" in BR**AI**NFORT), blue `#0057FF` and teal `#14B8A6` as digital
-  accents.
+- Brand palette: black background (`#0A0A0C`), gold primary (`#D4AF37`),
+  red accents (`#D92B2B` / `#EF4444` — the "AI" in BR**AI**NFORT), warm
+  ivory foreground.
 
 ## SEO
 
