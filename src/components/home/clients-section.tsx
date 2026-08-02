@@ -9,6 +9,42 @@ interface ClientsSectionProps {
   dict: Dictionary;
 }
 
+function LogoRow({ hidden }: { hidden?: boolean }) {
+  return (
+    <ul
+      className="flex shrink-0 items-center gap-20 px-10"
+      aria-hidden={hidden || undefined}
+    >
+      {clients.map((client) => (
+        <li key={client.name} className="shrink-0">
+          <a
+            href={client.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={client.name}
+            tabIndex={hidden ? -1 : undefined}
+            className="block rounded-lg opacity-70 transition-opacity hover:opacity-100 focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            <Image
+              src={client.src}
+              alt={hidden ? "" : client.name}
+              width={client.width}
+              height={client.height}
+              className="h-12 w-auto brightness-0 invert sm:h-14"
+            />
+          </a>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+/**
+ * Dynamic client catalog: an auto-scrolling marquee fed by
+ * `src/lib/clients.ts` — drop a logo file in public/clients/ and add one
+ * entry there to extend it. Pauses on hover/focus; static when the user
+ * prefers reduced motion.
+ */
 export function ClientsSection({ dict }: ClientsSectionProps) {
   return (
     <section
@@ -26,29 +62,20 @@ export function ClientsSection({ dict }: ClientsSectionProps) {
           />
         </Reveal>
 
-        <ul className="mx-auto mt-14 flex max-w-4xl flex-wrap items-center justify-center gap-x-16 gap-y-10">
-          {clients.map((client, index) => (
-            <Reveal key={client.name} delay={index * 0.08}>
-              <li>
-                <a
-                  href={client.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={client.name}
-                  className="block rounded-lg opacity-70 transition-opacity hover:opacity-100 focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                >
-                  <Image
-                    src={client.src}
-                    alt={client.name}
-                    width={client.width}
-                    height={client.height}
-                    className="h-12 w-auto brightness-0 invert sm:h-14"
-                  />
-                </a>
-              </li>
-            </Reveal>
-          ))}
-        </ul>
+        <Reveal delay={0.15}>
+          <div
+            className="marquee relative mt-14 overflow-hidden"
+            style={{
+              maskImage:
+                "linear-gradient(to right, transparent, black 12%, black 88%, transparent)",
+            }}
+          >
+            <div className="marquee-track flex w-max">
+              <LogoRow />
+              <LogoRow hidden />
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

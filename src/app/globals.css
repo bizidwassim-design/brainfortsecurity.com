@@ -96,6 +96,36 @@ body {
   background-size: 48px 48px;
 }
 
+/* Client logo marquee — the track holds two copies of the list and
+   slides by exactly one copy for a seamless loop. */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee 28s linear infinite;
+}
+
+.marquee:hover .marquee-track,
+.marquee:focus-within .marquee-track {
+  animation-play-state: paused;
+}
+
+[dir="rtl"] .marquee-track {
+  animation-direction: reverse;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
 /* Arabic: dedicated font and no letter-spacing (spacing breaks the
    connected script). Unlayered rules deliberately outrank utilities. */
 html[lang="ar"] body {
