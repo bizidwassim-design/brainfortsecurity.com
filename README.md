@@ -99,28 +99,28 @@ Every push to `main` triggers a production deploy; branches get preview URLs.
 
 ## Internationalization (i18n)
 
-English ships today. The architecture is ready for **French** and **Arabic**:
+The site ships in **English, French, and Arabic**:
 
-1. All copy lives in `src/i18n/en.ts` (typed `Dictionary`).
-2. Add `fr.ts` / `ar.ts` mirroring that shape and register them in
-   `src/i18n/index.ts`.
-3. Introduce a `[locale]` route segment when translations are ready.
-4. Arabic renders right-to-left automatically via `localeDirection` (the
-   root layout sets `dir` from it).
-5. Brand logos are locale-aware (`<Logo locale="fr" />`): English and
-   Arabic share the gold "BRAINFORT SECURITY" lockup; French uses the
-   fleur-de-lys "BrAInFort Sécurité Inc." lockup.
+- Routes live under `/en/`, `/fr/`, and `/ar/` (`src/app/[locale]`);
+  the root `/` redirects to `/en/` via `public/_redirects`.
+- All copy lives in `src/i18n/{en,fr,ar}.ts` (typed `Dictionary` —
+  English is the canonical shape).
+- Arabic renders right-to-left (`dir="rtl"`) with Noto Sans Arabic and a
+  letter-spacing reset (spacing breaks connected Arabic script).
+- A language switcher (EN/FR/AR) sits in the header.
+- The wordmark is locale-aware: EN/AR use "BRAINFORT — SECURITY";
+  FR uses "BrAInFort — Sécurité Inc.".
+- hreflang alternates are emitted per page and in the sitemap.
 
 ## Branding
 
-- `public/logo.svg` + `src/components/layout/brand-mark.tsx` — SVG
-  recreation of the official EN/AR shield (circuit-brain + maple leaf,
-  gold/red).
-- `public/logo-fr.svg` + `src/components/layout/brand-mark-fr.tsx` — SVG
-  recreation of the official FR shield (fleur-de-lys + circuit brain,
-  navy/red/blue; the site header uses a light-on-dark recolor).
-- If the brand team exports official vector assets, drop them in as
-  replacements.
+- The header/footer use a typography-only wordmark lockup
+  (`src/components/layout/logo.tsx`) matching the official logo.
+- `public/logo.svg` (EN/AR) and `public/logo-fr.svg` (FR) are SVG
+  recreations of the shield lockups. When the official vector exports are
+  available, drop them into `public/brand/` and point the Logo component
+  at them.
+- Client logos live in `public/clients/`, office flags in `public/flags/`.
 - Brand palette: black background (`#0A0A0C`), gold primary (`#D4AF37`),
   red accents (`#D92B2B` / `#EF4444` — the "AI" in BR**AI**NFORT), warm
   ivory foreground.
