@@ -145,6 +145,31 @@ export const fr: Dictionary = {
       },
     ],
   },
+  compliance: {
+    eyebrow: "Alignement réglementaire",
+    title: "Alignés sur les cadres nationaux de cybersécurité",
+    subtitle:
+      "Nos méthodologies s'appuient sur les lignes directrices des autorités nationales de cybersécurité des régions que nous servons.",
+    disclaimer:
+      "Alignement indépendant sur des cadres publiés — ne constitue ni une approbation, ni une certification, ni une affiliation.",
+    items: [
+      {
+        name: "Centre canadien pour la cybersécurité (CCC)",
+        country: "Canada",
+        href: "https://www.cyber.gc.ca/fr/",
+      },
+      {
+        name: "Cyber Security Council",
+        country: "Émirats arabes unis",
+        href: "https://csc.gov.ae/",
+      },
+      {
+        name: "National Cybersecurity Authority (NCA — ECC)",
+        country: "Arabie saoudite",
+        href: "https://nca.gov.sa/en/",
+      },
+    ],
+  },
   clients: {
     eyebrow: "Confiance des clients",
     title: "La confiance d'organisations de premier plan",

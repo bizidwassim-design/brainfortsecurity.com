@@ -135,6 +135,31 @@ export const en = {
       },
     ],
   },
+  compliance: {
+    eyebrow: "Standards Alignment",
+    title: "Aligned with National Cybersecurity Frameworks",
+    subtitle:
+      "Our methodologies map to the guidance of the national cybersecurity authorities in the regions we serve.",
+    disclaimer:
+      "Independent alignment with published frameworks — not an endorsement, certification, or affiliation.",
+    items: [
+      {
+        name: "Canadian Centre for Cyber Security (CCCS)",
+        country: "Canada",
+        href: "https://www.cyber.gc.ca/en/",
+      },
+      {
+        name: "Cyber Security Council",
+        country: "United Arab Emirates",
+        href: "https://csc.gov.ae/",
+      },
+      {
+        name: "National Cybersecurity Authority (NCA — ECC)",
+        country: "Saudi Arabia",
+        href: "https://nca.gov.sa/en/",
+      },
+    ],
+  },
   clients: {
     eyebrow: "Client Trust",
     title: "Trusted by Leading Organizations",
