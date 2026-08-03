@@ -449,6 +449,9 @@ export const fr: Dictionary = {
     legalTitle: "Mentions légales",
     privacy: "Politique de confidentialité",
     terms: "Conditions d'utilisation",
+    cookies: "Politique de cookies",
+    disclosure: "Divulgation responsable",
+    trust: "Centre de confiance",
     careers: "Carrières",
     rights: "Tous droits réservés.",
   },
@@ -496,6 +499,126 @@ export const fr: Dictionary = {
       {
         title: "8. Modifications de cette politique",
         body: "Nous pouvons mettre à jour cette politique de temps à autre. Tout changement important sera reflété par une nouvelle date de « Dernière mise à jour » sur cette page.",
+      },
+    ],
+  },
+  disclosurePage: {
+    metaTitle: "Divulgation responsable",
+    metaDescription:
+      "Comment signaler une vulnérabilité de sécurité à BrainFort Sécurité — nos engagements de réponse, la protection des chercheurs et nos délais.",
+    title: "Politique de divulgation responsable",
+    lastUpdated: "Dernière mise à jour : 2 août 2026",
+    intro:
+      "La recherche en sécurité nous rend tous plus sûrs. Si vous pensez avoir découvert une vulnérabilité dans l'un de nos systèmes, nous voulons le savoir — et nous nous engageons à collaborer avec vous rapidement et en toute transparence.",
+    contactIntro:
+      "Signalez les vulnérabilités à notre équipe de sécurité, de façon chiffrée si possible :",
+    pgpNote: "Clé PGP",
+    securityTxtNote: "Politique lisible par machine",
+    sections: [
+      {
+        title: "1. Comment signaler",
+        body: "Écrivez à audit@brainfortsecurity.com avec une description du problème, l'URL ou le composant touché, les étapes de reproduction et toute preuve de concept. Chiffrez les rapports sensibles avec notre clé PGP. Ne publiez pas la faille avant que nous l'ayons corrigée.",
+      },
+      {
+        title: "2. Nos engagements",
+        body: "Nous accusons réception sous 2 jours ouvrables, fournissons un suivi au moins tous les 7 jours, et visons une correction sous 7 jours pour les failles critiques, 30 jours pour les failles majeures et 90 jours pour les failles moyennes et mineures. Nous vous créditerons dans nos remerciements si vous le souhaitez.",
+      },
+      {
+        title: "3. Protection des chercheurs (Safe Harbor)",
+        body: "Nous n'engagerons aucune poursuite contre les chercheurs de bonne foi : évitez toute atteinte à la vie privée et toute interruption de service, n'accédez pas à plus de données que nécessaire pour démontrer la faille, et laissez-nous un délai raisonnable de correction avant toute divulgation publique.",
+      },
+      {
+        title: "4. Portée",
+        body: "Dans la portée : brainfortsecurity.com et ses sous-domaines. Hors portée : les tests de déni de service, l'ingénierie sociale, les attaques physiques, le pourriel et les vulnérabilités des services tiers que nous utilisons (à signaler au fournisseur concerné).",
+      },
+    ],
+  },
+  cookiesPage: {
+    metaTitle: "Politique de cookies",
+    metaDescription:
+      "Politique de cookies de brainfortsecurity.com — quels témoins nous utilisons et comment les contrôler.",
+    title: "Politique de cookies",
+    lastUpdated: "Dernière mise à jour : 2 août 2026",
+    contactIntro: "Des questions sur les cookies? Écrivez-nous à",
+    sections: [
+      {
+        title: "1. Que sont les cookies",
+        body: "Les cookies (témoins) sont de petits fichiers texte stockés par votre navigateur lors de la visite d'un site. Ils peuvent être essentiels au fonctionnement du site, ou servir à l'analyse et à la publicité.",
+      },
+      {
+        title: "2. Les cookies que nous utilisons aujourd'hui",
+        body: "Ce site ne dépose aucun cookie publicitaire ni de suivi intersites. Notre fournisseur d'infrastructure (Cloudflare) peut déposer des cookies opérationnels strictement nécessaires à des fins de sécurité, comme la protection contre les robots. Ils sont essentiels et ne vous suivent pas d'un site à l'autre.",
+      },
+      {
+        title: "3. Les outils d'analyse à venir",
+        body: "Si nous ajoutons des outils d'analyse (analyse Web respectueuse de la vie privée, Microsoft Clarity ou Google Analytics), cette politique sera d'abord mise à jour et, lorsque la loi l'exige, nous demanderons votre consentement avant tout dépôt de cookie non essentiel.",
+      },
+      {
+        title: "4. Gérer les cookies",
+        body: "Vous pouvez contrôler et supprimer les cookies dans les paramètres de votre navigateur. Le blocage des cookies essentiels peut affecter les fonctions de sécurité de ce site.",
+      },
+    ],
+  },
+  trustPage: {
+    metaTitle: "Centre de confiance",
+    metaDescription:
+      "Centre de confiance de BrainFort Sécurité — comment nous sécurisons notre propre site, nos courriels et nos données : en-têtes de sécurité, TLS, DNSSEC, authentification des courriels, divulgation responsable.",
+    eyebrow: "Centre de confiance",
+    title: "Nous appliquons ce que nous conseillons",
+    intro:
+      "En tant que firme de cybersécurité, nous nous imposons les normes que nous recommandons à nos clients. Cette page documente — de façon vérifiable — comment ce site et nos communications sont sécurisés.",
+    verifyNote:
+      "Tout ce qui figure sur cette page peut être vérifié de façon indépendante avec des outils publics (securityheaders.com, SSL Labs, DNSViz, MXToolbox).",
+    contactTitle: "Contact sécurité",
+    contactBody: "Vous avez trouvé quelque chose? Dites-le-nous — chiffré si possible.",
+    pillars: [
+      {
+        title: "Sécurité du transport",
+        items: [
+          "TLS 1.3 avec redirection HTTPS automatique",
+          "HSTS activé (6 mois, includeSubDomains)",
+          "DNSSEC actif sur brainfortsecurity.com",
+        ],
+      },
+      {
+        title: "Durcissement applicatif",
+        items: [
+          "Content-Security-Policy bloquant tout code externe",
+          "X-Frame-Options: DENY et frame-ancestors 'none'",
+          "nosniff, Referrer-Policy stricte, Permissions-Policy minimale",
+        ],
+      },
+      {
+        title: "Authenticité des courriels",
+        items: [
+          "SPF restreint aux serveurs Google Workspace",
+          "Signatures DKIM sur tous les courriels sortants",
+          "Surveillance DMARC en place",
+        ],
+      },
+      {
+        title: "Disponibilité",
+        items: [
+          "Servi par le réseau mondial de Cloudflare",
+          "Architecture entièrement statique — ni base de données ni serveur d'origine à compromettre",
+          "Déploiements versionnés avec vérifications CI",
+        ],
+      },
+      {
+        title: "Données et confidentialité",
+        items: [
+          "Collecte minimale par conception — aucun cookie de suivi",
+          "Pratiques alignées sur la LPRPDE et la Loi 25 du Québec",
+          "Données d'entreprise dans Google Workspace avec MFA imposée",
+        ],
+      },
+      {
+        title: "Divulgation des vulnérabilités",
+        items: [
+          "Politique de divulgation responsable publiée avec Safe Harbor",
+          "security.txt signé sous /.well-known/security.txt",
+          "Clé PGP disponible pour les rapports chiffrés",
+        ],
       },
     ],
   },

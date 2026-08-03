@@ -115,10 +115,19 @@ export async function generateMetadata({
       },
     },
     icons: {
-      icon: "/favicon.ico",
+      icon: [
+        { url: "/favicon.ico" },
+        { url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
+      ],
+      apple: "/icons/apple-touch-icon.png",
     },
+    manifest: "/manifest.json",
   };
 }
+
+export const viewport = {
+  themeColor: "#0a0a0c",
+};
 
 export default async function LocaleLayout({ children, params }: LayoutProps) {
   const { locale } = await params;

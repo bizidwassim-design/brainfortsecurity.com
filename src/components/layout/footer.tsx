@@ -122,6 +122,24 @@ export function Footer({ locale, dict }: FooterProps) {
                   {dict.footer.terms}
                 </Link>
               </li>
+              <li>
+                <Link href={`/${locale}/cookies/`} className={footerLinkClass}>
+                  {dict.footer.cookies}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={`/${locale}/disclosure/`}
+                  className={footerLinkClass}
+                >
+                  {dict.footer.disclosure}
+                </Link>
+              </li>
+              <li>
+                <Link href={`/${locale}/trust/`} className={footerLinkClass}>
+                  {dict.footer.trust}
+                </Link>
+              </li>
             </ul>
             <ul className="mt-6 space-y-2.5">
               <li>

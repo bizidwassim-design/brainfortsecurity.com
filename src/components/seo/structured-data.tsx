@@ -20,7 +20,7 @@ export function StructuredData({ locale }: StructuredDataProps) {
 
   const organization = {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": ["Organization", "ProfessionalService"],
     name: siteConfig.legalName,
     alternateName: siteConfig.name,
     url: siteConfig.url,

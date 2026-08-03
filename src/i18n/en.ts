@@ -439,6 +439,9 @@ export const en = {
     legalTitle: "Legal",
     privacy: "Privacy Policy",
     terms: "Terms of Use",
+    cookies: "Cookie Policy",
+    disclosure: "Responsible Disclosure",
+    trust: "Trust Center",
     careers: "Careers",
     rights: "All rights reserved.",
   },
@@ -486,6 +489,127 @@ export const en = {
       {
         title: "8. Changes to This Policy",
         body: "We may update this policy from time to time. Material changes will be reflected by an updated “Last updated” date on this page.",
+      },
+    ],
+  },
+  disclosurePage: {
+    metaTitle: "Responsible Disclosure",
+    metaDescription:
+      "How to report a security vulnerability to BrainFort Security — our response commitments, safe harbor, and timelines.",
+    title: "Responsible Disclosure Policy",
+    lastUpdated: "Last updated: August 2, 2026",
+    intro:
+      "Security research makes everyone safer. If you believe you have found a vulnerability in one of our systems, we want to hear from you — and we commit to working with you transparently and quickly.",
+    contactIntro:
+      "Report vulnerabilities to our security team, encrypted if possible:",
+    pgpNote: "PGP key",
+    securityTxtNote: "Machine-readable policy",
+    sections: [
+      {
+        title: "1. How to Report",
+        body: "Email audit@brainfortsecurity.com with a description of the issue, the affected URL or component, steps to reproduce, and any proof-of-concept. Please encrypt sensitive reports with our PGP key. Do not open a public issue or disclose the finding before we have addressed it.",
+      },
+      {
+        title: "2. Our Commitments",
+        body: "We acknowledge reports within 2 business days, provide a status update at least every 7 days, and target remediation within 7 days for critical issues, 30 days for high severity, and 90 days for medium and low severity. We will credit you in our acknowledgments if you wish.",
+      },
+      {
+        title: "3. Safe Harbor",
+        body: "We will not initiate legal action against researchers who act in good faith: make every effort to avoid privacy violations and service disruption, do not access or exfiltrate data beyond what is necessary to demonstrate the issue, and give us reasonable time to remediate before any public disclosure.",
+      },
+      {
+        title: "4. Scope",
+        body: "In scope: brainfortsecurity.com and its subdomains. Out of scope: denial-of-service testing, social engineering, physical attacks, spam, and vulnerabilities in third-party services we use (report those to the respective vendor).",
+      },
+    ],
+  },
+  cookiesPage: {
+    metaTitle: "Cookie Policy",
+    metaDescription:
+      "Cookie Policy for brainfortsecurity.com — what cookies we use and how to control them.",
+    title: "Cookie Policy",
+    lastUpdated: "Last updated: August 2, 2026",
+    contactIntro: "Questions about cookies? Reach us at",
+    sections: [
+      {
+        title: "1. What Are Cookies",
+        body: "Cookies are small text files stored by your browser when you visit a website. They can be essential to make a site work, or used for analytics and advertising.",
+      },
+      {
+        title: "2. Cookies We Use Today",
+        body: "This website does not set any advertising or cross-site tracking cookies. Our infrastructure provider (Cloudflare) may set strictly necessary operational cookies for security purposes, such as bot mitigation. These are essential and do not track you across sites.",
+      },
+      {
+        title: "3. Analytics We May Add",
+        body: "If we introduce analytics tools (such as privacy-focused web analytics, Microsoft Clarity, or Google Analytics), this policy will be updated first, and where required by law we will ask for your consent before any non-essential cookie is set.",
+      },
+      {
+        title: "4. Managing Cookies",
+        body: "You can control and delete cookies through your browser settings. Blocking essential cookies may affect the security features of this site.",
+      },
+    ],
+  },
+  trustPage: {
+    metaTitle: "Trust Center",
+    metaDescription:
+      "BrainFort Security Trust Center — how we secure our own website, email, and data: security headers, TLS, DNSSEC, email authentication, responsible disclosure.",
+    eyebrow: "Trust Center",
+    title: "We Practice What We Advise",
+    intro:
+      "As a cybersecurity firm, we hold ourselves to the same standards we recommend to our clients. This page documents — verifiably — how this website and our communications are secured.",
+    verifyNote:
+      "Everything on this page can be independently verified with public tools (securityheaders.com, SSL Labs, DNSViz, MXToolbox).",
+    contactTitle: "Security Contact",
+    contactBody:
+      "Found something? Tell us — encrypted if possible.",
+    pillars: [
+      {
+        title: "Transport Security",
+        items: [
+          "TLS 1.3 with automatic HTTPS redirection",
+          "HSTS enabled (6 months, includeSubDomains)",
+          "DNSSEC active on brainfortsecurity.com",
+        ],
+      },
+      {
+        title: "Application Hardening",
+        items: [
+          "Content-Security-Policy restricting all external code",
+          "X-Frame-Options: DENY and frame-ancestors 'none'",
+          "nosniff, strict Referrer-Policy, minimal Permissions-Policy",
+        ],
+      },
+      {
+        title: "Email Authenticity",
+        items: [
+          "SPF restricted to Google Workspace senders",
+          "DKIM signatures on all outgoing mail",
+          "DMARC monitoring in place",
+        ],
+      },
+      {
+        title: "Availability",
+        items: [
+          "Served from Cloudflare's global edge network",
+          "Fully static architecture — no database or origin server to breach",
+          "Version-controlled deployments with CI checks",
+        ],
+      },
+      {
+        title: "Data & Privacy",
+        items: [
+          "Minimal data collection by design — no tracking cookies",
+          "PIPEDA and Quebec Law 25 aligned privacy practices",
+          "Corporate data in Google Workspace with enforced MFA",
+        ],
+      },
+      {
+        title: "Vulnerability Disclosure",
+        items: [
+          "Published responsible disclosure policy with safe harbor",
+          "Signed security.txt at /.well-known/security.txt",
+          "PGP key available for encrypted reports",
+        ],
       },
     ],
   },

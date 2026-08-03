@@ -1,0 +1,19 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Contact: mailto:audit@brainfortsecurity.com
+Contact: https://brainfortsecurity.com/en/contact/
+Expires: 2027-08-01T00:00:00.000Z
+Encryption: https://brainfortsecurity.com/pgp-key.txt
+Preferred-Languages: en, fr, ar
+Canonical: https://brainfortsecurity.com/.well-known/security.txt
+Policy: https://brainfortsecurity.com/en/disclosure/
+
+-----BEGIN PGP SIGNATURE-----
+
+iJIEARYKADoWIQT9rONLZwSNj813lqxgoC8LN1788AUCanAAPxwcYXVkaXRAYnJh
+aW5mb3J0c2VjdXJpdHkuY29tAAoJEGCgLws3XvzwiEMA/iokPcDrCQrtlBWIDU2Q
+szX16aZevt5Tybkiuqvo2FmLAQDXDgB3JQ6vn0FmrQOQ/w1eSaRpkOwnOrWpIEJH
+WFKVDg==
+=/ltN
+-----END PGP SIGNATURE-----
