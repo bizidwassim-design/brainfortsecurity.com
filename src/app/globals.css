@@ -96,33 +96,37 @@ body {
   background-size: 48px 48px;
 }
 
-/* Client logo marquee — the track holds two copies of the list and
-   slides by exactly one copy for a seamless loop. */
-@keyframes marquee {
-  from {
-    transform: translateX(0);
+/* Client logo carousel — one logo visible at a time. Each slide gets the
+   same duration with a staggered delay so exactly one is faded in. */
+@keyframes logo-cycle {
+  0% {
+    opacity: 0;
   }
-  to {
-    transform: translateX(-50%);
+  5% {
+    opacity: 1;
+  }
+  28% {
+    opacity: 1;
+  }
+  33% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
   }
 }
 
-.marquee-track {
-  animation: marquee 28s linear infinite;
-}
-
-.marquee:hover .marquee-track,
-.marquee:focus-within .marquee-track {
-  animation-play-state: paused;
-}
-
-[dir="rtl"] .marquee-track {
-  animation-direction: reverse;
+.logo-slide {
+  opacity: 0;
+  animation: logo-cycle linear infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .marquee-track {
+  .logo-slide {
     animation: none;
+    opacity: 1;
+    position: static !important;
+    transform: none !important;
   }
 }
 

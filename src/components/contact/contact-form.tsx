@@ -11,11 +11,14 @@ import type { Dictionary } from "@/i18n";
 import { siteConfig } from "@/lib/site";
 
 /**
- * Form backend endpoint (Formspree, Cloudflare Worker, etc.).
- * Configure via NEXT_PUBLIC_CONTACT_FORM_ENDPOINT — see .env.example.
- * Inlined at build time; never a secret.
+ * Form backend endpoint. Defaults to FormSubmit (account-less relay that
+ * forwards to contact@brainfortsecurity.com); override with
+ * NEXT_PUBLIC_CONTACT_FORM_ENDPOINT (Formspree, Cloudflare Worker, …).
+ * Public URL, not a secret.
  */
-const endpoint = process.env.NEXT_PUBLIC_CONTACT_FORM_ENDPOINT;
+const endpoint =
+  process.env.NEXT_PUBLIC_CONTACT_FORM_ENDPOINT ||
+  `https://formsubmit.co/ajax/${siteConfig.email}`;
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -118,6 +121,15 @@ export function ContactForm({ dict: t }: ContactFormProps) {
           placeholder={t.messagePlaceholder}
         />
       </div>
+
+      {/* FormSubmit configuration (ignored by other backends). */}
+      <input
+        type="hidden"
+        name="_subject"
+        value="New message — brainfortsecurity.com contact form"
+      />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_captcha" value="false" />
 
       {/* Honeypot — visually hidden, ignored by humans. */}
       <div className="hidden" aria-hidden="true">

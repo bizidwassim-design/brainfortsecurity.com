@@ -1,5 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 
 import { Logo } from "@/components/layout/logo";
 import type { Dictionary, Locale } from "@/i18n";
@@ -133,12 +134,22 @@ export function Footer({ locale, dict }: FooterProps) {
                   {siteConfig.phone}
                 </a>
               </li>
-              <li className="flex items-start gap-2 text-sm text-muted-foreground">
-                <MapPin className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
-                <span>
-                  {dict.offices.items.map((o) => o.label).join(" · ")}
-                </span>
-              </li>
+              {dict.offices.items.map((office) => (
+                <li
+                  key={office.flag}
+                  className="flex items-center gap-2 text-sm text-muted-foreground"
+                >
+                  <Image
+                    src={`/flags/${office.flag}.svg`}
+                    alt=""
+                    width={24}
+                    height={16}
+                    className="h-3.5 w-auto shrink-0 rounded-[2px] border border-border"
+                    aria-hidden="true"
+                  />
+                  {office.label}
+                </li>
+              ))}
             </ul>
           </div>
         </div>
