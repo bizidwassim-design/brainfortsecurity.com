@@ -9,16 +9,19 @@ interface OfficesSectionProps {
 }
 
 /**
- * Beacon positions on public/world-map.svg (percent of the map box),
- * visually calibrated against the amCharts worldLow projection.
+ * Beacon positions on public/world-map.svg (percent of the map box).
+ * Computed from the map's Mercator projection (x = 2.8034·lon + 475.3,
+ * y = Mercator(lat), fitted to <0.5 px against the AE/DE border paths):
+ *   Montréal 45.5017N 73.5673W · Dubai 25.2048N 55.2708E ·
+ *   Riyadh 24.7136N 46.6753E
  */
 const CITY_POSITIONS: Record<
   string,
   { x: number; y: number; labelBelow?: boolean }
 > = {
-  ca: { x: 31.4, y: 39.6 },
-  ae: { x: 66.3, y: 58.1 },
-  sa: { x: 64.0, y: 60.3, labelBelow: true },
+  ca: { x: 26.64, y: 48.18 },
+  ae: { x: 62.4, y: 58.73 },
+  sa: { x: 60.01, y: 58.96, labelBelow: true },
 };
 
 export function OfficesSection({ dict }: OfficesSectionProps) {
