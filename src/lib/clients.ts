@@ -5,6 +5,8 @@ export interface ClientLogo {
   src: string;
   width: number;
   height: number;
+  /** Dark/colored logos need a light chip to stay readable on the dark theme. */
+  lightChip?: boolean;
 }
 
 export const clients: ClientLogo[] = [
@@ -14,6 +16,7 @@ export const clients: ClientLogo[] = [
     src: "/clients/serres-folia.svg",
     width: 366,
     height: 248,
+    lightChip: true,
   },
   {
     name: "Attitude Fraîche",

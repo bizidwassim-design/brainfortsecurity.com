@@ -48,11 +48,11 @@ export default async function PrivacyPage({ params }: PageProps) {
           <p className="leading-relaxed text-muted-foreground">
             {dict.privacyPage.contactIntro}{" "}
             <a
-              href={`mailto:${siteConfig.email}`}
+              href={`mailto:${siteConfig.emails.privacy}`}
               className="font-semibold text-primary underline-offset-4 hover:underline"
               dir="ltr"
             >
-              {siteConfig.email}
+              {siteConfig.emails.privacy}
             </a>
             .
           </p>

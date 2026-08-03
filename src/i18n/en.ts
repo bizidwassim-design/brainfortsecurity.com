@@ -359,6 +359,14 @@ export const en = {
       "Tell us about your environment and goals. We respond within one business day.",
     infoTitle: "Prefer email?",
     infoSubtitle: "Reach us directly and we'll take it from there.",
+    departmentsTitle: "Reach the Right Team",
+    departments: [
+      { key: "sales", label: "Sales & new business" },
+      { key: "support", label: "Technical support" },
+      { key: "audit", label: "Audits & assessments" },
+      { key: "careers", label: "Careers" },
+      { key: "privacy", label: "Privacy requests" },
+    ],
     phoneTitle: "Phone",
     officesTitle: "Our Offices",
     locationTitle: "Location",
@@ -395,6 +403,7 @@ export const en = {
     legalTitle: "Legal",
     privacy: "Privacy Policy",
     terms: "Terms of Use",
+    careers: "Careers",
     rights: "All rights reserved.",
   },
   notFound: {

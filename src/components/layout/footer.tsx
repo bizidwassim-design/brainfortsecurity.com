@@ -95,6 +95,14 @@ export function Footer({ locale, dict }: FooterProps) {
                   {dict.nav.contact}
                 </Link>
               </li>
+              <li>
+                <a
+                  href={`mailto:${siteConfig.emails.careers}`}
+                  className={footerLinkClass}
+                >
+                  {dict.footer.careers}
+                </a>
+              </li>
             </ul>
           </nav>
 

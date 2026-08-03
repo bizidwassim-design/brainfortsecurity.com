@@ -10,6 +10,14 @@ export const siteConfig = {
   city: "Montréal",
   regions: ["Montréal, Canada", "UAE", "Saudi Arabia"],
   email: "contact@brainfortsecurity.com",
+  emails: {
+    contact: "contact@brainfortsecurity.com",
+    sales: "sales@brainfortsecurity.com",
+    audit: "audit@brainfortsecurity.com",
+    support: "support@brainfortsecurity.com",
+    privacy: "privacy@brainfortsecurity.com",
+    careers: "careers@brainfortsecurity.com",
+  },
   phone: "+1 514 559 2551",
   phoneHref: "+15145592551",
   links: {

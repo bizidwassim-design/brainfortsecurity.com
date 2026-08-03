@@ -369,6 +369,14 @@ export const fr: Dictionary = {
       "Parlez-nous de votre environnement et de vos objectifs. Nous répondons en un jour ouvrable.",
     infoTitle: "Vous préférez le courriel?",
     infoSubtitle: "Écrivez-nous directement et nous prenons le relais.",
+    departmentsTitle: "Joindre la bonne équipe",
+    departments: [
+      { key: "sales", label: "Ventes et nouveaux mandats" },
+      { key: "support", label: "Soutien technique" },
+      { key: "audit", label: "Audits et évaluations" },
+      { key: "careers", label: "Carrières" },
+      { key: "privacy", label: "Demandes de confidentialité" },
+    ],
     phoneTitle: "Téléphone",
     officesTitle: "Nos bureaux",
     locationTitle: "Emplacement",
@@ -405,6 +413,7 @@ export const fr: Dictionary = {
     legalTitle: "Mentions légales",
     privacy: "Politique de confidentialité",
     terms: "Conditions d'utilisation",
+    careers: "Carrières",
     rights: "Tous droits réservés.",
   },
   notFound: {

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Noto_Sans_Arabic } from "next/font/google";
+import { Cairo, Geist, Geist_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
 
 import { Footer } from "@/components/layout/footer";
@@ -30,9 +30,12 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
-const notoArabic = Noto_Sans_Arabic({
-  variable: "--font-noto-arabic",
-  subsets: ["arabic"],
+/* Cairo: fixed weights (not the variable font) — reliable Arabic shaping
+   across browsers. */
+const arabicFont = Cairo({
+  variable: "--font-arabic",
+  subsets: ["arabic", "latin"],
+  weight: ["400", "600", "700", "800"],
   display: "swap",
 });
 
@@ -127,7 +130,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
     <html
       lang={typedLocale}
       dir={localeDirection[typedLocale]}
-      className={`${geistSans.variable} ${geistMono.variable} ${notoArabic.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${arabicFont.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
         <a

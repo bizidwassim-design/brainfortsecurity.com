@@ -362,6 +362,14 @@ export const ar: Dictionary = {
       "أخبرنا عن بيئتك وأهدافك. نرد خلال يوم عمل واحد.",
     infoTitle: "تفضّل البريد الإلكتروني؟",
     infoSubtitle: "راسلنا مباشرة وسنتولى الباقي.",
+    departmentsTitle: "تواصل مع الفريق المناسب",
+    departments: [
+      { key: "sales", label: "المبيعات والأعمال الجديدة" },
+      { key: "support", label: "الدعم الفني" },
+      { key: "audit", label: "التدقيق والتقييمات" },
+      { key: "careers", label: "الوظائف" },
+      { key: "privacy", label: "طلبات الخصوصية" },
+    ],
     phoneTitle: "الهاتف",
     officesTitle: "مكاتبنا",
     locationTitle: "الموقع",
@@ -398,6 +406,7 @@ export const ar: Dictionary = {
     legalTitle: "قانوني",
     privacy: "سياسة الخصوصية",
     terms: "شروط الاستخدام",
+    careers: "الوظائف",
     rights: "جميع الحقوق محفوظة.",
   },
   notFound: {

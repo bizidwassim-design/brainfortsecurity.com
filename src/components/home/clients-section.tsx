@@ -23,14 +23,16 @@ function LogoRow({ hidden }: { hidden?: boolean }) {
             rel="noopener noreferrer"
             aria-label={client.name}
             tabIndex={hidden ? -1 : undefined}
-            className="block rounded-lg opacity-70 transition-opacity hover:opacity-100 focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            className={`block rounded-xl opacity-90 transition-opacity hover:opacity-100 focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
+              client.lightChip ? "bg-white/95 px-4 py-2" : ""
+            }`}
           >
             <Image
               src={client.src}
               alt={hidden ? "" : client.name}
               width={client.width}
               height={client.height}
-              className="h-12 w-auto brightness-0 invert sm:h-14"
+              className="h-14 w-auto sm:h-16"
             />
           </a>
         </li>

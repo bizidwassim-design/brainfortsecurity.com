@@ -129,12 +129,19 @@ body {
 /* Arabic: dedicated font and no letter-spacing (spacing breaks the
    connected script). Unlayered rules deliberately outrank utilities. */
 html[lang="ar"] body {
-  font-family: var(--font-noto-arabic), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-arabic), "Segoe UI", Tahoma, ui-sans-serif,
+    system-ui, sans-serif;
 }
 
 html[lang="ar"],
 html[lang="ar"] * {
   letter-spacing: 0;
+}
+
+/* Arabic script needs taller lines than Latin defaults. */
+html[lang="ar"] p,
+html[lang="ar"] li {
+  line-height: 1.9;
 }
 
 @media (prefers-reduced-motion: reduce) {

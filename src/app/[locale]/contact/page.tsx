@@ -89,6 +89,34 @@ export default async function ContactPage({ params }: PageProps) {
 
               <div className="glass rounded-2xl p-6">
                 <h2 className="mb-4 text-base font-semibold text-foreground">
+                  {dict.contactPage.departmentsTitle}
+                </h2>
+                <ul className="space-y-3">
+                  {dict.contactPage.departments.map((dept) => {
+                    const email =
+                      siteConfig.emails[
+                        dept.key as keyof typeof siteConfig.emails
+                      ] ?? siteConfig.email;
+                    return (
+                      <li key={dept.key}>
+                        <p className="text-xs text-muted-foreground">
+                          {dept.label}
+                        </p>
+                        <a
+                          href={`mailto:${email}`}
+                          className="text-sm font-semibold text-primary underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
+                          dir="ltr"
+                        >
+                          {email}
+                        </a>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+
+              <div className="glass rounded-2xl p-6">
+                <h2 className="mb-4 text-base font-semibold text-foreground">
                   {dict.contactPage.officesTitle}
                 </h2>
                 <ul className="space-y-4">
