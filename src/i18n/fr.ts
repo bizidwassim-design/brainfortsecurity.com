@@ -125,13 +125,24 @@ export const fr: Dictionary = {
     subtitle:
       "Un siège social canadien et une présence active dans le Golfe — une collaboration à travers les fuseaux horaires, une prestation sans frontières.",
     items: [
-      { flag: "ca", label: "Montréal, Canada", sublabel: "Siège social" },
+      {
+        flag: "ca",
+        city: "Montréal",
+        label: "Montréal, Canada",
+        sublabel: "Siège social",
+      },
       {
         flag: "ae",
+        city: "Dubaï",
         label: "Émirats arabes unis",
         sublabel: "Bureau régional",
       },
-      { flag: "sa", label: "Arabie saoudite", sublabel: "Bureau régional" },
+      {
+        flag: "sa",
+        city: "Riyad",
+        label: "Arabie saoudite",
+        sublabel: "Bureau régional",
+      },
     ],
   },
   clients: {

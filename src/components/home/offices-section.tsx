@@ -8,6 +8,19 @@ interface OfficesSectionProps {
   dict: Dictionary;
 }
 
+/**
+ * Beacon positions on public/world-map.svg (percent of the map box),
+ * visually calibrated against the amCharts worldLow projection.
+ */
+const CITY_POSITIONS: Record<
+  string,
+  { x: number; y: number; labelBelow?: boolean }
+> = {
+  ca: { x: 31.4, y: 39.6 },
+  ae: { x: 66.3, y: 58.1 },
+  sa: { x: 64.0, y: 60.3, labelBelow: true },
+};
+
 export function OfficesSection({ dict }: OfficesSectionProps) {
   return (
     <section className="py-20 sm:py-28" aria-labelledby="offices">
@@ -21,7 +34,43 @@ export function OfficesSection({ dict }: OfficesSectionProps) {
           />
         </Reveal>
 
-        <ul className="mx-auto mt-14 grid max-w-4xl gap-6 sm:grid-cols-3">
+        <Reveal delay={0.1}>
+          <div className="relative mx-auto mt-14 max-w-4xl" dir="ltr">
+            <Image
+              src="/world-map.svg"
+              alt=""
+              width={1010}
+              height={666}
+              className="w-full select-none"
+              aria-hidden="true"
+            />
+            {dict.offices.items.map((office) => {
+              const pos = CITY_POSITIONS[office.flag];
+              if (!pos) return null;
+              return (
+                <div
+                  key={office.flag}
+                  className="absolute -translate-x-1/2 -translate-y-1/2"
+                  style={{ left: `${pos.x}%`, top: `${pos.y}%` }}
+                >
+                  <span className="relative flex size-3 sm:size-3.5">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-60" />
+                    <span className="relative inline-flex h-full w-full rounded-full border border-[#f1d68a] bg-primary shadow-[0_0_12px_rgba(212,175,55,0.9)]" />
+                  </span>
+                  <span
+                    className={`absolute left-1/2 -translate-x-1/2 whitespace-nowrap text-[0.65rem] font-semibold text-[#e9d18b] sm:text-xs ${
+                      pos.labelBelow ? "top-full mt-1.5" : "bottom-full mb-1.5"
+                    }`}
+                  >
+                    {office.city}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+        </Reveal>
+
+        <ul className="mx-auto mt-12 grid max-w-4xl gap-6 sm:grid-cols-3">
           {dict.offices.items.map((office, index) => (
             <Reveal key={office.flag} delay={index * 0.08}>
               <li className="glass flex h-full flex-col items-center rounded-2xl p-8 text-center">

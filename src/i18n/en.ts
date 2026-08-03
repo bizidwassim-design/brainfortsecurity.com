@@ -115,13 +115,24 @@ export const en = {
     subtitle:
       "A Canadian headquarters with an active presence in the Gulf — collaboration across time zones, delivery without borders.",
     items: [
-      { flag: "ca", label: "Montréal, Canada", sublabel: "Headquarters" },
+      {
+        flag: "ca",
+        city: "Montréal",
+        label: "Montréal, Canada",
+        sublabel: "Headquarters",
+      },
       {
         flag: "ae",
+        city: "Dubai",
         label: "United Arab Emirates",
         sublabel: "Regional office",
       },
-      { flag: "sa", label: "Saudi Arabia", sublabel: "Regional office" },
+      {
+        flag: "sa",
+        city: "Riyadh",
+        label: "Saudi Arabia",
+        sublabel: "Regional office",
+      },
     ],
   },
   clients: {
