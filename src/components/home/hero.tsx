@@ -32,7 +32,7 @@ export function Hero({ locale, dict }: HeroProps) {
               height={433}
               priority
               aria-hidden="true"
-              className="mx-auto h-48 w-auto drop-shadow-[0_0_28px_rgba(212,175,55,0.35)] sm:h-64 lg:h-80"
+              className="mx-auto h-48 w-auto sm:h-64 lg:h-80"
             />
           </Reveal>
 
