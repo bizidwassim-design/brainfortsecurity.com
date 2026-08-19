@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Compass, Eye, Handshake, Lightbulb } from "lucide-react";
 
@@ -45,6 +46,20 @@ export default async function AboutPage({ params }: PageProps) {
                 {dict.aboutPage.intro}
               </p>
             </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="pb-16 sm:pb-20">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <Reveal>
+            <Image
+              src="/about/soc-team.webp"
+              alt={dict.aboutPage.teamImageAlt}
+              width={1600}
+              height={1067}
+              className="card-lift w-full rounded-3xl border border-border"
+            />
           </Reveal>
         </div>
       </section>

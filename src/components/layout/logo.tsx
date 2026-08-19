@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import { defaultLocale, type Locale } from "@/i18n";
@@ -35,9 +36,17 @@ export function Logo({ locale = defaultLocale }: LogoProps) {
   return (
     <Link
       href={`/${locale}/`}
-      className="flex items-center rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+      className="flex items-center gap-2.5 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
       aria-label={`${siteConfig.name} — ${isFrench ? "Accueil" : "Home"}`}
     >
+      <Image
+        src="/brand/shield-web.webp"
+        alt=""
+        width={260}
+        height={433}
+        aria-hidden="true"
+        className="h-10 w-auto"
+      />
       <span className="flex flex-col pt-2 leading-none">
         <span className="gold-text text-xl font-extrabold tracking-wide">
           {isFrench ? "Br" : "BR"}

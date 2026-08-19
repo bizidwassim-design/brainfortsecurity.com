@@ -30,10 +30,37 @@ export const en = {
       "BrainFort Security helps organizations across Canada and the Middle East assess, architect, and automate their security posture — from identity and Zero Trust to cloud and AI-powered defense.",
     primaryCta: "Get a Security Assessment",
     secondaryCta: "Explore Services",
-    highlights: [
-      "Zero Trust Ready",
-      "Identity-First Security",
-      "AI-Powered Assessments",
+    features: [
+      {
+        title: "Zero Trust Ready",
+        description:
+          "Implement Zero Trust architecture to minimize risk and strengthen resilience.",
+      },
+      {
+        title: "Identity-First Security",
+        description:
+          "Secure every identity across your ecosystem with adaptive, intelligent controls.",
+      },
+      {
+        title: "AI-Powered Assessments",
+        description:
+          "Leverage AI-driven analytics to detect threats faster and respond with precision.",
+      },
+      {
+        title: "Proudly Canadian",
+        description:
+          "Serving organizations across Canada and the Middle East.",
+      },
+      {
+        title: "Enterprise-Grade Security",
+        description:
+          "Aligned with industry best practices and global compliance standards.",
+      },
+      {
+        title: "Expert Team",
+        description:
+          "Certified cybersecurity experts dedicated to your security and success.",
+      },
     ],
   },
   servicesOverview: {
@@ -691,6 +718,8 @@ export const en = {
     title: "Security Expertise, Engineered for Canadian Business",
     intro:
       "BrainFort Security Inc. is a Canadian cybersecurity consulting firm founded on a simple conviction: strong security should accelerate a business, not slow it down.",
+    teamImageAlt:
+      "The BrainFort Security operations team monitoring live threat dashboards.",
     missionTitle: "Our Mission",
     mission:
       "To make enterprise-grade cybersecurity accessible and actionable for organizations of every size — combining senior expertise with AI-powered efficiency.",

@@ -29,10 +29,37 @@ export const fr: Dictionary = {
       "BrainFort Sécurité aide les organisations du Canada et du Moyen-Orient à évaluer, concevoir et automatiser leur posture de sécurité — de l'identité et du Zéro Confiance jusqu'à l'infonuagique et la défense propulsée par l'IA.",
     primaryCta: "Obtenir une évaluation de sécurité",
     secondaryCta: "Découvrir nos services",
-    highlights: [
-      "Prêt pour le Zéro Confiance",
-      "Sécurité axée sur l'identité",
-      "Évaluations propulsées par l'IA",
+    features: [
+      {
+        title: "Prêt pour le Zéro Confiance",
+        description:
+          "Déployez une architecture Zéro Confiance pour réduire les risques et renforcer la résilience.",
+      },
+      {
+        title: "Sécurité axée sur l'identité",
+        description:
+          "Sécurisez chaque identité de votre écosystème avec des contrôles adaptatifs et intelligents.",
+      },
+      {
+        title: "Évaluations propulsées par l'IA",
+        description:
+          "Exploitez l'analyse par IA pour détecter les menaces plus vite et répondre avec précision.",
+      },
+      {
+        title: "Fièrement canadienne",
+        description:
+          "Au service des organisations du Canada et du Moyen-Orient.",
+      },
+      {
+        title: "Sécurité de calibre entreprise",
+        description:
+          "Alignée sur les meilleures pratiques et les normes de conformité mondiales.",
+      },
+      {
+        title: "Équipe experte",
+        description:
+          "Des experts certifiés en cybersécurité dévoués à votre sécurité et à votre succès.",
+      },
     ],
   },
   servicesOverview: {
@@ -712,6 +739,8 @@ export const fr: Dictionary = {
     title: "Une expertise en sécurité conçue pour les entreprises d'ici",
     intro:
       "BrainFort Sécurité Inc. est une firme canadienne de conseil en cybersécurité fondée sur une conviction simple : une sécurité solide doit accélérer l'entreprise, pas la ralentir.",
+    teamImageAlt:
+      "L'équipe des opérations de BrainFort Sécurité devant les tableaux de bord de surveillance des menaces.",
     missionTitle: "Notre mission",
     mission:
       "Rendre la cybersécurité de calibre entreprise accessible et actionnable pour les organisations de toutes tailles — en combinant expertise de haut niveau et efficacité propulsée par l'IA.",
