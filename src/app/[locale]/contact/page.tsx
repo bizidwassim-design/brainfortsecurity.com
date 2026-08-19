@@ -111,7 +111,7 @@ export default async function ContactPage({ params }: PageProps) {
                         alt=""
                         width={40}
                         height={26}
-                        className="h-6 w-auto rounded-sm border border-border"
+                        className="h-6 w-9 rounded-sm border border-border object-cover"
                         aria-hidden="true"
                       />
                       <div>

@@ -152,7 +152,7 @@ export function Footer({ locale, dict }: FooterProps) {
                     alt=""
                     width={24}
                     height={16}
-                    className="h-3.5 w-auto shrink-0 rounded-[2px] border border-border"
+                    className="h-3.5 w-[21px] shrink-0 rounded-[2px] border border-border object-cover"
                     aria-hidden="true"
                   />
                   {office.label}

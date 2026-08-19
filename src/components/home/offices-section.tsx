@@ -82,7 +82,7 @@ export function OfficesSection({ dict }: OfficesSectionProps) {
                   alt=""
                   width={64}
                   height={40}
-                  className="mb-4 h-10 w-auto rounded-sm border border-border"
+                  className="mb-4 h-10 w-[60px] rounded-sm border border-border object-cover"
                   aria-hidden="true"
                 />
                 <h3 className="text-base font-semibold text-foreground">
