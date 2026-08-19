@@ -38,7 +38,7 @@ export function IndustriesSection({ dict }: IndustriesSectionProps) {
             const Icon = icons[index] ?? Building2;
             return (
               <Reveal key={industry.title} delay={index * 0.06}>
-                <li className="glass h-full rounded-2xl p-6 text-center">
+                <li className="glass card-lift h-full rounded-2xl p-6 text-center">
                   <div className="mx-auto mb-4 flex size-12 items-center justify-center rounded-full bg-primary/10 text-primary">
                     <Icon className="size-6" aria-hidden="true" />
                   </div>

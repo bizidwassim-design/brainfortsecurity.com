@@ -39,7 +39,7 @@ export function ServicesOverview({ locale, dict }: ServicesOverviewProps) {
             const Icon = serviceIcons[service.id] ?? ShieldCheck;
             return (
               <Reveal key={service.id} delay={index * 0.06}>
-                <Card className="group h-full transition-colors hover:border-primary/50">
+                <Card className="card-lift group h-full">
                   <CardHeader>
                     <div className="mb-3 flex size-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary/20">
                       <Icon className="size-6" aria-hidden="true" />

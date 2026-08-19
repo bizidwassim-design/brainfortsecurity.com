@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Lock, ShieldCheck, Zap } from "lucide-react";
 
@@ -19,9 +20,21 @@ export function Hero({ locale, dict }: HeroProps) {
 
   return (
     <section className="hero-glow grid-pattern relative overflow-hidden">
-      <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
+      <div aria-hidden="true" className="aurora" />
+      <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
         <div className="mx-auto max-w-4xl text-center">
           <Reveal>
+            <Image
+              src="/brand/shield-web.webp"
+              alt=""
+              width={300}
+              height={500}
+              priority
+              aria-hidden="true"
+              className="mx-auto mb-8 h-32 w-auto drop-shadow-[0_0_24px_rgba(212,175,55,0.25)] sm:h-40"
+            />
+          </Reveal>
+          <Reveal delay={0.05}>
             <Badge className="mb-6">{dict.hero.badge}</Badge>
           </Reveal>
 

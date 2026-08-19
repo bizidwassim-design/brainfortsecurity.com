@@ -21,7 +21,7 @@ export function StatsSection({ dict }: StatsSectionProps) {
         <dl className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {dict.stats.items.map((stat, index) => (
             <Reveal key={stat.label} delay={index * 0.08}>
-              <div className="glass flex flex-col rounded-2xl p-8 text-center">
+              <div className="glass card-lift flex flex-col rounded-2xl p-8 text-center">
                 <dt className="order-2 mt-2 block text-sm leading-relaxed text-muted-foreground">
                   {stat.label}
                 </dt>

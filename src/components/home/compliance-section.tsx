@@ -28,7 +28,7 @@ export function ComplianceSection({ dict }: ComplianceSectionProps) {
         <ul className="mx-auto mt-14 grid max-w-4xl gap-6 sm:grid-cols-3">
           {dict.compliance.items.map((item, index) => (
             <Reveal key={item.href} delay={index * 0.08}>
-              <li className="glass h-full rounded-2xl p-6 text-center">
+              <li className="glass card-lift h-full rounded-2xl p-6 text-center">
                 <div className="mx-auto mb-4 flex size-11 items-center justify-center rounded-lg bg-primary/10 text-primary">
                   <ShieldCheck className="size-5" aria-hidden="true" />
                 </div>

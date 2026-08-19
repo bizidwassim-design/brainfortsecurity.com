@@ -1,19 +1,37 @@
 import type { Metadata } from "next";
-import { CheckCircle2, ShieldCheck } from "lucide-react";
+import {
+  CheckCircle2,
+  ClipboardCheck,
+  Cloud,
+  Compass,
+  Crosshair,
+  GraduationCap,
+  Handshake,
+  KeyRound,
+  LifeBuoy,
+  Radar,
+  ShieldCheck,
+  type LucideIcon,
+} from "lucide-react";
 
 import { ContactCta } from "@/components/contact-cta";
 import { Reveal } from "@/components/motion/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { Badge } from "@/components/ui/badge";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { alternatesFor, getDictionary, type Locale } from "@/i18n";
-import { serviceIcons } from "@/lib/services";
+
+const categoryIcons: Record<string, LucideIcon> = {
+  governance: Compass,
+  audits: ClipboardCheck,
+  offensive: Crosshair,
+  protection: ShieldCheck,
+  identity: KeyRound,
+  resilience: LifeBuoy,
+  training: GraduationCap,
+  thirdparty: Handshake,
+  cloud: Cloud,
+  intel: Radar,
+};
 
 interface PageProps {
   params: Promise<{ locale: Locale }>;
@@ -34,59 +52,101 @@ export async function generateMetadata({
 export default async function ServicesPage({ params }: PageProps) {
   const { locale } = await params;
   const dict = getDictionary(locale);
+  const total = dict.catalog.categories.reduce(
+    (sum, category) => sum + category.items.length,
+    0,
+  );
 
   return (
     <>
-      <section className="hero-glow py-20 sm:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="hero-glow relative overflow-hidden py-20 sm:py-24">
+        <div aria-hidden="true" className="aurora" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>
             <SectionHeading
-              eyebrow={dict.servicesPage.eyebrow}
-              title={dict.servicesPage.title}
-              subtitle={dict.servicesPage.subtitle}
+              eyebrow={dict.catalog.eyebrow}
+              title={dict.catalog.title}
+              subtitle={dict.catalog.subtitle}
             />
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p className="mt-6 text-center">
+              <span className="gold-text text-5xl font-extrabold tracking-tight">
+                {total}
+              </span>
+              <span className="ms-2 text-lg text-muted-foreground">
+                {dict.catalog.countLabel}
+              </span>
+            </p>
           </Reveal>
         </div>
       </section>
 
-      <section className="pb-20 sm:pb-28" aria-label={dict.nav.services}>
+      {/* Category quick navigation */}
+      <nav
+        aria-label={dict.catalog.eyebrow}
+        className="glass sticky top-16 z-40 border-y border-border"
+      >
+        <div className="mx-auto max-w-7xl overflow-x-auto px-4 py-3 sm:px-6 lg:px-8">
+          <ul className="flex items-center gap-2 whitespace-nowrap">
+            {dict.catalog.categories.map((category) => (
+              <li key={category.id}>
+                <a
+                  href={`#${category.id}`}
+                  className="block rounded-full border border-border px-3.5 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-primary/60 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                >
+                  {category.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </nav>
+
+      <section className="py-16 sm:py-20" aria-label={dict.catalog.title}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-6 md:grid-cols-2">
-            {dict.services.map((service, index) => {
-              const Icon = serviceIcons[service.id] ?? ShieldCheck;
+          <div className="grid gap-6 lg:grid-cols-2">
+            {dict.catalog.categories.map((category, index) => {
+              const Icon = categoryIcons[category.id] ?? ShieldCheck;
               return (
-                <Reveal key={service.id} delay={(index % 2) * 0.08}>
-                  <Card
-                    id={service.id}
-                    className="group h-full scroll-mt-24 transition-colors hover:border-primary/50"
+                <Reveal key={category.id} delay={(index % 2) * 0.06}>
+                  <article
+                    id={category.id}
+                    className="glass card-lift h-full scroll-mt-36 rounded-2xl p-6 sm:p-8"
                   >
-                    <CardHeader>
-                      <div className="mb-3 flex size-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary/20">
-                        <Icon className="size-6" aria-hidden="true" />
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="flex items-center gap-4">
+                        <div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                          <Icon className="size-6" aria-hidden="true" />
+                        </div>
+                        <div>
+                          <h2 className="text-lg font-semibold text-foreground">
+                            {category.title}
+                          </h2>
+                          <p className="mt-0.5 text-sm text-muted-foreground">
+                            {category.description}
+                          </p>
+                        </div>
                       </div>
-                      <CardTitle>{service.title}</CardTitle>
-                      <CardDescription>{service.description}</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-primary">
-                        {dict.servicesPage.outcomesLabel}
-                      </p>
-                      <ul className="space-y-2">
-                        {service.outcomes.map((outcome) => (
-                          <li
-                            key={outcome}
-                            className="flex items-start gap-2 text-sm text-muted-foreground"
-                          >
-                            <CheckCircle2
-                              className="mt-0.5 size-4 shrink-0 text-primary"
-                              aria-hidden="true"
-                            />
-                            {outcome}
-                          </li>
-                        ))}
-                      </ul>
-                    </CardContent>
-                  </Card>
+                      <Badge aria-hidden="true" className="shrink-0">
+                        {category.items.length}
+                      </Badge>
+                    </div>
+                    <ul className="mt-6 grid gap-2.5 sm:grid-cols-2">
+                      {category.items.map((item) => (
+                        <li
+                          key={item}
+                          className="flex items-start gap-2 text-sm text-muted-foreground"
+                        >
+                          <CheckCircle2
+                            className="mt-0.5 size-4 shrink-0 text-primary"
+                            aria-hidden="true"
+                          />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </article>
                 </Reveal>
               );
             })}
@@ -111,7 +171,7 @@ export default async function ServicesPage({ params }: PageProps) {
           <ol className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {dict.servicesPage.process.steps.map((step, index) => (
               <Reveal key={step.title} delay={index * 0.08}>
-                <li className="glass h-full rounded-2xl p-6">
+                <li className="glass card-lift h-full rounded-2xl p-6">
                   <Badge className="mb-4" aria-hidden="true">
                     {`0${index + 1}`}
                   </Badge>

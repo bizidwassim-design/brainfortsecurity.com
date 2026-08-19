@@ -76,7 +76,7 @@ export function OfficesSection({ dict }: OfficesSectionProps) {
         <ul className="mx-auto mt-12 grid max-w-4xl gap-6 sm:grid-cols-3">
           {dict.offices.items.map((office, index) => (
             <Reveal key={office.flag} delay={index * 0.08}>
-              <li className="glass flex h-full flex-col items-center rounded-2xl p-8 text-center">
+              <li className="glass card-lift flex h-full flex-col items-center rounded-2xl p-8 text-center">
                 <Image
                   src={`/flags/${office.flag}.svg`}
                   alt=""

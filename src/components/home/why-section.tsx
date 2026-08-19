@@ -31,7 +31,7 @@ export function WhySection({ dict }: WhySectionProps) {
             const Icon = icons[index] ?? Award;
             return (
               <Reveal key={item.title} delay={index * 0.08}>
-                <div className="glass h-full rounded-2xl p-6">
+                <div className="glass card-lift h-full rounded-2xl p-6">
                   <div className="mb-4 flex size-11 items-center justify-center rounded-lg bg-primary/10 text-primary">
                     <Icon className="size-5" aria-hidden="true" />
                   </div>

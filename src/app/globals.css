@@ -88,6 +88,62 @@ body {
     );
 }
 
+/* Animated aurora blob — modern depth behind hero sections. */
+@keyframes aurora-drift {
+  0%,
+  100% {
+    transform: translate(-12%, -8%) scale(1) rotate(0deg);
+  }
+  50% {
+    transform: translate(10%, 6%) scale(1.2) rotate(12deg);
+  }
+}
+
+.aurora {
+  position: absolute;
+  inset: -20%;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      42% 34% at 30% 30%,
+      rgba(212, 175, 55, 0.1),
+      transparent 70%
+    ),
+    radial-gradient(
+      36% 30% at 72% 58%,
+      rgba(217, 43, 43, 0.06),
+      transparent 70%
+    );
+  filter: blur(48px);
+  animation: aurora-drift 18s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora {
+    animation: none;
+  }
+}
+
+/* Premium hover lift for cards. */
+.card-lift {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.card-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px -16px rgba(212, 175, 55, 0.28);
+  border-color: rgba(212, 175, 55, 0.4);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-lift:hover {
+    transform: none;
+  }
+}
+
 /* Subtle grid backdrop for technical feel. */
 .grid-pattern {
   background-image:
