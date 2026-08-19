@@ -27,11 +27,11 @@ export function Hero({ locale, dict }: HeroProps) {
             <Image
               src="/brand/shield-web.webp"
               alt=""
-              width={300}
-              height={500}
+              width={260}
+              height={433}
               priority
               aria-hidden="true"
-              className="mx-auto mb-8 h-32 w-auto drop-shadow-[0_0_24px_rgba(212,175,55,0.25)] sm:h-40"
+              className="mx-auto mb-6 h-20 w-auto drop-shadow-[0_0_20px_rgba(212,175,55,0.35)] sm:h-24"
             />
           </Reveal>
           <Reveal delay={0.05}>
