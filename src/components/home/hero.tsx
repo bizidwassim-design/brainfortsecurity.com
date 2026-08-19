@@ -65,9 +65,6 @@ export function Hero({ locale, dict }: HeroProps) {
                 </span>
                 <span aria-hidden="true" className="h-px w-8 bg-[#d4af37]/60" />
               </p>
-              <p className="text-sm text-muted-foreground">
-                {dict.hero.badge}
-              </p>
             </div>
           </Reveal>
 
