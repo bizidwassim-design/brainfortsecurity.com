@@ -62,6 +62,26 @@ function bandFor(score: number) {
   return 3;
 }
 
+/** Gauge bands: [from, to] in %, credit-score-style colors. */
+const GAUGE_BANDS: Array<{ from: number; to: number; color: string }> = [
+  { from: 0, to: 40, color: "#e11d48" },
+  { from: 40, to: 70, color: "#f97316" },
+  { from: 70, to: 90, color: "#eab308" },
+  { from: 90, to: 100, color: "#22c55e" },
+];
+
+/** Point on the semicircle for a 0..1 fraction (left → top → right). */
+function gaugePoint(f: number, r: number) {
+  const a = Math.PI * f;
+  return { x: 100 - r * Math.cos(a), y: 100 - r * Math.sin(a) };
+}
+
+function gaugeArc(from: number, to: number, r: number) {
+  const p1 = gaugePoint(from, r);
+  const p2 = gaugePoint(to, r);
+  return `M ${p1.x.toFixed(2)} ${p1.y.toFixed(2)} A ${r} ${r} 0 0 1 ${p2.x.toFixed(2)} ${p2.y.toFixed(2)}`;
+}
+
 export function PostureChecklist({
   stepLabel,
   items,
@@ -112,11 +132,10 @@ export function PostureChecklist({
 
   const done = useMemo(() => checked.filter(Boolean).length, [checked]);
   const score = Math.round((done / items.length) * 100);
-  const band = simulator.bands[bandFor(score)];
+  const bandIndex = bandFor(score);
+  const band = simulator.bands[bandIndex];
+  const bandColor = GAUGE_BANDS[bandIndex].color;
   const anyChecked = done > 0;
-
-  // Ring geometry: r=54 → circumference ≈ 339.3
-  const CIRCUMFERENCE = 2 * Math.PI * 54;
 
   return (
     <div className="grid gap-10 lg:grid-cols-[1fr_340px]">
@@ -187,66 +206,118 @@ export function PostureChecklist({
             {simulator.scoreTitle}
           </h2>
 
-          <div className="relative mx-auto mt-6 size-44">
-            <svg viewBox="0 0 120 120" className="size-full -rotate-90">
-              <circle
-                cx="60"
-                cy="60"
-                r="54"
-                fill="none"
-                strokeWidth="9"
-                className="stroke-border"
-              />
-              <circle
-                cx="60"
-                cy="60"
-                r="54"
-                fill="none"
-                strokeWidth="9"
-                strokeLinecap="round"
-                stroke="url(#posture-gold)"
-                strokeDasharray={CIRCUMFERENCE}
-                strokeDashoffset={CIRCUMFERENCE * (1 - score / 100)}
-                className="transition-[stroke-dashoffset] duration-700 ease-out"
-              />
-              <defs>
-                <linearGradient
-                  id="posture-gold"
-                  x1="0"
-                  y1="0"
-                  x2="1"
-                  y2="1"
-                >
-                  <stop offset="0%" stopColor="#f1d68a" />
-                  <stop offset="55%" stopColor="#d4af37" />
-                  <stop offset="100%" stopColor="#9a7a1f" />
-                </linearGradient>
-              </defs>
+          {/* Credit-score-style segmented gauge with needle */}
+          <div className="relative mx-auto mt-6 w-full max-w-64" dir="ltr">
+            <svg viewBox="0 0 200 112" className="w-full">
+              {GAUGE_BANDS.map((segment) => (
+                <path
+                  key={segment.from}
+                  d={gaugeArc(
+                    segment.from / 100 + (segment.from === 0 ? 0 : 0.008),
+                    segment.to / 100 - (segment.to === 100 ? 0 : 0.008),
+                    78,
+                  )}
+                  fill="none"
+                  stroke={segment.color}
+                  strokeWidth="20"
+                  opacity={bandIndex === GAUGE_BANDS.indexOf(segment) ? 1 : 0.45}
+                  className="transition-opacity duration-500"
+                />
+              ))}
+              {/* Needle */}
+              <g
+                style={{
+                  transform: `rotate(${(score / 100) * 180 - 90}deg)`,
+                  transformOrigin: "100px 100px",
+                  transition: "transform 700ms cubic-bezier(.34,1.3,.64,1)",
+                }}
+              >
+                <polygon
+                  points="100,38 95.5,100 104.5,100"
+                  className="fill-foreground"
+                />
+              </g>
+              <circle cx="100" cy="100" r="8" className="fill-foreground" />
+              <circle cx="100" cy="100" r="3.5" className="fill-background" />
+              {/* Scale endpoints */}
+              <text
+                x="22"
+                y="111"
+                textAnchor="middle"
+                className="fill-current text-muted-foreground"
+                fontSize="9"
+              >
+                0
+              </text>
+              <text
+                x="178"
+                y="111"
+                textAnchor="middle"
+                className="fill-current text-muted-foreground"
+                fontSize="9"
+              >
+                100
+              </text>
             </svg>
-            <p
-              aria-live="polite"
-              className="absolute inset-0 flex flex-col items-center justify-center"
-            >
-              <span className="gold-text text-5xl font-extrabold tabular-nums tracking-tight">
-                {score}
-              </span>
-              <span className="text-xs font-semibold text-muted-foreground">
-                / 100
-              </span>
-            </p>
           </div>
 
-          <p className="mt-4 text-sm text-muted-foreground">
+          <p aria-live="polite" className="mt-4">
+            <span
+              className="text-5xl font-extrabold tabular-nums tracking-tight transition-colors duration-500"
+              style={{ color: bandColor }}
+            >
+              {score}
+            </span>
+            <span className="ms-1 text-sm font-semibold text-muted-foreground">
+              / 100
+            </span>
+          </p>
+
+          <p className="mt-3 text-sm text-muted-foreground">
             <span className="font-semibold tabular-nums text-foreground">
               {done}/{items.length}
             </span>{" "}
             {simulator.checkedLabel}
           </p>
 
-          <p className="gold-text mt-5 text-lg font-bold">{band.label}</p>
+          <p
+            className="mt-5 text-lg font-bold transition-colors duration-500"
+            style={{ color: bandColor }}
+          >
+            {band.label}
+          </p>
           <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
             {band.description}
           </p>
+
+          {/* Range legend */}
+          <ul className="mt-6 grid grid-cols-2 gap-x-4 gap-y-2 border-t border-border pt-5 text-start">
+            {GAUGE_BANDS.map((segment, i) => (
+              <li key={segment.from} className="flex items-center gap-2">
+                <span
+                  aria-hidden="true"
+                  className="size-2.5 shrink-0 rounded-full"
+                  style={{
+                    backgroundColor: segment.color,
+                    opacity: bandIndex === i ? 1 : 0.5,
+                  }}
+                />
+                <span
+                  className={cn(
+                    "text-xs",
+                    bandIndex === i
+                      ? "font-semibold text-foreground"
+                      : "text-muted-foreground",
+                  )}
+                >
+                  <span dir="ltr" className="tabular-nums">
+                    {segment.from}–{segment.to === 100 ? 100 : segment.to - 1}
+                  </span>{" "}
+                  {simulator.bands[i].label}
+                </span>
+              </li>
+            ))}
+          </ul>
 
           {anyChecked && (
             <button
