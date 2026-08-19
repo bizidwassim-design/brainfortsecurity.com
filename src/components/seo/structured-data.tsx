@@ -27,7 +27,6 @@ export function StructuredData({ locale }: StructuredDataProps) {
     logo: `${siteConfig.url}/og.png`,
     description: dict.meta.description,
     email: siteConfig.email,
-    telephone: siteConfig.phone,
     address: {
       "@type": "PostalAddress",
       addressLocality: "Montréal",

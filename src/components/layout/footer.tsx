@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Mail, Phone } from "lucide-react";
+import { Mail } from "lucide-react";
 
 import { Logo } from "@/components/layout/logo";
 import type { Dictionary, Locale } from "@/i18n";
@@ -142,16 +142,6 @@ export function Footer({ locale, dict }: FooterProps) {
               </li>
             </ul>
             <ul className="mt-6 space-y-2.5">
-              <li>
-                <a
-                  href={`tel:${siteConfig.phoneHref}`}
-                  className="flex items-start gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
-                  dir="ltr"
-                >
-                  <Phone className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
-                  {siteConfig.phone}
-                </a>
-              </li>
               {dict.offices.items.map((office) => (
                 <li
                   key={office.flag}

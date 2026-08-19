@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Mail, Phone } from "lucide-react";
+import { Mail } from "lucide-react";
 
 import { ContactForm } from "@/components/contact/contact-form";
 import { Reveal } from "@/components/motion/reveal";
@@ -68,22 +68,6 @@ export default async function ContactPage({ params }: PageProps) {
                   dir="ltr"
                 >
                   {siteConfig.email}
-                </a>
-              </div>
-
-              <div className="glass rounded-2xl p-6">
-                <div className="mb-3 flex size-11 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                  <Phone className="size-5" aria-hidden="true" />
-                </div>
-                <h2 className="mb-1 text-base font-semibold text-foreground">
-                  {dict.contactPage.phoneTitle}
-                </h2>
-                <a
-                  href={`tel:${siteConfig.phoneHref}`}
-                  className="text-sm font-semibold text-primary underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
-                  dir="ltr"
-                >
-                  {siteConfig.phone}
                 </a>
               </div>
 
