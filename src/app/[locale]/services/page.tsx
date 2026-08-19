@@ -17,6 +17,7 @@ import {
 
 import { ContactCta } from "@/components/contact-cta";
 import { Reveal } from "@/components/motion/reveal";
+import { CategoryNav } from "@/components/services/category-nav";
 import { SectionHeading } from "@/components/section-heading";
 import { Badge } from "@/components/ui/badge";
 import { alternatesFor, getDictionary, type Locale } from "@/i18n";
@@ -90,25 +91,14 @@ export default async function ServicesPage({ params }: PageProps) {
       </section>
 
       {/* Category quick navigation */}
-      <nav
-        aria-label={dict.catalog.eyebrow}
-        className="glass sticky top-16 z-40 border-y border-border"
-      >
-        <div className="mx-auto max-w-7xl overflow-x-auto px-4 py-3 sm:px-6 lg:px-8">
-          <ul className="flex items-center gap-2 whitespace-nowrap">
-            {dict.catalog.categories.map((category) => (
-              <li key={category.id}>
-                <a
-                  href={`#${category.id}`}
-                  className="block rounded-full border border-border px-3.5 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-primary/60 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                >
-                  {category.title}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </nav>
+      <CategoryNav
+        ariaLabel={dict.catalog.eyebrow}
+        categories={dict.catalog.categories.map((category) => ({
+          id: category.id,
+          title: category.title,
+          count: category.items.length,
+        }))}
+      />
 
       <section className="py-16 sm:py-20" aria-label={dict.catalog.title}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
