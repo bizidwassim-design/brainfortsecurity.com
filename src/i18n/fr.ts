@@ -498,6 +498,13 @@ export const fr: Dictionary = {
     deliverablesTitle: "Livrables",
     frequencyTitle: "Fréquence",
     ctaLabel: "Demander une soumission",
+    catalogue: {
+      title: "Cybersécurité gérée pour les entreprises",
+      body: "Obtenez le catalogue de services B2B complet — les trois niveaux de service, les couvertures et les cadences — dans un PDF imprimable.",
+      button: "Télécharger le catalogue (PDF)",
+      coverAlt:
+        "Brochure du catalogue de services BrainFort Sécurité — Cybersécurité gérée pour les entreprises",
+    },
     aiNote:
       "Efficacité propulsée par l'IA à toutes les phases — évaluations plus rapides, analyses plus fines, coûts maîtrisés.",
     recommendedBadge: "Le plus choisi",
@@ -947,6 +954,35 @@ export const fr: Dictionary = {
     intro:
       "Quatorze mesures concrètes à fort impact que nos consultants recommandent à chaque organisation. Libre d'accès — sans inscription ni courriel.",
     stepLabel: "Étape",
+    simulator: {
+      instruction:
+        "C'est aussi un simulateur : cochez chaque mesure déjà en place dans votre organisation et obtenez votre score de posture de cybersécurité sur 100.",
+      scoreTitle: "Votre score de posture",
+      checkedLabel: "mesures en place",
+      reset: "Réinitialiser",
+      bands: [
+        {
+          label: "Critique",
+          description:
+            "Votre environnement est très exposé. Commencez dès aujourd'hui par la MFA et des comptes d'administration dédiés.",
+        },
+        {
+          label: "À risque",
+          description:
+            "Des fondations clés manquent. Priorisez les mesures à fort impact non cochées.",
+        },
+        {
+          label: "Bonne progression",
+          description:
+            "Base solide — comblez les derniers écarts pour atteindre une posture mature.",
+        },
+        {
+          label: "Excellent",
+          description:
+            "Posture robuste. Continuez d'auditer régulièrement pour la maintenir.",
+        },
+      ],
+    },
     items: [
       {
         title: "Activez la MFA pour chaque compte avec boîte courriel",

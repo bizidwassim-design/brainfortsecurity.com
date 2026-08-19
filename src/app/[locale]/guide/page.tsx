@@ -1,45 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import {
-  ArrowRight,
-  Ban,
-  FileClock,
-  KeyRound,
-  Network,
-  Radar,
-  SearchCheck,
-  Server,
-  ShieldAlert,
-  ShieldCheck,
-  Tags,
-  UserCog,
-  Users,
-  UserSearch,
-  Vault,
-} from "lucide-react";
+import { ArrowRight, Gauge } from "lucide-react";
 
+import { PostureChecklist } from "@/components/guide/posture-checklist";
 import { Reveal } from "@/components/motion/reveal";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { alternatesFor, getDictionary, type Locale } from "@/i18n";
 import { cn } from "@/lib/utils";
-
-const stepIcons = [
-  ShieldCheck,
-  Users,
-  Tags,
-  Network,
-  KeyRound,
-  Ban,
-  UserCog,
-  UserSearch,
-  FileClock,
-  Server,
-  ShieldAlert,
-  SearchCheck,
-  Vault,
-  Radar,
-];
 
 interface PageProps {
   params: Promise<{ locale: Locale }>;
@@ -71,8 +39,19 @@ export default async function GuidePage({ params }: PageProps) {
               <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl">
                 {dict.guidePage.title}
               </h1>
+              <span
+                aria-hidden="true"
+                className="mx-auto block h-1 w-12 rounded-full bg-primary"
+              />
               <p className="text-lg leading-relaxed text-muted-foreground sm:text-xl">
                 {dict.guidePage.intro}
+              </p>
+              <p className="glass mx-auto flex max-w-2xl items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium text-foreground">
+                <Gauge
+                  className="size-4 shrink-0 text-primary"
+                  aria-hidden="true"
+                />
+                {dict.guidePage.simulator.instruction}
               </p>
             </div>
           </Reveal>
@@ -81,36 +60,13 @@ export default async function GuidePage({ params }: PageProps) {
 
       <section className="pb-20 sm:pb-24" aria-label={dict.guidePage.eyebrow}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <ol className="grid gap-6 md:grid-cols-2">
-            {dict.guidePage.items.map((item, index) => {
-              const Icon = stepIcons[index] ?? ShieldCheck;
-              return (
-                <Reveal key={item.title} delay={(index % 2) * 0.08}>
-                  <li className="glass card-lift h-full rounded-2xl p-6">
-                    <div className="flex items-start gap-4">
-                      <span className="flex size-12 shrink-0 items-center justify-center rounded-xl border border-primary/25 bg-primary/5">
-                        <Icon
-                          className="neon-icon size-6 text-primary"
-                          aria-hidden="true"
-                        />
-                      </span>
-                      <div>
-                        <p className="text-xs font-semibold uppercase tracking-wider text-primary">
-                          {dict.guidePage.stepLabel} {index + 1}
-                        </p>
-                        <h2 className="mt-1 text-base font-semibold text-foreground">
-                          {item.title}
-                        </h2>
-                        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                          {item.description}
-                        </p>
-                      </div>
-                    </div>
-                  </li>
-                </Reveal>
-              );
-            })}
-          </ol>
+          <Reveal>
+            <PostureChecklist
+              stepLabel={dict.guidePage.stepLabel}
+              items={dict.guidePage.items}
+              simulator={dict.guidePage.simulator}
+            />
+          </Reveal>
         </div>
       </section>
 

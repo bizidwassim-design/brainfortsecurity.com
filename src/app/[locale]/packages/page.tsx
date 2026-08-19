@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
   CalendarClock,
   CheckCircle2,
+  Download,
   FileText,
   Zap,
 } from "lucide-react";
@@ -11,7 +13,6 @@ import {
 import { ContactCta } from "@/components/contact-cta";
 import { Reveal } from "@/components/motion/reveal";
 import { SectionHeading } from "@/components/section-heading";
-import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { alternatesFor, getDictionary, type Locale } from "@/i18n";
 import { cn } from "@/lib/utils";
@@ -71,14 +72,25 @@ export default async function PackagesPage({ params }: PageProps) {
                   )}
                 >
                   {pkg.recommended && (
-                    <Badge className="absolute -top-3 start-6">
+                    <span className="absolute -top-3.5 start-6 rounded-md border border-primary bg-background px-3 py-1 text-[0.65rem] font-bold uppercase tracking-widest text-primary">
                       {t.recommendedBadge}
-                    </Badge>
+                    </span>
                   )}
-                  <h2 className="gold-text text-2xl font-extrabold tracking-tight">
+                  {/* Flyer-style numbered header: 01 / 02 / 03 */}
+                  <p
+                    aria-hidden="true"
+                    className="gold-text text-4xl font-extrabold tabular-nums leading-none"
+                  >
+                    {`0${index + 1}`}
+                  </p>
+                  <h2 className="mt-2 text-2xl font-extrabold uppercase tracking-tight text-foreground">
                     {pkg.name}
                   </h2>
-                  <p className="mt-1 text-sm font-semibold uppercase tracking-wide text-primary">
+                  <span
+                    aria-hidden="true"
+                    className="mt-3 block h-1 w-10 rounded-full bg-primary"
+                  />
+                  <p className="mt-3 text-sm font-semibold uppercase tracking-wide text-primary">
                     {pkg.tagline}
                   </p>
                   <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
@@ -162,6 +174,55 @@ export default async function PackagesPage({ params }: PageProps) {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Service catalogue flyer download */}
+      <section className="pb-20 sm:pb-24" aria-labelledby="catalogue">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <Reveal>
+            <div className="glass grid items-center gap-8 overflow-hidden rounded-3xl p-6 sm:p-10 lg:grid-cols-[minmax(0,420px)_1fr]">
+              <a
+                href="/downloads/brainfort-service-catalogue.pdf"
+                target="_blank"
+                rel="noopener"
+                aria-label={t.catalogue.button}
+                className="block overflow-hidden rounded-2xl border border-border transition-transform duration-300 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                <Image
+                  src="/catalogue-cover.webp"
+                  alt={t.catalogue.coverAlt}
+                  width={880}
+                  height={620}
+                  className="w-full"
+                />
+              </a>
+              <div className="text-center lg:text-start">
+                <h2
+                  id="catalogue"
+                  className="text-2xl font-bold text-foreground sm:text-3xl"
+                >
+                  {t.catalogue.title}
+                </h2>
+                <span
+                  aria-hidden="true"
+                  className="mx-auto mt-4 block h-1 w-12 rounded-full bg-primary lg:mx-0"
+                />
+                <p className="mt-4 text-muted-foreground">{t.catalogue.body}</p>
+                <div className="mt-6">
+                  <a
+                    href="/downloads/brainfort-service-catalogue.pdf"
+                    target="_blank"
+                    rel="noopener"
+                    className={cn(buttonVariants({ size: "lg" }), "group")}
+                  >
+                    <Download className="size-4" aria-hidden="true" />
+                    {t.catalogue.button}
+                  </a>
+                </div>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
 

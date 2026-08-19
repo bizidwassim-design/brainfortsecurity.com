@@ -32,6 +32,14 @@ export function SectionHeading({
       >
         {title}
       </h2>
+      {/* Flyer-style short gold rule under headings. */}
+      <span
+        aria-hidden="true"
+        className={cn(
+          "block h-1 w-12 rounded-full bg-primary",
+          align === "center" && "mx-auto",
+        )}
+      />
       {subtitle && (
         <p className="text-lg leading-relaxed text-muted-foreground">
           {subtitle}

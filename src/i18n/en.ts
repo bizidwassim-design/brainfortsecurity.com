@@ -480,6 +480,13 @@ export const en = {
     deliverablesTitle: "Deliverables",
     frequencyTitle: "Cadence",
     ctaLabel: "Request a Quote",
+    catalogue: {
+      title: "Managed Cybersecurity for Businesses",
+      body: "Get the complete B2B service catalogue — the three service levels, coverage details, and cadences — in one printable PDF.",
+      button: "Download the Catalogue (PDF)",
+      coverAlt:
+        "BrainFort Security service catalogue brochure — Managed Cybersecurity for Businesses",
+    },
     aiNote:
       "AI-augmented efficiency in every phase — faster assessments, deeper analysis, controlled costs.",
     recommendedBadge: "Most Popular",
@@ -926,6 +933,35 @@ export const en = {
     intro:
       "Fourteen practical, high-impact measures our consultants recommend to every organization. Free to use — no signup, no email required.",
     stepLabel: "Step",
+    simulator: {
+      instruction:
+        "This is also a simulator: check every measure already in place in your organization and get your cybersecurity posture score out of 100.",
+      scoreTitle: "Your Posture Score",
+      checkedLabel: "measures in place",
+      reset: "Reset",
+      bands: [
+        {
+          label: "Critical",
+          description:
+            "Your environment is highly exposed. Start today with MFA and dedicated admin accounts.",
+        },
+        {
+          label: "At Risk",
+          description:
+            "Key foundations are missing. Prioritize the unchecked high-impact measures.",
+        },
+        {
+          label: "Good Progress",
+          description:
+            "Solid base — close the remaining gaps to reach a mature posture.",
+        },
+        {
+          label: "Excellent",
+          description:
+            "Strong posture. Keep auditing regularly to stay there.",
+        },
+      ],
+    },
     items: [
       {
         title: "Enable MFA for every account with a mailbox",
