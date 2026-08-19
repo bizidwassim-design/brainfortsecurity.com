@@ -1,45 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import {
-  ArrowRight,
-  Ban,
-  FileClock,
-  KeyRound,
-  Network,
-  Radar,
-  SearchCheck,
-  Server,
-  ShieldAlert,
-  ShieldCheck,
-  Tags,
-  UserCog,
-  Users,
-  UserSearch,
-  Vault,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 import { Reveal } from "@/components/motion/reveal";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { alternatesFor, getDictionary, type Locale } from "@/i18n";
 import { cn } from "@/lib/utils";
-
-const stepIcons = [
-  ShieldCheck,
-  Users,
-  Tags,
-  Network,
-  KeyRound,
-  Ban,
-  UserCog,
-  UserSearch,
-  FileClock,
-  Server,
-  ShieldAlert,
-  SearchCheck,
-  Vault,
-  Radar,
-];
 
 interface PageProps {
   params: Promise<{ locale: Locale }>;
@@ -81,27 +48,35 @@ export default async function GuidePage({ params }: PageProps) {
 
       <section className="pb-20 sm:pb-24" aria-label={dict.guidePage.eyebrow}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <ol className="grid gap-6 md:grid-cols-2">
+          <ul className="mx-auto grid max-w-5xl gap-4 md:grid-cols-2">
             {dict.guidePage.items.map((item, index) => {
-              const Icon = stepIcons[index] ?? ShieldCheck;
+              const checkboxId = `guide-check-${index + 1}`;
+              const descriptionId = `guide-description-${index + 1}`;
+
               return (
-                <Reveal key={item.title} delay={(index % 2) * 0.08}>
-                  <li className="glass card-lift h-full rounded-2xl p-6">
+                <Reveal key={item.title} delay={(index % 2) * 0.04}>
+                  <li className="glass card-lift h-full rounded-2xl p-5 sm:p-6">
                     <div className="flex items-start gap-4">
-                      <span className="flex size-12 shrink-0 items-center justify-center rounded-xl border border-primary/25 bg-primary/5">
-                        <Icon
-                          className="neon-icon size-6 text-primary"
-                          aria-hidden="true"
-                        />
-                      </span>
-                      <div>
+                      <input
+                        id={checkboxId}
+                        type="checkbox"
+                        aria-describedby={descriptionId}
+                        className="mt-1 size-5 shrink-0 cursor-pointer accent-[#d4af37]"
+                      />
+                      <div className="min-w-0">
                         <p className="text-xs font-semibold uppercase tracking-wider text-primary">
-                          {dict.guidePage.stepLabel} {index + 1}
+                          {String(index + 1).padStart(2, "0")}
                         </p>
-                        <h2 className="mt-1 text-base font-semibold text-foreground">
+                        <label
+                          htmlFor={checkboxId}
+                          className="mt-1 block cursor-pointer text-base font-semibold text-foreground"
+                        >
                           {item.title}
-                        </h2>
-                        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                        </label>
+                        <p
+                          id={descriptionId}
+                          className="mt-2 text-sm leading-relaxed text-muted-foreground"
+                        >
                           {item.description}
                         </p>
                       </div>
@@ -110,7 +85,7 @@ export default async function GuidePage({ params }: PageProps) {
                 </Reveal>
               );
             })}
-          </ol>
+          </ul>
         </div>
       </section>
 

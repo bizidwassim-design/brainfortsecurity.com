@@ -17,7 +17,7 @@ export function ServicesOverview({ locale, dict }: ServicesOverviewProps) {
   const featured = dict.services.slice(0, FEATURED_SERVICES_COUNT);
 
   return (
-    <section className="py-20 sm:py-28" aria-labelledby="services-overview">
+    <section className="editorial-light py-20 sm:py-28" aria-labelledby="services-overview">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal>
           <SectionHeading
@@ -32,37 +32,21 @@ export function ServicesOverview({ locale, dict }: ServicesOverviewProps) {
           {featured.map((service, index) => {
             const Icon = serviceIcons[service.id] ?? ShieldCheck;
             return (
-              <Reveal key={service.id} delay={index * 0.06}>
-                {/* Flip card: front = icon + title, back = description. */}
-                <div className="flip-card h-60" tabIndex={0}>
-                  <div className="flip-inner">
-                    <div className="flip-face glass flex flex-col items-center justify-center gap-4 rounded-2xl p-6 text-center">
-                      <div className="neon-float flex size-16 items-center justify-center rounded-2xl border border-primary/25 bg-primary/5">
-                        <Icon
-                          className="neon-icon size-8 text-primary"
-                          aria-hidden="true"
-                        />
-                      </div>
-                      <h3 className="text-lg font-semibold leading-snug text-foreground">
-                        {service.title}
-                      </h3>
-                    </div>
-                    <div className="flip-back flip-face glass flex flex-col justify-center rounded-2xl border border-primary/40 p-6">
-                      <div className="mb-3 flex items-center gap-2.5">
-                        <Icon
-                          className="size-5 shrink-0 text-primary"
-                          aria-hidden="true"
-                        />
-                        <p className="text-sm font-semibold text-primary">
-                          {service.title}
-                        </p>
-                      </div>
-                      <p className="text-sm leading-relaxed text-muted-foreground">
-                        {service.description}
-                      </p>
-                    </div>
+              <Reveal key={service.id} delay={index * 0.04}>
+                <article className="glass card-lift group relative h-full min-h-64 overflow-hidden rounded-2xl p-7">
+                  <span className="absolute end-5 top-4 text-5xl font-black text-primary/10">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <div className="mb-8 flex size-12 items-center justify-center rounded-full border border-primary/30 bg-primary/10">
+                    <Icon className="size-5 text-primary" aria-hidden="true" />
                   </div>
-                </div>
+                  <h3 className="max-w-[16rem] text-xl font-bold leading-snug text-foreground">
+                    {service.title}
+                  </h3>
+                  <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                    {service.description}
+                  </p>
+                </article>
               </Reveal>
             );
           })}
@@ -73,7 +57,7 @@ export function ServicesOverview({ locale, dict }: ServicesOverviewProps) {
             <Link
               href={`/${locale}/services/`}
               className={cn(
-                buttonVariants({ variant: "outline", size: "lg" }),
+                buttonVariants({ size: "lg" }),
                 "group",
               )}
             >

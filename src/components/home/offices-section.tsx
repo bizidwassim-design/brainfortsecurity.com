@@ -26,7 +26,7 @@ const CITY_POSITIONS: Record<
 
 export function OfficesSection({ dict }: OfficesSectionProps) {
   return (
-    <section className="py-20 sm:py-28" aria-labelledby="offices">
+    <section className="editorial-light py-20 sm:py-28" aria-labelledby="offices">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal>
           <SectionHeading

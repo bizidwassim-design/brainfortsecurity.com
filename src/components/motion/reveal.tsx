@@ -11,7 +11,8 @@ interface RevealProps {
 }
 
 /**
- * Fade-up on scroll into view. Respects prefers-reduced-motion.
+ * Subtle fade-up enhancement. Content remains nearly visible before hydration
+ * so static exports, crawlers, screenshots and slower devices avoid blanks.
  */
 export function Reveal({ children, delay = 0, className }: RevealProps) {
   const reduceMotion = useReducedMotion();
@@ -23,10 +24,10 @@ export function Reveal({ children, delay = 0, className }: RevealProps) {
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 0, y: 24 }}
+      initial={{ opacity: 0.94, y: 10 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-64px" }}
-      transition={{ duration: 0.55, delay, ease: [0.21, 0.47, 0.32, 0.98] }}
+      viewport={{ once: true, margin: "-24px" }}
+      transition={{ duration: 0.4, delay, ease: [0.21, 0.47, 0.32, 0.98] }}
     >
       {children}
     </motion.div>
