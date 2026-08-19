@@ -25,7 +25,6 @@ interface HeroProps {
 
 export function Hero({ locale, dict }: HeroProps) {
   const [before, after] = dict.hero.title.split(dict.hero.highlight);
-  const isFrench = locale === "fr";
 
   return (
     <section className="hero-glow grid-pattern relative overflow-hidden">
@@ -53,18 +52,6 @@ export function Hero({ locale, dict }: HeroProps) {
                 aria-hidden="true"
                 className="h-56 w-auto sm:h-72"
               />
-              <p className="gold-text text-3xl font-extrabold tracking-[0.14em] sm:text-4xl">
-                {isFrench ? "Br" : "BR"}
-                <span className="text-accent">AI</span>
-                {isFrench ? "nFort" : "NFORT"}
-              </p>
-              <p className="flex items-center gap-3 text-sm font-semibold uppercase text-[#d4af37]">
-                <span aria-hidden="true" className="h-px w-8 bg-[#d4af37]/60" />
-                <span style={{ letterSpacing: "0.5em" }}>
-                  {isFrench ? "Sécurité" : "Security"}
-                </span>
-                <span aria-hidden="true" className="h-px w-8 bg-[#d4af37]/60" />
-              </p>
             </div>
           </Reveal>
 
