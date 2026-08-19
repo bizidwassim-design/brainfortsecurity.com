@@ -1,5 +1,4 @@
 import { ContactCta } from "@/components/contact-cta";
-import { ClientsSection } from "@/components/home/clients-section";
 import { ComplianceSection } from "@/components/home/compliance-section";
 import { Hero } from "@/components/home/hero";
 import { IndustriesSection } from "@/components/home/industries-section";
@@ -26,7 +25,6 @@ export default async function HomePage({ params }: PageProps) {
       <StatsSection dict={dict} />
       <IndustriesSection dict={dict} />
       <OfficesSection dict={dict} />
-      <ClientsSection dict={dict} />
       <ComplianceSection dict={dict} />
       <TestimonialsSection dict={dict} />
       <ContactCta locale={locale} dict={dict} />
