@@ -60,7 +60,7 @@ export default async function PackagesPage({ params }: PageProps) {
 
       <section className="pb-20 sm:pb-24" aria-label={t.title}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-6 lg:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-3">
             {t.packages.map((pkg, index) => (
               <Reveal key={pkg.id} delay={index * 0.08}>
                 <article
