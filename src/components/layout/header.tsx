@@ -67,7 +67,7 @@ export function Header({ locale, dict }: HeaderProps) {
   );
 
   return (
-    <header className="glass sticky top-0 z-50">
+    <header className="sticky top-0 z-50 border-b border-primary/15 bg-[#0a0a0c]/95 shadow-[0_10px_35px_-25px_rgba(212,175,55,0.55)] backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <Logo locale={locale} />
 

@@ -15,7 +15,7 @@ export function Logo({ locale = defaultLocale }: LogoProps) {
   return (
     <Link
       href={`/${locale}/`}
-      className="flex items-center gap-2.5 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+      className="flex items-center gap-0 overflow-hidden rounded-lg bg-[#0a0a0c] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
       aria-label={`${siteConfig.name} — ${isFrench ? "Accueil" : "Home"}`}
     >
       <Image
@@ -31,7 +31,7 @@ export function Logo({ locale = defaultLocale }: LogoProps) {
         alt={siteConfig.name}
         width={1200}
         height={500}
-        className="h-10 w-auto object-contain"
+        className="ms-1 h-11 w-auto object-contain"
         priority
       />
     </Link>

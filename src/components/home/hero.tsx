@@ -39,25 +39,8 @@ export function Hero({ locale, dict }: HeroProps) {
         className="pointer-events-none absolute -end-28 top-10 hidden w-[650px] select-none opacity-[0.12] lg:block"
       />
       <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8 lg:py-28">
-        <div className="grid items-center gap-14 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
-          {/* Vertical brand lockup: shield + wordmark + tagline */}
-          <Reveal>
-            <div className="relative mx-auto flex min-h-[410px] max-w-sm items-center justify-center overflow-hidden rounded-[2rem] border border-primary/20 bg-[#11110f]/80 p-10 text-center shadow-[0_40px_100px_-40px_rgba(212,175,55,0.42)]">
-              <div aria-hidden="true" className="absolute inset-5 rounded-[1.5rem] border border-primary/10" />
-              <div aria-hidden="true" className="absolute -end-20 -top-20 size-64 rounded-full bg-primary/10 blur-3xl" />
-              <Image
-                src="/brand/shield-canadian.webp"
-                alt=""
-                width={320}
-                height={503}
-                priority
-                aria-hidden="true"
-                className="relative h-72 w-auto sm:h-80"
-              />
-            </div>
-          </Reveal>
-
-          <div className="text-center lg:text-start">
+        <div className="mx-auto max-w-5xl">
+          <div className="text-center">
             <Reveal delay={0.05}>
               <Badge className="mb-7 uppercase tracking-[0.16em]">
                 {dict.hero.badge}
@@ -75,13 +58,13 @@ export function Hero({ locale, dict }: HeroProps) {
             </Reveal>
 
             <Reveal delay={0.2}>
-              <p className="mx-auto mt-7 max-w-2xl text-lg leading-relaxed text-muted-foreground lg:mx-0 lg:text-xl">
+              <p className="mx-auto mt-7 max-w-3xl text-lg leading-relaxed text-muted-foreground lg:text-xl">
                 {dict.hero.subtitle}
               </p>
             </Reveal>
 
             <Reveal delay={0.3}>
-              <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start">
+              <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <Link
                   href={`/${locale}/contact/`}
                   className={cn(buttonVariants({ size: "lg" }), "group")}
