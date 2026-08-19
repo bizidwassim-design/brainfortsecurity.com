@@ -189,12 +189,6 @@ export const en = {
       },
     ],
   },
-  clients: {
-    eyebrow: "Client Trust",
-    title: "Trusted by Leading Organizations",
-    subtitle:
-      "We protect the operations of companies that feed and supply thousands every day.",
-  },
   testimonials: {
     eyebrow: "Client Voices",
     title: "What Our Clients Say",

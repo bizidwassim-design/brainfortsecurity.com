@@ -190,12 +190,6 @@ export const ar: Dictionary = {
       },
     ],
   },
-  clients: {
-    eyebrow: "ثقة العملاء",
-    title: "موضع ثقة مؤسسات رائدة",
-    subtitle:
-      "نحمي عمليات شركات تُطعم وتزوّد آلاف الأشخاص كل يوم.",
-  },
   testimonials: {
     eyebrow: "آراء عملائنا",
     title: "ماذا يقول عملاؤنا",

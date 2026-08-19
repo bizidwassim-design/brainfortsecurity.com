@@ -199,12 +199,6 @@ export const fr: Dictionary = {
       },
     ],
   },
-  clients: {
-    eyebrow: "Confiance des clients",
-    title: "La confiance d'organisations de premier plan",
-    subtitle:
-      "Nous protégeons les opérations d'entreprises qui nourrissent et approvisionnent des milliers de personnes chaque jour.",
-  },
   testimonials: {
     eyebrow: "Témoignages",
     title: "Ce que disent nos clients",
