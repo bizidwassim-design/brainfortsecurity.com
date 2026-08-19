@@ -15,6 +15,7 @@ export const en = {
     home: "Home",
     services: "Services",
     packages: "Packages",
+    freeGuide: "Free Guide",
     about: "About",
     contact: "Contact",
     cta: "Book a Consultation",
@@ -915,6 +916,92 @@ export const en = {
         body: "You can control and delete cookies through your browser settings. Blocking essential cookies may affect the security features of this site.",
       },
     ],
+  },
+  guidePage: {
+    metaTitle: "Free Security Guide",
+    metaDescription:
+      "Free quick-start security guide: 14 practical, high-impact steps to secure your environment — MFA, network segmentation, server hardening, ASR rules, and more.",
+    eyebrow: "Free Guide",
+    title: "Start Securing Your Environment",
+    intro:
+      "Fourteen practical, high-impact measures our consultants recommend to every organization. Free to use — no signup, no email required.",
+    stepLabel: "Step",
+    items: [
+      {
+        title: "Enable MFA for every account with a mailbox",
+        description:
+          "Enforce multi-factor authentication on all user accounts that have a mailbox — they are the most targeted by phishing and credential theft.",
+      },
+      {
+        title: "Use dynamic groups instead of static groups",
+        description:
+          "In Active Directory and Entra ID, build group membership from attribute rules so access assignments stay accurate automatically as people join, move, or leave.",
+      },
+      {
+        title: "Tag devices, users, and applications",
+        description:
+          "Apply tags as much as you can to device, user, and application objects — ownership, criticality, and environment tags make scoping policies and incident response far faster.",
+      },
+      {
+        title: "Segment your network",
+        description:
+          "Separate servers, workstations, IoT/OT, and guest traffic into distinct zones with controlled flows between them to contain lateral movement.",
+      },
+      {
+        title: "Require passwords of at least 14 characters",
+        description:
+          "Length beats complexity. Set a 14-character minimum and pair it with screening against known-breached passwords.",
+      },
+      {
+        title: "Deny logon for service accounts",
+        description:
+          "Service accounts must be denied interactive and remote logon — grant only the exact 'log on as a service' right where required.",
+      },
+      {
+        title: "Use dedicated accounts for administration",
+        description:
+          "Create separate, dedicated admin accounts for administrative tasks — never browse the web or read email with a privileged account.",
+      },
+      {
+        title: "Audit guest accounts regularly",
+        description:
+          "Review external and guest accounts on a schedule and remove those that are no longer needed or have gone inactive.",
+      },
+      {
+        title: "Apply retention to files shared externally",
+        description:
+          "Expire external sharing links and apply retention policies to files shared with external users so data doesn't linger outside your control.",
+      },
+      {
+        title: "Apply hardening on servers",
+        description:
+          "Deploy recognized hardening baselines (CIS, Microsoft) and remove unnecessary roles, features, and services from every server.",
+      },
+      {
+        title: "Configure Attack Surface Reduction rules",
+        description:
+          "Enable Microsoft Defender ASR rules to block common malware techniques like Office macro abuse and credential dumping.",
+      },
+      {
+        title: "Audit passwords regularly",
+        description:
+          "Regularly test your directory for weak, reused, or breached passwords and force resets where needed.",
+      },
+      {
+        title: "Integrate a password management solution",
+        description:
+          "Deploy an enterprise password manager so teams stop reusing passwords or storing them in plain text.",
+      },
+      {
+        title: "Run vulnerability scans periodically",
+        description:
+          "Schedule recurring vulnerability scans across your environment and remediate findings by risk priority.",
+      },
+    ],
+    ctaTitle: "Need help putting these in place?",
+    ctaBody:
+      "Our consultants can implement every one of these measures for you — assessed, deployed, and documented.",
+    ctaButton: "Book a Consultation",
   },
   trustPage: {
     metaTitle: "Trust Center",

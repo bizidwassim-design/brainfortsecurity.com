@@ -14,6 +14,7 @@ export const fr: Dictionary = {
     home: "Accueil",
     services: "Services",
     packages: "Forfaits",
+    freeGuide: "Guide gratuit",
     about: "À propos",
     contact: "Contact",
     cta: "Réserver une consultation",
@@ -936,6 +937,92 @@ export const fr: Dictionary = {
         body: "Vous pouvez contrôler et supprimer les cookies dans les paramètres de votre navigateur. Le blocage des cookies essentiels peut affecter les fonctions de sécurité de ce site.",
       },
     ],
+  },
+  guidePage: {
+    metaTitle: "Guide de sécurité gratuit",
+    metaDescription:
+      "Guide de sécurité gratuit : 14 mesures concrètes à fort impact pour sécuriser votre environnement — MFA, segmentation réseau, durcissement des serveurs, règles ASR et plus.",
+    eyebrow: "Guide gratuit",
+    title: "Commencez à sécuriser votre environnement",
+    intro:
+      "Quatorze mesures concrètes à fort impact que nos consultants recommandent à chaque organisation. Libre d'accès — sans inscription ni courriel.",
+    stepLabel: "Étape",
+    items: [
+      {
+        title: "Activez la MFA pour chaque compte avec boîte courriel",
+        description:
+          "Exigez l'authentification multifacteur sur tous les comptes utilisateurs disposant d'une boîte aux lettres — ce sont les cibles principales de l'hameçonnage et du vol d'identifiants.",
+      },
+      {
+        title: "Utilisez des groupes dynamiques plutôt que statiques",
+        description:
+          "Dans Active Directory et Entra ID, définissez l'appartenance aux groupes par règles d'attributs afin que les accès restent exacts automatiquement lors des arrivées, mutations et départs.",
+      },
+      {
+        title: "Étiquetez appareils, utilisateurs et applications",
+        description:
+          "Appliquez des étiquettes (tags) autant que possible aux objets appareils, utilisateurs et applications — propriété, criticité et environnement accélèrent le ciblage des politiques et la réponse aux incidents.",
+      },
+      {
+        title: "Segmentez votre réseau",
+        description:
+          "Séparez serveurs, postes de travail, IoT/OT et trafic invité en zones distinctes avec des flux contrôlés entre elles pour contenir les déplacements latéraux.",
+      },
+      {
+        title: "Exigez des mots de passe d'au moins 14 caractères",
+        description:
+          "La longueur prime sur la complexité. Imposez un minimum de 14 caractères et combinez-le avec un filtrage des mots de passe déjà compromis.",
+      },
+      {
+        title: "Interdisez l'ouverture de session aux comptes de service",
+        description:
+          "Les comptes de service doivent être privés d'ouverture de session interactive et à distance — n'accordez que le droit « ouvrir une session en tant que service » lorsque requis.",
+      },
+      {
+        title: "Utilisez des comptes dédiés à l'administration",
+        description:
+          "Créez des comptes d'administration distincts et dédiés aux tâches d'administration — ne naviguez jamais sur le web et ne lisez jamais de courriels avec un compte à privilèges.",
+      },
+      {
+        title: "Auditez régulièrement les comptes invités",
+        description:
+          "Passez en revue les comptes externes et invités selon un calendrier et supprimez ceux qui ne sont plus nécessaires ou devenus inactifs.",
+      },
+      {
+        title: "Appliquez la rétention aux fichiers partagés à l'externe",
+        description:
+          "Faites expirer les liens de partage externes et appliquez des politiques de rétention aux fichiers partagés avec des utilisateurs externes pour que les données ne restent pas hors de votre contrôle.",
+      },
+      {
+        title: "Durcissez vos serveurs",
+        description:
+          "Déployez des référentiels de durcissement reconnus (CIS, Microsoft) et retirez les rôles, fonctionnalités et services inutiles de chaque serveur.",
+      },
+      {
+        title: "Configurez les règles de réduction de la surface d'attaque",
+        description:
+          "Activez les règles ASR de Microsoft Defender pour bloquer les techniques courantes des maliciels comme l'abus de macros Office et l'extraction d'identifiants.",
+      },
+      {
+        title: "Auditez régulièrement les mots de passe",
+        description:
+          "Testez régulièrement votre annuaire pour repérer les mots de passe faibles, réutilisés ou compromis, et forcez la réinitialisation au besoin.",
+      },
+      {
+        title: "Intégrez une solution de gestion des mots de passe",
+        description:
+          "Déployez un gestionnaire de mots de passe d'entreprise pour que les équipes cessent de réutiliser des mots de passe ou de les stocker en clair.",
+      },
+      {
+        title: "Analysez les vulnérabilités périodiquement",
+        description:
+          "Planifiez des analyses de vulnérabilités récurrentes sur tout votre environnement et corrigez les constats selon la priorité de risque.",
+      },
+    ],
+    ctaTitle: "Besoin d'aide pour les mettre en place ?",
+    ctaBody:
+      "Nos consultants peuvent implanter chacune de ces mesures pour vous — évaluées, déployées et documentées.",
+    ctaButton: "Réserver une consultation",
   },
   trustPage: {
     metaTitle: "Centre de confiance",
