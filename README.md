@@ -46,8 +46,7 @@ npm run build   # Production build → static site in out/
 
 ```
 src/
-  app/            # Routes: /, /services, /about, /contact, /privacy, /terms
-                  # + sitemap.ts, robots.ts, not-found.tsx
+  app/            # 12 pages × EN/FR/AR + sitemap, robots and 404
   components/
     ui/           # ShadCN-style primitives (button, card, input, …)
     layout/       # Header, footer, brand logo
@@ -57,7 +56,7 @@ src/
     seo/          # JSON-LD structured data
   i18n/           # Locale dictionaries (EN shipped; FR/AR ready)
   lib/            # Site config, services data, utilities
-public/           # Static assets (logo.svg, og.png, favicon)
+public/           # Official brand, catalogue and other static assets
 ```
 
 ## Environment Variables
@@ -105,21 +104,18 @@ The site ships in **English, French, and Arabic**:
   the root `/` redirects to `/en/` via `public/_redirects`.
 - All copy lives in `src/i18n/{en,fr,ar}.ts` (typed `Dictionary` —
   English is the canonical shape).
-- Arabic renders right-to-left (`dir="rtl"`) with Noto Sans Arabic and a
+- Arabic renders right-to-left (`dir="rtl"`) with Cairo and a
   letter-spacing reset (spacing breaks connected Arabic script).
 - A language switcher (EN/FR/AR) sits in the header.
-- The wordmark is locale-aware: EN/AR use "BRAINFORT — SECURITY";
-  FR uses "BrAInFort — Sécurité Inc.".
+- The header uses the shared official BrainFort shield and wordmark assets.
 - hreflang alternates are emitted per page and in the sitemap.
 
 ## Branding
 
-- The header/footer use a typography-only wordmark lockup
-  (`src/components/layout/logo.tsx`) matching the official logo.
-- `public/logo.svg` (EN/AR) and `public/logo-fr.svg` (FR) are SVG
-  recreations of the shield lockups. When the official vector exports are
-  available, drop them into `public/brand/` and point the Logo component
-  at them.
+- The logo must never be redrawn. Header and footer use only the approved
+  files in `public/brand/` (`shield.png`, `shield-web.webp`,
+  `shield-canadian.webp`, and `wordmark.png`).
+- The downloadable tri-fold service catalogue lives in `public/catalogue/`.
 - Client logos live in `public/clients/`, office flags in `public/flags/`.
 - Brand palette: black background (`#0A0A0C`), gold primary (`#D4AF37`),
   red accents (`#D92B2B` / `#EF4444` — the "AI" in BR**AI**NFORT), warm
@@ -136,12 +132,10 @@ The site ships in **English, French, and Arabic**:
 
 ## Future Improvements
 
-- [ ] French (`fr`) and Arabic (`ar`) locales with `[locale]` routing
 - [ ] Cloudflare Worker form backend with Turnstile bot protection
 - [ ] Blog / insights section (MDX)
 - [ ] Case studies with real client testimonials
 - [ ] Cloudflare Web Analytics snippet
-- [ ] Official logo vector assets from the brand team
 
 ## License
 

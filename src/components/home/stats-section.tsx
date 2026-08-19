@@ -16,7 +16,7 @@ export function StatsSection({ dict }: StatsSectionProps) {
   const tiles = dict.stats.items.filter((_, index) => index !== 1);
 
   return (
-    <section className="py-20 sm:py-28" aria-labelledby="stats">
+    <section className="editorial-light py-20 sm:py-28" aria-labelledby="stats">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal>
           <SectionHeading

@@ -489,7 +489,7 @@ export const fr: Dictionary = {
   packagesPage: {
     metaTitle: "Forfaits de cybersécurité",
     metaDescription:
-      "Cyber Essential, Cyber Advanced et Cyber Premium — des forfaits de cybersécurité gérée pour PME et entreprises : audits, gestion des vulnérabilités, formation, vCISO et plus.",
+      "Cyber Essential, Cyber Advanced et Cyber Elite — des forfaits de cybersécurité gérée pour PME et entreprises : audits, gestion des vulnérabilités, formation, vCISO et plus.",
     eyebrow: "Forfaits de services B2B",
     title: "Forfaits de cybersécurité",
     subtitle:
@@ -502,6 +502,12 @@ export const fr: Dictionary = {
       "Efficacité propulsée par l'IA à toutes les phases — évaluations plus rapides, analyses plus fines, coûts maîtrisés.",
     recommendedBadge: "Le plus choisi",
     comparisonTitle: "Comparaison des forfaits",
+    catalogueTitle: "Télécharger le catalogue de services",
+    catalogueDescription:
+      "Découvrez les trois niveaux de service dans notre dépliant professionnel à trois volets, conçu pour être consulté et imprimé facilement.",
+    catalogueOutsideLabel: "Volets extérieurs",
+    catalogueInsideLabel: "Volets intérieurs des services",
+    catalogueDownloadLabel: "Télécharger le catalogue (PDF)",
     excludedNote:
       "Les audits de conformité, le SOC 24/7, le SIEM géré, le MDR, l'intervention d'urgence, la protection des données et la sécurité applicative/DevSecOps ne sont pas inclus dans ces forfaits.",
     packages: [
@@ -596,8 +602,8 @@ export const fr: Dictionary = {
         ],
       },
       {
-        id: "premium",
-        name: "Cyber Premium",
+        id: "elite",
+        name: "Cyber Elite",
         tagline: "Accompagnement complet",
         audience:
           "Pour les entreprises ayant des environnements complexes, plusieurs sites ou des exigences de sécurité élevées.",

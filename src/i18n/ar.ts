@@ -471,7 +471,7 @@ export const ar: Dictionary = {
   packagesPage: {
     metaTitle: "باقات الأمن السيبراني",
     metaDescription:
-      "Cyber Essential وCyber Advanced وCyber Premium — باقات أمن سيبراني مُدارة للشركات: تدقيقات، إدارة ثغرات، تدريب، vCISO والمزيد.",
+      "Cyber Essential وCyber Advanced وCyber Elite — باقات أمن سيبراني مُدارة للشركات: تدقيقات، إدارة ثغرات، تدريب، vCISO والمزيد.",
     eyebrow: "باقات خدمات الشركات",
     title: "باقات الأمن السيبراني",
     subtitle:
@@ -484,6 +484,12 @@ export const ar: Dictionary = {
       "كفاءة مدعومة بالذكاء الاصطناعي في كل المراحل — تقييمات أسرع وتحليلات أعمق وتكاليف مضبوطة.",
     recommendedBadge: "الأكثر اختياراً",
     comparisonTitle: "مقارنة الباقات",
+    catalogueTitle: "تنزيل كتالوج الخدمات",
+    catalogueDescription:
+      "تعرّف على مستويات الخدمة الثلاثة في مطويتنا الاحترافية ثلاثية الطي، المصممة للعرض والطباعة بسهولة.",
+    catalogueOutsideLabel: "الأوجه الخارجية",
+    catalogueInsideLabel: "الأوجه الداخلية للخدمات",
+    catalogueDownloadLabel: "تنزيل الكتالوج (PDF)",
     excludedNote:
       "لا تشمل هذه الباقات: تدقيقات الامتثال، ومركز عمليات الأمن 24/7، وSIEM المُدار، وMDR، والاستجابة الطارئة للحوادث، وحماية البيانات، وأمن التطبيقات/DevSecOps.",
     packages: [
@@ -577,8 +583,8 @@ export const ar: Dictionary = {
         ],
       },
       {
-        id: "premium",
-        name: "Cyber Premium",
+        id: "elite",
+        name: "Cyber Elite",
         tagline: "شراكة أمنية كاملة",
         audience:
           "للمؤسسات ذات البيئات المعقدة أو المواقع المتعددة أو المتطلبات الأمنية العالية.",

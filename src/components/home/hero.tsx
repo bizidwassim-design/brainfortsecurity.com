@@ -27,7 +27,7 @@ export function Hero({ locale, dict }: HeroProps) {
   const [before, after] = dict.hero.title.split(dict.hero.highlight);
 
   return (
-    <section className="hero-glow grid-pattern relative overflow-hidden">
+    <section className="hero-glow relative overflow-hidden border-b border-border">
       <div aria-hidden="true" className="aurora" />
       {/* World map backdrop, faded on the end side (mockup style) */}
       <Image
@@ -36,13 +36,15 @@ export function Hero({ locale, dict }: HeroProps) {
         width={1010}
         height={666}
         aria-hidden="true"
-        className="pointer-events-none absolute -end-32 top-8 hidden w-[720px] select-none opacity-25 lg:block"
+        className="pointer-events-none absolute -end-28 top-10 hidden w-[650px] select-none opacity-[0.12] lg:block"
       />
-      <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
-        <div className="grid items-center gap-12 lg:grid-cols-[auto_1fr] lg:gap-20">
+      <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8 lg:py-28">
+        <div className="grid items-center gap-14 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
           {/* Vertical brand lockup: shield + wordmark + tagline */}
           <Reveal>
-            <div className="flex flex-col items-center gap-4 text-center">
+            <div className="relative mx-auto flex min-h-[410px] max-w-sm items-center justify-center overflow-hidden rounded-[2rem] border border-primary/20 bg-[#11110f]/80 p-10 text-center shadow-[0_40px_100px_-40px_rgba(212,175,55,0.42)]">
+              <div aria-hidden="true" className="absolute inset-5 rounded-[1.5rem] border border-primary/10" />
+              <div aria-hidden="true" className="absolute -end-20 -top-20 size-64 rounded-full bg-primary/10 blur-3xl" />
               <Image
                 src="/brand/shield-canadian.webp"
                 alt=""
@@ -50,20 +52,20 @@ export function Hero({ locale, dict }: HeroProps) {
                 height={503}
                 priority
                 aria-hidden="true"
-                className="h-56 w-auto sm:h-72"
+                className="relative h-72 w-auto sm:h-80"
               />
             </div>
           </Reveal>
 
           <div className="text-center lg:text-start">
             <Reveal delay={0.05}>
-              <Badge className="mb-6 uppercase tracking-wider">
+              <Badge className="mb-7 uppercase tracking-[0.16em]">
                 {dict.hero.badge}
               </Badge>
             </Reveal>
 
             <Reveal delay={0.1}>
-              <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-foreground sm:text-5xl">
+              <h1 className="text-4xl font-extrabold leading-[1.06] tracking-[-0.04em] text-foreground sm:text-6xl lg:text-7xl">
                 {before}
                 <span className="bg-gradient-to-r from-[#f1d68a] via-[#d4af37] to-[#9a7a1f] bg-clip-text text-transparent">
                   {dict.hero.highlight}
@@ -73,7 +75,7 @@ export function Hero({ locale, dict }: HeroProps) {
             </Reveal>
 
             <Reveal delay={0.2}>
-              <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground lg:mx-0">
+              <p className="mx-auto mt-7 max-w-2xl text-lg leading-relaxed text-muted-foreground lg:mx-0 lg:text-xl">
                 {dict.hero.subtitle}
               </p>
             </Reveal>
@@ -103,15 +105,15 @@ export function Hero({ locale, dict }: HeroProps) {
           </div>
         </div>
 
-        <Reveal delay={0.4}>
-          <ul className="mt-16 grid gap-8 border-t border-border pt-12 sm:grid-cols-2 lg:grid-cols-3">
-            {dict.hero.features.map((feature, index) => {
+        <Reveal delay={0.25}>
+          <ul className="mt-16 grid overflow-hidden rounded-2xl border border-border bg-card/35 sm:grid-cols-3">
+            {dict.hero.features.slice(0, 3).map((feature, index) => {
               const Icon = featureIcons[index] ?? ShieldCheck;
               return (
-                <li key={feature.title} className="flex items-start gap-4">
-                  <span className="flex size-12 shrink-0 items-center justify-center rounded-xl border border-primary/25 bg-primary/5">
+                <li key={feature.title} className="flex items-start gap-4 border-b border-border p-6 last:border-b-0 sm:border-b-0 sm:border-e sm:last:border-e-0">
+                  <span className="flex size-11 shrink-0 items-center justify-center rounded-full border border-primary/25 bg-primary/5">
                     <Icon
-                      className="neon-icon size-6 text-primary"
+                      className="size-5 text-primary"
                       aria-hidden="true"
                     />
                   </span>

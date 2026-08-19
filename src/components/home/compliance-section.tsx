@@ -14,7 +14,7 @@ interface ComplianceSectionProps {
  */
 export function ComplianceSection({ dict }: ComplianceSectionProps) {
   return (
-    <section className="py-20 sm:py-28" aria-labelledby="compliance">
+    <section className="editorial-light py-20 sm:py-28" aria-labelledby="compliance">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal>
           <SectionHeading

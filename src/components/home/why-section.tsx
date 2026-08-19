@@ -13,7 +13,7 @@ interface WhySectionProps {
 export function WhySection({ dict }: WhySectionProps) {
   return (
     <section
-      className="border-y border-border bg-card/30 py-20 sm:py-28"
+      className="border-y border-border py-20 sm:py-28"
       aria-labelledby="why-brainfort"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

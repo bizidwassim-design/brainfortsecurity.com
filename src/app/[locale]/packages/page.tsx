@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
   CalendarClock,
   CheckCircle2,
+  Download,
   FileText,
   Zap,
 } from "lucide-react";
@@ -162,6 +164,59 @@ export default async function PackagesPage({ params }: PageProps) {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="editorial-light py-20 sm:py-28" aria-labelledby="catalogue">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <Reveal>
+            <SectionHeading
+              id="catalogue"
+              title={t.catalogueTitle}
+              subtitle={t.catalogueDescription}
+            />
+          </Reveal>
+
+          <div className="mt-14 grid gap-8 lg:grid-cols-2">
+            {[
+              {
+                src: "/catalogue/brainfort-service-catalogue-outside.webp",
+                label: t.catalogueOutsideLabel,
+              },
+              {
+                src: "/catalogue/brainfort-service-catalogue-inside.webp",
+                label: t.catalogueInsideLabel,
+              },
+            ].map((preview, index) => (
+              <Reveal key={preview.src} delay={index * 0.08}>
+                <figure className="glass overflow-hidden rounded-2xl p-3">
+                  <Image
+                    src={preview.src}
+                    alt={preview.label}
+                    width={1536}
+                    height={1024}
+                    className="h-auto w-full rounded-xl"
+                  />
+                  <figcaption className="px-3 py-3 text-sm font-semibold text-foreground">
+                    {preview.label}
+                  </figcaption>
+                </figure>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal delay={0.12}>
+            <div className="mt-10 text-center">
+              <a
+                href="/catalogue/brainfort-service-catalogue.pdf"
+                download
+                className={cn(buttonVariants({ size: "lg" }), "group")}
+              >
+                <Download className="size-4" aria-hidden="true" />
+                {t.catalogueDownloadLabel}
+              </a>
+            </div>
+          </Reveal>
         </div>
       </section>
 

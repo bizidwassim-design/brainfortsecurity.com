@@ -19,6 +19,8 @@
   --gold: #d4af37;
   --gold-light: #f1d68a;
   --gold-dark: #9a7a1f;
+  --ivory: #f3efe5;
+  --ink: #101112;
 }
 
 @theme inline {
@@ -50,6 +52,7 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
+  background-image: linear-gradient(180deg, #0a0a0c 0%, #0d0d0f 100%);
 }
 
 ::selection {
@@ -67,10 +70,50 @@ body {
 
 /* Frosted glass surface used across sections. */
 .glass {
-  background: rgba(20, 19, 17, 0.6);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(212, 175, 55, 0.16);
+  background: rgba(19, 19, 19, 0.78);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(212, 175, 55, 0.14);
+}
+
+/* Executive editorial rhythm: dark brand moments alternate with calm ivory
+   surfaces. CSS variables keep existing components and RTL layouts intact. */
+.editorial-light {
+  --background: #f3efe5;
+  --foreground: #151515;
+  --card: #fffdf7;
+  --card-foreground: #151515;
+  --muted: #e8e1d2;
+  --muted-foreground: #625e55;
+  --border: rgba(39, 32, 17, 0.14);
+  background:
+    radial-gradient(circle at 88% 14%, rgba(212, 175, 55, 0.13), transparent 24rem),
+    #f3efe5;
+  color: var(--foreground);
+}
+
+.editorial-light .glass {
+  background: rgba(255, 253, 247, 0.88);
+  border-color: rgba(39, 32, 17, 0.12);
+  box-shadow: 0 24px 64px -42px rgba(29, 24, 14, 0.48);
+}
+
+.section-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--primary);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.section-kicker::before {
+  content: "";
+  width: 2.25rem;
+  height: 1px;
+  background: currentColor;
 }
 
 /* Soft radial glow behind hero content. */
@@ -207,9 +250,9 @@ body {
 }
 
 .card-lift:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 48px -16px rgba(212, 175, 55, 0.28);
-  border-color: rgba(212, 175, 55, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 20px 54px -30px rgba(212, 175, 55, 0.34);
+  border-color: rgba(212, 175, 55, 0.34);
 }
 
 @media (prefers-reduced-motion: reduce) {

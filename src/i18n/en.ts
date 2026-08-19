@@ -471,7 +471,7 @@ export const en = {
   packagesPage: {
     metaTitle: "Cybersecurity Packages",
     metaDescription:
-      "Cyber Essential, Cyber Advanced and Cyber Premium — managed cybersecurity packages for SMBs and enterprises: audits, vulnerability management, training, vCISO and more.",
+      "Cyber Essential, Cyber Advanced and Cyber Elite — managed cybersecurity packages for SMBs and enterprises: audits, vulnerability management, training, vCISO and more.",
     eyebrow: "B2B Service Packages",
     title: "Cybersecurity Packages",
     subtitle:
@@ -484,6 +484,12 @@ export const en = {
       "AI-augmented efficiency in every phase — faster assessments, deeper analysis, controlled costs.",
     recommendedBadge: "Most Popular",
     comparisonTitle: "Package Comparison",
+    catalogueTitle: "Download the service catalogue",
+    catalogueDescription:
+      "Explore the three service levels in our professional tri-fold catalogue, designed for easy viewing and printing.",
+    catalogueOutsideLabel: "Outside panels",
+    catalogueInsideLabel: "Inside service panels",
+    catalogueDownloadLabel: "Download the catalogue (PDF)",
     excludedNote:
       "Compliance audits, 24/7 SOC, managed SIEM, MDR, emergency incident response, data protection and application security/DevSecOps are not included in these packages.",
     packages: [
@@ -578,8 +584,8 @@ export const en = {
         ],
       },
       {
-        id: "premium",
-        name: "Cyber Premium",
+        id: "elite",
+        name: "Cyber Elite",
         tagline: "Complete security partnership",
         audience:
           "For organizations with complex environments, multiple sites, or elevated security requirements.",

@@ -7,10 +7,7 @@ import { fr } from "./fr";
  * `/(en|fr|ar)/…` via the `app/[locale]` segment. The root `/` is
  * redirected to `/en/` by `public/_redirects` (Cloudflare Pages).
  *
- * Brand logos are locale-aware (see `components/layout/logo.tsx`):
- * EN and AR share the gold "BRAINFORT SECURITY" lockup
- * (`public/logo.svg`); FR uses the fleur-de-lys "BrAInFort
- * Sécurité Inc." lockup (`public/logo-fr.svg`).
+ * The shared header lockup uses only official assets from `public/brand/`.
  */
 export const locales = ["en", "fr", "ar"] as const;
 export type Locale = (typeof locales)[number];
