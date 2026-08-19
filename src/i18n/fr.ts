@@ -326,6 +326,8 @@ export const fr: Dictionary = {
     subtitle:
       "Cinquante services ciblés répartis en dix domaines — retenez-en un seul, ou laissez-nous assembler le programme dont votre organisation a besoin.",
     countLabel: "services",
+    aiNote:
+      "Efficacité propulsée par l'IA à toutes les phases — évaluations plus rapides, analyses plus fines, coûts maîtrisés.",
     categories: [
       {
         id: "governance",
@@ -468,6 +470,8 @@ export const fr: Dictionary = {
     deliverablesTitle: "Livrables",
     frequencyTitle: "Fréquence",
     ctaLabel: "Demander une soumission",
+    aiNote:
+      "Efficacité propulsée par l'IA à toutes les phases — évaluations plus rapides, analyses plus fines, coûts maîtrisés.",
     recommendedBadge: "Le plus choisi",
     comparisonTitle: "Comparaison des forfaits",
     excludedNote:

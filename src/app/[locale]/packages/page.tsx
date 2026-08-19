@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, CalendarClock, CheckCircle2, FileText } from "lucide-react";
+import {
+  ArrowRight,
+  CalendarClock,
+  CheckCircle2,
+  FileText,
+  Zap,
+} from "lucide-react";
 
 import { ContactCta } from "@/components/contact-cta";
 import { Reveal } from "@/components/motion/reveal";
@@ -42,6 +48,12 @@ export default async function PackagesPage({ params }: PageProps) {
               title={t.title}
               subtitle={t.subtitle}
             />
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p className="glass mx-auto mt-8 flex max-w-2xl items-center justify-center gap-2 rounded-full px-5 py-2.5 text-center text-sm font-medium text-foreground">
+              <Zap className="size-4 shrink-0 text-primary" aria-hidden="true" />
+              {t.aiNote}
+            </p>
           </Reveal>
         </div>
       </section>

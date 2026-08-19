@@ -316,6 +316,8 @@ export const en = {
     subtitle:
       "Fifty focused services across ten domains — engage one, or let us assemble the program your organization needs.",
     countLabel: "services",
+    aiNote:
+      "AI-augmented efficiency in every phase — faster assessments, deeper analysis, controlled costs.",
     categories: [
       {
         id: "governance",
@@ -450,6 +452,8 @@ export const en = {
     deliverablesTitle: "Deliverables",
     frequencyTitle: "Cadence",
     ctaLabel: "Request a Quote",
+    aiNote:
+      "AI-augmented efficiency in every phase — faster assessments, deeper analysis, controlled costs.",
     recommendedBadge: "Most Popular",
     comparisonTitle: "Package Comparison",
     excludedNote:

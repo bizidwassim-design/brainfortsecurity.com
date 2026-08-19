@@ -11,6 +11,7 @@ import {
   LifeBuoy,
   Radar,
   ShieldCheck,
+  Zap,
   type LucideIcon,
 } from "lucide-react";
 
@@ -77,6 +78,12 @@ export default async function ServicesPage({ params }: PageProps) {
               <span className="ms-2 text-lg text-muted-foreground">
                 {dict.catalog.countLabel}
               </span>
+            </p>
+          </Reveal>
+          <Reveal delay={0.15}>
+            <p className="glass mx-auto mt-6 flex max-w-2xl items-center justify-center gap-2 rounded-full px-5 py-2.5 text-center text-sm font-medium text-foreground">
+              <Zap className="size-4 shrink-0 text-primary" aria-hidden="true" />
+              {dict.catalog.aiNote}
             </p>
           </Reveal>
         </div>

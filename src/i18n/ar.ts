@@ -318,6 +318,8 @@ export const ar: Dictionary = {
     subtitle:
       "خمسون خدمة متخصصة موزعة على عشرة مجالات — اختر خدمة واحدة، أو دعنا نبني البرنامج الذي تحتاجه مؤسستك.",
     countLabel: "خدمة",
+    aiNote:
+      "كفاءة مدعومة بالذكاء الاصطناعي في كل المراحل — تقييمات أسرع وتحليلات أعمق وتكاليف مضبوطة.",
     categories: [
       {
         id: "governance",
@@ -451,6 +453,8 @@ export const ar: Dictionary = {
     deliverablesTitle: "المخرجات",
     frequencyTitle: "الوتيرة",
     ctaLabel: "اطلب عرض سعر",
+    aiNote:
+      "كفاءة مدعومة بالذكاء الاصطناعي في كل المراحل — تقييمات أسرع وتحليلات أعمق وتكاليف مضبوطة.",
     recommendedBadge: "الأكثر اختياراً",
     comparisonTitle: "مقارنة الباقات",
     excludedNote:
