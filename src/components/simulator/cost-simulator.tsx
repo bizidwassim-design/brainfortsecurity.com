@@ -46,6 +46,7 @@ interface CostSimulatorProps {
     perYear: string;
     essentialBilling: string;
     monthlyBilling: string;
+    taxNote: string;
     disclaimer: string;
     cta: string;
   };
@@ -178,6 +179,9 @@ export function CostSimulator({
           })}
         </div>
 
+        <p className="text-xs font-semibold text-muted-foreground">
+          {dict.taxNote}
+        </p>
         <p className="text-xs italic leading-relaxed text-muted-foreground">
           {dict.disclaimer}
         </p>

@@ -1047,9 +1047,10 @@ export const ar: Dictionary = {
       network: "معدات الشبكة (محولات، جدران نارية، Wi-Fi)",
       users: "مستخدمو Microsoft 365 / صناديق البريد",
     },
-    monthLabel: "$ كندي / شهر",
+    monthLabel: "$ أمريكي / شهر",
     prepaidLabel: "الدفع السنوي المسبق (−10٪):",
-    perYear: "$ كندي / سنة",
+    perYear: "$ أمريكي / سنة",
+    taxNote: "جميع الأسعار غير شاملة الضرائب المطبقة.",
     essentialBilling: "يُفوتر مرتين في السنة، عند كل تدخّل",
     monthlyBilling: "فوترة شهرية",
     disclaimer:

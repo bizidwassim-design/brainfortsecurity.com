@@ -1070,9 +1070,10 @@ export const fr: Dictionary = {
       network: "Équipements réseau (commutateurs, pare-feu, Wi-Fi)",
       users: "Utilisateurs Microsoft 365 / boîtes courriel",
     },
-    monthLabel: "$ CA / mois",
+    monthLabel: "$ US / mois",
     prepaidLabel: "Prépaiement annuel (−10 %) :",
-    perYear: "$ CA / an",
+    perYear: "$ US / an",
+    taxNote: "Tous les prix sont hors taxes applicables.",
     essentialBilling: "Facturé deux fois par an, à chaque intervention",
     monthlyBilling: "Facturation mensuelle",
     disclaimer:

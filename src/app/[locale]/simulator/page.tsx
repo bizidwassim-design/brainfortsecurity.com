@@ -68,6 +68,7 @@ export default async function SimulatorPage({ params }: PageProps) {
                 perYear: t.perYear,
                 essentialBilling: t.essentialBilling,
                 monthlyBilling: t.monthlyBilling,
+                taxNote: t.taxNote,
                 disclaimer: t.disclaimer,
                 cta: t.cta,
               }}

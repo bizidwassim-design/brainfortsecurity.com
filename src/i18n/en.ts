@@ -1049,9 +1049,10 @@ export const en = {
       network: "Network devices (switches, firewalls, Wi-Fi)",
       users: "Microsoft 365 users / mailboxes",
     },
-    monthLabel: "CAD / month",
+    monthLabel: "USD / month",
     prepaidLabel: "Prepaid annually (−10%):",
-    perYear: "CAD / year",
+    perYear: "USD / year",
+    taxNote: "All prices are exclusive of applicable taxes.",
     essentialBilling: "Billed twice a year, at each intervention",
     monthlyBilling: "Monthly billing",
     disclaimer:
