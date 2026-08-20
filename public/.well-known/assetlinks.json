@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.brainfortsecurity.app",
+      "sha256_cert_fingerprints": [
+        "32:40:15:B7:0A:DA:29:AD:0D:64:31:32:AA:90:60:B3:15:78:B9:E3:C1:DF:A1:60:BC:BC:82:95:79:A7:25:98"
+      ]
+    }
+  }
+]
