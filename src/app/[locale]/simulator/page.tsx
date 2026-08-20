@@ -60,18 +60,7 @@ export default async function SimulatorPage({ params }: PageProps) {
                 recommended: pkg.recommended,
               }))}
               recommendedBadge={dict.packagesPage.recommendedBadge}
-              dict={{
-                inputsTitle: t.inputsTitle,
-                inputs: t.inputs,
-                monthLabel: t.monthLabel,
-                prepaidLabel: t.prepaidLabel,
-                perYear: t.perYear,
-                essentialBilling: t.essentialBilling,
-                monthlyBilling: t.monthlyBilling,
-                taxNote: t.taxNote,
-                disclaimer: t.disclaimer,
-                cta: t.cta,
-              }}
+              dict={t}
             />
           </Reveal>
         </div>
