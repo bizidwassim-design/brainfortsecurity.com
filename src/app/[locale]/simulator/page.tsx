@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Reveal } from "@/components/motion/reveal";
 import { CostSimulator } from "@/components/simulator/cost-simulator";
 import { Badge } from "@/components/ui/badge";
-import { getDictionary, type Locale } from "@/i18n";
+import { alternatesFor, getDictionary, type Locale } from "@/i18n";
 
 interface PageProps {
   params: Promise<{ locale: Locale }>;
@@ -17,6 +17,7 @@ export async function generateMetadata({
   return {
     title: dict.simulatorPage.metaTitle,
     description: dict.simulatorPage.metaDescription,
+    alternates: alternatesFor(locale, "/simulator/"),
     // Deliberately discreet: reachable only via the free-guide link.
     robots: { index: false, follow: false },
   };
