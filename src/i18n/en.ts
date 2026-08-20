@@ -1032,6 +1032,31 @@ export const en = {
     ctaBody:
       "Our consultants can implement every one of these measures for you — assessed, deployed, and documented.",
     ctaButton: "Book a Consultation",
+    costLink: "Estimate the cost of your protection",
+  },
+  simulatorPage: {
+    metaTitle: "Cost Simulator",
+    metaDescription:
+      "Estimate the indicative cost of BrainFort managed cybersecurity packages based on your workstations, servers, and network devices.",
+    eyebrow: "Cost Simulator",
+    title: "Estimate Your Protection Cost",
+    intro:
+      "Enter your asset counts to get an indicative estimate for each service level. Every engagement is confirmed with a custom quote.",
+    inputsTitle: "Your environment",
+    inputs: {
+      workstations: "Workstations & laptops",
+      servers: "Servers (physical, virtual or cloud)",
+      network: "Network devices (switches, firewalls, Wi-Fi)",
+      users: "Microsoft 365 users / mailboxes",
+    },
+    monthLabel: "CAD / month",
+    prepaidLabel: "Prepaid annually (−10%):",
+    perYear: "CAD / year",
+    essentialBilling: "Billed twice a year, at each intervention",
+    monthlyBilling: "Monthly billing",
+    disclaimer:
+      "Indicative estimate only — final pricing is confirmed in a custom quote after a short discovery call, based on your environment and risk profile.",
+    cta: "Request Your Custom Quote",
   },
   trustPage: {
     metaTitle: "Trust Center",

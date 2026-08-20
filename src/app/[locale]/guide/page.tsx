@@ -97,6 +97,16 @@ export default async function GuidePage({ params }: PageProps) {
               </div>
             </div>
           </Reveal>
+
+          {/* Deliberately discreet entry point to the cost simulator. */}
+          <p className="mt-8 text-center">
+            <Link
+              href={`/${locale}/simulator/`}
+              className="text-xs text-muted-foreground/70 underline-offset-4 transition-colors hover:text-muted-foreground hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
+            >
+              {dict.guidePage.costLink} →
+            </Link>
+          </p>
         </div>
       </section>
     </>

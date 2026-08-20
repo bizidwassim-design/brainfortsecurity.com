@@ -1053,6 +1053,31 @@ export const fr: Dictionary = {
     ctaBody:
       "Nos consultants peuvent implanter chacune de ces mesures pour vous — évaluées, déployées et documentées.",
     ctaButton: "Réserver une consultation",
+    costLink: "Estimer le coût de votre protection",
+  },
+  simulatorPage: {
+    metaTitle: "Simulateur de coûts",
+    metaDescription:
+      "Estimez le coût indicatif des forfaits de cybersécurité gérée BrainFort selon vos postes, serveurs et équipements réseau.",
+    eyebrow: "Simulateur de coûts",
+    title: "Estimez le coût de votre protection",
+    intro:
+      "Entrez le nombre de vos actifs pour obtenir une estimation indicative de chaque niveau de service. Chaque mandat est confirmé par une soumission sur mesure.",
+    inputsTitle: "Votre environnement",
+    inputs: {
+      workstations: "Postes de travail et portables",
+      servers: "Serveurs (physiques, virtuels ou infonuagiques)",
+      network: "Équipements réseau (commutateurs, pare-feu, Wi-Fi)",
+      users: "Utilisateurs Microsoft 365 / boîtes courriel",
+    },
+    monthLabel: "$ CA / mois",
+    prepaidLabel: "Prépaiement annuel (−10 %) :",
+    perYear: "$ CA / an",
+    essentialBilling: "Facturé deux fois par an, à chaque intervention",
+    monthlyBilling: "Facturation mensuelle",
+    disclaimer:
+      "Estimation indicative seulement — le prix final est confirmé par une soumission sur mesure après un court appel découverte, selon votre environnement et votre profil de risque.",
+    cta: "Demander une soumission sur mesure",
   },
   trustPage: {
     metaTitle: "Centre de confiance",
