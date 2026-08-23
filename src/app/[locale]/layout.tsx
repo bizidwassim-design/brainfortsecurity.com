@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cairo, Geist, Geist_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
+import Script from "next/script";
 
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
@@ -149,6 +150,17 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
           {dict.a11y.skipToContent}
         </a>
         <StructuredData locale={typedLocale} />
+        {/* Google Analytics 4 */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-FLZRYM4BK7"
+          strategy="afterInteractive"
+        />
+        <Script id="ga4" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-FLZRYM4BK7', { anonymize_ip: true });`}
+        </Script>
         <Header locale={typedLocale} dict={dict} />
         <main id="main-content" className="flex-1">
           {children}
