@@ -1071,6 +1071,11 @@ export const ar: Dictionary = {
     metaTitle: "تطبيق براين فورت",
     tabSimulator: "محاكي التكاليف",
     tabCatalog: "كتالوج الخدمات",
+    tabBooking: "احجز موعدًا",
+    bookingTitle: "احجز اجتماعًا لمدة 30 دقيقة",
+    bookingBody:
+      "اختر موعدًا مباشرة من جدولنا — مكالمة فيديو لمدة 30 دقيقة لمناقشة بيئتك وأولوياتك ومستوى الحماية المناسب. دون أي التزام.",
+    bookingCta: "اختر موعدًا",
     contactCta: "اطلب عرض سعر",
   },
   trustPage: {

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import {
+  ArrowRight,
+  CalendarClock,
   CheckCircle2,
   ChevronDown,
   ClipboardCheck,
@@ -19,6 +21,7 @@ import {
 
 import { AppTabs } from "@/components/app/app-tabs";
 import { CostSimulator } from "@/components/simulator/cost-simulator";
+import { buttonVariants } from "@/components/ui/button";
 import {
   getDictionary,
   localeNames,
@@ -128,6 +131,43 @@ export default async function MobileAppPage({ params }: PageProps) {
     </section>
   );
 
+  const booking = (
+    <section className="px-4 py-10 sm:px-6">
+      <div className="glass mx-auto max-w-xl rounded-3xl p-8 text-center sm:p-12">
+        <span className="mx-auto flex size-14 items-center justify-center rounded-2xl border border-primary/25 bg-primary/5">
+          <CalendarClock
+            className="neon-icon size-7 text-primary"
+            aria-hidden="true"
+          />
+        </span>
+        <h2 className="mt-5 text-2xl font-bold text-foreground">
+          {dict.appPage.bookingTitle}
+        </h2>
+        <span
+          aria-hidden="true"
+          className="mx-auto mt-4 block h-1 w-12 rounded-full bg-primary"
+        />
+        <p className="mt-4 leading-relaxed text-muted-foreground">
+          {dict.appPage.bookingBody}
+        </p>
+        <div className="mt-7">
+          <a
+            href="https://calendly.com/wassim-bizid-brainfortsecurity/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={cn(buttonVariants({ size: "lg" }), "group")}
+          >
+            {dict.appPage.bookingCta}
+            <ArrowRight
+              className="transition-transform group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1"
+              aria-hidden="true"
+            />
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+
   return (
     <>
       {/* Minimal app header: brand (non-navigating) + language switch */}
@@ -175,8 +215,10 @@ export default async function MobileAppPage({ params }: PageProps) {
         <AppTabs
           simulatorLabel={dict.appPage.tabSimulator}
           catalogLabel={dict.appPage.tabCatalog}
+          bookingLabel={dict.appPage.tabBooking}
           simulator={simulator}
           catalog={catalog}
+          booking={booking}
         />
       </main>
     </>

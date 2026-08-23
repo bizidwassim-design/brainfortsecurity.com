@@ -1094,6 +1094,11 @@ export const fr: Dictionary = {
     metaTitle: "App BrainFort",
     tabSimulator: "Simulateur de coûts",
     tabCatalog: "Catalogue de services",
+    tabBooking: "Rendez-vous",
+    bookingTitle: "Réservez une rencontre de 30 minutes",
+    bookingBody:
+      "Choisissez un créneau directement dans notre agenda — une visioconférence de 30 minutes pour discuter de votre environnement, de vos priorités et du bon niveau de protection. Sans engagement.",
+    bookingCta: "Choisir un créneau",
     contactCta: "Demander une soumission",
   },
   trustPage: {

@@ -1073,6 +1073,11 @@ export const en = {
     metaTitle: "BrainFort App",
     tabSimulator: "Cost Simulator",
     tabCatalog: "Service Catalogue",
+    tabBooking: "Book a Meeting",
+    bookingTitle: "Book a 30-Minute Meeting",
+    bookingBody:
+      "Pick a slot directly in our calendar — a 30-minute video call to discuss your environment, priorities, and the right level of protection. No commitment.",
+    bookingCta: "Choose a Time Slot",
     contactCta: "Request a Quote",
   },
   trustPage: {
