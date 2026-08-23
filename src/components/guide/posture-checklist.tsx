@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import {
   Ban,
   CheckCircle2,
@@ -40,8 +40,6 @@ const stepIcons: LucideIcon[] = [
   Vault,
   Radar,
 ];
-
-const STORAGE_KEY = "bf-posture-checklist";
 
 interface PostureChecklistProps {
   stepLabel: string;
@@ -91,43 +89,12 @@ export function PostureChecklist({
     items.map(() => false),
   );
 
-  // Restore saved progress after hydration (server always renders unchecked,
-  // so state must be applied post-mount rather than in the initializer).
-  useEffect(() => {
-    const frame = requestAnimationFrame(() => {
-      try {
-        const raw = localStorage.getItem(STORAGE_KEY);
-        if (!raw) return;
-        const saved: unknown = JSON.parse(raw);
-        if (Array.isArray(saved)) {
-          setChecked(items.map((_, i) => saved[i] === true));
-        }
-      } catch {
-        /* corrupted storage — start fresh */
-      }
-    });
-    return () => cancelAnimationFrame(frame);
-  }, [items]);
-
   const toggle = (index: number) => {
-    setChecked((prev) => {
-      const next = prev.map((v, i) => (i === index ? !v : v));
-      try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
-      } catch {
-        /* storage unavailable */
-      }
-      return next;
-    });
+    setChecked((prev) => prev.map((v, i) => (i === index ? !v : v)));
   };
 
   const reset = () => {
     setChecked(items.map(() => false));
-    try {
-      localStorage.removeItem(STORAGE_KEY);
-    } catch {
-      /* storage unavailable */
-    }
   };
 
   const done = useMemo(() => checked.filter(Boolean).length, [checked]);
