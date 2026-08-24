@@ -8,6 +8,10 @@ interface SectionHeadingProps {
   subtitle?: string;
   align?: "left" | "center";
   badgeVariant?: "default" | "secondary";
+  /** Heading level. Default "h2"; pass "h1" for a page's main heading
+   * when the section itself is the top of the page (e.g. a catalog hero
+   * with no separate <h1>). */
+  as?: "h1" | "h2";
 }
 
 export function SectionHeading({
@@ -17,6 +21,7 @@ export function SectionHeading({
   subtitle,
   align = "center",
   badgeVariant = "default",
+  as: Heading = "h2",
 }: SectionHeadingProps) {
   return (
     <div
@@ -26,12 +31,12 @@ export function SectionHeading({
       )}
     >
       {eyebrow && <Badge variant={badgeVariant}>{eyebrow}</Badge>}
-      <h2
+      <Heading
         id={id}
         className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl"
       >
         {title}
-      </h2>
+      </Heading>
       {/* Flyer-style short gold rule under headings. */}
       <span
         aria-hidden="true"

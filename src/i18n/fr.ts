@@ -5,7 +5,7 @@ export const fr: Dictionary = {
   meta: {
     title: "BrainFort Sécurité — Conseil en cybersécurité au Canada",
     description:
-      "Firme canadienne de conseil en cybersécurité établie à Montréal, au service de clients au Canada et au Moyen-Orient — sécurité des identités, Zéro Confiance, sécurité Microsoft, sécurité infonuagique et automatisation propulsée par l'IA.",
+      "Firme canadienne de conseil en cybersécurité à Montréal, au service du Canada et du Moyen-Orient — sécurité des identités, Zéro Confiance, sécurité Microsoft et évaluations propulsées par l'IA.",
   },
   a11y: {
     skipToContent: "Passer au contenu principal",

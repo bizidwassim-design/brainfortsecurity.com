@@ -14,7 +14,8 @@ import { ContactCta } from "@/components/contact-cta";
 import { Reveal } from "@/components/motion/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { buttonVariants } from "@/components/ui/button";
-import { alternatesFor, getDictionary, type Locale } from "@/i18n";
+import { getDictionary, type Locale } from "@/i18n";
+import { pageMetadata } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
 interface PageProps {
@@ -26,11 +27,12 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const dict = getDictionary(locale);
-  return {
-    title: dict.packagesPage.metaTitle,
-    description: dict.packagesPage.metaDescription,
-    alternates: alternatesFor(locale, "/packages/"),
-  };
+  return pageMetadata(
+    locale,
+    "/packages/",
+    dict.packagesPage.metaTitle,
+    dict.packagesPage.metaDescription,
+  );
 }
 
 export default async function PackagesPage({ params }: PageProps) {
@@ -45,6 +47,7 @@ export default async function PackagesPage({ params }: PageProps) {
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>
             <SectionHeading
+              as="h1"
               eyebrow={t.eyebrow}
               title={t.title}
               subtitle={t.subtitle}
@@ -55,6 +58,30 @@ export default async function PackagesPage({ params }: PageProps) {
               <Zap className="size-4 shrink-0 text-primary" aria-hidden="true" />
               {t.aiNote}
             </p>
+          </Reveal>
+          <Reveal delay={0.15}>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+              <Link
+                href={`/${locale}/services/`}
+                className={cn(buttonVariants({ variant: "outline" }), "group")}
+              >
+                {dict.nav.services}
+                <ArrowRight
+                  className="transition-transform group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1"
+                  aria-hidden="true"
+                />
+              </Link>
+              <Link
+                href={`/${locale}/simulator/`}
+                className={cn(buttonVariants({ variant: "outline" }), "group")}
+              >
+                {dict.nav.cost}
+                <ArrowRight
+                  className="transition-transform group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1"
+                  aria-hidden="true"
+                />
+              </Link>
+            </div>
           </Reveal>
         </div>
       </section>

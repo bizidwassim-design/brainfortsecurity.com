@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
-import { alternatesFor, getDictionary, type Locale } from "@/i18n";
+import { getDictionary, type Locale } from "@/i18n";
+import { pageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
 interface PageProps {
@@ -12,11 +13,12 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const dict = getDictionary(locale);
-  return {
-    title: dict.termsPage.metaTitle,
-    description: dict.termsPage.metaDescription,
-    alternates: alternatesFor(locale, "/terms/"),
-  };
+  return pageMetadata(
+    locale,
+    "/terms/",
+    dict.termsPage.metaTitle,
+    dict.termsPage.metaDescription,
+  );
 }
 
 export default async function TermsPage({ params }: PageProps) {

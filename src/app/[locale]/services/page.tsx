@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import {
+  ArrowRight,
   CheckCircle2,
   ClipboardCheck,
   Cloud,
@@ -20,7 +22,10 @@ import { Reveal } from "@/components/motion/reveal";
 import { CategoryNav } from "@/components/services/category-nav";
 import { SectionHeading } from "@/components/section-heading";
 import { Badge } from "@/components/ui/badge";
-import { alternatesFor, getDictionary, type Locale } from "@/i18n";
+import { buttonVariants } from "@/components/ui/button";
+import { getDictionary, type Locale } from "@/i18n";
+import { pageMetadata } from "@/lib/seo";
+import { cn } from "@/lib/utils";
 
 const categoryIcons: Record<string, LucideIcon> = {
   governance: Compass,
@@ -44,11 +49,12 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const dict = getDictionary(locale);
-  return {
-    title: dict.servicesPage.metaTitle,
-    description: dict.servicesPage.metaDescription,
-    alternates: alternatesFor(locale, "/services/"),
-  };
+  return pageMetadata(
+    locale,
+    "/services/",
+    dict.servicesPage.metaTitle,
+    dict.servicesPage.metaDescription,
+  );
 }
 
 export default async function ServicesPage({ params }: PageProps) {
@@ -66,6 +72,7 @@ export default async function ServicesPage({ params }: PageProps) {
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>
             <SectionHeading
+              as="h1"
               eyebrow={dict.catalog.eyebrow}
               title={dict.catalog.title}
               subtitle={dict.catalog.subtitle}
@@ -86,6 +93,30 @@ export default async function ServicesPage({ params }: PageProps) {
               <Zap className="size-4 shrink-0 text-primary" aria-hidden="true" />
               {dict.catalog.aiNote}
             </p>
+          </Reveal>
+          <Reveal delay={0.2}>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+              <Link
+                href={`/${locale}/packages/`}
+                className={cn(buttonVariants({ variant: "outline" }), "group")}
+              >
+                {dict.nav.packages}
+                <ArrowRight
+                  className="transition-transform group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1"
+                  aria-hidden="true"
+                />
+              </Link>
+              <Link
+                href={`/${locale}/simulator/`}
+                className={cn(buttonVariants({ variant: "outline" }), "group")}
+              >
+                {dict.nav.cost}
+                <ArrowRight
+                  className="transition-transform group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1"
+                  aria-hidden="true"
+                />
+              </Link>
+            </div>
           </Reveal>
         </div>
       </section>

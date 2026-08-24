@@ -6,7 +6,7 @@ export const en = {
   meta: {
     title: "BrainFort Security — Canadian Cybersecurity Consulting",
     description:
-      "Canadian cybersecurity consulting firm headquartered in Montréal, serving clients across Canada and the Middle East — identity security, Zero Trust, Microsoft security, cloud security, and AI-powered security automation.",
+      "Canadian cybersecurity consulting firm in Montréal, serving Canada and the Middle East — identity security, Zero Trust, Microsoft security, and AI-powered assessments.",
   },
   a11y: {
     skipToContent: "Skip to main content",

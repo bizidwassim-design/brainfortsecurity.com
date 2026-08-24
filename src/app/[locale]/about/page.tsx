@@ -7,7 +7,8 @@ import { Reveal } from "@/components/motion/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
-import { alternatesFor, getDictionary, type Locale } from "@/i18n";
+import { getDictionary, type Locale } from "@/i18n";
+import { pageMetadata } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
 const valueIcons = [Eye, Compass, Handshake, Lightbulb];
@@ -21,11 +22,12 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const dict = getDictionary(locale);
-  return {
-    title: dict.aboutPage.metaTitle,
-    description: dict.aboutPage.metaDescription,
-    alternates: alternatesFor(locale, "/about/"),
-  };
+  return pageMetadata(
+    locale,
+    "/about/",
+    dict.aboutPage.metaTitle,
+    dict.aboutPage.metaDescription,
+  );
 }
 
 export default async function AboutPage({ params }: PageProps) {

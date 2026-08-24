@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
-import { alternatesFor, getDictionary, type Locale } from "@/i18n";
+import { getDictionary, type Locale } from "@/i18n";
+import { pageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
 interface PageProps {
@@ -12,11 +13,12 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const dict = getDictionary(locale);
-  return {
-    title: dict.cookiesPage.metaTitle,
-    description: dict.cookiesPage.metaDescription,
-    alternates: alternatesFor(locale, "/cookies/"),
-  };
+  return pageMetadata(
+    locale,
+    "/cookies/",
+    dict.cookiesPage.metaTitle,
+    dict.cookiesPage.metaDescription,
+  );
 }
 
 export default async function CookiesPage({ params }: PageProps) {

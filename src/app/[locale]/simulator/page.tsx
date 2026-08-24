@@ -3,7 +3,8 @@ import type { Metadata } from "next";
 import { Reveal } from "@/components/motion/reveal";
 import { CostSimulator } from "@/components/simulator/cost-simulator";
 import { Badge } from "@/components/ui/badge";
-import { alternatesFor, getDictionary, type Locale } from "@/i18n";
+import { getDictionary, type Locale } from "@/i18n";
+import { pageMetadata } from "@/lib/seo";
 
 interface PageProps {
   params: Promise<{ locale: Locale }>;
@@ -14,11 +15,12 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const dict = getDictionary(locale);
-  return {
-    title: dict.simulatorPage.metaTitle,
-    description: dict.simulatorPage.metaDescription,
-    alternates: alternatesFor(locale, "/simulator/"),
-  };
+  return pageMetadata(
+    locale,
+    "/simulator/",
+    dict.simulatorPage.metaTitle,
+    dict.simulatorPage.metaDescription,
+  );
 }
 
 export default async function SimulatorPage({ params }: PageProps) {

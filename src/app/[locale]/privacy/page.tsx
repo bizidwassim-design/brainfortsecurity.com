@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
-import { alternatesFor, getDictionary, type Locale } from "@/i18n";
+import { getDictionary, type Locale } from "@/i18n";
+import { pageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
 interface PageProps {
@@ -12,11 +13,12 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const dict = getDictionary(locale);
-  return {
-    title: dict.privacyPage.metaTitle,
-    description: dict.privacyPage.metaDescription,
-    alternates: alternatesFor(locale, "/privacy/"),
-  };
+  return pageMetadata(
+    locale,
+    "/privacy/",
+    dict.privacyPage.metaTitle,
+    dict.privacyPage.metaDescription,
+  );
 }
 
 export default async function PrivacyPage({ params }: PageProps) {

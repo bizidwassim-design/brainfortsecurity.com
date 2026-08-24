@@ -5,7 +5,8 @@ import { Mail } from "lucide-react";
 import { ContactForm } from "@/components/contact/contact-form";
 import { Reveal } from "@/components/motion/reveal";
 import { Badge } from "@/components/ui/badge";
-import { alternatesFor, getDictionary, type Locale } from "@/i18n";
+import { getDictionary, type Locale } from "@/i18n";
+import { pageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
 interface PageProps {
@@ -17,11 +18,12 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const dict = getDictionary(locale);
-  return {
-    title: dict.contactPage.metaTitle,
-    description: dict.contactPage.metaDescription,
-    alternates: alternatesFor(locale, "/contact/"),
-  };
+  return pageMetadata(
+    locale,
+    "/contact/",
+    dict.contactPage.metaTitle,
+    dict.contactPage.metaDescription,
+  );
 }
 
 export default async function ContactPage({ params }: PageProps) {

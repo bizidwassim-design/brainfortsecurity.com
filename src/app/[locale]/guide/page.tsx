@@ -6,7 +6,8 @@ import { PostureChecklist } from "@/components/guide/posture-checklist";
 import { Reveal } from "@/components/motion/reveal";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
-import { alternatesFor, getDictionary, type Locale } from "@/i18n";
+import { getDictionary, type Locale } from "@/i18n";
+import { pageMetadata } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
 interface PageProps {
@@ -18,11 +19,12 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const dict = getDictionary(locale);
-  return {
-    title: dict.guidePage.metaTitle,
-    description: dict.guidePage.metaDescription,
-    alternates: alternatesFor(locale, "/guide/"),
-  };
+  return pageMetadata(
+    locale,
+    "/guide/",
+    dict.guidePage.metaTitle,
+    dict.guidePage.metaDescription,
+  );
 }
 
 export default async function GuidePage({ params }: PageProps) {

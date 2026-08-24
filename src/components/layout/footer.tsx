@@ -92,6 +92,21 @@ export function Footer({ locale, dict }: FooterProps) {
                 </Link>
               </li>
               <li>
+                <Link href={`/${locale}/packages/`} className={footerLinkClass}>
+                  {dict.nav.packages}
+                </Link>
+              </li>
+              <li>
+                <Link href={`/${locale}/simulator/`} className={footerLinkClass}>
+                  {dict.nav.cost}
+                </Link>
+              </li>
+              <li>
+                <Link href={`/${locale}/guide/`} className={footerLinkClass}>
+                  {dict.nav.freeGuide}
+                </Link>
+              </li>
+              <li>
                 <Link href={`/${locale}/contact/`} className={footerLinkClass}>
                   {dict.nav.contact}
                 </Link>

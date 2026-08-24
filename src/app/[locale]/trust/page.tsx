@@ -15,7 +15,8 @@ import {
 
 import { Reveal } from "@/components/motion/reveal";
 import { Badge } from "@/components/ui/badge";
-import { alternatesFor, getDictionary, type Locale } from "@/i18n";
+import { getDictionary, type Locale } from "@/i18n";
+import { pageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
 const pillarIcons = [Lock, ShieldCheck, Mail, Server, Database, Bug];
@@ -29,11 +30,12 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const dict = getDictionary(locale);
-  return {
-    title: dict.trustPage.metaTitle,
-    description: dict.trustPage.metaDescription,
-    alternates: alternatesFor(locale, "/trust/"),
-  };
+  return pageMetadata(
+    locale,
+    "/trust/",
+    dict.trustPage.metaTitle,
+    dict.trustPage.metaDescription,
+  );
 }
 
 export default async function TrustPage({ params }: PageProps) {

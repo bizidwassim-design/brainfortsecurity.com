@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { FileKey2, FileText } from "lucide-react";
 
-import { alternatesFor, getDictionary, type Locale } from "@/i18n";
+import { getDictionary, type Locale } from "@/i18n";
+import { pageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
 interface PageProps {
@@ -13,11 +14,12 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const dict = getDictionary(locale);
-  return {
-    title: dict.disclosurePage.metaTitle,
-    description: dict.disclosurePage.metaDescription,
-    alternates: alternatesFor(locale, "/disclosure/"),
-  };
+  return pageMetadata(
+    locale,
+    "/disclosure/",
+    dict.disclosurePage.metaTitle,
+    dict.disclosurePage.metaDescription,
+  );
 }
 
 export default async function DisclosurePage({ params }: PageProps) {
