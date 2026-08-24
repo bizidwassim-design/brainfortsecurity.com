@@ -14,6 +14,7 @@ export const ar: Dictionary = {
     home: "الرئيسية",
     services: "خدماتنا",
     packages: "الباقات",
+    cost: "التكلفة",
     freeGuide: "دليل مجاني",
     about: "من نحن",
     contact: "اتصل بنا",

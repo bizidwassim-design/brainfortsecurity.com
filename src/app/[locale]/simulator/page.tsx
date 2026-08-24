@@ -18,8 +18,6 @@ export async function generateMetadata({
     title: dict.simulatorPage.metaTitle,
     description: dict.simulatorPage.metaDescription,
     alternates: alternatesFor(locale, "/simulator/"),
-    // Deliberately discreet: reachable only via the free-guide link.
-    robots: { index: false, follow: false },
   };
 }
 

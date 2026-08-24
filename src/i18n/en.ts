@@ -15,6 +15,7 @@ export const en = {
     home: "Home",
     services: "Services",
     packages: "Packages",
+    cost: "Cost",
     freeGuide: "Free Guide",
     about: "About",
     contact: "Contact",
