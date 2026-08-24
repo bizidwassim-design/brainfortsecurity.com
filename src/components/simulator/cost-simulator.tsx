@@ -57,10 +57,10 @@ export function CostSimulator({
   ctaHref,
 }: CostSimulatorProps) {
   const [counts, setCounts] = useState({
-    workstations: 10,
-    servers: 1,
-    network: 2,
-    users: 10,
+    workstations: 0,
+    servers: 0,
+    network: 0,
+    users: 0,
   });
   const [sites, setSites] = useState(1);
   const [ot, setOt] = useState(false);

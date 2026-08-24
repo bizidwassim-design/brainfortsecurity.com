@@ -14,7 +14,7 @@ export const fr: Dictionary = {
     home: "Accueil",
     services: "Services",
     packages: "Forfaits",
-    cost: "Coût",
+    cost: "Tarification",
     freeGuide: "Guide gratuit",
     about: "À propos",
     contact: "Contact",
