@@ -25,11 +25,11 @@ export const en = {
     languageLabel: "Language",
   },
   hero: {
-    badge: "Building Trust. Securing Tomorrow.",
+    badge: "Cybersecurity at the Speed of AI",
     title: "Fortify Your Business Against Modern Cyber Threats",
     highlight: "Modern Cyber Threats",
     subtitle:
-      "BrainFort Security helps organizations across Canada and the Middle East assess, architect, and automate their security posture — from identity and Zero Trust to cloud and AI-powered defense.",
+      "BrainFort Security helps organizations across Canada and the Middle East assess, architect, and automate their security posture. Our AI-augmented delivery means faster turnaround and more consistent quality — without cutting corners.",
     primaryCta: "Get a Security Assessment",
     secondaryCta: "Explore Services",
     features: [
@@ -46,7 +46,7 @@ export const en = {
       {
         title: "AI-Powered Assessments",
         description:
-          "Leverage AI-driven analytics to detect threats faster and respond with precision.",
+          "Leverage AI-driven analytics to detect threats faster, shorten delivery timelines, and raise deliverable quality.",
       },
       {
         title: "Proudly Canadian",

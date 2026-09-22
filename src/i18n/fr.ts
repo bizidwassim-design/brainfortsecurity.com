@@ -24,11 +24,11 @@ export const fr: Dictionary = {
     languageLabel: "Langue",
   },
   hero: {
-    badge: "Bâtir la confiance. Sécuriser demain.",
+    badge: "La cybersécurité à la vitesse de l'IA",
     title: "Fortifiez votre entreprise contre les cybermenaces modernes",
     highlight: "les cybermenaces modernes",
     subtitle:
-      "BrainFort Sécurité aide les organisations du Canada et du Moyen-Orient à évaluer, concevoir et automatiser leur posture de sécurité — de l'identité et du Zéro Confiance jusqu'à l'infonuagique et la défense propulsée par l'IA.",
+      "BrainFort Sécurité aide les organisations du Canada et du Moyen-Orient à évaluer, concevoir et automatiser leur posture de sécurité. Notre approche propulsée par l'IA garantit une livraison plus rapide et une qualité plus constante — sans compromis.",
     primaryCta: "Obtenir une évaluation de sécurité",
     secondaryCta: "Découvrir nos services",
     features: [
@@ -45,7 +45,7 @@ export const fr: Dictionary = {
       {
         title: "Évaluations propulsées par l'IA",
         description:
-          "Exploitez l'analyse par IA pour détecter les menaces plus vite et répondre avec précision.",
+          "Exploitez l'analyse par IA pour détecter les menaces plus vite, réduire les délais de livraison et rehausser la qualité de chaque livrable.",
       },
       {
         title: "Fièrement canadienne",
