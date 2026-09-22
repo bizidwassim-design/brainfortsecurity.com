@@ -337,7 +337,7 @@ export const en = {
     eyebrow: "Service Catalog",
     title: "The Complete BrainFort Catalog",
     subtitle:
-      "Fifty focused services across ten domains — engage one, or let us assemble the program your organization needs.",
+      "Fifty-six focused services across ten domains — engage one, or let us assemble the program your organization needs.",
     countLabel: "services",
     aiNote:
       "AI-augmented efficiency in every phase — faster assessments, deeper analysis, controlled costs.",
@@ -350,6 +350,7 @@ export const en = {
         items: [
           "Cybersecurity maturity assessment",
           "Cyber risk analysis and assessment",
+          "Governance, Risk and Compliance (GRC) program",
           "Cybersecurity roadmap development",
           "Outsourced security leadership — vCISO",
           "Security policies and procedures development",
@@ -381,8 +382,10 @@ export const en = {
         items: [
           "External penetration testing",
           "Internal penetration testing",
+          "Vulnerability scanning",
           "One-time vulnerability assessment",
           "Continuous vulnerability management",
+          "Vulnerability remediation",
           "Security patch management",
           "Applied patch validation",
         ],
@@ -393,9 +396,11 @@ export const en = {
         description: "Harden the tools your business runs on every day.",
         items: [
           "Antivirus and EDR management",
-          "Microsoft 365 hardening",
+          "Microsoft 365 tenant hardening (Exchange Online, Teams, SharePoint)",
+          "Secure configuration hardening (CIS Benchmarks)",
           "Email security",
           "Phishing protection",
+          "Automation of recurring security tasks",
         ],
       },
       {
@@ -417,6 +422,7 @@ export const en = {
         description: "Be ready to respond, recover, and keep operating.",
         items: [
           "Incident response plan",
+          "Incident management and response",
           "Cybersecurity incident preparedness",
           "Crisis simulation exercises",
           "Business continuity plan",

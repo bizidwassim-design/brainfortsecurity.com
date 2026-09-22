@@ -347,7 +347,7 @@ export const fr: Dictionary = {
     eyebrow: "Catalogue de services",
     title: "Le catalogue complet BrainFort",
     subtitle:
-      "Cinquante services ciblés répartis en dix domaines — retenez-en un seul, ou laissez-nous assembler le programme dont votre organisation a besoin.",
+      "Cinquante-six services ciblés répartis en dix domaines — retenez-en un seul, ou laissez-nous assembler le programme dont votre organisation a besoin.",
     countLabel: "services",
     aiNote:
       "Efficacité propulsée par l'IA à toutes les phases — évaluations plus rapides, analyses plus fines, coûts maîtrisés.",
@@ -360,6 +360,7 @@ export const fr: Dictionary = {
         items: [
           "Diagnostic de maturité en cybersécurité",
           "Analyse et évaluation des risques cyber",
+          "Programme de gouvernance, risques et conformité (GRC)",
           "Élaboration d'une feuille de route de cybersécurité",
           "Responsable de la sécurité externalisé — vCISO",
           "Élaboration de politiques et procédures de sécurité",
@@ -392,8 +393,10 @@ export const fr: Dictionary = {
         items: [
           "Test d'intrusion externe",
           "Test d'intrusion interne",
+          "Scan de vulnérabilités",
           "Analyse ponctuelle des vulnérabilités",
           "Gestion continue des vulnérabilités",
+          "Remédiation des vulnérabilités",
           "Gestion des correctifs de sécurité",
           "Validation des correctifs appliqués",
         ],
@@ -405,9 +408,11 @@ export const fr: Dictionary = {
           "Durcir les outils sur lesquels votre entreprise fonctionne chaque jour.",
         items: [
           "Gestion des antivirus et EDR",
-          "Sécurisation de Microsoft 365",
+          "Durcissement du tenant Microsoft 365 (Exchange Online, Teams, SharePoint)",
+          "Durcissement selon les benchmarks CIS",
           "Sécurité de la messagerie électronique",
           "Protection contre l'hameçonnage",
+          "Automatisation des tâches de sécurité récurrentes",
         ],
       },
       {
@@ -430,6 +435,7 @@ export const fr: Dictionary = {
           "Être prêt à répondre, à récupérer et à poursuivre les activités.",
         items: [
           "Plan de réponse aux incidents",
+          "Gestion et réponse aux incidents",
           "Préparation aux incidents de cybersécurité",
           "Exercices de simulation de crise",
           "Plan de continuité des activités",
