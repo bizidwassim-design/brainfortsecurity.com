@@ -337,7 +337,7 @@ export const en = {
     eyebrow: "Service Catalog",
     title: "The Complete BrainFort Catalog",
     subtitle:
-      "Fifty-six focused services across ten domains — engage one, or let us assemble the program your organization needs.",
+      "Fifty-seven focused services across ten domains — engage one, or let us assemble the program your organization needs.",
     countLabel: "services",
     aiNote:
       "AI-augmented efficiency in every phase — faster assessments, deeper analysis, controlled costs.",
@@ -422,6 +422,7 @@ export const en = {
         description: "Be ready to respond, recover, and keep operating.",
         items: [
           "Incident response plan",
+          "Incident response playbook development",
           "Incident management and response",
           "Cybersecurity incident preparedness",
           "Crisis simulation exercises",

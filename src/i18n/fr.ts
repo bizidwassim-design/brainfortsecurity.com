@@ -347,7 +347,7 @@ export const fr: Dictionary = {
     eyebrow: "Catalogue de services",
     title: "Le catalogue complet BrainFort",
     subtitle:
-      "Cinquante-six services ciblés répartis en dix domaines — retenez-en un seul, ou laissez-nous assembler le programme dont votre organisation a besoin.",
+      "Cinquante-sept services ciblés répartis en dix domaines — retenez-en un seul, ou laissez-nous assembler le programme dont votre organisation a besoin.",
     countLabel: "services",
     aiNote:
       "Efficacité propulsée par l'IA à toutes les phases — évaluations plus rapides, analyses plus fines, coûts maîtrisés.",
@@ -435,6 +435,7 @@ export const fr: Dictionary = {
           "Être prêt à répondre, à récupérer et à poursuivre les activités.",
         items: [
           "Plan de réponse aux incidents",
+          "Élaboration de playbooks de réponse aux incidents",
           "Gestion et réponse aux incidents",
           "Préparation aux incidents de cybersécurité",
           "Exercices de simulation de crise",
