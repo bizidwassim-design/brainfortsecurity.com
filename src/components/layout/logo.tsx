@@ -6,6 +6,8 @@ import { siteConfig } from "@/lib/site";
 
 interface LogoProps {
   locale?: Locale;
+  /** "dark" for use on a dark surface (header); "light" (default) for the cream page background. */
+  variant?: "light" | "dark";
 }
 
 /** Red sparkles above the "AI", as in the official wordmark. */
@@ -30,8 +32,9 @@ function Sparkles() {
  * beneath. FR uses the "BrAInFort / Sécurité Inc." wording. If official
  * vector files land in public/brand/, swap this component to render them.
  */
-export function Logo({ locale = defaultLocale }: LogoProps) {
+export function Logo({ locale = defaultLocale, variant = "light" }: LogoProps) {
   const isFrench = locale === "fr";
+  const taglineColor = variant === "dark" ? "#e9d18b" : "#7a5f16";
 
   return (
     <Link
@@ -56,13 +59,24 @@ export function Logo({ locale = defaultLocale }: LogoProps) {
           </span>
           {isFrench ? "nFort" : "NFORT"}
         </span>
-        <span className="mt-1.5 flex items-center gap-2 text-[0.6rem] font-semibold uppercase text-[#7a5f16]">
-          <span aria-hidden="true" className="h-px w-4 bg-[#7a5f16]/50" />
+        <span
+          className="mt-1.5 flex items-center gap-2 text-[0.6rem] font-semibold uppercase"
+          style={{ color: taglineColor }}
+        >
+          <span
+            aria-hidden="true"
+            className="h-px w-4"
+            style={{ backgroundColor: taglineColor, opacity: 0.5 }}
+          />
           {/* Inline letter-spacing so the Arabic reset can't flatten it. */}
           <span style={{ letterSpacing: isFrench ? "0.18em" : "0.42em" }}>
             {isFrench ? "Sécurité Inc." : "Security"}
           </span>
-          <span aria-hidden="true" className="h-px w-4 bg-[#7a5f16]/50" />
+          <span
+            aria-hidden="true"
+            className="h-px w-4"
+            style={{ backgroundColor: taglineColor, opacity: 0.5 }}
+          />
         </span>
       </span>
     </Link>

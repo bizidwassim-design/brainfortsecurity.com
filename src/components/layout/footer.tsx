@@ -30,11 +30,11 @@ interface FooterProps {
 
 export function Footer({ locale, dict }: FooterProps) {
   return (
-    <footer className="border-t border-border bg-card/40">
+    <footer className="dark-surface border-t border-border">
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-4">
-            <Logo locale={locale} />
+            <Logo locale={locale} variant="dark" />
             <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
               {dict.footer.tagline}
             </p>

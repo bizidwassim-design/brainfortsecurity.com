@@ -171,7 +171,7 @@ export default async function MobileAppPage({ params }: PageProps) {
   return (
     <>
       {/* Minimal app header: brand (non-navigating) + language switch */}
-      <header className="flex items-center justify-between gap-3 px-4 py-3 sm:px-6">
+      <header className="dark-surface flex items-center justify-between gap-3 px-4 py-3 sm:px-6">
         <span className="flex items-center gap-2.5">
           <Image
             src="/brand/shield-web.webp"

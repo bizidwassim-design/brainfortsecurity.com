@@ -81,6 +81,32 @@ body {
     0 12px 28px rgba(28, 23, 18, 0.06);
 }
 
+/* Dark surface for every place the shield mark appears (header, footer, hero lockup) — it was
+   designed against near-black and loses definition on the light background. Overrides tokens
+   locally so bg-background/text-foreground/text-muted-foreground/border-border/bg-muted all
+   flip to the dark palette within the element. */
+.dark-surface {
+  --background: #0a0a0c;
+  --foreground: #f4f1e8;
+  --card: #141311;
+  --card-foreground: #f4f1e8;
+  --muted: #1d1b15;
+  --muted-foreground: #aaa494;
+  --border: rgba(212, 175, 55, 0.18);
+  --input: rgba(212, 175, 55, 0.28);
+  color-scheme: dark;
+  background: #0a0a0c;
+  color: var(--foreground);
+}
+
+/* Header variant: translucent + blurred so it reads as a floating bar. */
+.header-dark {
+  background: rgba(10, 10, 12, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.16);
+}
+
 /* Soft radial glow behind hero content. */
 .hero-glow {
   background:

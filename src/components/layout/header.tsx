@@ -67,9 +67,9 @@ export function Header({ locale, dict }: HeaderProps) {
   );
 
   return (
-    <header className="glass sticky top-0 z-50">
+    <header className="dark-surface header-dark sticky top-0 z-50">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-        <Logo locale={locale} />
+        <Logo locale={locale} variant="dark" />
 
         <nav aria-label="Main navigation" className="hidden lg:block">
           <ul className="flex items-center gap-1">

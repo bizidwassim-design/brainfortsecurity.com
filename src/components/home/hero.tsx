@@ -40,9 +40,9 @@ export function Hero({ locale, dict }: HeroProps) {
       />
       <div className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-24 lg:px-8">
         <div className="grid items-center gap-4 sm:gap-12 lg:grid-cols-[auto_1fr] lg:gap-20">
-          {/* Vertical brand lockup: shield + wordmark + tagline */}
+          {/* Vertical brand lockup: shield + wordmark + tagline, kept on its original dark plaque. */}
           <Reveal>
-            <div className="flex flex-col items-center gap-2 text-center sm:gap-4">
+            <div className="dark-surface flex flex-col items-center gap-2 rounded-3xl px-6 py-6 text-center sm:gap-4 sm:px-10 sm:py-8">
               <Image
                 src="/brand/shield-canadian.webp"
                 alt=""
