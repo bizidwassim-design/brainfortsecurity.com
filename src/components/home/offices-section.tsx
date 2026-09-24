@@ -5,11 +5,11 @@ import { Reveal } from "@/components/motion/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import type { Dictionary } from "@/i18n";
 
-/** Office WhatsApp numbers, in wa.me format (digits only, no leading zero). */
-const WHATSAPP_NUMBERS: Record<string, string> = {
-  ca: "15145592551",
-  ae: "971559438737",
-  sa: "966554834016",
+/** Office WhatsApp numbers — `number` is the wa.me digits-only target, `display` is the visible formatted number. */
+const WHATSAPP_NUMBERS: Record<string, { number: string; display: string }> = {
+  ca: { number: "15145592551", display: "+1 514 559 2551" },
+  ae: { number: "971559438737", display: "+971 55 943 8737" },
+  sa: { number: "966554834016", display: "+966 55 483 4016" },
 };
 
 interface OfficesSectionProps {
@@ -69,7 +69,7 @@ export function OfficesSection({ dict }: OfficesSectionProps) {
                     <span className="relative inline-flex h-full w-full rounded-full border border-[#f1d68a] bg-primary shadow-[0_0_12px_rgba(212,175,55,0.9)]" />
                   </span>
                   <span
-                    className={`absolute left-1/2 -translate-x-1/2 whitespace-nowrap text-[0.65rem] font-semibold text-[#e9d18b] sm:text-xs ${
+                    className={`absolute left-1/2 -translate-x-1/2 whitespace-nowrap text-[0.65rem] font-semibold text-[#7a5f16] sm:text-xs ${
                       pos.labelBelow ? "top-full mt-1.5" : "bottom-full mb-1.5"
                     }`}
                   >
@@ -100,17 +100,18 @@ export function OfficesSection({ dict }: OfficesSectionProps) {
                   {office.sublabel}
                 </p>
                 <a
-                  href={`https://wa.me/${WHATSAPP_NUMBERS[office.flag]}`}
+                  href={`https://wa.me/${WHATSAPP_NUMBERS[office.flag].number}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={dict.whatsapp.officeLabel.replace(
                     "{city}",
                     office.city,
                   )}
-                  className="mt-4 inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-[#25D366]/50 hover:text-[#25D366] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  dir="ltr"
+                  className="mt-4 inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm font-semibold text-foreground transition-colors hover:border-[#25D366]/60 hover:text-[#25D366] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 >
-                  <WhatsAppIcon className="size-3.5" />
-                  WhatsApp
+                  <WhatsAppIcon className="size-4 shrink-0 text-[#25D366]" />
+                  {WHATSAPP_NUMBERS[office.flag].display}
                 </a>
               </li>
             </Reveal>

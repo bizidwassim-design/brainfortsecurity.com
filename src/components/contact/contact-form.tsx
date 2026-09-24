@@ -164,12 +164,12 @@ export function ContactForm({ dict: t }: ContactFormProps) {
 
       <div role="status" aria-live="polite">
         {status === "success" && (
-          <p className="rounded-lg border border-primary/40 bg-primary/10 px-4 py-3 text-sm text-[#e9d18b]">
+          <p className="rounded-lg border border-primary/40 bg-primary/10 px-4 py-3 text-sm text-[#7a5f16]">
             {t.success}
           </p>
         )}
         {status === "error" && (
-          <p className="rounded-lg border border-accent/40 bg-accent/10 px-4 py-3 text-sm text-red-300">
+          <p className="rounded-lg border border-accent/40 bg-accent/10 px-4 py-3 text-sm text-[#9c1f1f]">
             {endpoint ? (
               t.error
             ) : (

@@ -128,7 +128,7 @@ export async function generateMetadata({
 }
 
 export const viewport = {
-  themeColor: "#0a0a0c",
+  themeColor: "#f7f5ee",
 };
 
 export default async function LocaleLayout({ children, params }: LayoutProps) {

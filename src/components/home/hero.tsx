@@ -65,7 +65,7 @@ export function Hero({ locale, dict }: HeroProps) {
             <Reveal delay={0.1}>
               <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-foreground sm:text-4xl lg:text-5xl">
                 {before}
-                <span className="bg-gradient-to-r from-[#f1d68a] via-[#d4af37] to-[#9a7a1f] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-[#d4af37] via-[#b8901f] to-[#7a5f16] bg-clip-text text-transparent">
                   {dict.hero.highlight}
                 </span>
                 {after}

@@ -56,13 +56,13 @@ export function Logo({ locale = defaultLocale }: LogoProps) {
           </span>
           {isFrench ? "nFort" : "NFORT"}
         </span>
-        <span className="mt-1.5 flex items-center gap-2 text-[0.6rem] font-semibold uppercase text-[#d4af37]">
-          <span aria-hidden="true" className="h-px w-4 bg-[#d4af37]/60" />
+        <span className="mt-1.5 flex items-center gap-2 text-[0.6rem] font-semibold uppercase text-[#7a5f16]">
+          <span aria-hidden="true" className="h-px w-4 bg-[#7a5f16]/50" />
           {/* Inline letter-spacing so the Arabic reset can't flatten it. */}
           <span style={{ letterSpacing: isFrench ? "0.18em" : "0.42em" }}>
             {isFrench ? "Sécurité Inc." : "Security"}
           </span>
-          <span aria-hidden="true" className="h-px w-4 bg-[#d4af37]/60" />
+          <span aria-hidden="true" className="h-px w-4 bg-[#7a5f16]/50" />
         </span>
       </span>
     </Link>

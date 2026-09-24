@@ -32,14 +32,12 @@ export default async function GuidePage({ params }: PageProps) {
   const dict = getDictionary(locale);
 
   return (
-    <div className="light-surface">
+    <>
       <section className="py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>
             <div className="mx-auto max-w-3xl space-y-6 text-center">
-              <Badge className="border-primary/40 bg-primary/10 text-[#7a5f16]">
-                {dict.guidePage.eyebrow}
-              </Badge>
+              <Badge>{dict.guidePage.eyebrow}</Badge>
               <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl">
                 {dict.guidePage.title}
               </h1>
@@ -112,6 +110,6 @@ export default async function GuidePage({ params }: PageProps) {
           </p>
         </div>
       </section>
-    </div>
+    </>
   );
 }

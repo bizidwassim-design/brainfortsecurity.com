@@ -21,7 +21,7 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-export const viewport: Viewport = { themeColor: "#0a0a0c" };
+export const viewport: Viewport = { themeColor: "#f7f5ee" };
 
 export const metadata: Metadata = {
   // Companion screen for the Android app only — never indexed.

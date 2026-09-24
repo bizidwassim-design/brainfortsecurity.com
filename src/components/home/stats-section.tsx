@@ -37,9 +37,9 @@ export function StatsSection({ dict }: StatsSectionProps) {
               >
                 <defs>
                   <linearGradient id="gauge-gold" x1="0" y1="0" x2="1" y2="0">
-                    <stop offset="0" stopColor="#9a7a1f" />
+                    <stop offset="0" stopColor="#7a5f16" />
                     <stop offset="0.5" stopColor="#d4af37" />
-                    <stop offset="1" stopColor="#f1d68a" />
+                    <stop offset="1" stopColor="#9a7a1f" />
                   </linearGradient>
                 </defs>
                 <path
@@ -63,7 +63,7 @@ export function StatsSection({ dict }: StatsSectionProps) {
                   x="100"
                   y="88"
                   textAnchor="middle"
-                  className="fill-[#f1d68a]"
+                  className="fill-[#9a7a1f]"
                   fontSize="34"
                   fontWeight="800"
                 >
@@ -83,7 +83,7 @@ export function StatsSection({ dict }: StatsSectionProps) {
                   <dt className="order-2 mt-2 block text-sm leading-relaxed text-muted-foreground">
                     {stat.label}
                   </dt>
-                  <dd className="order-1 bg-gradient-to-r from-[#f1d68a] to-[#d4af37] bg-clip-text text-4xl font-extrabold tracking-tight text-transparent sm:text-5xl">
+                  <dd className="order-1 bg-gradient-to-r from-[#9a7a1f] to-[#d4af37] bg-clip-text text-4xl font-extrabold tracking-tight text-transparent sm:text-5xl">
                     {stat.value}
                   </dd>
                 </div>

@@ -128,7 +128,7 @@ export function AgenticArchitecture({ dict }: AgenticArchitectureProps) {
                       width="40"
                       height="20"
                       rx="10"
-                      fill="#0a0a0c"
+                      fill="#ffffff"
                       stroke="rgba(212,175,55,0.5)"
                       strokeWidth="1"
                     />
@@ -139,7 +139,7 @@ export function AgenticArchitecture({ dict }: AgenticArchitectureProps) {
                       fontSize="9.5"
                       fontWeight="700"
                       letterSpacing="0.05em"
-                      fill="#e9d18b"
+                      fill="#7a5f16"
                     >
                       {t.mcpLabel}
                     </text>
@@ -156,8 +156,8 @@ export function AgenticArchitecture({ dict }: AgenticArchitectureProps) {
                     width="156"
                     height="68"
                     rx="14"
-                    fill="#141311"
-                    stroke="rgba(212,175,55,0.35)"
+                    fill="#ffffff"
+                    stroke="rgba(212,175,55,0.4)"
                     strokeWidth="1.3"
                   />
                   <NodeIcon kind={node.kind} x={node.pos.x - 50} y={node.pos.y} />
@@ -167,7 +167,7 @@ export function AgenticArchitecture({ dict }: AgenticArchitectureProps) {
                     textAnchor="middle"
                     fontSize="12.5"
                     fontWeight="600"
-                    fill="#f4f1e8"
+                    fill="#1c1712"
                   >
                     {node.label}
                   </text>
@@ -185,8 +185,8 @@ export function AgenticArchitecture({ dict }: AgenticArchitectureProps) {
               />
               <defs>
                 <radialGradient id="hubGlow" cx="50%" cy="40%" r="70%">
-                  <stop offset="0%" stopColor="#2a2210" />
-                  <stop offset="100%" stopColor="#141311" />
+                  <stop offset="0%" stopColor="#fbeec7" />
+                  <stop offset="100%" stopColor="#f3e6bd" />
                 </radialGradient>
               </defs>
               <text
@@ -195,7 +195,7 @@ export function AgenticArchitecture({ dict }: AgenticArchitectureProps) {
                 textAnchor="middle"
                 fontSize="16"
                 fontWeight="800"
-                fill="#f1d68a"
+                fill="#7a5f16"
               >
                 {t.hubLine1}
               </text>
@@ -205,7 +205,7 @@ export function AgenticArchitecture({ dict }: AgenticArchitectureProps) {
                 textAnchor="middle"
                 fontSize="16"
                 fontWeight="800"
-                fill="#f1d68a"
+                fill="#7a5f16"
               >
                 {t.hubLine2}
               </text>

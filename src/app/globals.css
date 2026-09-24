@@ -1,24 +1,27 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0a0c;
-  --foreground: #f4f1e8;
-  --card: #141311;
-  --card-foreground: #f4f1e8;
+  --background: #f7f5ee;
+  --foreground: #1c1712;
+  --card: #ffffff;
+  --card-foreground: #1c1712;
   --primary: #d4af37;
   --primary-foreground: #171204;
   --secondary: #d92b2b;
   --secondary-foreground: #ffffff;
   --accent: #ef4444;
   --accent-foreground: #ffffff;
-  --muted: #1d1b15;
-  --muted-foreground: #aaa494;
-  --border: rgba(212, 175, 55, 0.18);
-  --input: rgba(212, 175, 55, 0.28);
+  --muted: #ede8db;
+  --muted-foreground: #6b6455;
+  --border: rgba(28, 23, 18, 0.12);
+  --input: rgba(28, 23, 18, 0.18);
   --ring: #d4af37;
   --gold: #d4af37;
   --gold-light: #f1d68a;
   --gold-dark: #9a7a1f;
+  /* Deep, high-contrast gold/red — for text and small UI on the light background. */
+  --gold-deep: #7a5f16;
+  --red-deep: #9c1f1f;
 }
 
 @theme inline {
@@ -38,12 +41,14 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
   --color-gold: var(--gold);
+  --color-gold-deep: var(--gold-deep);
+  --color-red-deep: var(--red-deep);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 html {
-  color-scheme: dark;
+  color-scheme: light;
   scroll-behavior: smooth;
 }
 
@@ -57,35 +62,23 @@ body {
   color: #171204;
 }
 
-/* Gold gradient wordmark text (brand logo). */
+/* Gold gradient wordmark text (brand logo) — kept dark enough to read on the light background. */
 .gold-text {
-  background: linear-gradient(180deg, #f1d68a 0%, #d4af37 55%, #9a7a1f 100%);
+  background: linear-gradient(180deg, #d4af37 0%, #9a7a1f 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
-/* Frosted glass surface used across sections. */
+/* Frosted glass surface used across sections — a soft white card over the warm cream background. */
 .glass {
-  background: rgba(20, 19, 17, 0.6);
+  background: rgba(255, 255, 255, 0.72);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(212, 175, 55, 0.16);
-}
-
-/* Light, paper-like surface for form-style pages (e.g. the insurance simulator) — overrides the shared tokens locally so bg-background/text-foreground/bg-card/border-border/text-muted-foreground flip to a light palette within this subtree. */
-.light-surface {
-  --background: #f7f5ee;
-  --foreground: #1c1712;
-  --card: #ffffff;
-  --card-foreground: #1c1712;
-  --muted: #ede8db;
-  --muted-foreground: #6b6455;
-  --border: rgba(28, 23, 18, 0.12);
-  --input: rgba(28, 23, 18, 0.18);
-  color-scheme: light;
-  background: var(--background);
-  color: var(--foreground);
+  border: 1px solid rgba(28, 23, 18, 0.08);
+  box-shadow:
+    0 1px 2px rgba(28, 23, 18, 0.04),
+    0 12px 28px rgba(28, 23, 18, 0.06);
 }
 
 /* Soft radial glow behind hero content. */
@@ -93,12 +86,12 @@ body {
   background:
     radial-gradient(
       600px circle at 20% 10%,
-      rgba(212, 175, 55, 0.14),
+      rgba(212, 175, 55, 0.22),
       transparent 60%
     ),
     radial-gradient(
       500px circle at 80% 30%,
-      rgba(217, 43, 43, 0.09),
+      rgba(217, 43, 43, 0.13),
       transparent 60%
     );
 }
@@ -121,12 +114,12 @@ body {
   background:
     radial-gradient(
       42% 34% at 30% 30%,
-      rgba(212, 175, 55, 0.1),
+      rgba(212, 175, 55, 0.18),
       transparent 70%
     ),
     radial-gradient(
       36% 30% at 72% 58%,
-      rgba(217, 43, 43, 0.06),
+      rgba(217, 43, 43, 0.11),
       transparent 70%
     );
   filter: blur(48px);
