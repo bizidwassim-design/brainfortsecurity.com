@@ -337,7 +337,7 @@ export const en = {
     eyebrow: "Service Catalog",
     title: "The Complete BrainFort Catalog",
     subtitle:
-      "Fifty-eight focused services across ten domains — engage one, or let us assemble the program your organization needs.",
+      "Fifty-nine focused services across ten domains — engage one, or let us assemble the program your organization needs.",
     countLabel: "services",
     aiNote:
       "AI-augmented efficiency in every phase — faster assessments, deeper analysis, controlled costs.",
@@ -399,6 +399,7 @@ export const en = {
           "Antivirus and EDR management",
           "Microsoft 365 tenant hardening (Exchange Online, Teams, SharePoint)",
           "Secure configuration hardening (CIS Benchmarks)",
+          "Attack surface reduction (MITRE ATT&CK-aligned)",
           "Email security",
           "Phishing protection",
           "Automation of recurring security tasks",

@@ -347,7 +347,7 @@ export const fr: Dictionary = {
     eyebrow: "Catalogue de services",
     title: "Le catalogue complet BrainFort",
     subtitle:
-      "Cinquante-huit services ciblés répartis en dix domaines — retenez-en un seul, ou laissez-nous assembler le programme dont votre organisation a besoin.",
+      "Cinquante-neuf services ciblés répartis en dix domaines — retenez-en un seul, ou laissez-nous assembler le programme dont votre organisation a besoin.",
     countLabel: "services",
     aiNote:
       "Efficacité propulsée par l'IA à toutes les phases — évaluations plus rapides, analyses plus fines, coûts maîtrisés.",
@@ -411,6 +411,7 @@ export const fr: Dictionary = {
           "Gestion des antivirus et EDR",
           "Durcissement du tenant Microsoft 365 (Exchange Online, Teams, SharePoint)",
           "Durcissement selon les benchmarks CIS",
+          "Réduction de la surface d'attaque (alignée sur MITRE ATT&CK)",
           "Sécurité de la messagerie électronique",
           "Protection contre l'hameçonnage",
           "Automatisation des tâches de sécurité récurrentes",
