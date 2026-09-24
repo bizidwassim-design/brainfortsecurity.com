@@ -66,7 +66,7 @@ export function Footer({ locale, dict }: FooterProps) {
               {dict.services.slice(0, 6).map((service) => (
                 <li key={service.id}>
                   <Link
-                    href={`/${locale}/services/#${service.id}`}
+                    href={`/${locale}/#${service.id}`}
                     className={footerLinkClass}
                   >
                     {service.title}

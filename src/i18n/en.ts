@@ -938,11 +938,11 @@ export const en = {
       },
       {
         title: "2. Cookies We Use Today",
-        body: "This website does not set any advertising or cross-site tracking cookies. Our infrastructure provider (Cloudflare) may set strictly necessary operational cookies for security purposes, such as bot mitigation. These are essential and do not track you across sites.",
+        body: "This website uses Google Analytics 4, with IP addresses anonymized, to understand how visitors use our site. Our infrastructure provider (Cloudflare) may also set strictly necessary operational cookies for security purposes, such as bot mitigation. We do not set advertising or cross-site tracking cookies.",
       },
       {
-        title: "3. Analytics We May Add",
-        body: "If we introduce analytics tools (such as privacy-focused web analytics, Microsoft Clarity, or Google Analytics), this policy will be updated first, and where required by law we will ask for your consent before any non-essential cookie is set.",
+        title: "3. Google Analytics",
+        body: "Google Analytics sets cookies to collect anonymized usage data — pages visited, general location, device type — to help us understand and improve the site. IP addresses are anonymized before storage. You can opt out at any time using the Google Analytics Opt-out Browser Add-on, or by blocking analytics cookies in your browser settings.",
       },
       {
         title: "4. Managing Cookies",
@@ -1127,6 +1127,7 @@ export const en = {
     },
     monthLabel: "USD / month",
     prepaidLabel: "Prepaid annually (−10%):",
+    prepaidLabelTwoYear: "Prepaid for 2 years (−15%):",
     perYear: "USD / year",
     taxNote: "All prices are exclusive of applicable taxes.",
     optionsTitle: "Options",
@@ -1138,9 +1139,9 @@ export const en = {
     commitmentAnnual: "Annual prepaid (−10%)",
     commitmentTwoYear: "2 years (−15%)",
     bestFitLabel: "Best fit for your profile",
-    essentialSplitLabel: "i.e. 2 payments of",
-    essentialBilling: "Billed twice a year, at each intervention",
-    monthlyBilling: "Monthly billing",
+    billingMonthly: "Billed monthly.",
+    billingAnnualPrepaid: "Billed once, upfront for the year.",
+    billingTwoYearPrepaid: "Billed once, upfront for two years.",
     disclaimer:
       "Indicative estimate only — final pricing is confirmed in a custom quote after a short discovery call, based on your environment and risk profile.",
     cta: "Request Your Custom Quote",

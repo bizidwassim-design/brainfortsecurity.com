@@ -959,11 +959,11 @@ export const fr: Dictionary = {
       },
       {
         title: "2. Les cookies que nous utilisons aujourd'hui",
-        body: "Ce site ne dépose aucun cookie publicitaire ni de suivi intersites. Notre fournisseur d'infrastructure (Cloudflare) peut déposer des cookies opérationnels strictement nécessaires à des fins de sécurité, comme la protection contre les robots. Ils sont essentiels et ne vous suivent pas d'un site à l'autre.",
+        body: "Ce site utilise Google Analytics 4, avec anonymisation des adresses IP, pour comprendre comment les visiteurs utilisent le site. Notre fournisseur d'infrastructure (Cloudflare) peut aussi déposer des cookies opérationnels strictement nécessaires à des fins de sécurité, comme la protection contre les robots. Nous ne déposons aucun cookie publicitaire ni de suivi intersites.",
       },
       {
-        title: "3. Les outils d'analyse à venir",
-        body: "Si nous ajoutons des outils d'analyse (analyse Web respectueuse de la vie privée, Microsoft Clarity ou Google Analytics), cette politique sera d'abord mise à jour et, lorsque la loi l'exige, nous demanderons votre consentement avant tout dépôt de cookie non essentiel.",
+        title: "3. Google Analytics",
+        body: "Google Analytics dépose des cookies pour recueillir des données d'utilisation anonymisées — pages visitées, localisation générale, type d'appareil — afin de nous aider à comprendre et améliorer le site. Les adresses IP sont anonymisées avant stockage. Vous pouvez vous désinscrire en tout temps avec le module complémentaire de désactivation Google Analytics, ou en bloquant les cookies d'analyse dans les paramètres de votre navigateur.",
       },
       {
         title: "4. Gérer les cookies",
@@ -1148,6 +1148,7 @@ export const fr: Dictionary = {
     },
     monthLabel: "$ US / mois",
     prepaidLabel: "Prépaiement annuel (−10 %) :",
+    prepaidLabelTwoYear: "Prépaiement pour 2 ans (−15 %) :",
     perYear: "$ US / an",
     taxNote: "Tous les prix sont hors taxes applicables.",
     optionsTitle: "Options",
@@ -1159,9 +1160,9 @@ export const fr: Dictionary = {
     commitmentAnnual: "Annuel prépayé (−10 %)",
     commitmentTwoYear: "2 ans (−15 %)",
     bestFitLabel: "Adapté à votre profil",
-    essentialSplitLabel: "soit 2 versements de",
-    essentialBilling: "Facturé deux fois par an, à chaque intervention",
-    monthlyBilling: "Facturation mensuelle",
+    billingMonthly: "Facturé mensuellement.",
+    billingAnnualPrepaid: "Facturé en une fois, payé d'avance pour l'année.",
+    billingTwoYearPrepaid: "Facturé en une fois, payé d'avance pour deux ans.",
     disclaimer:
       "Estimation indicative seulement — le prix final est confirmé par une soumission sur mesure après un court appel découverte, selon votre environnement et votre profil de risque.",
     cta: "Demander une soumission sur mesure",

@@ -34,7 +34,11 @@ export function ServicesOverview({ locale, dict }: ServicesOverviewProps) {
             return (
               <Reveal key={service.id} delay={index * 0.06}>
                 {/* Flip card: front = icon + title, back = description. */}
-                <div className="flip-card h-60" tabIndex={0}>
+                <div
+                  id={service.id}
+                  className="flip-card h-60 scroll-mt-32"
+                  tabIndex={0}
+                >
                   <div className="flip-inner">
                     <div className="flip-face glass flex flex-col items-center justify-center gap-4 rounded-2xl p-6 text-center">
                       <div className="neon-float flex size-16 items-center justify-center rounded-2xl border border-primary/25 bg-primary/5">

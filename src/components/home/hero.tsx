@@ -38,11 +38,11 @@ export function Hero({ locale, dict }: HeroProps) {
         aria-hidden="true"
         className="pointer-events-none absolute -end-32 top-8 hidden w-[720px] select-none opacity-25 lg:block"
       />
-      <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
-        <div className="grid items-center gap-12 lg:grid-cols-[auto_1fr] lg:gap-20">
+      <div className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-24 lg:px-8">
+        <div className="grid items-center gap-4 sm:gap-12 lg:grid-cols-[auto_1fr] lg:gap-20">
           {/* Vertical brand lockup: shield + wordmark + tagline */}
           <Reveal>
-            <div className="flex flex-col items-center gap-4 text-center">
+            <div className="flex flex-col items-center gap-2 text-center sm:gap-4">
               <Image
                 src="/brand/shield-canadian.webp"
                 alt=""
@@ -50,20 +50,20 @@ export function Hero({ locale, dict }: HeroProps) {
                 height={503}
                 priority
                 aria-hidden="true"
-                className="h-56 w-auto sm:h-72"
+                className="h-28 w-auto sm:h-56 lg:h-72"
               />
             </div>
           </Reveal>
 
           <div className="text-center lg:text-start">
             <Reveal delay={0.05}>
-              <Badge className="mb-6 uppercase tracking-wider">
+              <Badge className="mb-3 uppercase tracking-wider sm:mb-6">
                 {dict.hero.badge}
               </Badge>
             </Reveal>
 
             <Reveal delay={0.1}>
-              <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-foreground sm:text-5xl">
+              <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-foreground sm:text-4xl lg:text-5xl">
                 {before}
                 <span className="bg-gradient-to-r from-[#f1d68a] via-[#d4af37] to-[#9a7a1f] bg-clip-text text-transparent">
                   {dict.hero.highlight}
@@ -73,13 +73,13 @@ export function Hero({ locale, dict }: HeroProps) {
             </Reveal>
 
             <Reveal delay={0.2}>
-              <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground lg:mx-0">
+              <p className="mx-auto mt-3 max-w-2xl text-base leading-relaxed text-muted-foreground sm:mt-6 sm:text-lg lg:mx-0">
                 {dict.hero.subtitle}
               </p>
             </Reveal>
 
             <Reveal delay={0.3}>
-              <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start">
+              <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:mt-9 sm:flex-row sm:gap-4 lg:justify-start">
                 <Link
                   href={`/${locale}/contact/`}
                   className={cn(buttonVariants({ size: "lg" }), "group")}

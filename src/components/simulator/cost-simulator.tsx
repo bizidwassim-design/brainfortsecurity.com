@@ -313,7 +313,11 @@ export function CostSimulator({
                   </span>
                 </p>
                 <p className="mt-2 text-xs text-muted-foreground">
-                  {commitment === "monthly" ? "12 ×" : dict.prepaidLabel}{" "}
+                  {commitment === "monthly"
+                    ? "12 ×"
+                    : commitment === "annual"
+                      ? dict.prepaidLabel
+                      : dict.prepaidLabelTwoYear}{" "}
                   <span
                     className="font-semibold tabular-nums text-foreground"
                     dir="ltr"
@@ -323,16 +327,11 @@ export function CostSimulator({
                   {dict.perYear}
                 </p>
                 <p className="mt-4 border-t border-border pt-3 text-xs leading-relaxed text-muted-foreground">
-                  {index === 0 ? (
-                    <>
-                      {dict.essentialBilling} — {dict.essentialSplitLabel}{" "}
-                      <span className="font-semibold tabular-nums" dir="ltr">
-                        {fmt.format(Math.round(estimate.yearly / 2))}
-                      </span>
-                    </>
-                  ) : (
-                    dict.monthlyBilling
-                  )}
+                  {commitment === "monthly"
+                    ? dict.billingMonthly
+                    : commitment === "annual"
+                      ? dict.billingAnnualPrepaid
+                      : dict.billingTwoYearPrepaid}
                 </p>
               </div>
             );
