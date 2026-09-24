@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Gauge } from "lucide-react";
 
-import { PostureChecklist } from "@/components/guide/posture-checklist";
+import { InsuranceSimulator } from "@/components/guide/insurance-simulator";
 import { Reveal } from "@/components/motion/reveal";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
@@ -63,9 +63,8 @@ export default async function GuidePage({ params }: PageProps) {
       <section className="pb-20 sm:pb-24" aria-label={dict.guidePage.eyebrow}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>
-            <PostureChecklist
-              stepLabel={dict.guidePage.stepLabel}
-              items={dict.guidePage.items}
+            <InsuranceSimulator
+              categories={dict.guidePage.categories}
               simulator={dict.guidePage.simulator}
             />
           </Reveal>

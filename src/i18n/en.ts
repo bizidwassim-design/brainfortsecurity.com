@@ -16,7 +16,7 @@ export const en = {
     services: "Services",
     packages: "Packages",
     cost: "Pricing",
-    freeGuide: "Free Guide",
+    freeGuide: "Cyber Insurance Simulator",
     about: "About",
     contact: "Contact",
     cta: "Book a Consultation",
@@ -337,7 +337,7 @@ export const en = {
     eyebrow: "Service Catalog",
     title: "The Complete BrainFort Catalog",
     subtitle:
-      "Fifty-seven focused services across ten domains — engage one, or let us assemble the program your organization needs.",
+      "Fifty-eight focused services across ten domains — engage one, or let us assemble the program your organization needs.",
     countLabel: "services",
     aiNote:
       "AI-augmented efficiency in every phase — faster assessments, deeper analysis, controlled costs.",
@@ -357,6 +357,7 @@ export const en = {
           "Cybersecurity architecture and strategy",
           "Cybersecurity dashboards and KPIs",
           "Cyber insurance application and renewal support",
+          "Cyber insurance readiness preparation",
           "Client and partner security requirements assessment",
         ],
       },
@@ -927,118 +928,160 @@ export const en = {
     ],
   },
   guidePage: {
-    metaTitle: "Free Security Guide",
+    metaTitle: "Cyber Insurance Free Simulator",
     metaDescription:
-      "Free quick-start security guide: 14 practical, high-impact steps to secure your environment — MFA, network segmentation, server hardening, ASR rules, and more.",
-    eyebrow: "Free Guide",
-    title: "Start Securing Your Environment",
+      "Free interactive cyber insurance readiness simulator: see your insurability score across identity, threat readiness, vulnerability management, and foundational controls — the same controls insurers ask about.",
+    eyebrow: "Cyber Insurance Free Simulator",
+    title: "How Insurable Is Your Organization?",
     intro:
-      "Fourteen practical, high-impact measures our consultants recommend to every organization. Free to use — no signup, no email required.",
-    stepLabel: "Step",
+      "Sixteen controls drawn directly from real cyber insurance applications, organized across the four domains insurers actually underwrite on. Free to use — no signup, no email required.",
     simulator: {
       instruction:
-        "This is also a simulator: check every measure already in place in your organization and get your cybersecurity posture score out of 100.",
-      scoreTitle: "Your Posture Score",
-      checkedLabel: "measures in place",
+        "This is also a simulator: check every control already in place and see your insurability score out of 100 — the same questions cyber insurers ask on every application.",
+      scoreTitle: "Your Insurability Score",
+      checkedLabel: "controls in place",
+      dashboardTitle: "Score by Domain",
       reset: "Reset",
       bands: [
         {
           label: "Critical",
           description:
-            "Your environment is highly exposed. Start today with MFA and dedicated admin accounts.",
+            "Most insurers would decline or heavily surcharge this profile. Start with MFA and out-of-band verification for fund transfers — the two controls insurers check first.",
         },
         {
           label: "At Risk",
           description:
-            "Key foundations are missing. Prioritize the unchecked high-impact measures.",
+            "Key underwriting controls are missing. Closing these gaps improves both your eligibility and your premium.",
         },
         {
           label: "Good Progress",
           description:
-            "Solid base — close the remaining gaps to reach a mature posture.",
+            "A strong, insurable profile. Close the remaining gaps to unlock the best available terms.",
         },
         {
           label: "Excellent",
           description:
-            "Strong posture. Keep auditing regularly to stay there.",
+            "Best-in-class profile. Insurers reward this with broader coverage and lower premiums — keep validating it regularly.",
         },
       ],
     },
-    items: [
+    categories: [
       {
-        title: "Enable MFA for every account with a mailbox",
+        id: "identity",
+        title: "Identity & Access",
         description:
-          "Enforce multi-factor authentication on all user accounts that have a mailbox — they are the most targeted by phishing and credential theft.",
+          "Who can get in, and how tightly that's controlled — the single most attacked layer in every breach.",
+        items: [
+          {
+            title: "MFA enforced on every email account",
+            description:
+              "Multi-factor authentication is required for remote access to all company email accounts — the most targeted entry point for attackers.",
+          },
+          {
+            title: "MFA enforced for remote network access",
+            description:
+              "VPN and any other remote access to your network requires multi-factor authentication, not just a password.",
+          },
+          {
+            title: "MFA enforced on cloud resources with sensitive data",
+            description:
+              "Every cloud application or storage location holding sensitive or confidential information requires multi-factor authentication to access.",
+          },
+          {
+            title: "Local admin rights restricted",
+            description:
+              "Everyday users don't have local administrator rights on their laptops or desktops, and privileged accounts are kept separate from day-to-day use.",
+          },
+        ],
       },
       {
-        title: "Use dynamic groups instead of static groups",
+        id: "threat",
+        title: "Threat & Incident Readiness",
         description:
-          "In Active Directory and Entra ID, build group membership from attribute rules so access assignments stay accurate automatically as people join, move, or leave.",
+          "What happens the moment something goes wrong — detection, response, and the controls that stop fraud.",
+        items: [
+          {
+            title: "Network monitoring or SOC in place",
+            description:
+              "A monitoring solution or Security Operations Centre alerts your organization to suspicious or malicious activity on the network.",
+          },
+          {
+            title: "Incident response plan tested periodically",
+            description:
+              "A formal cyber incident response plan exists and is tested on a regular schedule, not just written and filed away.",
+          },
+          {
+            title: "Annual phishing simulation training",
+            description:
+              "Employees are tested with simulated phishing attacks at least once a year to keep awareness sharp.",
+          },
+          {
+            title: "Out-of-band verification for fund transfers",
+            description:
+              "Before changing a vendor's bank details or wiring funds, your team verifies the request through a separate channel — the single control insurers check first for crime coverage.",
+          },
+        ],
       },
       {
-        title: "Tag devices, users, and applications",
+        id: "vulnerability",
+        title: "Vulnerability Management",
         description:
-          "Apply tags as much as you can to device, user, and application objects — ownership, criticality, and environment tags make scoping policies and incident response far faster.",
+          "How fast you find weaknesses — and how fast you close them — before attackers do.",
+        items: [
+          {
+            title: "Recurring vulnerability scanning",
+            description:
+              "Your network perimeter is scanned for vulnerabilities on a recurring schedule, not just once a year.",
+          },
+          {
+            title: "Regular penetration testing",
+            description:
+              "Independent penetration testing of your network and applications happens at least annually.",
+          },
+          {
+            title: "EDR deployed on every endpoint",
+            description:
+              "Endpoint detection and response is deployed and monitored across all endpoints — not just servers or a subset of devices.",
+          },
+          {
+            title: "No unmanaged end-of-life software",
+            description:
+              "Systems past end-of-life or end-of-support are identified and either retired or fully segregated from the network.",
+          },
+        ],
       },
       {
-        title: "Segment your network",
+        id: "controls",
+        title: "Foundational Controls",
         description:
-          "Separate servers, workstations, IoT/OT, and guest traffic into distinct zones with controlled flows between them to contain lateral movement.",
-      },
-      {
-        title: "Require passwords of at least 14 characters",
-        description:
-          "Length beats complexity. Set a 14-character minimum and pair it with screening against known-breached passwords.",
-      },
-      {
-        title: "Deny logon for service accounts",
-        description:
-          "Service accounts must be denied interactive and remote logon — grant only the exact 'log on as a service' right where required.",
-      },
-      {
-        title: "Use dedicated accounts for administration",
-        description:
-          "Create separate, dedicated admin accounts for administrative tasks — never browse the web or read email with a privileged account.",
-      },
-      {
-        title: "Audit guest accounts regularly",
-        description:
-          "Review external and guest accounts on a schedule and remove those that are no longer needed or have gone inactive.",
-      },
-      {
-        title: "Apply retention to files shared externally",
-        description:
-          "Expire external sharing links and apply retention policies to files shared with external users so data doesn't linger outside your control.",
-      },
-      {
-        title: "Apply hardening on servers",
-        description:
-          "Deploy recognized hardening baselines (CIS, Microsoft) and remove unnecessary roles, features, and services from every server.",
-      },
-      {
-        title: "Configure Attack Surface Reduction rules",
-        description:
-          "Enable Microsoft Defender ASR rules to block common malware techniques like Office macro abuse and credential dumping.",
-      },
-      {
-        title: "Audit passwords regularly",
-        description:
-          "Regularly test your directory for weak, reused, or breached passwords and force resets where needed.",
-      },
-      {
-        title: "Integrate a password management solution",
-        description:
-          "Deploy an enterprise password manager so teams stop reusing passwords or storing them in plain text.",
-      },
-      {
-        title: "Run vulnerability scans periodically",
-        description:
-          "Schedule recurring vulnerability scans across your environment and remediate findings by risk priority.",
+          "The baseline every cyber insurer expects before they'll even quote you.",
+        items: [
+          {
+            title: "Next-generation firewalls at every ingress point",
+            description:
+              "Next-gen firewalls are deployed at all network ingress and egress points, not just the perimeter edge.",
+          },
+          {
+            title: "Email filtering with DMARC enforced",
+            description:
+              "Inbound and outbound email is filtered for spam and malicious content, with DMARC enforced against spoofing.",
+          },
+          {
+            title: "Sensitive data encrypted at rest and in transit",
+            description:
+              "Sensitive and confidential data is encrypted both while stored and while moving across your network.",
+          },
+          {
+            title: "Backups tested and kept offline from the live environment",
+            description:
+              "Backups are stored disconnected from the live environment and you regularly test full restoration — not just that the backup job completed.",
+          },
+        ],
       },
     ],
-    ctaTitle: "Need help putting these in place?",
+    ctaTitle: "Need help closing the gaps?",
     ctaBody:
-      "Our consultants can implement every one of these measures for you — assessed, deployed, and documented.",
+      "Our consultants implement every one of these controls and prepare your application so you qualify for stronger terms.",
     ctaButton: "Book a Consultation",
     costLink: "Estimate the cost of your protection",
   },

@@ -15,7 +15,7 @@ export const fr: Dictionary = {
     services: "Services",
     packages: "Forfaits",
     cost: "Tarification",
-    freeGuide: "Guide gratuit",
+    freeGuide: "Simulateur d'assurance cyber",
     about: "À propos",
     contact: "Contact",
     cta: "Réserver une consultation",
@@ -347,7 +347,7 @@ export const fr: Dictionary = {
     eyebrow: "Catalogue de services",
     title: "Le catalogue complet BrainFort",
     subtitle:
-      "Cinquante-sept services ciblés répartis en dix domaines — retenez-en un seul, ou laissez-nous assembler le programme dont votre organisation a besoin.",
+      "Cinquante-huit services ciblés répartis en dix domaines — retenez-en un seul, ou laissez-nous assembler le programme dont votre organisation a besoin.",
     countLabel: "services",
     aiNote:
       "Efficacité propulsée par l'IA à toutes les phases — évaluations plus rapides, analyses plus fines, coûts maîtrisés.",
@@ -367,6 +367,7 @@ export const fr: Dictionary = {
           "Architecture et stratégie de cybersécurité",
           "Production de tableaux de bord et d'indicateurs de cybersécurité",
           "Accompagnement pour la souscription ou le renouvellement d'une assurance cyber",
+          "Préparation pour l'obtention d'une couverture d'assurance cyber",
           "Évaluation des exigences de sécurité des clients et partenaires",
         ],
       },
@@ -948,118 +949,160 @@ export const fr: Dictionary = {
     ],
   },
   guidePage: {
-    metaTitle: "Guide de sécurité gratuit",
+    metaTitle: "Simulateur gratuit d'assurance cyber",
     metaDescription:
-      "Guide de sécurité gratuit : 14 mesures concrètes à fort impact pour sécuriser votre environnement — MFA, segmentation réseau, durcissement des serveurs, règles ASR et plus.",
-    eyebrow: "Guide gratuit",
-    title: "Commencez à sécuriser votre environnement",
+      "Simulateur interactif et gratuit de préparation à l'assurance cyber : obtenez votre score d'assurabilité selon l'identité, la préparation aux menaces, la gestion des vulnérabilités et les contrôles de base — les mêmes questions que les assureurs posent.",
+    eyebrow: "Simulateur gratuit d'assurance cyber",
+    title: "Votre organisation est-elle assurable?",
     intro:
-      "Quatorze mesures concrètes à fort impact que nos consultants recommandent à chaque organisation. Libre d'accès — sans inscription ni courriel.",
-    stepLabel: "Étape",
+      "Seize contrôles tirés directement de vraies demandes d'assurance cyber, répartis sur les quatre domaines que les assureurs évaluent réellement. Libre d'accès — sans inscription ni courriel.",
     simulator: {
       instruction:
-        "C'est aussi un simulateur : cochez chaque mesure déjà en place dans votre organisation et obtenez votre score de posture de cybersécurité sur 100.",
-      scoreTitle: "Votre score de posture",
-      checkedLabel: "mesures en place",
+        "C'est aussi un simulateur : cochez chaque contrôle déjà en place et obtenez votre score d'assurabilité sur 100 — les mêmes questions que posent les assureurs cyber dans chaque demande.",
+      scoreTitle: "Votre score d'assurabilité",
+      checkedLabel: "contrôles en place",
+      dashboardTitle: "Score par domaine",
       reset: "Réinitialiser",
       bands: [
         {
           label: "Critique",
           description:
-            "Votre environnement est très exposé. Commencez dès aujourd'hui par la MFA et des comptes d'administration dédiés.",
+            "La plupart des assureurs refuseraient ou surprimeraient fortement ce profil. Commencez par la MFA et la vérification hors bande des virements — les deux premiers contrôles vérifiés par les assureurs.",
         },
         {
           label: "À risque",
           description:
-            "Des fondations clés manquent. Priorisez les mesures à fort impact non cochées.",
+            "Des contrôles clés de souscription manquent. Combler ces écarts améliore à la fois votre admissibilité et votre prime.",
         },
         {
           label: "Bonne progression",
           description:
-            "Base solide — comblez les derniers écarts pour atteindre une posture mature.",
+            "Un profil solide et assurable. Comblez les derniers écarts pour débloquer les meilleures conditions disponibles.",
         },
         {
           label: "Excellent",
           description:
-            "Posture robuste. Continuez d'auditer régulièrement pour la maintenir.",
+            "Profil de premier plan. Les assureurs récompensent ce niveau par une couverture plus large et des primes plus basses — continuez à le valider régulièrement.",
         },
       ],
     },
-    items: [
+    categories: [
       {
-        title: "Activez la MFA pour chaque compte avec boîte courriel",
+        id: "identity",
+        title: "Identité et accès",
         description:
-          "Exigez l'authentification multifacteur sur tous les comptes utilisateurs disposant d'une boîte aux lettres — ce sont les cibles principales de l'hameçonnage et du vol d'identifiants.",
+          "Qui peut entrer, et à quel point c'est contrôlé — la couche la plus attaquée dans chaque brèche.",
+        items: [
+          {
+            title: "MFA exigée sur chaque compte courriel",
+            description:
+              "L'authentification multifacteur est exigée pour l'accès à distance à tous les comptes courriel de l'entreprise — le point d'entrée le plus ciblé par les attaquants.",
+          },
+          {
+            title: "MFA exigée pour l'accès réseau à distance",
+            description:
+              "Le VPN et tout autre accès à distance à votre réseau exigent l'authentification multifacteur, pas seulement un mot de passe.",
+          },
+          {
+            title: "MFA exigée sur les ressources infonuagiques sensibles",
+            description:
+              "Chaque application ou emplacement de stockage infonuagique contenant des données sensibles ou confidentielles exige l'authentification multifacteur pour y accéder.",
+          },
+          {
+            title: "Droits d'administrateur local restreints",
+            description:
+              "Les utilisateurs courants n'ont pas de droits d'administrateur local sur leurs postes, et les comptes à privilèges sont séparés de l'usage quotidien.",
+          },
+        ],
       },
       {
-        title: "Utilisez des groupes dynamiques plutôt que statiques",
+        id: "threat",
+        title: "Menaces et préparation aux incidents",
         description:
-          "Dans Active Directory et Entra ID, définissez l'appartenance aux groupes par règles d'attributs afin que les accès restent exacts automatiquement lors des arrivées, mutations et départs.",
+          "Ce qui se passe dès que quelque chose tourne mal — détection, réponse et contrôles anti-fraude.",
+        items: [
+          {
+            title: "Surveillance réseau ou SOC en place",
+            description:
+              "Une solution de surveillance ou un centre des opérations de sécurité alerte votre organisation en cas d'activité suspecte ou malveillante sur le réseau.",
+          },
+          {
+            title: "Plan de réponse aux incidents testé périodiquement",
+            description:
+              "Un plan formel de réponse aux incidents cyber existe et est testé selon un calendrier régulier, pas seulement rédigé et classé.",
+          },
+          {
+            title: "Formation annuelle par simulations d'hameçonnage",
+            description:
+              "Les employés sont testés par des simulations d'hameçonnage au moins une fois par année pour maintenir leur vigilance.",
+          },
+          {
+            title: "Vérification hors bande pour les virements de fonds",
+            description:
+              "Avant de modifier les coordonnées bancaires d'un fournisseur ou de virer des fonds, votre équipe vérifie la demande par un canal distinct — le premier contrôle vérifié par les assureurs pour la couverture crime.",
+          },
+        ],
       },
       {
-        title: "Étiquetez appareils, utilisateurs et applications",
+        id: "vulnerability",
+        title: "Gestion des vulnérabilités",
         description:
-          "Appliquez des étiquettes (tags) autant que possible aux objets appareils, utilisateurs et applications — propriété, criticité et environnement accélèrent le ciblage des politiques et la réponse aux incidents.",
+          "À quelle vitesse vous détectez les failles — et à quelle vitesse vous les corrigez — avant les attaquants.",
+        items: [
+          {
+            title: "Analyses de vulnérabilités récurrentes",
+            description:
+              "Votre périmètre réseau est analysé pour détecter les vulnérabilités selon un calendrier récurrent, pas seulement une fois par année.",
+          },
+          {
+            title: "Tests d'intrusion réguliers",
+            description:
+              "Des tests d'intrusion indépendants sur votre réseau et vos applications sont réalisés au moins une fois par année.",
+          },
+          {
+            title: "EDR déployé sur chaque poste",
+            description:
+              "La détection et réponse aux points d'accès (EDR) est déployée et surveillée sur l'ensemble des postes — pas seulement les serveurs ou une partie des appareils.",
+          },
+          {
+            title: "Aucun logiciel obsolète non géré",
+            description:
+              "Les systèmes en fin de vie ou de support sont identifiés et soit retirés, soit complètement isolés du réseau.",
+          },
+        ],
       },
       {
-        title: "Segmentez votre réseau",
+        id: "controls",
+        title: "Contrôles de base",
         description:
-          "Séparez serveurs, postes de travail, IoT/OT et trafic invité en zones distinctes avec des flux contrôlés entre elles pour contenir les déplacements latéraux.",
-      },
-      {
-        title: "Exigez des mots de passe d'au moins 14 caractères",
-        description:
-          "La longueur prime sur la complexité. Imposez un minimum de 14 caractères et combinez-le avec un filtrage des mots de passe déjà compromis.",
-      },
-      {
-        title: "Interdisez l'ouverture de session aux comptes de service",
-        description:
-          "Les comptes de service doivent être privés d'ouverture de session interactive et à distance — n'accordez que le droit « ouvrir une session en tant que service » lorsque requis.",
-      },
-      {
-        title: "Utilisez des comptes dédiés à l'administration",
-        description:
-          "Créez des comptes d'administration distincts et dédiés aux tâches d'administration — ne naviguez jamais sur le web et ne lisez jamais de courriels avec un compte à privilèges.",
-      },
-      {
-        title: "Auditez régulièrement les comptes invités",
-        description:
-          "Passez en revue les comptes externes et invités selon un calendrier et supprimez ceux qui ne sont plus nécessaires ou devenus inactifs.",
-      },
-      {
-        title: "Appliquez la rétention aux fichiers partagés à l'externe",
-        description:
-          "Faites expirer les liens de partage externes et appliquez des politiques de rétention aux fichiers partagés avec des utilisateurs externes pour que les données ne restent pas hors de votre contrôle.",
-      },
-      {
-        title: "Durcissez vos serveurs",
-        description:
-          "Déployez des référentiels de durcissement reconnus (CIS, Microsoft) et retirez les rôles, fonctionnalités et services inutiles de chaque serveur.",
-      },
-      {
-        title: "Configurez les règles de réduction de la surface d'attaque",
-        description:
-          "Activez les règles ASR de Microsoft Defender pour bloquer les techniques courantes des maliciels comme l'abus de macros Office et l'extraction d'identifiants.",
-      },
-      {
-        title: "Auditez régulièrement les mots de passe",
-        description:
-          "Testez régulièrement votre annuaire pour repérer les mots de passe faibles, réutilisés ou compromis, et forcez la réinitialisation au besoin.",
-      },
-      {
-        title: "Intégrez une solution de gestion des mots de passe",
-        description:
-          "Déployez un gestionnaire de mots de passe d'entreprise pour que les équipes cessent de réutiliser des mots de passe ou de les stocker en clair.",
-      },
-      {
-        title: "Analysez les vulnérabilités périodiquement",
-        description:
-          "Planifiez des analyses de vulnérabilités récurrentes sur tout votre environnement et corrigez les constats selon la priorité de risque.",
+          "Le socle que tout assureur cyber attend avant même de vous soumettre une soumission.",
+        items: [
+          {
+            title: "Pare-feu nouvelle génération à chaque point d'entrée",
+            description:
+              "Des pare-feu nouvelle génération sont déployés à tous les points d'entrée et de sortie du réseau, pas seulement en périphérie.",
+          },
+          {
+            title: "Filtrage des courriels avec DMARC appliqué",
+            description:
+              "Les courriels entrants et sortants sont filtrés contre le pourriel et le contenu malveillant, avec DMARC appliqué contre l'usurpation.",
+          },
+          {
+            title: "Données sensibles chiffrées au repos et en transit",
+            description:
+              "Les données sensibles et confidentielles sont chiffrées à la fois lorsqu'elles sont stockées et lorsqu'elles circulent sur votre réseau.",
+          },
+          {
+            title: "Sauvegardes testées et isolées de l'environnement de production",
+            description:
+              "Les sauvegardes sont conservées déconnectées de l'environnement de production et vous testez régulièrement la restauration complète — pas seulement la réussite de la tâche de sauvegarde.",
+          },
+        ],
       },
     ],
-    ctaTitle: "Besoin d'aide pour les mettre en place ?",
+    ctaTitle: "Besoin d'aide pour combler ces écarts?",
     ctaBody:
-      "Nos consultants peuvent implanter chacune de ces mesures pour vous — évaluées, déployées et documentées.",
+      "Nos consultants implantent chacun de ces contrôles et préparent votre demande pour que vous obteniez de meilleures conditions.",
     ctaButton: "Réserver une consultation",
     costLink: "Estimer le coût de votre protection",
   },
