@@ -81,9 +81,9 @@ export const fr: Dictionary = {
           "Chaque mandat est mené par des conseillers principaux possédant une expertise approfondie en sécurité Microsoft, infonuagique et des identités — aucun transfert à des juniors.",
       },
       {
-        title: "Efficacité propulsée par l'IA",
+        title: "IA agentique, connectée à vos plateformes",
         description:
-          "Nos outils d'IA accélèrent les évaluations et révèlent les risques plus vite : des résultats en jours, pas en mois.",
+          "Notre IA agentique se connecte directement à vos environnements Microsoft 365, infonuagiques et réseau via des serveurs MCP sécurisés — elle automatise la découverte et l'analyse pour faire avancer chaque projet dans les meilleurs délais.",
       },
       {
         title: "Feuilles de route actionnables",
@@ -101,7 +101,7 @@ export const fr: Dictionary = {
     eyebrow: "Un impact qui se cumule",
     title: "Des résultats de sécurité mesurables",
     items: [
-      { value: "20+", label: "Années d'expertise combinée en sécurité" },
+      { value: "15", label: "Années d'expertise combinée en sécurité" },
       {
         value: "95 %",
         label: "Des brèches commencent par l'identité — nous aussi",

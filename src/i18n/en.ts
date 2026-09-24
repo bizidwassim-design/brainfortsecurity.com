@@ -82,9 +82,9 @@ export const en = {
           "Every engagement is led by senior consultants with deep Microsoft, cloud, and identity security experience — no junior hand-offs.",
       },
       {
-        title: "AI-Powered Efficiency",
+        title: "Agentic AI, Connected to Your Platforms",
         description:
-          "We use AI-driven tooling to accelerate assessments and surface risks faster, so you get insight in days, not months.",
+          "Our agentic AI connects directly to your Microsoft 365, cloud, and network environments through secure MCP servers — automating discovery and analysis so every project moves through delivery in the best possible timeframe.",
       },
       {
         title: "Actionable Roadmaps",
@@ -102,7 +102,7 @@ export const en = {
     eyebrow: "Impact That Compounds",
     title: "Security Outcomes You Can Measure",
     items: [
-      { value: "20+", label: "Years of combined security expertise" },
+      { value: "15", label: "Years of combined security expertise" },
       {
         value: "95%",
         label: "Of breaches start with identity — we start there too",
