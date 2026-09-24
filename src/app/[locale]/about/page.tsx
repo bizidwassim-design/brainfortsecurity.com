@@ -58,8 +58,8 @@ export default async function AboutPage({ params }: PageProps) {
             <Image
               src="/about/soc-team.webp"
               alt={dict.aboutPage.teamImageAlt}
-              width={1600}
-              height={1067}
+              width={1824}
+              height={1286}
               className="card-lift w-full rounded-3xl border border-border"
             />
           </Reveal>
