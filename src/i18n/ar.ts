@@ -140,6 +140,10 @@ export const ar: Dictionary = {
       },
     ],
   },
+  whatsapp: {
+    label: "تواصل عبر واتساب",
+    officeLabel: "تواصل عبر واتساب — {city}",
+  },
   offices: {
     eyebrow: "أين نتواجد",
     title: "ثلاثة مواقع. معيار أمني واحد.",
@@ -941,6 +945,8 @@ export const ar: Dictionary = {
       scoreTitle: "درجة قابليتك للتأمين",
       checkedLabel: "ضابطًا مطبّقًا",
       dashboardTitle: "الدرجة حسب المجال",
+      yesLabel: "نعم",
+      noLabel: "لا",
       reset: "إعادة التعيين",
       bands: [
         {

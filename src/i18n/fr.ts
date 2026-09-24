@@ -149,6 +149,10 @@ export const fr: Dictionary = {
       },
     ],
   },
+  whatsapp: {
+    label: "Discuter sur WhatsApp",
+    officeLabel: "Discuter sur WhatsApp — {city}",
+  },
   offices: {
     eyebrow: "Où nous sommes",
     title: "Trois sites. Une seule norme de sécurité.",
@@ -963,6 +967,8 @@ export const fr: Dictionary = {
       scoreTitle: "Votre score d'assurabilité",
       checkedLabel: "contrôles en place",
       dashboardTitle: "Score par domaine",
+      yesLabel: "Oui",
+      noLabel: "Non",
       reset: "Réinitialiser",
       bands: [
         {

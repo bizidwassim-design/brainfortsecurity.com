@@ -1,8 +1,16 @@
 import Image from "next/image";
 
+import { WhatsAppIcon } from "@/components/icons/whatsapp-icon";
 import { Reveal } from "@/components/motion/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import type { Dictionary } from "@/i18n";
+
+/** Office WhatsApp numbers, in wa.me format (digits only, no leading zero). */
+const WHATSAPP_NUMBERS: Record<string, string> = {
+  ca: "15145592551",
+  ae: "971559438737",
+  sa: "966554834016",
+};
 
 interface OfficesSectionProps {
   dict: Dictionary;
@@ -91,6 +99,19 @@ export function OfficesSection({ dict }: OfficesSectionProps) {
                 <p className="mt-1 text-sm text-muted-foreground">
                   {office.sublabel}
                 </p>
+                <a
+                  href={`https://wa.me/${WHATSAPP_NUMBERS[office.flag]}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={dict.whatsapp.officeLabel.replace(
+                    "{city}",
+                    office.city,
+                  )}
+                  className="mt-4 inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-[#25D366]/50 hover:text-[#25D366] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                >
+                  <WhatsAppIcon className="size-3.5" />
+                  WhatsApp
+                </a>
               </li>
             </Reveal>
           ))}

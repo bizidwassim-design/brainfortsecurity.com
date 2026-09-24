@@ -73,6 +73,21 @@ body {
   border: 1px solid rgba(212, 175, 55, 0.16);
 }
 
+/* Light, paper-like surface for form-style pages (e.g. the insurance simulator) — overrides the shared tokens locally so bg-background/text-foreground/bg-card/border-border/text-muted-foreground flip to a light palette within this subtree. */
+.light-surface {
+  --background: #f7f5ee;
+  --foreground: #1c1712;
+  --card: #ffffff;
+  --card-foreground: #1c1712;
+  --muted: #ede8db;
+  --muted-foreground: #6b6455;
+  --border: rgba(28, 23, 18, 0.12);
+  --input: rgba(28, 23, 18, 0.18);
+  color-scheme: light;
+  background: var(--background);
+  color: var(--foreground);
+}
+
 /* Soft radial glow behind hero content. */
 .hero-glow {
   background:

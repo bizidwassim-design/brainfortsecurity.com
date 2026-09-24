@@ -32,12 +32,14 @@ export default async function GuidePage({ params }: PageProps) {
   const dict = getDictionary(locale);
 
   return (
-    <>
-      <section className="hero-glow py-20 sm:py-24">
+    <div className="light-surface">
+      <section className="py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>
             <div className="mx-auto max-w-3xl space-y-6 text-center">
-              <Badge>{dict.guidePage.eyebrow}</Badge>
+              <Badge className="border-primary/40 bg-primary/10 text-[#7a5f16]">
+                {dict.guidePage.eyebrow}
+              </Badge>
               <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl">
                 {dict.guidePage.title}
               </h1>
@@ -48,7 +50,7 @@ export default async function GuidePage({ params }: PageProps) {
               <p className="text-lg leading-relaxed text-muted-foreground sm:text-xl">
                 {dict.guidePage.intro}
               </p>
-              <p className="glass mx-auto flex max-w-2xl items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium text-foreground">
+              <p className="mx-auto flex max-w-2xl items-center justify-center gap-2 rounded-full border border-border bg-card px-5 py-2.5 text-sm font-medium text-foreground shadow-sm">
                 <Gauge
                   className="size-4 shrink-0 text-primary"
                   aria-hidden="true"
@@ -74,7 +76,7 @@ export default async function GuidePage({ params }: PageProps) {
       <section className="pb-20 sm:pb-28" aria-labelledby="guide-cta">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>
-            <div className="hero-glow glass rounded-3xl px-6 py-14 text-center sm:px-16">
+            <div className="rounded-3xl border border-border bg-card px-6 py-14 text-center shadow-sm sm:px-16">
               <h2
                 id="guide-cta"
                 className="text-2xl font-bold text-foreground sm:text-3xl"
@@ -110,6 +112,6 @@ export default async function GuidePage({ params }: PageProps) {
           </p>
         </div>
       </section>
-    </>
+    </div>
   );
 }

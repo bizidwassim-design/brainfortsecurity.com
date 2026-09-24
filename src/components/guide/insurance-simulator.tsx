@@ -3,8 +3,6 @@
 import { useMemo, useState } from "react";
 import {
   Bug,
-  CheckCircle2,
-  Circle,
   Fingerprint,
   Radar,
   RotateCcw,
@@ -30,6 +28,8 @@ interface InsuranceSimulatorProps {
     scoreTitle: string;
     checkedLabel: string;
     dashboardTitle: string;
+    yesLabel: string;
+    noLabel: string;
     reset: string;
     bands: Array<{ label: string; description: string }>;
   };
@@ -70,11 +70,11 @@ export function InsuranceSimulator({
     categories.map((category) => category.items.map(() => false)),
   );
 
-  const toggle = (catIndex: number, itemIndex: number) => {
+  const setAnswer = (catIndex: number, itemIndex: number, value: boolean) => {
     setChecked((prev) =>
       prev.map((row, ci) =>
         ci === catIndex
-          ? row.map((v, ii) => (ii === itemIndex ? !v : v))
+          ? row.map((v, ii) => (ii === itemIndex ? value : v))
           : row,
       ),
     );
@@ -118,9 +118,9 @@ export function InsuranceSimulator({
           return (
             <div key={category.id} id={`cat-${category.id}`} className="scroll-mt-32">
               <div className="flex items-start gap-4">
-                <span className="flex size-11 shrink-0 items-center justify-center rounded-xl border border-primary/25 bg-primary/5">
+                <span className="flex size-11 shrink-0 items-center justify-center rounded-xl border border-primary/30 bg-primary/5">
                   <CategoryIcon
-                    className="neon-icon size-5 text-primary"
+                    className="size-5 text-primary"
                     aria-hidden="true"
                   />
                 </span>
@@ -134,40 +134,60 @@ export function InsuranceSimulator({
                 </div>
               </div>
 
-              <ol className="mt-6 grid gap-5 md:grid-cols-2">
+              <ol className="mt-6 divide-y divide-border overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
                 {category.items.map((item, ii) => {
-                  const isOn = checked[ci]?.[ii] ?? false;
+                  const answer = checked[ci]?.[ii] ?? false;
                   return (
-                    <li key={item.title}>
-                      <button
-                        type="button"
-                        onClick={() => toggle(ci, ii)}
-                        aria-pressed={isOn}
-                        className={cn(
-                          "glass card-lift h-full w-full rounded-2xl p-6 text-start transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
-                          isOn && "border border-primary/60 bg-primary/5",
-                        )}
-                      >
-                        <div className="flex items-start justify-between gap-3">
-                          <span className="text-sm font-semibold text-foreground">
-                            {item.title}
-                          </span>
-                          {isOn ? (
-                            <CheckCircle2
-                              className="size-5 shrink-0 text-primary"
-                              aria-hidden="true"
-                            />
-                          ) : (
-                            <Circle
-                              className="size-5 shrink-0 text-muted-foreground/40"
-                              aria-hidden="true"
-                            />
-                          )}
-                        </div>
-                        <span className="mt-2 block text-sm leading-relaxed text-muted-foreground">
-                          {item.description}
+                    <li
+                      key={item.title}
+                      className="flex flex-col gap-4 p-5 sm:flex-row sm:items-center sm:justify-between sm:gap-6"
+                    >
+                      <div className="flex gap-4">
+                        <span className="mt-0.5 flex size-7 shrink-0 items-center justify-center rounded-full border border-border text-xs font-semibold tabular-nums text-muted-foreground">
+                          {ii + 1}
                         </span>
-                      </button>
+                        <div>
+                          <p className="text-sm font-semibold text-foreground">
+                            {item.title}
+                          </p>
+                          <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                            {item.description}
+                          </p>
+                        </div>
+                      </div>
+
+                      <div
+                        role="group"
+                        aria-label={item.title}
+                        className="flex shrink-0 gap-2 ps-11 sm:ps-0"
+                      >
+                        <button
+                          type="button"
+                          onClick={() => setAnswer(ci, ii, true)}
+                          aria-pressed={answer === true}
+                          className={cn(
+                            "rounded-lg border px-4 py-1.5 text-xs font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                            answer === true
+                              ? "border-primary bg-primary text-primary-foreground"
+                              : "border-border bg-transparent text-muted-foreground hover:border-primary/50 hover:text-foreground",
+                          )}
+                        >
+                          {simulator.yesLabel}
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setAnswer(ci, ii, false)}
+                          aria-pressed={answer === false}
+                          className={cn(
+                            "rounded-lg border px-4 py-1.5 text-xs font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                            answer === false
+                              ? "border-secondary bg-secondary/10 text-secondary"
+                              : "border-border bg-transparent text-muted-foreground hover:border-secondary/40 hover:text-foreground",
+                          )}
+                        >
+                          {simulator.noLabel}
+                        </button>
+                      </div>
                     </li>
                   );
                 })}
@@ -179,7 +199,7 @@ export function InsuranceSimulator({
 
       {/* Sticky score + dashboard panel */}
       <aside className="lg:sticky lg:top-36 lg:self-start">
-        <div className="glass rounded-3xl p-8 text-center">
+        <div className="rounded-3xl border border-border bg-card p-8 text-center shadow-sm">
           <h2 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
             {simulator.scoreTitle}
           </h2>
@@ -198,7 +218,7 @@ export function InsuranceSimulator({
                   fill="none"
                   stroke={segment.color}
                   strokeWidth="20"
-                  opacity={bandIndex === GAUGE_BANDS.indexOf(segment) ? 1 : 0.45}
+                  opacity={bandIndex === GAUGE_BANDS.indexOf(segment) ? 1 : 0.35}
                   className="transition-opacity duration-500"
                 />
               ))}
@@ -216,7 +236,7 @@ export function InsuranceSimulator({
                 />
               </g>
               <circle cx="100" cy="100" r="8" className="fill-foreground" />
-              <circle cx="100" cy="100" r="3.5" className="fill-background" />
+              <circle cx="100" cy="100" r="3.5" className="fill-card" />
               {/* Scale endpoints */}
               <text
                 x="22"
@@ -281,7 +301,7 @@ export function InsuranceSimulator({
         </div>
 
         {/* Dashboard: score by domain */}
-        <div className="glass mt-6 rounded-3xl p-6">
+        <div className="mt-6 rounded-3xl border border-border bg-card p-6 shadow-sm">
           <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
             {simulator.dashboardTitle}
           </h3>
@@ -311,7 +331,7 @@ export function InsuranceSimulator({
                         {stat.done}/{stat.total}
                       </span>
                     </div>
-                    <div className="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-border">
+                    <div className="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-muted">
                       <div
                         className="h-full rounded-full transition-all duration-500"
                         style={{ width: `${stat.pct}%`, backgroundColor: color }}

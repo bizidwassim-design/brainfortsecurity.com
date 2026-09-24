@@ -139,6 +139,10 @@ export const en = {
       },
     ],
   },
+  whatsapp: {
+    label: "Chat on WhatsApp",
+    officeLabel: "Chat on WhatsApp — {city}",
+  },
   offices: {
     eyebrow: "Where We Are",
     title: "Three Sites. One Standard of Security.",
@@ -942,6 +946,8 @@ export const en = {
       scoreTitle: "Your Insurability Score",
       checkedLabel: "controls in place",
       dashboardTitle: "Score by Domain",
+      yesLabel: "Yes",
+      noLabel: "No",
       reset: "Reset",
       bands: [
         {

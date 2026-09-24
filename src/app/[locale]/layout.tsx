@@ -5,6 +5,7 @@ import Script from "next/script";
 
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
+import { WhatsAppButton } from "@/components/layout/whatsapp-button";
 import { StructuredData } from "@/components/seo/structured-data";
 import {
   alternatesFor,
@@ -166,6 +167,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
           {children}
         </main>
         <Footer locale={typedLocale} dict={dict} />
+        <WhatsAppButton label={dict.whatsapp.label} />
       </body>
     </html>
   );
