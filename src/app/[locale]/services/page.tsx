@@ -97,16 +97,6 @@ export default async function ServicesPage({ params }: PageProps) {
           <Reveal delay={0.2}>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <Link
-                href={`/${locale}/packages/`}
-                className={cn(buttonVariants({ variant: "outline" }), "group")}
-              >
-                {dict.nav.packages}
-                <ArrowRight
-                  className="transition-transform group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1"
-                  aria-hidden="true"
-                />
-              </Link>
-              <Link
                 href={`/${locale}/simulator/`}
                 className={cn(buttonVariants({ variant: "outline" }), "group")}
               >

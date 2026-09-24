@@ -98,6 +98,24 @@ export const en = {
       },
     ],
   },
+  architecture: {
+    eyebrow: "Agentic AI Architecture",
+    title: "Our Approach",
+    subtitle:
+      "One agentic AI, connected through secure MCP servers to every system it needs to see — your cloud, your Microsoft 365 tenant, your virtualization layer, your monitoring stack, and your GRC platform.",
+    hubLine1: "BrainFort",
+    hubLine2: "Agentic AI",
+    mcpLabel: "MCP",
+    nodes: [
+      "Microsoft Azure",
+      "AWS",
+      "Microsoft 365",
+      "Hyper-V",
+      "VMware",
+      "Monitoring & SIEM",
+      "GRC Platform",
+    ],
+  },
   stats: {
     eyebrow: "Impact That Compounds",
     title: "Security Outcomes You Can Measure",
@@ -1126,6 +1144,33 @@ export const en = {
     disclaimer:
       "Indicative estimate only — final pricing is confirmed in a custom quote after a short discovery call, based on your environment and risk profile.",
     cta: "Request Your Custom Quote",
+    hourly: {
+      eyebrow: "Standard Hourly Rates",
+      title: "Simple, Transparent Hourly Pricing",
+      intro:
+        "Because we work exclusively with SMBs, every engagement gets the same senior-level attention to detail — no client is too small to matter.",
+      rateSuffix: "/ hour",
+      unitLabel: "hours / month",
+      tiers: [
+        {
+          hours: "20",
+          rate: "250",
+          note: "Ideal for ongoing, lighter-touch support",
+        },
+        {
+          hours: "50",
+          rate: "200",
+          note: "Most common for growing SMBs",
+        },
+        {
+          hours: "50+",
+          rate: "180",
+          note: "High-volume, dedicated capacity",
+        },
+      ],
+      footnote:
+        "Rates apply to consulting, implementation, and advisory hours, billed monthly. All prices are exclusive of applicable taxes.",
+    },
   },
   appPage: {
     metaTitle: "BrainFort App",

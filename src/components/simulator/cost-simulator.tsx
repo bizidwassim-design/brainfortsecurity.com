@@ -19,11 +19,40 @@ import { buttonVariants } from "@/components/ui/button";
 import type { Dictionary, Locale } from "@/i18n";
 import { cn } from "@/lib/utils";
 
-/** Internal rate card (USD/month). Keep in sync with the sales grid. */
+/**
+ * Internal rate card — derived from the standard hourly rates ($250/h up to
+ * 20h/mo, $200/h up to 50h/mo, $180/h beyond), not arbitrary flat fees.
+ * Each tier has an included monthly hour floor (billed at its hourly rate);
+ * asset counts add estimated hours on top once they exceed that floor.
+ */
 const RATES = [
-  { id: "essential", base: 450, ws: 6, srv: 25, net: 10, user: 2, min: 600 },
-  { id: "advanced", base: 950, ws: 12, srv: 45, net: 18, user: 4, min: 1500 },
-  { id: "elite", base: 2800, ws: 18, srv: 70, net: 28, user: 6, min: 4500 },
+  {
+    id: "essential",
+    rate: 250,
+    minHours: 20,
+    wsHours: 0.05,
+    srvHours: 0.3,
+    netHours: 0.15,
+    userHours: 0.02,
+  },
+  {
+    id: "advanced",
+    rate: 200,
+    minHours: 50,
+    wsHours: 0.08,
+    srvHours: 0.5,
+    netHours: 0.25,
+    userHours: 0.03,
+  },
+  {
+    id: "elite",
+    rate: 180,
+    minHours: 60,
+    wsHours: 0.12,
+    srvHours: 0.8,
+    netHours: 0.4,
+    userHours: 0.05,
+  },
 ] as const;
 
 const FIELD_ICONS: Record<string, LucideIcon> = {
@@ -84,13 +113,13 @@ export function CostSimulator({
     (nonprofit ? 0.85 : 1);
 
   const estimates = RATES.map((rate) => {
-    const raw =
-      rate.base +
-      counts.workstations * rate.ws +
-      counts.servers * rate.srv +
-      counts.network * rate.net +
-      counts.users * rate.user;
-    const monthly = Math.round(Math.max(raw, rate.min) * multiplier);
+    const assetHours =
+      counts.workstations * rate.wsHours +
+      counts.servers * rate.srvHours +
+      counts.network * rate.netHours +
+      counts.users * rate.userHours;
+    const hours = Math.max(assetHours, rate.minHours);
+    const monthly = Math.round(hours * rate.rate * multiplier);
     const yearly = Math.round(
       monthly * 12 * COMMITMENT_DISCOUNT[commitment],
     );

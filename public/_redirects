@@ -1,2 +1,7 @@
 # Cloudflare Pages redirects — root goes to the default (English) locale.
 / /en/ 301
+
+# The fixed-tier Packages page was retired in favor of the hourly pricing model on /simulator/.
+/en/packages/ /en/simulator/ 301
+/fr/packages/ /fr/simulator/ 301
+/ar/packages/ /ar/simulator/ 301

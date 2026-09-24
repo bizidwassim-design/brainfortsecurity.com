@@ -97,6 +97,24 @@ export const fr: Dictionary = {
       },
     ],
   },
+  architecture: {
+    eyebrow: "Architecture d'IA agentique",
+    title: "Notre approche",
+    subtitle:
+      "Une seule IA agentique, connectée via des serveurs MCP sécurisés à chaque système qu'elle doit voir — votre infonuagique, votre tenant Microsoft 365, votre couche de virtualisation, votre supervision et votre plateforme GRC.",
+    hubLine1: "BrainFort",
+    hubLine2: "IA agentique",
+    mcpLabel: "MCP",
+    nodes: [
+      "Microsoft Azure",
+      "AWS",
+      "Microsoft 365",
+      "Hyper-V",
+      "VMware",
+      "Supervision et SIEM",
+      "Plateforme GRC",
+    ],
+  },
   stats: {
     eyebrow: "Un impact qui se cumule",
     title: "Des résultats de sécurité mesurables",
@@ -1147,6 +1165,33 @@ export const fr: Dictionary = {
     disclaimer:
       "Estimation indicative seulement — le prix final est confirmé par une soumission sur mesure après un court appel découverte, selon votre environnement et votre profil de risque.",
     cta: "Demander une soumission sur mesure",
+    hourly: {
+      eyebrow: "Tarifs horaires standards",
+      title: "Une tarification horaire simple et transparente",
+      intro:
+        "Parce que nous travaillons exclusivement avec des PME, chaque mandat reçoit la même attention aux détails de niveau senior — aucun client n'est trop petit pour compter.",
+      rateSuffix: "/ heure",
+      unitLabel: "heures / mois",
+      tiers: [
+        {
+          hours: "20",
+          rate: "250",
+          note: "Idéal pour un accompagnement continu et léger",
+        },
+        {
+          hours: "50",
+          rate: "200",
+          note: "Le plus courant pour les PME en croissance",
+        },
+        {
+          hours: "50+",
+          rate: "180",
+          note: "Volume élevé, capacité dédiée",
+        },
+      ],
+      footnote:
+        "Les taux s'appliquent aux heures de consultation, d'implémentation et de conseil, facturées mensuellement. Tous les prix excluent les taxes applicables.",
+    },
   },
   appPage: {
     metaTitle: "App BrainFort",

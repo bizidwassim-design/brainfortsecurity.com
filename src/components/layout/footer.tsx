@@ -92,11 +92,6 @@ export function Footer({ locale, dict }: FooterProps) {
                 </Link>
               </li>
               <li>
-                <Link href={`/${locale}/packages/`} className={footerLinkClass}>
-                  {dict.nav.packages}
-                </Link>
-              </li>
-              <li>
                 <Link href={`/${locale}/simulator/`} className={footerLinkClass}>
                   {dict.nav.cost}
                 </Link>
