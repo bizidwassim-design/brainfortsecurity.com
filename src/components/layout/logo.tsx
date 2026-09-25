@@ -34,13 +34,14 @@ function Sparkles() {
  */
 export function Logo({ locale = defaultLocale, variant = "light" }: LogoProps) {
   const isFrench = locale === "fr";
+  const homeLabel = locale === "fr" ? "Accueil" : locale === "ar" ? "الرئيسية" : "Home";
   const taglineColor = variant === "dark" ? "#e9d18b" : "#7a5f16";
 
   return (
     <Link
       href={`/${locale}/`}
       className="flex items-center gap-2.5 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-      aria-label={`${siteConfig.name} — ${isFrench ? "Accueil" : "Home"}`}
+      aria-label={`${siteConfig.name} — ${homeLabel}`}
     >
       <Image
         src="/brand/shield-web.webp"

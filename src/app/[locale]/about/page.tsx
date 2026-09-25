@@ -56,11 +56,11 @@ export default async function AboutPage({ params }: PageProps) {
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <Reveal>
             <Image
-              src="/about/soc-team.webp"
+              src="/about/security-layers.webp"
               alt={dict.aboutPage.teamImageAlt}
-              width={1824}
-              height={1286}
-              className="card-lift w-full rounded-3xl border border-border"
+              width={1536}
+              height={1024}
+              className="card-lift aspect-[16/9] w-full rounded-3xl border border-border object-cover"
             />
           </Reveal>
         </div>

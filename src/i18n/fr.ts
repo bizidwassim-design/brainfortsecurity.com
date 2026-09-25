@@ -11,6 +11,8 @@ export const fr: Dictionary = {
     skipToContent: "Passer au contenu principal",
   },
   nav: {
+    mainLabel: "Navigation principale",
+    mobileLabel: "Navigation mobile",
     home: "Accueil",
     services: "Services",
     packages: "Forfaits",
@@ -24,13 +26,15 @@ export const fr: Dictionary = {
     languageLabel: "Langue",
   },
   hero: {
-    badge: "La cybersécurité à la vitesse de l'IA",
-    title: "Fortifiez votre entreprise contre les cybermenaces modernes",
-    highlight: "les cybermenaces modernes",
+    badge: "La cybersécurité senior pour les entreprises en croissance",
+    title: "La cybersécurité des PME, avec l'attention que vous méritez",
+    highlight: "l'attention que vous méritez",
     subtitle:
-      "BrainFort Sécurité aide les organisations du Canada et du Moyen-Orient à évaluer, concevoir et automatiser leur posture de sécurité. Notre approche propulsée par l'IA garantit une livraison plus rapide et une qualité plus constante — sans compromis.",
-    primaryCta: "Obtenir une évaluation de sécurité",
-    secondaryCta: "Découvrir nos services",
+      "Audits, sécurité Microsoft 365, Zéro Confiance et mise en œuvre concrète, dirigés par des consultants seniors au Canada et au Moyen-Orient.",
+    primaryCta: "Demander une consultation",
+    secondaryCta: "Voir les tarifs",
+    visualTitle: "Une protection conçue pour votre entreprise",
+    visualSubtitle: "Expertise senior · feuilles de route concrètes",
     features: [
       {
         title: "Prêt pour le Zéro Confiance",
@@ -70,6 +74,7 @@ export const fr: Dictionary = {
     subtitle:
       "Un conseil pratique et neutre vis-à-vis des fournisseurs, qui renforce votre environnement sans ralentir vos activités.",
     viewAll: "Voir tous les services",
+    learnMore: "Découvrir ce service",
   },
   why: {
     eyebrow: "Pourquoi BrainFort",

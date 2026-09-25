@@ -71,7 +71,7 @@ export function Header({ locale, dict }: HeaderProps) {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <Logo locale={locale} variant="dark" />
 
-        <nav aria-label="Main navigation" className="hidden lg:block">
+        <nav aria-label={dict.nav.mainLabel} className="hidden xl:block">
           <ul className="flex items-center gap-1">
             {navItems.map((item) => (
               <li key={item.href}>
@@ -81,7 +81,7 @@ export function Header({ locale, dict }: HeaderProps) {
                     isActive(item.href, item.exact) ? "page" : undefined
                   }
                   className={cn(
-                    "rounded-lg px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                    "rounded-lg px-3 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
                     isActive(item.href, item.exact)
                       ? "text-foreground"
                       : "text-muted-foreground hover:text-foreground",
@@ -94,7 +94,7 @@ export function Header({ locale, dict }: HeaderProps) {
           </ul>
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
+        <div className="hidden items-center gap-3 xl:flex">
           {switcher}
           <Link
             href={`/${locale}/contact/`}
@@ -110,7 +110,7 @@ export function Header({ locale, dict }: HeaderProps) {
           aria-expanded={open}
           aria-controls="mobile-nav"
           aria-label={open ? dict.nav.closeMenu : dict.nav.openMenu}
-          className="flex size-10 items-center justify-center rounded-lg text-foreground transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring lg:hidden"
+          className="flex size-10 items-center justify-center rounded-lg text-foreground transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring xl:hidden"
         >
           {open ? (
             <X className="size-5" aria-hidden="true" />
@@ -123,8 +123,8 @@ export function Header({ locale, dict }: HeaderProps) {
       {open && (
         <nav
           id="mobile-nav"
-          aria-label="Mobile navigation"
-          className="border-t border-border lg:hidden"
+          aria-label={dict.nav.mobileLabel}
+          className="border-t border-border xl:hidden"
         >
           <ul className="space-y-1 px-4 py-4">
             {navItems.map((item) => (

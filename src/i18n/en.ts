@@ -12,6 +12,8 @@ export const en = {
     skipToContent: "Skip to main content",
   },
   nav: {
+    mainLabel: "Main navigation",
+    mobileLabel: "Mobile navigation",
     home: "Home",
     services: "Services",
     packages: "Packages",
@@ -25,13 +27,15 @@ export const en = {
     languageLabel: "Language",
   },
   hero: {
-    badge: "Cybersecurity at the Speed of AI",
-    title: "Fortify Your Business Against Modern Cyber Threats",
-    highlight: "Modern Cyber Threats",
+    badge: "Senior cybersecurity for growing businesses",
+    title: "Cybersecurity for SMBs, with the attention you deserve",
+    highlight: "the attention you deserve",
     subtitle:
-      "BrainFort Security helps organizations across Canada and the Middle East assess, architect, and automate their security posture. Our AI-augmented delivery means faster turnaround and more consistent quality — without cutting corners.",
-    primaryCta: "Get a Security Assessment",
-    secondaryCta: "Explore Services",
+      "Audits, Microsoft 365 security, Zero Trust and hands-on implementation led by senior consultants across Canada and the Middle East.",
+    primaryCta: "Request a Consultation",
+    secondaryCta: "View Pricing",
+    visualTitle: "Built around your business",
+    visualSubtitle: "Senior expertise · practical roadmaps",
     features: [
       {
         title: "Zero Trust Ready",
@@ -71,6 +75,7 @@ export const en = {
     subtitle:
       "Practical, vendor-aware consulting that hardens your environment without slowing your business down.",
     viewAll: "View All Services",
+    learnMore: "Explore service",
   },
   why: {
     eyebrow: "Why BrainFort",

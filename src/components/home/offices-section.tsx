@@ -5,11 +5,11 @@ import { Reveal } from "@/components/motion/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import type { Dictionary } from "@/i18n";
 
-/** Office WhatsApp numbers — `number` is the wa.me digits-only target, `display` is the visible formatted number. */
-const WHATSAPP_NUMBERS: Record<string, { number: string; display: string }> = {
-  ca: { number: "15145592551", display: "+1 514 559 2551" },
-  ae: { number: "971559438737", display: "+971 55 943 8737" },
-  sa: { number: "966554834016", display: "+966 55 483 4016" },
+/** Office WhatsApp destinations. Numbers remain intentionally hidden in the interface. */
+const WHATSAPP_NUMBERS: Record<string, string> = {
+  ca: "15145592551",
+  ae: "971559438737",
+  sa: "966554834016",
 };
 
 interface OfficesSectionProps {
@@ -100,7 +100,7 @@ export function OfficesSection({ dict }: OfficesSectionProps) {
                   {office.sublabel}
                 </p>
                 <a
-                  href={`https://wa.me/${WHATSAPP_NUMBERS[office.flag].number}`}
+                  href={`https://wa.me/${WHATSAPP_NUMBERS[office.flag]}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={dict.whatsapp.officeLabel.replace(
@@ -111,7 +111,7 @@ export function OfficesSection({ dict }: OfficesSectionProps) {
                   className="mt-4 inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm font-semibold text-foreground transition-colors hover:border-[#25D366]/60 hover:text-[#25D366] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 >
                   <WhatsAppIcon className="size-4 shrink-0 text-[#25D366]" />
-                  {WHATSAPP_NUMBERS[office.flag].display}
+                  WhatsApp
                 </a>
               </li>
             </Reveal>
