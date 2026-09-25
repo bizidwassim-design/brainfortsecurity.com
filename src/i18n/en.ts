@@ -134,6 +134,21 @@ export const en = {
       { value: "3", label: "Regions served — Canada, UAE, Saudi Arabia" },
     ],
   },
+  cyberNews: {
+    eyebrow: "Global Cyber Pulse",
+    title: "The numbers reshaping cybersecurity",
+    subtitle: "A concise view of the latest global breach data — and what it means for growing businesses.",
+    locale: "en-CA",
+    updated: "Live feed updated",
+    loading: "Connecting to the live feed…",
+    items: [
+      { value: "total", label: "Known exploited vulnerabilities", detail: "Vulnerabilities confirmed as exploited in real-world attacks and listed in the live catalog.", source: "CISA KEV live data", href: "https://github.com/cisagov/kev-data" },
+      { value: "recent", label: "New entries in the last 30 days", detail: "Recently added vulnerabilities that deserve immediate review and remediation prioritization.", source: "CISA KEV live data", href: "https://github.com/cisagov/kev-data" },
+      { value: "ransomware", label: "Linked to ransomware campaigns", detail: "Catalogued vulnerabilities with confirmed use in known ransomware campaigns.", source: "CISA KEV live data", href: "https://github.com/cisagov/kev-data" },
+      { value: "vendors", label: "Technology vendors affected", detail: "Distinct vendors and projects represented across the current exploited-vulnerability catalog.", source: "CISA KEV live data", href: "https://github.com/cisagov/kev-data" },
+    ],
+    disclaimer: "Live figures are calculated in your browser from CISA's official GitHub mirror, which is synchronized with the KEV catalog whenever it changes.",
+  },
   industries: {
     eyebrow: "Who We Serve",
     title: "Trusted Across Regulated and High-Risk Industries",

@@ -139,6 +139,21 @@ export const fr: Dictionary = {
       },
     ],
   },
+  cyberNews: {
+    eyebrow: "Baromètre cyber mondial",
+    title: "Les chiffres qui redéfinissent la cybersécurité",
+    subtitle: "Une lecture concise des plus récentes données mondiales sur les compromissions — et de leur portée pour les PME en croissance.",
+    locale: "fr-CA",
+    updated: "Flux actualisé le",
+    loading: "Connexion au flux en direct…",
+    items: [
+      { value: "total", label: "Vulnérabilités exploitées connues", detail: "Vulnérabilités confirmées comme exploitées lors d'attaques réelles et recensées dans le catalogue actif.", source: "Données CISA KEV en direct", href: "https://github.com/cisagov/kev-data" },
+      { value: "recent", label: "Nouvelles entrées sur 30 jours", detail: "Vulnérabilités récemment ajoutées qui demandent une analyse et une remédiation prioritaires.", source: "Données CISA KEV en direct", href: "https://github.com/cisagov/kev-data" },
+      { value: "ransomware", label: "Liées à des campagnes de rançongiciel", detail: "Vulnérabilités dont l'utilisation est confirmée dans des campagnes de rançongiciel connues.", source: "Données CISA KEV en direct", href: "https://github.com/cisagov/kev-data" },
+      { value: "vendors", label: "Fournisseurs technologiques touchés", detail: "Fournisseurs et projets distincts représentés dans le catalogue actuel des vulnérabilités exploitées.", source: "Données CISA KEV en direct", href: "https://github.com/cisagov/kev-data" },
+    ],
+    disclaimer: "Les chiffres sont calculés dans votre navigateur à partir du miroir GitHub officiel de la CISA, synchronisé avec le catalogue KEV à chaque mise à jour.",
+  },
   industries: {
     eyebrow: "Qui nous servons",
     title: "La confiance des industries réglementées et à haut risque",

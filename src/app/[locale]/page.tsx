@@ -2,6 +2,7 @@ import { ContactCta } from "@/components/contact-cta";
 import { CreamDivider } from "@/components/cream-divider";
 import { AgenticArchitecture } from "@/components/home/agentic-architecture";
 import { ComplianceSection } from "@/components/home/compliance-section";
+import { CyberNewsSection } from "@/components/home/cyber-news-section";
 import { Hero } from "@/components/home/hero";
 import { IndustriesSection } from "@/components/home/industries-section";
 import { OfficesSection } from "@/components/home/offices-section";
@@ -27,6 +28,7 @@ export default async function HomePage({ params }: PageProps) {
       <WhySection dict={dict} />
       <AgenticArchitecture dict={dict} />
       <StatsSection dict={dict} />
+      <CyberNewsSection dict={dict} />
       <CreamDivider />
       <IndustriesSection dict={dict} />
       <OfficesSection dict={dict} />

@@ -135,6 +135,21 @@ export const ar: Dictionary = {
       { value: "3", label: "مناطق نخدمها — كندا والإمارات والسعودية" },
     ],
   },
+  cyberNews: {
+    eyebrow: "مؤشر الأمن السيبراني العالمي",
+    title: "أرقام تعيد رسم مشهد الأمن السيبراني",
+    subtitle: "نظرة موجزة على أحدث بيانات الاختراقات عالمياً وما تعنيه للشركات الصغيرة والمتوسطة النامية.",
+    locale: "ar",
+    updated: "تم تحديث البيانات المباشرة في",
+    loading: "جارٍ الاتصال بمصدر البيانات المباشر…",
+    items: [
+      { value: "total", label: "الثغرات المعروفة المستغلة فعلياً", detail: "ثغرات تأكد استغلالها في هجمات حقيقية ومدرجة في الكتالوج المباشر.", source: "بيانات CISA KEV المباشرة", href: "https://github.com/cisagov/kev-data" },
+      { value: "recent", label: "إضافات جديدة خلال 30 يوماً", detail: "ثغرات أضيفت حديثاً وتتطلب مراجعة عاجلة وترتيب أولوية المعالجة.", source: "بيانات CISA KEV المباشرة", href: "https://github.com/cisagov/kev-data" },
+      { value: "ransomware", label: "مرتبطة بحملات برمجيات الفدية", detail: "ثغرات أكد الكتالوج استخدامها في حملات برمجيات فدية معروفة.", source: "بيانات CISA KEV المباشرة", href: "https://github.com/cisagov/kev-data" },
+      { value: "vendors", label: "مورّدو التقنية المتأثرون", detail: "عدد المورّدين والمشاريع المختلفة في كتالوج الثغرات المستغلة الحالي.", source: "بيانات CISA KEV المباشرة", href: "https://github.com/cisagov/kev-data" },
+    ],
+    disclaimer: "تُحسب الأرقام مباشرة في متصفحك من مرآة CISA الرسمية على GitHub والمتزامنة مع كتالوج KEV عند كل تحديث.",
+  },
   industries: {
     eyebrow: "من نخدم",
     title: "ثقة القطاعات المنظَّمة وعالية المخاطر",
