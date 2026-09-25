@@ -62,7 +62,7 @@ export function Logo({ locale = defaultLocale, variant = "light" }: LogoProps) {
           {isFrench ? "nFort" : "NFORT"}
         </span>
         <span
-          className="mt-1.5 flex items-center gap-2 text-[0.6rem] font-semibold uppercase"
+          className="mt-1.5 flex items-center gap-2 whitespace-nowrap text-[0.6rem] font-semibold uppercase"
           style={{ color: taglineColor }}
         >
           <span
@@ -71,8 +71,8 @@ export function Logo({ locale = defaultLocale, variant = "light" }: LogoProps) {
             style={{ backgroundColor: taglineColor, opacity: 0.5 }}
           />
           {/* Inline letter-spacing so the Arabic reset can't flatten it. */}
-          <span style={{ letterSpacing: isFrench ? "0.18em" : "0.42em" }}>
-            {isFrench ? "Sécurité Inc." : "Security"}
+          <span style={{ letterSpacing: isFrench ? "0.3em" : "0.42em" }}>
+            {isFrench ? "Sécurité" : "Security"}
           </span>
           <span
             aria-hidden="true"
