@@ -20,6 +20,7 @@ import {
 import { ContactCta } from "@/components/contact-cta";
 import { Reveal } from "@/components/motion/reveal";
 import { CategoryNav } from "@/components/services/category-nav";
+import { ProcessTimelineLine } from "@/components/services/process-timeline-line";
 import { SectionHeading } from "@/components/section-heading";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
@@ -186,7 +187,9 @@ export default async function ServicesPage({ params }: PageProps) {
             />
           </Reveal>
 
-          <ol className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <ProcessTimelineLine />
+
+          <ol className="mt-8 grid gap-6 sm:grid-cols-2 lg:mt-14 lg:grid-cols-4">
             {dict.servicesPage.process.steps.map((step, index) => (
               <Reveal key={step.title} delay={index * 0.08}>
                 <li className="glass card-lift h-full rounded-2xl p-6">

@@ -29,6 +29,12 @@ export const en = {
   },
   hero: {
     badge: "Cybersecurity at the Speed of AI",
+    trustLabels: [
+      "Montréal",
+      "Dubai",
+      "Riyadh",
+      "Senior consultants only",
+    ],
     title: "Fortify Your Business Against Modern Cyber Threats",
     highlight: "Modern Cyber Threats",
     subtitle:
@@ -74,6 +80,7 @@ export const en = {
     subtitle:
       "Practical, vendor-aware consulting that hardens your environment without slowing your business down.",
     viewAll: "View All Services",
+    learnMore: "Learn more",
   },
   why: {
     eyebrow: "Why BrainFort",

@@ -28,44 +28,55 @@ export function ServicesOverview({ locale, dict }: ServicesOverviewProps) {
           />
         </Reveal>
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {featured.map((service, index) => {
             const Icon = serviceIcons[service.id] ?? ShieldCheck;
+            /* Alternate gold/red accent — stays inside the brand palette while
+               giving each card a distinct identity. */
+            const isGold = index % 2 === 0;
             return (
               <Reveal key={service.id} delay={index * 0.06}>
-                {/* Flip card: front = icon + title, back = description. */}
                 <div
                   id={service.id}
-                  className="flip-card h-60 scroll-mt-32"
-                  tabIndex={0}
+                  className="card-lift glass flex h-full scroll-mt-32 flex-col rounded-2xl p-7"
                 >
-                  <div className="flip-inner">
-                    <div className="flip-face glass flex flex-col items-center justify-center gap-4 rounded-2xl p-6 text-center">
-                      <div className="neon-float flex size-16 items-center justify-center rounded-2xl border border-primary/25 bg-primary/5">
-                        <Icon
-                          className="neon-icon size-8 text-primary"
-                          aria-hidden="true"
-                        />
-                      </div>
-                      <h3 className="text-lg font-semibold leading-snug text-foreground">
-                        {service.title}
-                      </h3>
-                    </div>
-                    <div className="flip-back flip-face glass flex flex-col justify-center rounded-2xl border border-primary/40 p-6">
-                      <div className="mb-3 flex items-center gap-2.5">
-                        <Icon
-                          className="size-5 shrink-0 text-primary"
-                          aria-hidden="true"
-                        />
-                        <p className="text-sm font-semibold text-primary">
-                          {service.title}
-                        </p>
-                      </div>
-                      <p className="text-sm leading-relaxed text-muted-foreground">
-                        {service.description}
-                      </p>
-                    </div>
+                  <div
+                    className={cn(
+                      "flex size-14 shrink-0 items-center justify-center rounded-2xl border",
+                      isGold
+                        ? "border-primary/25 bg-primary/5"
+                        : "border-secondary/25 bg-secondary/5",
+                    )}
+                  >
+                    <Icon
+                      className={cn(
+                        "neon-icon size-7",
+                        isGold ? "text-primary" : "text-secondary",
+                      )}
+                      aria-hidden="true"
+                    />
                   </div>
+                  <h3 className="mt-5 text-lg font-semibold leading-snug text-foreground">
+                    {service.title}
+                  </h3>
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
+                    {service.description}
+                  </p>
+                  <Link
+                    href={`/${locale}/services/`}
+                    className={cn(
+                      "group/link mt-5 inline-flex w-fit items-center gap-1.5 text-sm font-semibold transition-colors",
+                      isGold
+                        ? "text-primary hover:text-[#7a5f16]"
+                        : "text-secondary hover:text-[#9c1f1f]",
+                    )}
+                  >
+                    {dict.servicesOverview.learnMore}
+                    <ArrowRight
+                      className="size-4 transition-transform group-hover/link:translate-x-1 rtl:rotate-180 rtl:group-hover/link:-translate-x-1"
+                      aria-hidden="true"
+                    />
+                  </Link>
                 </div>
               </Reveal>
             );

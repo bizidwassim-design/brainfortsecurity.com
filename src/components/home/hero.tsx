@@ -10,6 +10,7 @@ import {
   Zap,
 } from "lucide-react";
 
+import { MouseGlow } from "@/components/home/mouse-glow";
 import { Reveal } from "@/components/motion/reveal";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
@@ -29,6 +30,7 @@ export function Hero({ locale, dict }: HeroProps) {
   return (
     <section className="hero-glow grid-pattern relative overflow-hidden">
       <div aria-hidden="true" className="aurora" />
+      <MouseGlow />
       {/* World map backdrop, faded on the end side (mockup style) */}
       <Image
         src="/world-map.svg"
@@ -99,6 +101,23 @@ export function Hero({ locale, dict }: HeroProps) {
                   {dict.hero.secondaryCta}
                 </Link>
               </div>
+            </Reveal>
+
+            <Reveal delay={0.35}>
+              <ul className="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 lg:justify-start">
+                {dict.hero.trustLabels.map((label) => (
+                  <li
+                    key={label}
+                    className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground"
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="size-1.5 rounded-full bg-primary"
+                    />
+                    {label}
+                  </li>
+                ))}
+              </ul>
             </Reveal>
           </div>
         </div>

@@ -50,7 +50,7 @@ export function Logo({ locale = defaultLocale, variant = "light" }: LogoProps) {
         width={260}
         height={433}
         aria-hidden="true"
-        className="h-10 w-auto"
+        className="h-11 w-auto"
       />
       <span className="flex flex-col pt-2 leading-none">
         <span className="gold-text text-xl font-extrabold tracking-wide">

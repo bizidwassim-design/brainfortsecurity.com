@@ -28,6 +28,12 @@ export const fr: Dictionary = {
   },
   hero: {
     badge: "La cybersécurité à la vitesse de l'IA",
+    trustLabels: [
+      "Montréal",
+      "Dubaï",
+      "Riyad",
+      "Consultants seniors uniquement",
+    ],
     title: "Fortifiez votre entreprise contre les cybermenaces modernes",
     highlight: "les cybermenaces modernes",
     subtitle:
@@ -73,6 +79,7 @@ export const fr: Dictionary = {
     subtitle:
       "Un conseil pratique et neutre vis-à-vis des fournisseurs, qui renforce votre environnement sans ralentir vos activités.",
     viewAll: "Voir tous les services",
+    learnMore: "En savoir plus",
   },
   why: {
     eyebrow: "Pourquoi BrainFort",
