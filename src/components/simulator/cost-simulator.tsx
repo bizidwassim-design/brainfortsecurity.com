@@ -20,15 +20,15 @@ import type { Dictionary, Locale } from "@/i18n";
 import { cn } from "@/lib/utils";
 
 /**
- * Internal rate card — derived from the standard hourly rates ($250/h up to
- * 20h/mo, $200/h up to 50h/mo, $180/h beyond), not arbitrary flat fees.
+ * Internal rate card — derived from the standard hourly rates ($225/h up to
+ * 20h/mo, $190/h up to 50h/mo, $165/h beyond), not arbitrary flat fees.
  * Each tier has an included monthly hour floor (billed at its hourly rate);
  * asset counts add estimated hours on top once they exceed that floor.
  */
 const RATES = [
   {
     id: "essential",
-    rate: 250,
+    rate: 225,
     minHours: 20,
     wsHours: 0.05,
     srvHours: 0.3,
@@ -37,7 +37,7 @@ const RATES = [
   },
   {
     id: "advanced",
-    rate: 200,
+    rate: 190,
     minHours: 50,
     wsHours: 0.08,
     srvHours: 0.5,
@@ -46,7 +46,7 @@ const RATES = [
   },
   {
     id: "elite",
-    rate: 180,
+    rate: 165,
     minHours: 100,
     wsHours: 0.12,
     srvHours: 0.8,

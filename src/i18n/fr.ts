@@ -1186,17 +1186,17 @@ export const fr: Dictionary = {
       tiers: [
         {
           hours: "20",
-          rate: "250",
+          rate: "225",
           note: "Idéal pour un accompagnement continu et léger",
         },
         {
           hours: "50",
-          rate: "200",
+          rate: "190",
           note: "Le plus courant pour les PME en croissance",
         },
         {
           hours: "50+",
-          rate: "180",
+          rate: "165",
           note: "Volume élevé, capacité dédiée",
         },
       ],

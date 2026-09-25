@@ -1165,17 +1165,17 @@ export const en = {
       tiers: [
         {
           hours: "20",
-          rate: "250",
+          rate: "225",
           note: "Ideal for ongoing, lighter-touch support",
         },
         {
           hours: "50",
-          rate: "200",
+          rate: "190",
           note: "Most common for growing SMBs",
         },
         {
           hours: "50+",
-          rate: "180",
+          rate: "165",
           note: "High-volume, dedicated capacity",
         },
       ],
