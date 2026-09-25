@@ -40,7 +40,7 @@ export function Logo({ locale = defaultLocale, variant = "light" }: LogoProps) {
   return (
     <Link
       href={`/${locale}/`}
-      className="flex items-center gap-2.5 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+      className="group flex items-center gap-3 rounded-xl px-1 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
       aria-label={`${siteConfig.name} — ${homeLabel}`}
     >
       <Image
@@ -49,10 +49,10 @@ export function Logo({ locale = defaultLocale, variant = "light" }: LogoProps) {
         width={260}
         height={433}
         aria-hidden="true"
-        className="h-10 w-auto"
+        className="h-12 w-auto drop-shadow-[0_0_12px_rgba(212,175,55,0.22)] transition-transform duration-300 group-hover:scale-105"
       />
       <span className="flex flex-col pt-2 leading-none">
-        <span className="gold-text text-xl font-extrabold tracking-wide">
+        <span className="gold-text text-[1.35rem] font-extrabold tracking-wide">
           {isFrench ? "Br" : "BR"}
           <span className="relative text-accent">
             AI

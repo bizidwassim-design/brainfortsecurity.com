@@ -60,7 +60,7 @@ export default async function AboutPage({ params }: PageProps) {
               alt={dict.aboutPage.teamImageAlt}
               width={1536}
               height={1024}
-              className="card-lift aspect-[16/9] w-full rounded-3xl border border-border object-cover"
+              className="card-lift aspect-[16/9] w-full rounded-3xl border border-primary/20 bg-white object-cover shadow-[0_28px_80px_-42px_rgba(122,95,22,0.38)]"
             />
           </Reveal>
         </div>

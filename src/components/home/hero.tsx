@@ -80,9 +80,9 @@ export function Hero({ locale, dict }: HeroProps) {
           <Reveal delay={0.12}>
             <div className="relative mx-auto w-full max-w-xl">
               <div className="absolute -inset-4 rounded-[2rem] bg-primary/10 blur-3xl" aria-hidden="true" />
-              <div className="relative overflow-hidden rounded-[1.75rem] border border-border bg-card p-2 shadow-[0_28px_80px_-36px_rgba(28,23,18,0.38)]">
+              <div className="relative overflow-hidden rounded-[1.75rem] border border-primary/20 bg-white p-2 shadow-[0_28px_80px_-36px_rgba(122,95,22,0.32)]">
                 <Image
-              src="/about/security-layers.webp"
+                  src="/about/security-layers.webp"
                   alt=""
                   width={1536}
                   height={1024}
