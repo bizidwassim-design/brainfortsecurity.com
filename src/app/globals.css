@@ -99,24 +99,20 @@ body {
   color: var(--foreground);
 }
 
-/* Header variant: translucent + blurred so it reads as a floating bar. More see-through at the
-   very top of the page, settling to a solid blurred bar once the visitor scrolls. */
+/* Header variant: solid + blurred at all times so the shield mark always stays legible — a
+   translucent top state was tried and made the logo hard to read against the page behind it.
+   Only the shadow/border sharpen slightly once scrolled, as a subtle "settled" cue. */
 .header-dark {
-  background: rgba(10, 10, 12, 0.55);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid transparent;
-  transition:
-    background-color 0.3s ease,
-    border-color 0.3s ease,
-    backdrop-filter 0.3s ease;
-}
-
-.header-dark--scrolled {
   background: rgba(10, 10, 12, 0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.header-dark--scrolled {
   border-bottom-color: rgba(212, 175, 55, 0.16);
+  box-shadow: 0 8px 24px -12px rgba(0, 0, 0, 0.4);
 }
 
 /* Soft radial glow behind hero content. */
