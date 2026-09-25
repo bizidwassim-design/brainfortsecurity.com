@@ -47,7 +47,7 @@ const RATES = [
   {
     id: "elite",
     rate: 180,
-    minHours: 60,
+    minHours: 100,
     wsHours: 0.12,
     srvHours: 0.8,
     netHours: 0.4,
