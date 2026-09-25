@@ -40,7 +40,9 @@ export function Logo({ locale = defaultLocale, variant = "light" }: LogoProps) {
     <Link
       href={`/${locale}/`}
       className="flex items-center gap-2.5 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-      aria-label={`${siteConfig.name} — ${isFrench ? "Accueil" : "Home"}`}
+      aria-label={`${siteConfig.name} — ${
+        locale === "fr" ? "Accueil" : locale === "ar" ? "الرئيسية" : "Home"
+      }`}
     >
       <Image
         src="/brand/shield-web.webp"

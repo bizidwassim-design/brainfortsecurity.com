@@ -22,6 +22,9 @@ export const fr: Dictionary = {
     openMenu: "Ouvrir le menu de navigation",
     closeMenu: "Fermer le menu de navigation",
     languageLabel: "Langue",
+    mainNavLabel: "Navigation principale",
+    mobileNavLabel: "Navigation mobile",
+    homeLabel: "Accueil",
   },
   hero: {
     badge: "La cybersécurité à la vitesse de l'IA",
@@ -984,6 +987,10 @@ export const fr: Dictionary = {
         "C'est aussi un simulateur : cochez chaque contrôle déjà en place et obtenez votre score d'assurabilité sur 100 — les mêmes questions que posent les assureurs cyber dans chaque demande.",
       scoreTitle: "Votre score d'assurabilité",
       checkedLabel: "contrôles en place",
+      answeredLabel: "répondu(s)",
+      notStartedLabel: "Pas encore commencé",
+      notStartedBody:
+        "Répondez aux questions ci-dessous — votre score se met à jour au fur et à mesure.",
       dashboardTitle: "Score par domaine",
       yesLabel: "Oui",
       noLabel: "Non",
@@ -1149,6 +1156,9 @@ export const fr: Dictionary = {
     monthLabel: "$ US / mois",
     prepaidLabel: "Prépaiement annuel (−10 %) :",
     prepaidLabelTwoYear: "Prépaiement pour 2 ans (−15 %) :",
+    yearlyEquivalentLabel: "Soit",
+    decreaseAria: "Diminuer {field}",
+    increaseAria: "Augmenter {field}",
     perYear: "$ US / an",
     taxNote: "Tous les prix sont hors taxes applicables.",
     optionsTitle: "Options",
@@ -1171,7 +1181,7 @@ export const fr: Dictionary = {
       title: "Une tarification horaire simple et transparente",
       intro:
         "Parce que nous travaillons exclusivement avec des PME, chaque mandat reçoit la même attention aux détails de niveau senior — aucun client n'est trop petit pour compter.",
-      rateSuffix: "/ heure",
+      rateSuffix: "$ US / heure",
       unitLabel: "heures / mois",
       tiers: [
         {

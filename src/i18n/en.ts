@@ -23,6 +23,9 @@ export const en = {
     openMenu: "Open navigation menu",
     closeMenu: "Close navigation menu",
     languageLabel: "Language",
+    mainNavLabel: "Main navigation",
+    mobileNavLabel: "Mobile navigation",
+    homeLabel: "Home",
   },
   hero: {
     badge: "Cybersecurity at the Speed of AI",
@@ -963,6 +966,10 @@ export const en = {
         "This is also a simulator: check every control already in place and see your insurability score out of 100 — the same questions cyber insurers ask on every application.",
       scoreTitle: "Your Insurability Score",
       checkedLabel: "controls in place",
+      answeredLabel: "answered",
+      notStartedLabel: "Not started yet",
+      notStartedBody:
+        "Answer the questions below — your score updates as you go.",
       dashboardTitle: "Score by Domain",
       yesLabel: "Yes",
       noLabel: "No",
@@ -1128,6 +1135,9 @@ export const en = {
     monthLabel: "USD / month",
     prepaidLabel: "Prepaid annually (−10%):",
     prepaidLabelTwoYear: "Prepaid for 2 years (−15%):",
+    yearlyEquivalentLabel: "That's",
+    decreaseAria: "Decrease {field}",
+    increaseAria: "Increase {field}",
     perYear: "USD / year",
     taxNote: "All prices are exclusive of applicable taxes.",
     optionsTitle: "Options",
@@ -1150,7 +1160,7 @@ export const en = {
       title: "Simple, Transparent Hourly Pricing",
       intro:
         "Because we work exclusively with SMBs, every engagement gets the same senior-level attention to detail — no client is too small to matter.",
-      rateSuffix: "/ hour",
+      rateSuffix: "USD / hour",
       unitLabel: "hours / month",
       tiers: [
         {

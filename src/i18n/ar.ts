@@ -22,6 +22,9 @@ export const ar: Dictionary = {
     openMenu: "فتح قائمة التنقل",
     closeMenu: "إغلاق قائمة التنقل",
     languageLabel: "اللغة",
+    mainNavLabel: "التنقل الرئيسي",
+    mobileNavLabel: "تنقل الجوال",
+    homeLabel: "الرئيسية",
   },
   hero: {
     badge: "إدارة الأمن السيبراني بسرعة الذكاء الاصطناعي",
@@ -962,6 +965,9 @@ export const ar: Dictionary = {
         "هذه أيضًا أداة محاكاة: حدّد كل ضابط مطبّق فعلًا واحصل على درجة قابليتك للتأمين من 100 — نفس الأسئلة التي تطرحها شركات التأمين السيبراني في كل طلب.",
       scoreTitle: "درجة قابليتك للتأمين",
       checkedLabel: "ضابطًا مطبّقًا",
+      answeredLabel: "تمت الإجابة عنها",
+      notStartedLabel: "لم يبدأ بعد",
+      notStartedBody: "أجب عن الأسئلة أدناه — تتحدّث درجتك مع كل إجابة.",
       dashboardTitle: "الدرجة حسب المجال",
       yesLabel: "نعم",
       noLabel: "لا",
@@ -1127,6 +1133,9 @@ export const ar: Dictionary = {
     monthLabel: "$ أمريكي / شهر",
     prepaidLabel: "الدفع السنوي المسبق (−10٪):",
     prepaidLabelTwoYear: "الدفع المسبق لسنتين (−15٪):",
+    yearlyEquivalentLabel: "أي ما يعادل",
+    decreaseAria: "إنقاص {field}",
+    increaseAria: "زيادة {field}",
     perYear: "$ أمريكي / سنة",
     taxNote: "جميع الأسعار غير شاملة الضرائب المطبقة.",
     optionsTitle: "خيارات",
@@ -1149,7 +1158,7 @@ export const ar: Dictionary = {
       title: "تسعير ساعي بسيط وشفاف",
       intro:
         "لأننا نعمل حصريًا مع الشركات الصغيرة والمتوسطة، يحظى كل مشروع بنفس مستوى الاهتمام بالتفاصيل من كبار الخبراء — لا يوجد عميل أصغر من أن يستحق هذا الاهتمام.",
-      rateSuffix: "/ ساعة",
+      rateSuffix: "$ أمريكي / ساعة",
       unitLabel: "ساعة / شهر",
       tiers: [
         {

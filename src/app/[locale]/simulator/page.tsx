@@ -87,7 +87,7 @@ export default async function SimulatorPage({ params }: PageProps) {
                       className="text-4xl font-extrabold tabular-nums text-foreground"
                       dir="ltr"
                     >
-                      ${tier.rate}
+                      {tier.rate}
                     </span>
                     <span className="ms-1 text-sm text-muted-foreground">
                       {t.hourly.rateSuffix}
@@ -100,7 +100,7 @@ export default async function SimulatorPage({ params }: PageProps) {
               ))}
             </div>
 
-            <p className="mx-auto mt-6 max-w-3xl text-center text-xs italic text-muted-foreground">
+            <p className="mx-auto mt-6 max-w-3xl text-center text-sm text-muted-foreground">
               {t.hourly.footnote}
             </p>
           </Reveal>

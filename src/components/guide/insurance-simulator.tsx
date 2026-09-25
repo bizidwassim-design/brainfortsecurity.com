@@ -31,6 +31,9 @@ interface InsuranceSimulatorProps {
     yesLabel: string;
     noLabel: string;
     reset: string;
+    notStartedLabel: string;
+    notStartedBody: string;
+    answeredLabel: string;
     bands: Array<{ label: string; description: string }>;
   };
 }
@@ -66,8 +69,8 @@ export function InsuranceSimulator({
   categories,
   simulator,
 }: InsuranceSimulatorProps) {
-  const [checked, setChecked] = useState<boolean[][]>(() =>
-    categories.map((category) => category.items.map(() => false)),
+  const [checked, setChecked] = useState<Array<Array<boolean | null>>>(() =>
+    categories.map((category) => category.items.map(() => null)),
   );
 
   const setAnswer = (catIndex: number, itemIndex: number, value: boolean) => {
@@ -81,7 +84,7 @@ export function InsuranceSimulator({
   };
 
   const reset = () => {
-    setChecked(categories.map((category) => category.items.map(() => false)));
+    setChecked(categories.map((category) => category.items.map(() => null)));
   };
 
   const totalItems = useMemo(
@@ -92,11 +95,20 @@ export function InsuranceSimulator({
     () => checked.reduce((sum, row) => sum + row.filter(Boolean).length, 0),
     [checked],
   );
+  const totalAnswered = useMemo(
+    () =>
+      checked.reduce(
+        (sum, row) => sum + row.filter((v) => v !== null).length,
+        0,
+      ),
+    [checked],
+  );
+  const started = totalAnswered > 0;
   const score = totalItems ? Math.round((totalDone / totalItems) * 100) : 0;
   const bandIndex = bandFor(score);
   const band = simulator.bands[bandIndex];
-  const bandColor = GAUGE_BANDS[bandIndex].color;
-  const anyChecked = totalDone > 0;
+  const bandColor = started ? GAUGE_BANDS[bandIndex].color : "#9a958a";
+  const anyChecked = totalAnswered > 0;
 
   const categoryScores = useMemo(
     () =>
@@ -136,7 +148,7 @@ export function InsuranceSimulator({
 
               <ol className="mt-6 divide-y divide-border overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
                 {category.items.map((item, ii) => {
-                  const answer = checked[ci]?.[ii] ?? false;
+                  const answer = checked[ci][ii];
                   return (
                     <li
                       key={item.title}
@@ -218,7 +230,11 @@ export function InsuranceSimulator({
                   fill="none"
                   stroke={segment.color}
                   strokeWidth="20"
-                  opacity={bandIndex === GAUGE_BANDS.indexOf(segment) ? 1 : 0.35}
+                  opacity={
+                    started && bandIndex === GAUGE_BANDS.indexOf(segment)
+                      ? 1
+                      : 0.35
+                  }
                   className="transition-opacity duration-500"
                 />
               ))}
@@ -264,7 +280,7 @@ export function InsuranceSimulator({
               className="text-5xl font-extrabold tabular-nums tracking-tight transition-colors duration-500"
               style={{ color: bandColor }}
             >
-              {score}
+              {started ? score : "—"}
             </span>
             <span className="ms-1 text-sm font-semibold text-muted-foreground">
               / 100
@@ -273,19 +289,19 @@ export function InsuranceSimulator({
 
           <p className="mt-3 text-sm text-muted-foreground">
             <span className="font-semibold tabular-nums text-foreground">
-              {totalDone}/{totalItems}
+              {started ? `${totalDone}/${totalItems}` : `${totalAnswered}/${totalItems}`}
             </span>{" "}
-            {simulator.checkedLabel}
+            {started ? simulator.checkedLabel : simulator.answeredLabel}
           </p>
 
           <p
             className="mt-5 text-lg font-bold transition-colors duration-500"
             style={{ color: bandColor }}
           >
-            {band.label}
+            {started ? band.label : simulator.notStartedLabel}
           </p>
           <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-            {band.description}
+            {started ? band.description : simulator.notStartedBody}
           </p>
 
           {anyChecked && (
