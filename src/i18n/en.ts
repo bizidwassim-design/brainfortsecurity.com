@@ -16,7 +16,7 @@ export const en = {
     services: "Services",
     packages: "Packages",
     cost: "Pricing",
-    freeGuide: "Cyber Insurance Simulator",
+    freeGuide: "Simulator",
     about: "About",
     contact: "Contact",
     cta: "Book a Consultation",
@@ -138,6 +138,47 @@ export const en = {
       { value: "4x", label: "Faster assessments with AI-assisted analysis" },
       { value: "3", label: "Regions served — Canada, UAE, Saudi Arabia" },
     ],
+  },
+  activeThreats: {
+    locale: "en-CA",
+    eyebrow: "Active threat monitor",
+    title: "Signals observed across the global threat landscape",
+    subtitle:
+      "Aggregated, frequently synchronized indicators from independent threat-intelligence networks. No malicious indicator is exposed on this page.",
+    synced: "Data synchronized",
+    connecting: "Loading synchronized threat data…",
+    unavailable: "Latest synchronization temporarily unavailable",
+    metrics: [
+      {
+        label: "Malicious URLs currently online",
+        detail:
+          "Online payload and malware-distribution URLs observed by URLhaus.",
+      },
+      {
+        label: "Malicious URLs reported in 24 hours",
+        detail:
+          "New URLhaus observations during the latest rolling 24-hour window.",
+      },
+      {
+        label: "Recent malware indicators",
+        detail: "Current indicators contained in the recent ThreatFox export.",
+      },
+      {
+        label: "Command-and-control indicators",
+        detail:
+          "Recent indicators classified as botnet command-and-control infrastructure.",
+      },
+    ],
+    topTitle: "Most observed malware families",
+    sourcesTitle: "Live intelligence sources",
+    sourcesBody:
+      "The synchronized file is generated automatically from public community feeds every 30 minutes.",
+    sources: [
+      { name: "URLhaus", href: "https://urlhaus.abuse.ch/" },
+      { name: "ThreatFox", href: "https://threatfox.abuse.ch/" },
+    ],
+    disclaimer:
+      "These aggregate counts provide situational awareness, not a complete measure of global cybercrime. Source availability and classification methods may affect the totals.",
   },
   industries: {
     eyebrow: "Who We Serve",

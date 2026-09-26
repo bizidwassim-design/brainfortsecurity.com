@@ -1,5 +1,6 @@
 import { ContactCta } from "@/components/contact-cta";
 import { CreamDivider } from "@/components/cream-divider";
+import { ActiveThreatDashboard } from "@/components/home/active-threat-dashboard";
 import { AgenticArchitecture } from "@/components/home/agentic-architecture";
 import { ComplianceSection } from "@/components/home/compliance-section";
 import { Hero } from "@/components/home/hero";
@@ -27,6 +28,7 @@ export default async function HomePage({ params }: PageProps) {
       <WhySection dict={dict} />
       <AgenticArchitecture dict={dict} />
       <StatsSection dict={dict} />
+      <ActiveThreatDashboard dict={dict} />
       <CreamDivider />
       <IndustriesSection dict={dict} />
       <OfficesSection dict={dict} />
