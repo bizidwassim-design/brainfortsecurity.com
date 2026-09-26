@@ -55,13 +55,19 @@ export default async function AboutPage({ params }: PageProps) {
       <section className="pb-16 sm:pb-20">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <Reveal>
-            <Image
-              src="/about/security-layers.webp"
-              alt={dict.aboutPage.teamImageAlt}
-              width={1536}
-              height={1024}
-              className="card-lift aspect-[16/9] w-full rounded-3xl border border-primary/20 bg-white object-cover shadow-[0_28px_80px_-42px_rgba(122,95,22,0.38)]"
-            />
+            <figure className="card-lift relative overflow-hidden rounded-3xl border border-primary/20 bg-white shadow-[0_28px_80px_-42px_rgba(122,95,22,0.38)]">
+              <Image
+                src="/about/agentic-client.webp"
+                alt={dict.aboutPage.teamImageAlt}
+                width={1536}
+                height={864}
+                className="aspect-[16/9] w-full object-cover"
+              />
+              <figcaption className="absolute inset-x-4 bottom-4 max-w-md rounded-2xl border border-white/15 bg-[#0a0a0c]/85 p-4 text-start text-white shadow-2xl backdrop-blur-md sm:inset-x-auto sm:start-6 sm:bottom-6 sm:p-5">
+                <p className="text-sm font-bold text-[#efd878] sm:text-base">{dict.aboutPage.agenticImageTitle}</p>
+                <p className="mt-1.5 text-xs leading-relaxed text-white/70 sm:text-sm">{dict.aboutPage.agenticImageBody}</p>
+              </figcaption>
+            </figure>
           </Reveal>
         </div>
       </section>

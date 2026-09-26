@@ -826,7 +826,10 @@ export const fr: Dictionary = {
     intro:
       "BrainFort Sécurité Inc. est une firme canadienne de conseil en cybersécurité fondée sur une conviction simple : une sécurité solide doit accélérer l'entreprise, pas la ralentir.",
     teamImageAlt:
-      "L'équipe des opérations de BrainFort Sécurité devant les tableaux de bord de surveillance des menaces.",
+      "Un dirigeant soutenu par un système de sécurité agentique central qui coordonne les identités, le nuage, le réseau, l'analyse et la conformité.",
+    agenticImageTitle: "Une sécurité agentique qui travaille pour vous",
+    agenticImageBody:
+      "Des agents spécialisés analysent continuellement votre environnement, coordonnent les constats et aident nos consultants seniors à transformer les signaux en actions.",
     missionTitle: "Notre mission",
     mission:
       "Rendre la cybersécurité de calibre entreprise accessible et actionnable pour les organisations de toutes tailles — en combinant expertise de haut niveau et efficacité propulsée par l'IA.",
