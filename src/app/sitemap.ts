@@ -12,6 +12,7 @@ const routes: Array<{
 }> = [
   { path: "/", priority: 1, changeFrequency: "weekly" },
   { path: "/services/", priority: 0.9, changeFrequency: "monthly" },
+  { path: "/agentic-security/", priority: 0.9, changeFrequency: "monthly" },
   { path: "/simulator/", priority: 0.9, changeFrequency: "monthly" },
   { path: "/guide/", priority: 0.8, changeFrequency: "monthly" },
   { path: "/about/", priority: 0.8, changeFrequency: "monthly" },

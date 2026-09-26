@@ -97,6 +97,11 @@ export function Footer({ locale, dict }: FooterProps) {
                 </Link>
               </li>
               <li>
+                <Link href={`/${locale}/agentic-security/`} className={footerLinkClass}>
+                  {dict.nav.agentic}
+                </Link>
+              </li>
+              <li>
                 <Link href={`/${locale}/guide/`} className={footerLinkClass}>
                   {dict.nav.freeGuide}
                 </Link>

@@ -1,17 +1,13 @@
 import { ContactCta } from "@/components/contact-cta";
-import { CreamDivider } from "@/components/cream-divider";
-import { AgenticArchitecture } from "@/components/home/agentic-architecture";
+import { AgenticManagementSection } from "@/components/home/agentic-management-section";
 import { ActiveThreatDashboard } from "@/components/home/active-threat-dashboard";
 import { ComplianceSection } from "@/components/home/compliance-section";
-import { CyberNewsSection } from "@/components/home/cyber-news-section";
 import { Hero } from "@/components/home/hero";
 import { IndustriesSection } from "@/components/home/industries-section";
 import { OfficesSection } from "@/components/home/offices-section";
 import { ProcessSection } from "@/components/home/process-section";
 import { ServicesOverview } from "@/components/home/services-overview";
 import { StatsSection } from "@/components/home/stats-section";
-import { TestimonialsSection } from "@/components/home/testimonials-section";
-import { WhySection } from "@/components/home/why-section";
 import { getDictionary, type Locale } from "@/i18n";
 
 interface PageProps {
@@ -25,20 +21,14 @@ export default async function HomePage({ params }: PageProps) {
   return (
     <>
       <Hero locale={locale} dict={dict} />
-      <CreamDivider />
       <ServicesOverview locale={locale} dict={dict} />
+      <AgenticManagementSection locale={locale} dict={dict} />
       <ProcessSection dict={dict} />
-      <WhySection dict={dict} />
-      <AgenticArchitecture dict={dict} />
-      <StatsSection dict={dict} />
-      <CyberNewsSection dict={dict} />
       <ActiveThreatDashboard dict={dict} />
-      <CreamDivider />
       <IndustriesSection dict={dict} />
+      <StatsSection dict={dict} />
       <OfficesSection dict={dict} />
-      <CreamDivider />
       <ComplianceSection dict={dict} />
-      <TestimonialsSection dict={dict} />
       <ContactCta locale={locale} dict={dict} />
     </>
   );
