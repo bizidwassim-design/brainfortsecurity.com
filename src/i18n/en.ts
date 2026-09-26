@@ -805,10 +805,10 @@ export const en = {
     intro:
       "BrainFort Security Inc. is a Canadian cybersecurity consulting firm founded on a simple conviction: strong security should accelerate a business, not slow it down.",
     teamImageAlt:
-      "A business leader supported by a central agentic security system coordinating identity, cloud, network, analytics, and compliance tasks.",
-    agenticImageTitle: "Agentic security working for you",
+      "A BrainFort senior consultant managing a client's identity, Microsoft 365, cloud, network, endpoints, and compliance through a central agentic AI platform while the client reviews the results.",
+    agenticImageTitle: "We manage your infrastructure with agentic AI",
     agenticImageBody:
-      "Specialized agents continuously analyze your environment, coordinate findings, and help our senior consultants turn signals into action.",
+      "BrainFort's specialized agents continuously monitor and coordinate your environment, while our senior consultants supervise decisions and turn findings into safe, practical action.",
     missionTitle: "Our Mission",
     mission:
       "To make enterprise-grade cybersecurity accessible and actionable for organizations of every size — combining senior expertise with AI-powered efficiency.",
