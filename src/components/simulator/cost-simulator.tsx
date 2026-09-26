@@ -20,15 +20,15 @@ import type { Dictionary, Locale } from "@/i18n";
 import { cn } from "@/lib/utils";
 
 /**
- * Internal rate card — derived from the standard hourly rates ($250/h up to
- * 20h/mo, $200/h up to 50h/mo, $180/h beyond), not arbitrary flat fees.
+ * Internal rate card — derived from the standard hourly rates ($225/h up to
+ * 20h/mo, $190/h up to 50h/mo, $165/h beyond), not arbitrary flat fees.
  * Each tier has an included monthly hour floor (billed at its hourly rate);
  * asset counts add estimated hours on top once they exceed that floor.
  */
 const RATES = [
   {
     id: "essential",
-    rate: 250,
+    rate: 225,
     minHours: 20,
     wsHours: 0.05,
     srvHours: 0.3,
@@ -37,7 +37,7 @@ const RATES = [
   },
   {
     id: "advanced",
-    rate: 200,
+    rate: 190,
     minHours: 50,
     wsHours: 0.08,
     srvHours: 0.5,
@@ -46,8 +46,8 @@ const RATES = [
   },
   {
     id: "elite",
-    rate: 180,
-    minHours: 60,
+    rate: 165,
+    minHours: 100,
     wsHours: 0.12,
     srvHours: 0.8,
     netHours: 0.4,
@@ -154,7 +154,7 @@ export function CostSimulator({
       <div className="flex items-stretch gap-2" dir="ltr">
         <button
           type="button"
-          aria-label="−"
+          aria-label={dict.decreaseAria.replace("{field}", label)}
           onClick={() => onChange(value - 1)}
           className="flex w-11 shrink-0 items-center justify-center rounded-xl border border-border bg-card/60 text-muted-foreground transition-colors hover:border-primary/50 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
@@ -171,7 +171,7 @@ export function CostSimulator({
         />
         <button
           type="button"
-          aria-label="+"
+          aria-label={dict.increaseAria.replace("{field}", label)}
           onClick={() => onChange(value + 1)}
           className="flex w-11 shrink-0 items-center justify-center rounded-xl border border-border bg-card/60 text-muted-foreground transition-colors hover:border-primary/50 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
@@ -268,7 +268,11 @@ export function CostSimulator({
 
       {/* Estimates */}
       <div className="space-y-6">
-        <div className="grid gap-6 md:grid-cols-3">
+        <div
+          className="grid gap-6 md:grid-cols-3"
+          aria-live="polite"
+          aria-atomic="false"
+        >
           {estimates.map((estimate, index) => {
             const pkg = packages[index];
             const isBestFit = index === bestFit;
@@ -314,7 +318,7 @@ export function CostSimulator({
                 </p>
                 <p className="mt-2 text-xs text-muted-foreground">
                   {commitment === "monthly"
-                    ? "12 ×"
+                    ? dict.yearlyEquivalentLabel
                     : commitment === "annual"
                       ? dict.prepaidLabel
                       : dict.prepaidLabelTwoYear}{" "}
@@ -338,10 +342,10 @@ export function CostSimulator({
           })}
         </div>
 
-        <p className="text-xs font-semibold text-muted-foreground">
+        <p className="text-sm font-semibold text-muted-foreground">
           {dict.taxNote}
         </p>
-        <p className="text-xs italic leading-relaxed text-muted-foreground">
+        <p className="text-sm leading-relaxed text-muted-foreground">
           {dict.disclaimer}
         </p>
 

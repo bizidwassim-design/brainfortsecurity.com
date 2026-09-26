@@ -99,12 +99,20 @@ body {
   color: var(--foreground);
 }
 
-/* Header variant: translucent + blurred so it reads as a floating bar. */
+/* Header variant: solid + blurred at all times so the shield mark always stays legible — a
+   translucent top state was tried and made the logo hard to read against the page behind it.
+   Only the shadow/border sharpen slightly once scrolled, as a subtle "settled" cue. */
 .header-dark {
   background: rgba(10, 10, 12, 0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(212, 175, 55, 0.16);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.header-dark--scrolled {
+  border-bottom-color: rgba(212, 175, 55, 0.16);
+  box-shadow: 0 8px 24px -12px rgba(0, 0, 0, 0.4);
 }
 
 .header-scrolled {
@@ -214,42 +222,6 @@ body {
   .neon-float,
   .gauge-arc {
     animation: none;
-  }
-}
-
-/* 3D flip cards — icon/title on the front, description on the back. */
-.flip-card {
-  perspective: 1200px;
-}
-
-.flip-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  transition: transform 0.65s cubic-bezier(0.4, 0.2, 0.2, 1);
-}
-
-.flip-card:hover .flip-inner,
-.flip-card:focus-visible .flip-inner,
-.flip-card:focus-within .flip-inner {
-  transform: rotateY(180deg);
-}
-
-.flip-face {
-  position: absolute;
-  inset: 0;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
-
-.flip-back {
-  transform: rotateY(180deg);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .flip-inner {
-    transition: none;
   }
 }
 
