@@ -10,7 +10,6 @@ import {
   Zap,
 } from "lucide-react";
 
-import { MouseGlow } from "@/components/home/mouse-glow";
 import { Reveal } from "@/components/motion/reveal";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
@@ -28,35 +27,10 @@ export function Hero({ locale, dict }: HeroProps) {
   const [before, after] = dict.hero.title.split(dict.hero.highlight);
 
   return (
-    <section className="hero-glow grid-pattern relative overflow-hidden">
-      <div aria-hidden="true" className="aurora" />
-      <MouseGlow />
-      {/* World map backdrop, faded on the end side (mockup style) */}
-      <Image
-        src="/world-map.svg"
-        alt=""
-        width={1010}
-        height={666}
-        aria-hidden="true"
-        className="pointer-events-none absolute -end-32 top-8 hidden w-[720px] select-none opacity-25 lg:block"
-      />
-      <div className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-24 lg:px-8">
-        <div className="grid items-center gap-4 sm:gap-12 lg:grid-cols-[auto_1fr] lg:gap-20">
-          {/* Vertical brand lockup: shield + wordmark + tagline, kept on its original dark plaque. */}
-          <Reveal>
-            <div className="dark-surface flex flex-col items-center gap-2 rounded-3xl px-6 py-6 text-center sm:gap-4 sm:px-10 sm:py-8">
-              <Image
-                src="/brand/shield-canadian.webp"
-                alt=""
-                width={320}
-                height={503}
-                priority
-                aria-hidden="true"
-                className="h-28 w-auto sm:h-56 lg:h-72"
-              />
-            </div>
-          </Reveal>
-
+    <section className="hero-glow relative overflow-hidden border-b border-border">
+      <div className="aurora" aria-hidden="true" />
+      <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+        <div className="grid items-center gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:gap-16">
           <div className="text-center lg:text-start">
             <Reveal delay={0.05}>
               <Badge className="mb-3 uppercase tracking-wider sm:mb-6">
@@ -65,7 +39,7 @@ export function Hero({ locale, dict }: HeroProps) {
             </Reveal>
 
             <Reveal delay={0.1}>
-              <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+              <h1 className="text-4xl font-extrabold leading-[1.08] tracking-[-0.035em] text-foreground sm:text-5xl lg:text-6xl">
                 {before}
                 <span className="bg-gradient-to-r from-[#d4af37] via-[#b8901f] to-[#7a5f16] bg-clip-text text-transparent">
                   {dict.hero.highlight}
@@ -75,13 +49,13 @@ export function Hero({ locale, dict }: HeroProps) {
             </Reveal>
 
             <Reveal delay={0.2}>
-              <p className="mx-auto mt-3 max-w-2xl text-base leading-relaxed text-muted-foreground sm:mt-6 sm:text-lg lg:mx-0">
+              <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg lg:mx-0">
                 {dict.hero.subtitle}
               </p>
             </Reveal>
 
             <Reveal delay={0.3}>
-              <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:mt-9 sm:flex-row sm:gap-4 lg:justify-start">
+              <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4 lg:justify-start">
                 <Link
                   href={`/${locale}/contact/`}
                   className={cn(buttonVariants({ size: "lg" }), "group")}
@@ -93,7 +67,7 @@ export function Hero({ locale, dict }: HeroProps) {
                   />
                 </Link>
                 <Link
-                  href={`/${locale}/services/`}
+                  href={`/${locale}/simulator/`}
                   className={cn(
                     buttonVariants({ variant: "outline", size: "lg" }),
                   )}
@@ -104,26 +78,43 @@ export function Hero({ locale, dict }: HeroProps) {
             </Reveal>
 
             <Reveal delay={0.35}>
-              <ul className="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 lg:justify-start">
-                {dict.hero.trustLabels.map((label) => (
-                  <li
-                    key={label}
-                    className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground"
-                  >
-                    <span
-                      aria-hidden="true"
-                      className="size-1.5 rounded-full bg-primary"
-                    />
-                    {label}
+              <ul className="mt-7 flex flex-wrap items-center justify-center gap-2 lg:justify-start">
+                {dict.hero.trustSignals.map((item) => (
+                  <li key={item} className="rounded-full border border-border bg-white/60 px-3 py-1.5 text-xs font-semibold text-muted-foreground shadow-sm backdrop-blur">
+                    {item}
                   </li>
                 ))}
               </ul>
             </Reveal>
           </div>
+
+          <Reveal delay={0.12}>
+            <div className="neon-float relative mx-auto w-full max-w-xl">
+              <div className="absolute -inset-4 rounded-[2rem] bg-primary/10 blur-3xl" aria-hidden="true" />
+              <div className="relative overflow-hidden rounded-[1.75rem] border border-primary/20 bg-white p-2 shadow-[0_28px_80px_-36px_rgba(122,95,22,0.32)]">
+                <Image
+                  src="/about/security-layers.webp"
+                  alt=""
+                  width={1536}
+                  height={1024}
+                  priority
+                  aria-hidden="true"
+                  className="aspect-[4/3] w-full rounded-[1.35rem] object-cover"
+                />
+                <div className="absolute bottom-5 start-5 flex items-center gap-3 rounded-xl border border-white/15 bg-[#0a0a0c]/90 px-4 py-3 text-start shadow-xl backdrop-blur">
+                  <Image src="/brand/shield-web.webp" alt="" width={260} height={433} aria-hidden="true" className="h-9 w-auto" />
+                  <div>
+                    <p className="text-xs font-semibold text-white">{dict.hero.visualTitle}</p>
+                    <p className="mt-0.5 text-[0.7rem] text-[#c8c1b2]">{dict.hero.visualSubtitle}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Reveal>
         </div>
 
-        <Reveal delay={0.4}>
-          <ul className="mt-16 grid gap-8 border-t border-border pt-12 sm:grid-cols-2 lg:grid-cols-3">
+        <Reveal delay={0.3}>
+          <ul className="mt-12 grid gap-5 border-t border-border pt-8 sm:grid-cols-2 lg:grid-cols-3">
             {dict.hero.features.map((feature, index) => {
               const Icon = featureIcons[index] ?? ShieldCheck;
               return (

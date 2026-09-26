@@ -15,7 +15,7 @@ export function WhatsAppButton({ label }: WhatsAppButtonProps) {
       rel="noopener noreferrer"
       aria-label={label}
       title={label}
-      className="fixed bottom-4 end-4 z-50 flex size-12 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-black/30 transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:bottom-5 sm:end-5 sm:size-14"
+      className="fixed bottom-4 end-4 z-50 flex size-12 items-center justify-center rounded-full bg-[#18794e] text-white shadow-lg shadow-black/20 transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:bottom-5 sm:end-5 sm:size-14"
     >
       <WhatsAppIcon className="size-6 sm:size-7" />
     </a>

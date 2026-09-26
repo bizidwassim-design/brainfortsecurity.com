@@ -107,7 +107,6 @@ export function ContactForm({ dict: t }: ContactFormProps) {
             name="phone"
             type="tel"
             autoComplete="tel"
-            placeholder={t.phonePlaceholder}
           />
         </div>
       </div>

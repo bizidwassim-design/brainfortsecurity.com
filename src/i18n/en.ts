@@ -12,35 +12,32 @@ export const en = {
     skipToContent: "Skip to main content",
   },
   nav: {
+    mainLabel: "Main navigation",
+    mobileLabel: "Mobile navigation",
     home: "Home",
     services: "Services",
     packages: "Packages",
     cost: "Pricing",
-    freeGuide: "Simulator",
+    freeGuide: "Cyber Insurance Simulator",
+    agentic: "Agentic Security",
     about: "About",
     contact: "Contact",
     cta: "Book a Consultation",
     openMenu: "Open navigation menu",
     closeMenu: "Close navigation menu",
     languageLabel: "Language",
-    mainNavLabel: "Main navigation",
-    mobileNavLabel: "Mobile navigation",
-    homeLabel: "Home",
   },
   hero: {
-    badge: "Cybersecurity at the Speed of AI",
-    trustLabels: [
-      "Montréal",
-      "Dubai",
-      "Riyadh",
-      "Senior consultants only",
-    ],
-    title: "Fortify Your Business Against Modern Cyber Threats",
-    highlight: "Modern Cyber Threats",
+    badge: "Senior cybersecurity for growing businesses",
+    title: "Cybersecurity for SMBs, with the attention you deserve",
+    highlight: "the attention you deserve",
     subtitle:
-      "BrainFort Security helps organizations across Canada and the Middle East assess, architect, and automate their security posture. Our AI-augmented delivery means faster turnaround and more consistent quality — without cutting corners.",
-    primaryCta: "Get a Security Assessment",
-    secondaryCta: "Explore Services",
+      "Audits, Microsoft 365 security, Zero Trust and hands-on implementation led by senior consultants across Canada and the Middle East.",
+    primaryCta: "Request a Consultation",
+    secondaryCta: "View Pricing",
+    visualTitle: "Built around your business",
+    visualSubtitle: "Senior expertise · practical roadmaps",
+    trustSignals: ["Montréal", "Dubai", "Riyadh", "Senior consultants"],
     features: [
       {
         title: "Zero Trust Ready",
@@ -80,7 +77,18 @@ export const en = {
     subtitle:
       "Practical, vendor-aware consulting that hardens your environment without slowing your business down.",
     viewAll: "View All Services",
-    learnMore: "Learn more",
+    learnMore: "Explore service",
+  },
+  process: {
+    eyebrow: "How We Work",
+    title: "From uncertainty to an actionable security plan",
+    subtitle: "A focused four-step engagement designed for growing businesses that need clarity, momentum, and senior attention.",
+    items: [
+      { title: "Diagnose", description: "We examine your identities, cloud, Microsoft 365, controls, and business priorities.", deliverable: "Risk and maturity snapshot" },
+      { title: "Prioritize", description: "We rank findings by business impact, urgency, effort, and available budget.", deliverable: "Prioritized remediation roadmap" },
+      { title: "Implement", description: "Our senior consultants help configure, harden, document, and validate the agreed controls.", deliverable: "Controls implemented and documented" },
+      { title: "Monitor", description: "We review progress, emerging exposure, and the next highest-value security actions.", deliverable: "Monthly progress and next actions" },
+    ],
   },
   why: {
     eyebrow: "Why BrainFort",
@@ -139,46 +147,40 @@ export const en = {
       { value: "3", label: "Regions served — Canada, UAE, Saudi Arabia" },
     ],
   },
+  cyberNews: {
+    eyebrow: "Global Cyber Pulse",
+    title: "The numbers reshaping cybersecurity",
+    subtitle: "A concise view of the latest global breach data — and what it means for growing businesses.",
+    locale: "en-CA",
+    updated: "Live feed updated",
+    loading: "Connecting to the live feed…",
+    items: [
+      { value: "total", label: "Known exploited vulnerabilities", detail: "Vulnerabilities confirmed as exploited in real-world attacks and listed in the live catalog.", source: "CISA KEV live data", href: "https://github.com/cisagov/kev-data" },
+      { value: "recent", label: "New entries in the last 30 days", detail: "Recently added vulnerabilities that deserve immediate review and remediation prioritization.", source: "CISA KEV live data", href: "https://github.com/cisagov/kev-data" },
+      { value: "ransomware", label: "Linked to ransomware campaigns", detail: "Catalogued vulnerabilities with confirmed use in known ransomware campaigns.", source: "CISA KEV live data", href: "https://github.com/cisagov/kev-data" },
+      { value: "vendors", label: "Technology vendors affected", detail: "Distinct vendors and projects represented across the current exploited-vulnerability catalog.", source: "CISA KEV live data", href: "https://github.com/cisagov/kev-data" },
+    ],
+    disclaimer: "Live figures are calculated in your browser from CISA's official GitHub mirror, which is synchronized with the KEV catalog whenever it changes.",
+  },
   activeThreats: {
     locale: "en-CA",
     eyebrow: "Active threat monitor",
     title: "Signals observed across the global threat landscape",
-    subtitle:
-      "Aggregated, frequently synchronized indicators from independent threat-intelligence networks. No malicious indicator is exposed on this page.",
+    subtitle: "Aggregated, frequently synchronized indicators from independent threat-intelligence networks. No malicious indicator is exposed on this page.",
     synced: "Data synchronized",
     connecting: "Loading synchronized threat data…",
     unavailable: "Latest synchronization temporarily unavailable",
     metrics: [
-      {
-        label: "Malicious URLs currently online",
-        detail:
-          "Online payload and malware-distribution URLs observed by URLhaus.",
-      },
-      {
-        label: "Malicious URLs reported in 24 hours",
-        detail:
-          "New URLhaus observations during the latest rolling 24-hour window.",
-      },
-      {
-        label: "Recent malware indicators",
-        detail: "Current indicators contained in the recent ThreatFox export.",
-      },
-      {
-        label: "Command-and-control indicators",
-        detail:
-          "Recent indicators classified as botnet command-and-control infrastructure.",
-      },
+      { label: "Malicious URLs currently online", detail: "Online payload and malware-distribution URLs observed by URLhaus." },
+      { label: "Malicious URLs reported in 24 hours", detail: "New URLhaus observations during the latest rolling 24-hour window." },
+      { label: "Recent malware indicators", detail: "Current indicators contained in the recent ThreatFox export." },
+      { label: "Command-and-control indicators", detail: "Recent indicators classified as botnet command-and-control infrastructure." },
     ],
     topTitle: "Most observed malware families",
     sourcesTitle: "Live intelligence sources",
-    sourcesBody:
-      "The synchronized file is generated automatically from public community feeds every 30 minutes.",
-    sources: [
-      { name: "URLhaus", href: "https://urlhaus.abuse.ch/" },
-      { name: "ThreatFox", href: "https://threatfox.abuse.ch/" },
-    ],
-    disclaimer:
-      "These aggregate counts provide situational awareness, not a complete measure of global cybercrime. Source availability and classification methods may affect the totals.",
+    sourcesBody: "The synchronized file is generated automatically from public community feeds every 30 minutes.",
+    sources: [{ name: "URLhaus", href: "https://urlhaus.abuse.ch/" }, { name: "ThreatFox", href: "https://threatfox.abuse.ch/" }],
+    disclaimer: "These aggregate counts provide situational awareness, not a complete measure of global cybercrime. Source availability and classification methods may affect the totals.",
   },
   industries: {
     eyebrow: "Who We Serve",
@@ -795,6 +797,40 @@ export const en = {
       ],
     },
   },
+  agenticPage: {
+    metaTitle: "Agentic AI Managed Cybersecurity",
+    metaDescription: "BrainFort manages identity, Microsoft 365, cloud, network, vulnerability and compliance operations with agentic AI under senior human supervision.",
+    eyebrow: "Agentic managed security",
+    title: "Your infrastructure, managed with agentic AI",
+    intro: "BrainFort connects specialized security agents to the systems you authorize. They continuously collect evidence, correlate risk, prepare recommendations and support controlled remediation under senior consultant oversight.",
+    imageAlt: "A BrainFort consultant using an agentic AI platform to manage a client's identities, cloud, network, endpoints and compliance controls.",
+    demoCta: "Book an Agentic Security Demo",
+    pricingCta: "Estimate My Plan",
+    homeTitle: "Agentic AI that works across your environment",
+    homeIntro: "One managed capability for continuous visibility, prioritized decisions, and supervised action across the infrastructure your business depends on.",
+    capabilities: [
+      { title: "Observe", description: "Continuously collect authorized signals from identity, Microsoft 365, cloud, network, endpoints, vulnerabilities, and GRC tools.", control: "Automatic within approved read access" },
+      { title: "Recommend", description: "Correlate findings, rank business risk, and prepare clear remediation options with supporting evidence.", control: "Automatically prepared, consultant reviewed" },
+      { title: "Execute", description: "Apply approved configuration and remediation changes with validation, documentation, and rollback planning.", control: "Client authorization required" },
+    ],
+    authorizationNote: "Read-only discovery can run continuously. Any change to your environment follows agreed permissions, human review, and the authorization boundaries defined for your engagement.",
+    learnMore: "See how agentic management works",
+    scopeEyebrow: "Managed scope",
+    scopeTitle: "What BrainFort can manage with you",
+    scope: ["Identity and privileged access", "Microsoft 365 and Entra ID", "Cloud posture and workloads", "Network and security controls", "Vulnerability prioritization", "Compliance evidence and roadmaps", "Monitoring and risk triage", "Supervised remediation"],
+    governance: [
+      { title: "Secure MCP connections", description: "Purpose-built connections expose only the systems and functions approved for the engagement." },
+      { title: "Least-privilege permissions", description: "Access is scoped, logged, reviewed, and separated between observation and change operations." },
+      { title: "Senior human oversight", description: "BrainFort consultants validate context, approve recommendations, and supervise high-impact actions." },
+    ],
+    cycleEyebrow: "Example monthly cycle",
+    cycleTitle: "Continuous work, visible progress",
+    cycle: ["Collect current evidence and detect material changes.", "Correlate exposures and prioritize the highest business risk.", "Review recommendations with the client and approve the work plan.", "Implement authorized actions and validate the outcome.", "Document progress, residual risk, and next priorities."],
+    boundariesTitle: "Clear operating boundaries",
+    boundaries: ["No unrestricted autonomous changes to client systems.", "High-impact actions require explicit approval.", "Credentials and permissions remain scoped to the engagement.", "Recommendations are validated against business context.", "Activity is documented for traceability and review."],
+    ctaTitle: "See agentic management applied to your environment",
+    ctaBody: "In a focused demonstration, we map your systems, permissions, and first high-value use cases without changing your production environment.",
+  },
   aboutPage: {
     metaTitle: "About Us",
     metaDescription:
@@ -804,7 +840,10 @@ export const en = {
     intro:
       "BrainFort Security Inc. is a Canadian cybersecurity consulting firm founded on a simple conviction: strong security should accelerate a business, not slow it down.",
     teamImageAlt:
-      "The BrainFort Security operations team monitoring live threat dashboards.",
+      "A BrainFort senior consultant managing a client's identity, Microsoft 365, cloud, network, endpoints, and compliance through a central agentic AI platform while the client reviews the results.",
+    agenticImageTitle: "We manage your infrastructure with agentic AI",
+    agenticImageBody:
+      "BrainFort's specialized agents continuously monitor and coordinate your environment, while our senior consultants supervise decisions and turn findings into safe, practical action.",
     missionTitle: "Our Mission",
     mission:
       "To make enterprise-grade cybersecurity accessible and actionable for organizations of every size — combining senior expertise with AI-powered efficiency.",
@@ -1180,12 +1219,12 @@ export const en = {
       network: "Network devices (switches, firewalls, Wi-Fi)",
       users: "Microsoft 365 users / mailboxes",
     },
+    decreaseAria: "Decrease {field}",
+    increaseAria: "Increase {field}",
     monthLabel: "USD / month",
     prepaidLabel: "Prepaid annually (−10%):",
     prepaidLabelTwoYear: "Prepaid for 2 years (−15%):",
     yearlyEquivalentLabel: "That's",
-    decreaseAria: "Decrease {field}",
-    increaseAria: "Increase {field}",
     perYear: "USD / year",
     taxNote: "All prices are exclusive of applicable taxes.",
     optionsTitle: "Options",
@@ -1208,22 +1247,22 @@ export const en = {
       title: "Simple, Transparent Hourly Pricing",
       intro:
         "Because we work exclusively with SMBs, every engagement gets the same senior-level attention to detail — no client is too small to matter.",
-      rateSuffix: "USD / hour",
+      rateSuffix: "/ hour",
       unitLabel: "hours / month",
       tiers: [
         {
           hours: "20",
-          rate: "225",
+          rate: "250",
           note: "Ideal for ongoing, lighter-touch support",
         },
         {
           hours: "50",
-          rate: "190",
+          rate: "200",
           note: "Most common for growing SMBs",
         },
         {
           hours: "50+",
-          rate: "165",
+          rate: "180",
           note: "High-volume, dedicated capacity",
         },
       ],

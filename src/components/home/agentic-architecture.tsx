@@ -109,7 +109,7 @@ export function AgenticArchitecture({ dict }: AgenticArchitectureProps) {
           <div className="glass mx-auto mt-12 max-w-4xl rounded-3xl p-4 sm:p-8" dir="ltr">
             <svg viewBox="0 0 920 600" className="w-full" role="img" aria-label={t.subtitle}>
               {/* Connectors + MCP labels */}
-              {nodes.map((node, i) => {
+              {nodes.map((node) => {
                 const midX = (CENTER.x + node.pos.x) / 2;
                 const midY = (CENTER.y + node.pos.y) / 2;
                 return (

@@ -11,35 +11,32 @@ export const fr: Dictionary = {
     skipToContent: "Passer au contenu principal",
   },
   nav: {
+    mainLabel: "Navigation principale",
+    mobileLabel: "Navigation mobile",
     home: "Accueil",
     services: "Services",
     packages: "Forfaits",
     cost: "Tarification",
-    freeGuide: "Simulateur",
+    freeGuide: "Simulateur d'assurance cyber",
+    agentic: "Sécurité agentique",
     about: "À propos",
     contact: "Contact",
     cta: "Réserver une consultation",
     openMenu: "Ouvrir le menu de navigation",
     closeMenu: "Fermer le menu de navigation",
     languageLabel: "Langue",
-    mainNavLabel: "Navigation principale",
-    mobileNavLabel: "Navigation mobile",
-    homeLabel: "Accueil",
   },
   hero: {
-    badge: "La cybersécurité à la vitesse de l'IA",
-    trustLabels: [
-      "Montréal",
-      "Dubaï",
-      "Riyad",
-      "Consultants seniors uniquement",
-    ],
-    title: "Fortifiez votre entreprise contre les cybermenaces modernes",
-    highlight: "les cybermenaces modernes",
+    badge: "La cybersécurité senior pour les entreprises en croissance",
+    title: "La cybersécurité des PME, avec l'attention que vous méritez",
+    highlight: "l'attention que vous méritez",
     subtitle:
-      "BrainFort Sécurité aide les organisations du Canada et du Moyen-Orient à évaluer, concevoir et automatiser leur posture de sécurité. Notre approche propulsée par l'IA garantit une livraison plus rapide et une qualité plus constante — sans compromis.",
-    primaryCta: "Obtenir une évaluation de sécurité",
-    secondaryCta: "Découvrir nos services",
+      "Audits, sécurité Microsoft 365, Zéro Confiance et mise en œuvre concrète, dirigés par des consultants seniors au Canada et au Moyen-Orient.",
+    primaryCta: "Demander une consultation",
+    secondaryCta: "Voir les tarifs",
+    visualTitle: "Une protection conçue pour votre entreprise",
+    visualSubtitle: "Expertise senior · feuilles de route concrètes",
+    trustSignals: ["Montréal", "Dubaï", "Riyad", "Consultants seniors"],
     features: [
       {
         title: "Prêt pour le Zéro Confiance",
@@ -79,7 +76,18 @@ export const fr: Dictionary = {
     subtitle:
       "Un conseil pratique et neutre vis-à-vis des fournisseurs, qui renforce votre environnement sans ralentir vos activités.",
     viewAll: "Voir tous les services",
-    learnMore: "En savoir plus",
+    learnMore: "Découvrir ce service",
+  },
+  process: {
+    eyebrow: "Notre méthode",
+    title: "De l'incertitude à un plan de sécurité concret",
+    subtitle: "Un accompagnement ciblé en quatre étapes pour les PME en croissance qui recherchent de la clarté, du rythme et une attention senior.",
+    items: [
+      { title: "Diagnostiquer", description: "Nous examinons vos identités, votre nuage, Microsoft 365, vos contrôles et vos priorités d'affaires.", deliverable: "Portrait des risques et de la maturité" },
+      { title: "Prioriser", description: "Nous classons les constats selon leur impact, leur urgence, l'effort requis et votre budget.", deliverable: "Feuille de route de remédiation priorisée" },
+      { title: "Mettre en œuvre", description: "Nos consultants seniors configurent, renforcent, documentent et valident les contrôles convenus.", deliverable: "Contrôles implantés et documentés" },
+      { title: "Suivre", description: "Nous évaluons les progrès, les nouveaux risques et les prochaines actions à forte valeur.", deliverable: "Progrès mensuels et prochaines actions" },
+    ],
   },
   why: {
     eyebrow: "Pourquoi BrainFort",
@@ -144,46 +152,40 @@ export const fr: Dictionary = {
       },
     ],
   },
+  cyberNews: {
+    eyebrow: "Baromètre cyber mondial",
+    title: "Les chiffres qui redéfinissent la cybersécurité",
+    subtitle: "Une lecture concise des plus récentes données mondiales sur les compromissions — et de leur portée pour les PME en croissance.",
+    locale: "fr-CA",
+    updated: "Flux actualisé le",
+    loading: "Connexion au flux en direct…",
+    items: [
+      { value: "total", label: "Vulnérabilités exploitées connues", detail: "Vulnérabilités confirmées comme exploitées lors d'attaques réelles et recensées dans le catalogue actif.", source: "Données CISA KEV en direct", href: "https://github.com/cisagov/kev-data" },
+      { value: "recent", label: "Nouvelles entrées sur 30 jours", detail: "Vulnérabilités récemment ajoutées qui demandent une analyse et une remédiation prioritaires.", source: "Données CISA KEV en direct", href: "https://github.com/cisagov/kev-data" },
+      { value: "ransomware", label: "Liées à des campagnes de rançongiciel", detail: "Vulnérabilités dont l'utilisation est confirmée dans des campagnes de rançongiciel connues.", source: "Données CISA KEV en direct", href: "https://github.com/cisagov/kev-data" },
+      { value: "vendors", label: "Fournisseurs technologiques touchés", detail: "Fournisseurs et projets distincts représentés dans le catalogue actuel des vulnérabilités exploitées.", source: "Données CISA KEV en direct", href: "https://github.com/cisagov/kev-data" },
+    ],
+    disclaimer: "Les chiffres sont calculés dans votre navigateur à partir du miroir GitHub officiel de la CISA, synchronisé avec le catalogue KEV à chaque mise à jour.",
+  },
   activeThreats: {
     locale: "fr-CA",
     eyebrow: "Surveillance des menaces actives",
     title: "Les signaux observés dans le paysage mondial des menaces",
-    subtitle:
-      "Des indicateurs agrégés et fréquemment synchronisés provenant de réseaux indépendants de renseignement sur les menaces. Aucun indicateur malveillant n'est exposé sur cette page.",
+    subtitle: "Des indicateurs agrégés et fréquemment synchronisés provenant de réseaux indépendants de renseignement sur les menaces. Aucun indicateur malveillant n'est exposé sur cette page.",
     synced: "Données synchronisées le",
     connecting: "Chargement des données synchronisées…",
     unavailable: "Dernière synchronisation temporairement indisponible",
     metrics: [
-      {
-        label: "URL malveillantes actuellement en ligne",
-        detail:
-          "URL de distribution de charges et de logiciels malveillants observées par URLhaus.",
-      },
-      {
-        label: "URL malveillantes signalées en 24 h",
-        detail:
-          "Nouvelles observations URLhaus durant la dernière fenêtre mobile de 24 heures.",
-      },
-      {
-        label: "Indicateurs de logiciels malveillants récents",
-        detail: "Indicateurs présents dans la plus récente exportation ThreatFox.",
-      },
-      {
-        label: "Indicateurs de commande et contrôle",
-        detail:
-          "Indicateurs récents classés comme infrastructure de commande et contrôle de botnets.",
-      },
+      { label: "URL malveillantes actuellement en ligne", detail: "URL de distribution de charges et de logiciels malveillants observées par URLhaus." },
+      { label: "URL malveillantes signalées en 24 h", detail: "Nouvelles observations URLhaus durant la dernière fenêtre mobile de 24 heures." },
+      { label: "Indicateurs de logiciels malveillants récents", detail: "Indicateurs présents dans la plus récente exportation ThreatFox." },
+      { label: "Indicateurs de commande et contrôle", detail: "Indicateurs récents classés comme infrastructure de commande et contrôle de botnets." },
     ],
     topTitle: "Familles de logiciels malveillants les plus observées",
     sourcesTitle: "Sources de renseignement",
-    sourcesBody:
-      "Le fichier synchronisé est produit automatiquement à partir de flux communautaires publics toutes les 30 minutes.",
-    sources: [
-      { name: "URLhaus", href: "https://urlhaus.abuse.ch/" },
-      { name: "ThreatFox", href: "https://threatfox.abuse.ch/" },
-    ],
-    disclaimer:
-      "Ces décomptes agrégés offrent une lecture de la situation, sans mesurer l'ensemble de la cybercriminalité mondiale. La disponibilité et les méthodes de classification des sources peuvent influencer les totaux.",
+    sourcesBody: "Le fichier synchronisé est produit automatiquement à partir de flux communautaires publics toutes les 30 minutes.",
+    sources: [{ name: "URLhaus", href: "https://urlhaus.abuse.ch/" }, { name: "ThreatFox", href: "https://threatfox.abuse.ch/" }],
+    disclaimer: "Ces décomptes agrégés offrent une lecture de la situation, sans mesurer l'ensemble de la cybercriminalité mondiale. La disponibilité et les méthodes de classification des sources peuvent influencer les totaux.",
   },
   industries: {
     eyebrow: "Qui nous servons",
@@ -816,6 +818,40 @@ export const fr: Dictionary = {
       ],
     },
   },
+  agenticPage: {
+    metaTitle: "Cybersécurité gérée par IA agentique",
+    metaDescription: "BrainFort gère les identités, Microsoft 365, le nuage, le réseau, les vulnérabilités et la conformité avec une IA agentique sous supervision humaine senior.",
+    eyebrow: "Sécurité gérée agentique",
+    title: "Votre infrastructure, gérée avec l'IA agentique",
+    intro: "BrainFort connecte des agents de sécurité spécialisés aux systèmes que vous autorisez. Ils recueillent les preuves, corrèlent les risques, préparent les recommandations et soutiennent les remédiations contrôlées sous la supervision de consultants seniors.",
+    imageAlt: "Un consultant BrainFort utilise une plateforme d'IA agentique pour gérer les identités, le nuage, le réseau, les terminaux et les contrôles de conformité d'un client.",
+    demoCta: "Réserver une démonstration agentique",
+    pricingCta: "Estimer mon forfait",
+    homeTitle: "Une IA agentique qui agit dans tout votre environnement",
+    homeIntro: "Une capacité gérée unique pour maintenir la visibilité, prioriser les décisions et superviser les actions dans l'infrastructure essentielle à votre entreprise.",
+    capabilities: [
+      { title: "Observer", description: "Recueillir en continu les signaux autorisés provenant des identités, de Microsoft 365, du nuage, du réseau, des terminaux, des vulnérabilités et de la GRC.", control: "Automatique avec accès de lecture approuvé" },
+      { title: "Recommander", description: "Corréler les constats, classer les risques d'affaires et préparer des options de remédiation appuyées par des preuves.", control: "Préparé automatiquement, validé par un consultant" },
+      { title: "Exécuter", description: "Appliquer les changements approuvés avec validation, documentation et plan de retour arrière.", control: "Autorisation du client requise" },
+    ],
+    authorizationNote: "La découverte en lecture seule peut fonctionner en continu. Toute modification suit les permissions convenues, une révision humaine et les limites d'autorisation définies pour le mandat.",
+    learnMore: "Voir le fonctionnement de la gestion agentique",
+    scopeEyebrow: "Périmètre géré",
+    scopeTitle: "Ce que BrainFort peut gérer avec vous",
+    scope: ["Identités et accès privilégiés", "Microsoft 365 et Entra ID", "Posture et charges infonuagiques", "Réseau et contrôles de sécurité", "Priorisation des vulnérabilités", "Preuves de conformité et feuilles de route", "Surveillance et triage des risques", "Remédiations supervisées"],
+    governance: [
+      { title: "Connexions MCP sécurisées", description: "Les connexions spécialisées exposent uniquement les systèmes et fonctions approuvés pour le mandat." },
+      { title: "Permissions de moindre privilège", description: "Les accès sont limités, journalisés, révisés et séparés entre observation et modification." },
+      { title: "Supervision humaine senior", description: "Les consultants BrainFort valident le contexte, approuvent les recommandations et supervisent les actions à fort impact." },
+    ],
+    cycleEyebrow: "Exemple de cycle mensuel",
+    cycleTitle: "Un travail continu, des progrès visibles",
+    cycle: ["Recueillir les preuves actuelles et détecter les changements importants.", "Corréler les expositions et prioriser les risques d'affaires les plus élevés.", "Réviser les recommandations avec le client et approuver le plan de travail.", "Mettre en œuvre les actions autorisées et valider le résultat.", "Documenter les progrès, les risques résiduels et les prochaines priorités."],
+    boundariesTitle: "Des limites opérationnelles claires",
+    boundaries: ["Aucune modification autonome sans restriction dans les systèmes du client.", "Les actions à fort impact exigent une approbation explicite.", "Les identifiants et permissions restent limités au mandat.", "Les recommandations sont validées selon le contexte d'affaires.", "Les activités sont documentées pour assurer la traçabilité."],
+    ctaTitle: "Voyez la gestion agentique appliquée à votre environnement",
+    ctaBody: "Lors d'une démonstration ciblée, nous cartographions vos systèmes, vos permissions et les premiers cas d'usage à forte valeur sans modifier la production.",
+  },
   aboutPage: {
     metaTitle: "À propos",
     metaDescription:
@@ -825,7 +861,10 @@ export const fr: Dictionary = {
     intro:
       "BrainFort Sécurité Inc. est une firme canadienne de conseil en cybersécurité fondée sur une conviction simple : une sécurité solide doit accélérer l'entreprise, pas la ralentir.",
     teamImageAlt:
-      "L'équipe des opérations de BrainFort Sécurité devant les tableaux de bord de surveillance des menaces.",
+      "Un consultant senior de BrainFort gère les identités, Microsoft 365, le nuage, le réseau, les terminaux et la conformité du client au moyen d'une plateforme d'IA agentique centrale, sous le regard du client.",
+    agenticImageTitle: "Nous gérons votre infrastructure grâce à l'IA agentique",
+    agenticImageBody:
+      "Les agents spécialisés de BrainFort surveillent et coordonnent continuellement votre environnement. Nos consultants seniors supervisent les décisions et transforment les constats en actions sûres et concrètes.",
     missionTitle: "Notre mission",
     mission:
       "Rendre la cybersécurité de calibre entreprise accessible et actionnable pour les organisations de toutes tailles — en combinant expertise de haut niveau et efficacité propulsée par l'IA.",
@@ -1201,12 +1240,12 @@ export const fr: Dictionary = {
       network: "Équipements réseau (commutateurs, pare-feu, Wi-Fi)",
       users: "Utilisateurs Microsoft 365 / boîtes courriel",
     },
+    decreaseAria: "Diminuer {field}",
+    increaseAria: "Augmenter {field}",
     monthLabel: "$ US / mois",
     prepaidLabel: "Prépaiement annuel (−10 %) :",
     prepaidLabelTwoYear: "Prépaiement pour 2 ans (−15 %) :",
     yearlyEquivalentLabel: "Soit",
-    decreaseAria: "Diminuer {field}",
-    increaseAria: "Augmenter {field}",
     perYear: "$ US / an",
     taxNote: "Tous les prix sont hors taxes applicables.",
     optionsTitle: "Options",
@@ -1229,22 +1268,22 @@ export const fr: Dictionary = {
       title: "Une tarification horaire simple et transparente",
       intro:
         "Parce que nous travaillons exclusivement avec des PME, chaque mandat reçoit la même attention aux détails de niveau senior — aucun client n'est trop petit pour compter.",
-      rateSuffix: "$ US / heure",
+      rateSuffix: "/ heure",
       unitLabel: "heures / mois",
       tiers: [
         {
           hours: "20",
-          rate: "225",
+          rate: "250",
           note: "Idéal pour un accompagnement continu et léger",
         },
         {
           hours: "50",
-          rate: "190",
+          rate: "200",
           note: "Le plus courant pour les PME en croissance",
         },
         {
           hours: "50+",
-          rate: "165",
+          rate: "180",
           note: "Volume élevé, capacité dédiée",
         },
       ],

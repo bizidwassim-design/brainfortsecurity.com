@@ -26,9 +26,7 @@ function parseCsvLine(line) {
 }
 
 async function fetchText(url) {
-  const response = await fetch(url, {
-    headers: { "User-Agent": "BrainFort-Security-Threat-Dashboard/1.0" },
-  });
+  const response = await fetch(url, { headers: { "User-Agent": "BrainFort-Security-Threat-Dashboard/1.0" } });
   if (!response.ok) throw new Error(`${url} returned ${response.status}`);
   return response.text();
 }
@@ -61,9 +59,7 @@ const urlsLast24Hours = urlHausRows.filter((row) => {
   const timestamp = Date.parse(`${row[1]?.replace(" ", "T")}Z`);
   return Number.isFinite(timestamp) && timestamp >= dayAgo;
 }).length;
-const commandAndControl = threatFoxItems.filter(
-  (item) => item.threat_type === "botnet_cc",
-).length;
+const commandAndControl = threatFoxItems.filter((item) => item.threat_type === "botnet_cc").length;
 
 const result = {
   updatedAt: new Date().toISOString(),

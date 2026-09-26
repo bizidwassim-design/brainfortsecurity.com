@@ -34,15 +34,14 @@ function Sparkles() {
  */
 export function Logo({ locale = defaultLocale, variant = "light" }: LogoProps) {
   const isFrench = locale === "fr";
+  const homeLabel = locale === "fr" ? "Accueil" : locale === "ar" ? "الرئيسية" : "Home";
   const taglineColor = variant === "dark" ? "#e9d18b" : "#7a5f16";
 
   return (
     <Link
       href={`/${locale}/`}
-      className="flex items-center gap-2.5 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-      aria-label={`${siteConfig.name} — ${
-        locale === "fr" ? "Accueil" : locale === "ar" ? "الرئيسية" : "Home"
-      }`}
+      className="group flex items-center gap-3 rounded-xl px-1 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+      aria-label={`${siteConfig.name} — ${homeLabel}`}
     >
       <Image
         src="/brand/shield-web.webp"
@@ -50,10 +49,10 @@ export function Logo({ locale = defaultLocale, variant = "light" }: LogoProps) {
         width={260}
         height={433}
         aria-hidden="true"
-        className="h-11 w-auto"
+        className="h-12 w-auto drop-shadow-[0_0_12px_rgba(212,175,55,0.22)] transition-transform duration-300 group-hover:scale-105"
       />
       <span className="flex flex-col pt-2 leading-none">
-        <span className="gold-text text-xl font-extrabold tracking-wide">
+        <span className="gold-text text-[1.35rem] font-extrabold tracking-wide">
           {isFrench ? "Br" : "BR"}
           <span className="relative text-accent">
             AI
@@ -62,7 +61,7 @@ export function Logo({ locale = defaultLocale, variant = "light" }: LogoProps) {
           {isFrench ? "nFort" : "NFORT"}
         </span>
         <span
-          className="mt-1.5 flex items-center gap-2 whitespace-nowrap text-[0.6rem] font-semibold uppercase"
+          className="mt-1.5 flex items-center gap-2 text-[0.6rem] font-semibold uppercase"
           style={{ color: taglineColor }}
         >
           <span
@@ -71,8 +70,8 @@ export function Logo({ locale = defaultLocale, variant = "light" }: LogoProps) {
             style={{ backgroundColor: taglineColor, opacity: 0.5 }}
           />
           {/* Inline letter-spacing so the Arabic reset can't flatten it. */}
-          <span style={{ letterSpacing: isFrench ? "0.3em" : "0.42em" }}>
-            {isFrench ? "Sécurité" : "Security"}
+          <span style={{ letterSpacing: isFrench ? "0.18em" : "0.42em" }}>
+            {isFrench ? "Sécurité Inc." : "Security"}
           </span>
           <span
             aria-hidden="true"
