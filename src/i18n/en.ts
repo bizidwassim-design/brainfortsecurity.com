@@ -36,6 +36,7 @@ export const en = {
     secondaryCta: "View Pricing",
     visualTitle: "Built around your business",
     visualSubtitle: "Senior expertise · practical roadmaps",
+    trustSignals: ["Montréal", "Dubai", "Riyadh", "Senior consultants"],
     features: [
       {
         title: "Zero Trust Ready",
@@ -76,6 +77,17 @@ export const en = {
       "Practical, vendor-aware consulting that hardens your environment without slowing your business down.",
     viewAll: "View All Services",
     learnMore: "Explore service",
+  },
+  process: {
+    eyebrow: "How We Work",
+    title: "From uncertainty to an actionable security plan",
+    subtitle: "A focused four-step engagement designed for growing businesses that need clarity, momentum, and senior attention.",
+    items: [
+      { title: "Diagnose", description: "We examine your identities, cloud, Microsoft 365, controls, and business priorities.", deliverable: "Risk and maturity snapshot" },
+      { title: "Prioritize", description: "We rank findings by business impact, urgency, effort, and available budget.", deliverable: "Prioritized remediation roadmap" },
+      { title: "Implement", description: "Our senior consultants help configure, harden, document, and validate the agreed controls.", deliverable: "Controls implemented and documented" },
+      { title: "Monitor", description: "We review progress, emerging exposure, and the next highest-value security actions.", deliverable: "Monthly progress and next actions" },
+    ],
   },
   why: {
     eyebrow: "Why BrainFort",

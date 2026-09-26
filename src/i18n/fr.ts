@@ -35,6 +35,7 @@ export const fr: Dictionary = {
     secondaryCta: "Voir les tarifs",
     visualTitle: "Une protection conçue pour votre entreprise",
     visualSubtitle: "Expertise senior · feuilles de route concrètes",
+    trustSignals: ["Montréal", "Dubaï", "Riyad", "Consultants seniors"],
     features: [
       {
         title: "Prêt pour le Zéro Confiance",
@@ -75,6 +76,17 @@ export const fr: Dictionary = {
       "Un conseil pratique et neutre vis-à-vis des fournisseurs, qui renforce votre environnement sans ralentir vos activités.",
     viewAll: "Voir tous les services",
     learnMore: "Découvrir ce service",
+  },
+  process: {
+    eyebrow: "Notre méthode",
+    title: "De l'incertitude à un plan de sécurité concret",
+    subtitle: "Un accompagnement ciblé en quatre étapes pour les PME en croissance qui recherchent de la clarté, du rythme et une attention senior.",
+    items: [
+      { title: "Diagnostiquer", description: "Nous examinons vos identités, votre nuage, Microsoft 365, vos contrôles et vos priorités d'affaires.", deliverable: "Portrait des risques et de la maturité" },
+      { title: "Prioriser", description: "Nous classons les constats selon leur impact, leur urgence, l'effort requis et votre budget.", deliverable: "Feuille de route de remédiation priorisée" },
+      { title: "Mettre en œuvre", description: "Nos consultants seniors configurent, renforcent, documentent et valident les contrôles convenus.", deliverable: "Contrôles implantés et documentés" },
+      { title: "Suivre", description: "Nous évaluons les progrès, les nouveaux risques et les prochaines actions à forte valeur.", deliverable: "Progrès mensuels et prochaines actions" },
+    ],
   },
   why: {
     eyebrow: "Pourquoi BrainFort",

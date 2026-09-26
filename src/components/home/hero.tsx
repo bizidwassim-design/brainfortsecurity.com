@@ -28,6 +28,7 @@ export function Hero({ locale, dict }: HeroProps) {
 
   return (
     <section className="hero-glow relative overflow-hidden border-b border-border">
+      <div className="aurora" aria-hidden="true" />
       <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
         <div className="grid items-center gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:gap-16">
           <div className="text-center lg:text-start">
@@ -75,10 +76,20 @@ export function Hero({ locale, dict }: HeroProps) {
                 </Link>
               </div>
             </Reveal>
+
+            <Reveal delay={0.35}>
+              <ul className="mt-7 flex flex-wrap items-center justify-center gap-2 lg:justify-start">
+                {dict.hero.trustSignals.map((item) => (
+                  <li key={item} className="rounded-full border border-border bg-white/60 px-3 py-1.5 text-xs font-semibold text-muted-foreground shadow-sm backdrop-blur">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
           </div>
 
           <Reveal delay={0.12}>
-            <div className="relative mx-auto w-full max-w-xl">
+            <div className="neon-float relative mx-auto w-full max-w-xl">
               <div className="absolute -inset-4 rounded-[2rem] bg-primary/10 blur-3xl" aria-hidden="true" />
               <div className="relative overflow-hidden rounded-[1.75rem] border border-primary/20 bg-white p-2 shadow-[0_28px_80px_-36px_rgba(122,95,22,0.32)]">
                 <Image

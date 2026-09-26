@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
@@ -22,7 +22,15 @@ interface HeaderProps {
 
 export function Header({ locale, dict }: HeaderProps) {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const navItems = [
     { href: `/${locale}/`, label: dict.nav.home, exact: true },
@@ -67,7 +75,7 @@ export function Header({ locale, dict }: HeaderProps) {
   );
 
   return (
-    <header className="dark-surface header-dark sticky top-0 z-50">
+    <header className={cn("dark-surface header-dark sticky top-0 z-50 transition-all duration-300", scrolled && "header-scrolled")}>
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <Logo locale={locale} variant="dark" />
 
@@ -81,9 +89,9 @@ export function Header({ locale, dict }: HeaderProps) {
                     isActive(item.href, item.exact) ? "page" : undefined
                   }
                   className={cn(
-                    "rounded-lg px-3 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                    "relative rounded-lg px-3 py-2 text-sm font-medium transition-colors after:absolute after:inset-x-3 after:-bottom-0.5 after:h-0.5 after:origin-left after:scale-x-0 after:rounded-full after:bg-primary after:transition-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
                     isActive(item.href, item.exact)
-                      ? "text-foreground"
+                      ? "text-foreground after:scale-x-100"
                       : "text-muted-foreground hover:text-foreground",
                   )}
                 >
@@ -124,7 +132,7 @@ export function Header({ locale, dict }: HeaderProps) {
         <nav
           id="mobile-nav"
           aria-label={dict.nav.mobileLabel}
-          className="border-t border-border xl:hidden"
+          className="mobile-menu-enter border-t border-border xl:hidden"
         >
           <ul className="space-y-1 px-4 py-4">
             {navItems.map((item) => (

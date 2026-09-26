@@ -6,6 +6,7 @@ import { CyberNewsSection } from "@/components/home/cyber-news-section";
 import { Hero } from "@/components/home/hero";
 import { IndustriesSection } from "@/components/home/industries-section";
 import { OfficesSection } from "@/components/home/offices-section";
+import { ProcessSection } from "@/components/home/process-section";
 import { ServicesOverview } from "@/components/home/services-overview";
 import { StatsSection } from "@/components/home/stats-section";
 import { TestimonialsSection } from "@/components/home/testimonials-section";
@@ -25,6 +26,7 @@ export default async function HomePage({ params }: PageProps) {
       <Hero locale={locale} dict={dict} />
       <CreamDivider />
       <ServicesOverview locale={locale} dict={dict} />
+      <ProcessSection dict={dict} />
       <WhySection dict={dict} />
       <AgenticArchitecture dict={dict} />
       <StatsSection dict={dict} />
