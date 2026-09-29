@@ -102,6 +102,11 @@ export function Footer({ locale, dict }: FooterProps) {
                 </Link>
               </li>
               <li>
+                <Link href={`/${locale}/posture/`} className={footerLinkClass}>
+                  {dict.nav.posture}
+                </Link>
+              </li>
+              <li>
                 <Link href={`/${locale}/guide/`} className={footerLinkClass}>
                   {dict.nav.freeGuide}
                 </Link>
