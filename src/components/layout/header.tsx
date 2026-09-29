@@ -35,6 +35,7 @@ export function Header({ locale, dict }: HeaderProps) {
   const navItems = [
     { href: `/${locale}/`, label: dict.nav.home, exact: true },
     { href: `/${locale}/services/`, label: dict.nav.services, exact: false },
+    { href: `/${locale}/posture/`, label: dict.nav.posture, exact: false },
     { href: `/${locale}/simulator/`, label: dict.nav.cost, exact: false },
     { href: `/${locale}/agentic-security/`, label: dict.nav.agentic, exact: false },
     { href: `/${locale}/about/`, label: dict.nav.about, exact: false },

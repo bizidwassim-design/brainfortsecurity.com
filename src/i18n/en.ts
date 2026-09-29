@@ -18,6 +18,7 @@ export const en = {
     services: "Services",
     packages: "Packages",
     cost: "Pricing",
+    posture: "Security Posture",
     freeGuide: "Cyber Insurance Simulator",
     agentic: "Agentic Security",
     about: "About",
@@ -1202,6 +1203,56 @@ export const en = {
     ctaBody:
       "Our consultants implement every one of these controls and prepare your application so you qualify for stronger terms.",
     ctaButton: "Book a Consultation",
+    costLink: "Estimate the cost of your protection",
+  },
+  posturePage: {
+    metaTitle: "Free Security Posture Assessment",
+    metaDescription:
+      "Measure your organization’s cybersecurity posture across identity, incident readiness, vulnerability management, and foundational controls. Free, private, and completed in your browser.",
+    eyebrow: "Free Security Posture Assessment",
+    title: "Measure Your Cybersecurity Posture",
+    intro:
+      "Answer 16 practical questions to see where your organization is strong, where exposure remains, and what to improve first. No account, email, or data submission is required.",
+    simulator: {
+      instruction:
+        "Your score is calculated only in your browser. It is a practical baseline, not a certification or a substitute for a security assessment.",
+      scoreTitle: "Your Security Posture Score",
+      checkedLabel: "controls in place",
+      answeredLabel: "answered",
+      notStartedLabel: "Start your assessment",
+      notStartedBody:
+        "Answer each question to reveal your current posture and the areas that need attention.",
+      dashboardTitle: "Posture by domain",
+      yesLabel: "In place",
+      noLabel: "Not in place",
+      reset: "Start again",
+      bands: [
+        {
+          label: "Critical exposure",
+          description:
+            "Core safeguards are missing. Prioritize identity protection, tested backups, and incident readiness before expanding your security program.",
+        },
+        {
+          label: "Elevated risk",
+          description:
+            "Some controls are working, but material gaps remain. Focus on the lowest-scoring domain and establish an owned remediation plan.",
+        },
+        {
+          label: "Managed risk",
+          description:
+            "Your foundation is taking shape. Close the remaining gaps, test your controls, and review exposure as your environment changes.",
+        },
+        {
+          label: "Strong posture",
+          description:
+            "You have a mature baseline across these domains. Maintain it through regular validation, monitoring, and continuous improvement.",
+        },
+      ],
+    },
+    ctaTitle: "Turn your score into a practical plan",
+    ctaBody:
+      "A senior BrainFort consultant can validate your results, prioritize the gaps, and create a roadmap that fits your business and budget.",
+    ctaButton: "Discuss my posture",
     costLink: "Estimate the cost of your protection",
   },
   simulatorPage: {
