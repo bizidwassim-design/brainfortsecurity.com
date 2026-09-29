@@ -17,6 +17,7 @@ export const fr: Dictionary = {
     services: "Services",
     packages: "Forfaits",
     cost: "Tarification",
+    posture: "Posture de sécurité",
     freeGuide: "Simulateur d'assurance cyber",
     agentic: "Sécurité agentique",
     about: "À propos",
@@ -1223,6 +1224,56 @@ export const fr: Dictionary = {
     ctaBody:
       "Nos consultants implantent chacun de ces contrôles et préparent votre demande pour que vous obteniez de meilleures conditions.",
     ctaButton: "Réserver une consultation",
+    costLink: "Estimer le coût de votre protection",
+  },
+  posturePage: {
+    metaTitle: "Évaluation gratuite de votre posture de sécurité",
+    metaDescription:
+      "Mesurez la posture de cybersécurité de votre organisation : identités, préparation aux incidents, vulnérabilités et contrôles de base. Gratuit, privé et exécuté dans votre navigateur.",
+    eyebrow: "Évaluation gratuite de posture",
+    title: "Mesurez votre posture de cybersécurité",
+    intro:
+      "Répondez à 16 questions pratiques pour identifier vos forces, vos zones d'exposition et les améliorations à prioriser. Sans compte, sans courriel et sans transmission de données.",
+    simulator: {
+      instruction:
+        "Votre score est calculé uniquement dans votre navigateur. Il constitue un point de départ pratique, et non une certification ou le remplacement d'une évaluation de sécurité.",
+      scoreTitle: "Votre score de posture de sécurité",
+      checkedLabel: "contrôles en place",
+      answeredLabel: "répondu(s)",
+      notStartedLabel: "Commencez votre évaluation",
+      notStartedBody:
+        "Répondez à chaque question pour révéler votre posture actuelle et les domaines à renforcer.",
+      dashboardTitle: "Posture par domaine",
+      yesLabel: "En place",
+      noLabel: "Non en place",
+      reset: "Recommencer",
+      bands: [
+        {
+          label: "Exposition critique",
+          description:
+            "Des protections essentielles manquent. Priorisez la protection des identités, des sauvegardes testées et la préparation aux incidents avant d'élargir votre programme.",
+        },
+        {
+          label: "Risque élevé",
+          description:
+            "Certains contrôles sont en place, mais des écarts importants demeurent. Concentrez-vous sur le domaine au score le plus faible et attribuez un plan de correction.",
+        },
+        {
+          label: "Risque maîtrisé",
+          description:
+            "Votre fondation se construit bien. Comblez les écarts restants, testez vos contrôles et révisez votre exposition au fil de l'évolution de votre environnement.",
+        },
+        {
+          label: "Posture solide",
+          description:
+            "Vous disposez d'une base mature dans ces domaines. Maintenez-la par des validations régulières, de la surveillance et de l'amélioration continue.",
+        },
+      ],
+    },
+    ctaTitle: "Transformez votre score en plan concret",
+    ctaBody:
+      "Un consultant senior BrainFort peut valider vos résultats, prioriser les écarts et créer une feuille de route adaptée à votre entreprise et à votre budget.",
+    ctaButton: "Discuter de ma posture",
     costLink: "Estimer le coût de votre protection",
   },
   simulatorPage: {
