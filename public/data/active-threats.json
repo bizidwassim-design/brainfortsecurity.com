@@ -1,31 +1,31 @@
 {
-  "updatedAt": "2026-10-01T00:05:51.435Z",
+  "updatedAt": "2026-10-01T06:24:10.264Z",
   "metrics": {
-    "activeMaliciousUrls": 1876,
+    "activeMaliciousUrls": 1874,
     "urlsLast24Hours": 686,
-    "recentIocs": 6735,
-    "commandAndControl": 4873
+    "recentIocs": 6818,
+    "commandAndControl": 4915
   },
   "topMalware": [
     {
       "name": "Cobalt Strike",
-      "count": 1332
+      "count": 1336
     },
     {
       "name": "PureRAT",
       "count": 632
     },
     {
-      "name": "Unknown Loader",
-      "count": 590
+      "name": "AdaptixC2",
+      "count": 535
     },
     {
-      "name": "AdaptixC2",
-      "count": 528
+      "name": "Unknown Loader",
+      "count": 514
     },
     {
       "name": "Unknown malware",
-      "count": 467
+      "count": 506
     }
   ],
   "sources": [
