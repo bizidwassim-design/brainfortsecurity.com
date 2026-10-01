@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-10-01T13:46:32.495Z",
+  "updatedAt": "2026-10-01T19:20:49.758Z",
   "metrics": {
-    "activeMaliciousUrls": 1987,
-    "urlsLast24Hours": 774,
-    "recentIocs": 6245,
-    "commandAndControl": 4630
+    "activeMaliciousUrls": 1952,
+    "urlsLast24Hours": 753,
+    "recentIocs": 6197,
+    "commandAndControl": 4647
   },
   "topMalware": [
     {
@@ -13,7 +13,7 @@
     },
     {
       "name": "PureRAT",
-      "count": 624
+      "count": 619
     },
     {
       "name": "AdaptixC2",
@@ -21,7 +21,7 @@
     },
     {
       "name": "Unknown malware",
-      "count": 464
+      "count": 491
     },
     {
       "name": "AsyncRAT",
