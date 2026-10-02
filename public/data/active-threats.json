@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-10-01T23:21:59.025Z",
+  "updatedAt": "2026-10-02T02:29:41.602Z",
   "metrics": {
-    "activeMaliciousUrls": 1960,
-    "urlsLast24Hours": 748,
-    "recentIocs": 6670,
-    "commandAndControl": 4664
+    "activeMaliciousUrls": 1903,
+    "urlsLast24Hours": 723,
+    "recentIocs": 6708,
+    "commandAndControl": 4657
   },
   "topMalware": [
     {
@@ -12,20 +12,20 @@
       "count": 1322
     },
     {
+      "name": "IClickFix",
+      "count": 678
+    },
+    {
       "name": "PureRAT",
       "count": 628
     },
     {
-      "name": "IClickFix",
-      "count": 616
-    },
-    {
       "name": "AdaptixC2",
-      "count": 535
+      "count": 532
     },
     {
       "name": "Unknown malware",
-      "count": 503
+      "count": 524
     }
   ],
   "sources": [
