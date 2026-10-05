@@ -1,31 +1,31 @@
 {
-  "updatedAt": "2026-10-05T06:40:38.406Z",
+  "updatedAt": "2026-10-05T15:42:27.641Z",
   "metrics": {
-    "activeMaliciousUrls": 2201,
-    "urlsLast24Hours": 739,
-    "recentIocs": 10965,
-    "commandAndControl": 4191
+    "activeMaliciousUrls": 2167,
+    "urlsLast24Hours": 677,
+    "recentIocs": 8516,
+    "commandAndControl": 4179
   },
   "topMalware": [
     {
-      "name": "Unknown Loader",
-      "count": 2592
-    },
-    {
       "name": "Mirai",
-      "count": 1919
+      "count": 1913
     },
     {
       "name": "AsyncRAT",
-      "count": 1383
+      "count": 1388
     },
     {
       "name": "Cobalt Strike",
-      "count": 1317
+      "count": 1296
     },
     {
       "name": "PureRAT",
-      "count": 620
+      "count": 609
+    },
+    {
+      "name": "Unknown Loader",
+      "count": 525
     }
   ],
   "sources": [
