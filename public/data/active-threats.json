@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-10-09T07:51:43.462Z",
+  "updatedAt": "2026-10-09T15:06:39.971Z",
   "metrics": {
-    "activeMaliciousUrls": 16880,
-    "urlsLast24Hours": 751,
-    "recentIocs": 6460,
-    "commandAndControl": 4374
+    "activeMaliciousUrls": 16797,
+    "urlsLast24Hours": 742,
+    "recentIocs": 6387,
+    "commandAndControl": 4318
   },
   "topMalware": [
     {
@@ -12,20 +12,20 @@
       "count": 1291
     },
     {
-      "name": "Unknown Loader",
-      "count": 648
+      "name": "PureRAT",
+      "count": 621
     },
     {
-      "name": "PureRAT",
-      "count": 634
+      "name": "Unknown Loader",
+      "count": 593
     },
     {
       "name": "AsyncRAT",
-      "count": 385
+      "count": 387
     },
     {
       "name": "Unknown malware",
-      "count": 374
+      "count": 380
     }
   ],
   "sources": [
