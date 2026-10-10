@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-10-09T20:15:41.596Z",
+  "updatedAt": "2026-10-10T00:14:32.257Z",
   "metrics": {
-    "activeMaliciousUrls": 16748,
-    "urlsLast24Hours": 485,
-    "recentIocs": 6765,
-    "commandAndControl": 4308
+    "activeMaliciousUrls": 16760,
+    "urlsLast24Hours": 541,
+    "recentIocs": 7235,
+    "commandAndControl": 4282
   },
   "topMalware": [
     {
@@ -13,7 +13,7 @@
     },
     {
       "name": "Unknown Loader",
-      "count": 692
+      "count": 689
     },
     {
       "name": "PureRAT",
@@ -21,11 +21,11 @@
     },
     {
       "name": "ClearFake",
-      "count": 468
+      "count": 534
     },
     {
-      "name": "Unknown malware",
-      "count": 406
+      "name": "IClickFix",
+      "count": 502
     }
   ],
   "sources": [
