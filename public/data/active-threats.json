@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-10-10T21:22:11.909Z",
+  "updatedAt": "2026-10-11T00:22:24.057Z",
   "metrics": {
-    "activeMaliciousUrls": 16812,
-    "urlsLast24Hours": 536,
-    "recentIocs": 6843,
-    "commandAndControl": 4267
+    "activeMaliciousUrls": 16716,
+    "urlsLast24Hours": 527,
+    "recentIocs": 6834,
+    "commandAndControl": 4190
   },
   "topMalware": [
     {
@@ -16,16 +16,16 @@
       "count": 622
     },
     {
-      "name": "ClearFake",
-      "count": 488
+      "name": "Unknown malware",
+      "count": 491
     },
     {
-      "name": "Unknown malware",
-      "count": 473
+      "name": "ClearFake",
+      "count": 491
     },
     {
       "name": "IClickFix",
-      "count": 436
+      "count": 484
     }
   ],
   "sources": [
