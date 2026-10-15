@@ -1,19 +1,19 @@
 {
-  "updatedAt": "2026-10-14T23:46:26.114Z",
+  "updatedAt": "2026-10-15T03:56:50.299Z",
   "metrics": {
-    "activeMaliciousUrls": 16561,
-    "urlsLast24Hours": 466,
-    "recentIocs": 8178,
-    "commandAndControl": 6423
+    "activeMaliciousUrls": 16369,
+    "urlsLast24Hours": 495,
+    "recentIocs": 8172,
+    "commandAndControl": 6390
   },
   "topMalware": [
     {
       "name": "Vidar",
-      "count": 2038
+      "count": 2069
     },
     {
       "name": "Cobalt Strike",
-      "count": 1287
+      "count": 1286
     },
     {
       "name": "PureRAT",
@@ -24,7 +24,7 @@
       "count": 563
     },
     {
-      "name": "AsyncRAT",
+      "name": "Unknown malware",
       "count": 403
     }
   ],
