@@ -1,15 +1,15 @@
 {
-  "updatedAt": "2026-10-16T21:59:41.614Z",
+  "updatedAt": "2026-10-17T00:20:42.417Z",
   "metrics": {
-    "activeMaliciousUrls": 14640,
+    "activeMaliciousUrls": 15142,
     "urlsLast24Hours": 374,
-    "recentIocs": 8638,
-    "commandAndControl": 6243
+    "recentIocs": 8597,
+    "commandAndControl": 6147
   },
   "topMalware": [
     {
       "name": "Vidar",
-      "count": 1797
+      "count": 1705
     },
     {
       "name": "Cobalt Strike",
