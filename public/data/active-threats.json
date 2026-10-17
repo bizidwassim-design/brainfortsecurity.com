@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-10-17T21:38:40.670Z",
+  "updatedAt": "2026-10-17T23:52:27.264Z",
   "metrics": {
-    "activeMaliciousUrls": 16373,
-    "urlsLast24Hours": 445,
-    "recentIocs": 8076,
-    "commandAndControl": 5287
+    "activeMaliciousUrls": 16392,
+    "urlsLast24Hours": 449,
+    "recentIocs": 8043,
+    "commandAndControl": 5221
   },
   "topMalware": [
     {
@@ -13,11 +13,11 @@
     },
     {
       "name": "Vidar",
-      "count": 1055
+      "count": 987
     },
     {
       "name": "Unknown malware",
-      "count": 727
+      "count": 759
     },
     {
       "name": "Mirai",
