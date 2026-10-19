@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-10-18T21:43:19.856Z",
+  "updatedAt": "2026-10-19T00:00:07.329Z",
   "metrics": {
-    "activeMaliciousUrls": 16483,
-    "urlsLast24Hours": 490,
-    "recentIocs": 7506,
-    "commandAndControl": 5039
+    "activeMaliciousUrls": 16486,
+    "urlsLast24Hours": 519,
+    "recentIocs": 7424,
+    "commandAndControl": 5067
   },
   "topMalware": [
     {
@@ -17,15 +17,15 @@
     },
     {
       "name": "Unknown malware",
-      "count": 633
+      "count": 632
+    },
+    {
+      "name": "Vidar",
+      "count": 621
     },
     {
       "name": "IClickFix",
       "count": 619
-    },
-    {
-      "name": "Vidar",
-      "count": 591
     }
   ],
   "sources": [
