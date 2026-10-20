@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-10-19T21:41:34.289Z",
+  "updatedAt": "2026-10-20T00:58:24.270Z",
   "metrics": {
-    "activeMaliciousUrls": 16342,
-    "urlsLast24Hours": 437,
-    "recentIocs": 6580,
-    "commandAndControl": 5059
+    "activeMaliciousUrls": 16253,
+    "urlsLast24Hours": 374,
+    "recentIocs": 6569,
+    "commandAndControl": 5068
   },
   "topMalware": [
     {
@@ -13,7 +13,7 @@
     },
     {
       "name": "Vidar",
-      "count": 668
+      "count": 680
     },
     {
       "name": "PureRAT",
@@ -21,7 +21,7 @@
     },
     {
       "name": "Unknown malware",
-      "count": 519
+      "count": 487
     },
     {
       "name": "AsyncRAT",
