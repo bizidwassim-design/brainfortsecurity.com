@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-10-20T23:02:53.229Z",
+  "updatedAt": "2026-10-21T01:53:05.886Z",
   "metrics": {
-    "activeMaliciousUrls": 16454,
-    "urlsLast24Hours": 655,
-    "recentIocs": 6984,
-    "commandAndControl": 5286
+    "activeMaliciousUrls": 16440,
+    "urlsLast24Hours": 640,
+    "recentIocs": 7038,
+    "commandAndControl": 5307
   },
   "topMalware": [
     {
@@ -13,7 +13,7 @@
     },
     {
       "name": "Vidar",
-      "count": 742
+      "count": 752
     },
     {
       "name": "PureRAT",
@@ -21,11 +21,11 @@
     },
     {
       "name": "Unknown malware",
-      "count": 606
+      "count": 611
     },
     {
       "name": "Mirai",
-      "count": 393
+      "count": 403
     }
   ],
   "sources": [
