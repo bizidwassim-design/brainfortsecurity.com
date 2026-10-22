@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Activity, Bot, ExternalLink, Globe2, Radio, ShieldAlert } from "lucide-react";
+import { Building2, Bug, CalendarClock, ExternalLink, LockKeyhole, Radio } from "lucide-react";
 
 import { Reveal } from "@/components/motion/reveal";
 import { Badge } from "@/components/ui/badge";
@@ -9,18 +9,19 @@ import type { Dictionary } from "@/i18n";
 
 interface ThreatData {
   updatedAt: string;
+  catalogVersion?: string;
   metrics: {
-    activeMaliciousUrls: number;
-    urlsLast24Hours: number;
-    recentIocs: number;
-    commandAndControl: number;
+    knownExploitedVulnerabilities: number;
+    addedLast30Days: number;
+    ransomwareLinked: number;
+    vendorsRepresented: number;
   };
-  topMalware: { name: string; count: number }[];
+  topVendors: { name: string; count: number }[];
   sources: { name: string; href: string }[];
 }
 
-const metricKeys = ["activeMaliciousUrls", "urlsLast24Hours", "recentIocs", "commandAndControl"] as const;
-const metricIcons = [Globe2, Activity, ShieldAlert, Bot];
+const metricKeys = ["knownExploitedVulnerabilities", "addedLast30Days", "ransomwareLinked", "vendorsRepresented"] as const;
+const metricIcons = [Bug, CalendarClock, LockKeyhole, Building2];
 
 export function ActiveThreatDashboard({ dict }: { dict: Dictionary }) {
   const [data, setData] = useState<ThreatData | null>(null);
@@ -49,7 +50,7 @@ export function ActiveThreatDashboard({ dict }: { dict: Dictionary }) {
   }, []);
 
   const formatter = new Intl.NumberFormat(dict.activeThreats.locale);
-  const maxMalware = Math.max(...(data?.topMalware.map((item) => item.count) ?? [1]));
+  const maxVendor = Math.max(...(data?.topVendors.map((item) => item.count) ?? [1]));
 
   return (
     <section className="relative overflow-hidden bg-[#08090b] py-20 text-white sm:py-28" aria-labelledby="active-threats-title">
@@ -71,7 +72,7 @@ export function ActiveThreatDashboard({ dict }: { dict: Dictionary }) {
 
         <div className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
           {dict.activeThreats.metrics.map((metric, index) => {
-            const Icon = metricIcons[index] ?? Activity;
+            const Icon = metricIcons[index] ?? Bug;
             const value = data ? data.metrics[metricKeys[index]] : null;
             return (
               <div key={metric.label} className="rounded-2xl border border-white/10 bg-white/[0.045] p-5">
@@ -88,10 +89,10 @@ export function ActiveThreatDashboard({ dict }: { dict: Dictionary }) {
           <div className="rounded-2xl border border-white/10 bg-white/[0.035] p-6">
             <h3 className="font-bold">{dict.activeThreats.topTitle}</h3>
             <div className="mt-6 space-y-4">
-              {(data?.topMalware ?? []).map((item) => (
+              {(data?.topVendors ?? []).map((item) => (
                 <div key={item.name}>
                   <div className="mb-1.5 flex justify-between gap-4 text-xs"><span className="text-white/70">{item.name}</span><span className="font-mono text-red-300">{formatter.format(item.count)}</span></div>
-                  <div className="h-1.5 overflow-hidden rounded-full bg-white/10"><div className="h-full rounded-full bg-gradient-to-r from-red-500 to-amber-400" style={{ width: `${Math.max(5, (item.count / maxMalware) * 100)}%` }} /></div>
+                  <div className="h-1.5 overflow-hidden rounded-full bg-white/10"><div className="h-full rounded-full bg-gradient-to-r from-red-500 to-amber-400" style={{ width: `${Math.max(5, (item.count / maxVendor) * 100)}%` }} /></div>
                 </div>
               ))}
             </div>
