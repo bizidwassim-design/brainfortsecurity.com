@@ -2,77 +2,53 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 
 const outputPath = resolve("public/data/active-threats.json");
-const threatFoxUrl = "https://threatfox.abuse.ch/export/json/recent/";
-const urlHausUrl = "https://urlhaus.abuse.ch/downloads/csv_recent/";
+const cisaKevUrl = "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json";
 
-function parseCsvLine(line) {
-  const values = [];
-  let value = "";
-  let quoted = false;
-  for (let index = 0; index < line.length; index += 1) {
-    const character = line[index];
-    if (character === '"') {
-      if (quoted && line[index + 1] === '"') {
-        value += '"';
-        index += 1;
-      } else quoted = !quoted;
-    } else if (character === "," && !quoted) {
-      values.push(value);
-      value = "";
-    } else value += character;
-  }
-  values.push(value);
-  return values;
-}
-
-async function fetchText(url) {
-  const response = await fetch(url, { headers: { "User-Agent": "BrainFort-Security-Threat-Dashboard/1.0" } });
+async function fetchJson(url) {
+  const response = await fetch(url, {
+    headers: { "User-Agent": "BrainFort-Security-KEV-Dashboard/1.0" },
+    signal: AbortSignal.timeout(30_000),
+  });
   if (!response.ok) throw new Error(`${url} returned ${response.status}`);
-  return response.text();
+  return response.json();
 }
 
-const [threatFoxText, urlHausText] = await Promise.all([
-  fetchText(threatFoxUrl),
-  fetchText(urlHausUrl),
-]);
-
-const threatFoxRaw = JSON.parse(threatFoxText);
-const threatFoxItems = Object.values(threatFoxRaw).flat();
-const malwareCounts = new Map();
-for (const item of threatFoxItems) {
-  const name = item.malware_printable || item.malware || "Unknown";
-  malwareCounts.set(name, (malwareCounts.get(name) || 0) + 1);
+const feed = await fetchJson(cisaKevUrl);
+if (!Array.isArray(feed.vulnerabilities) || typeof feed.dateReleased !== "string") {
+  throw new Error("CISA KEV returned an unexpected payload");
 }
 
-const topMalware = [...malwareCounts.entries()]
-  .sort((a, b) => b[1] - a[1])
+const vulnerabilities = feed.vulnerabilities;
+const cutoff = new Date();
+cutoff.setUTCDate(cutoff.getUTCDate() - 30);
+
+const vendors = new Map();
+for (const item of vulnerabilities) {
+  const vendor = item.vendorProject?.trim();
+  if (vendor) vendors.set(vendor, (vendors.get(vendor) || 0) + 1);
+}
+
+const topVendors = [...vendors.entries()]
+  .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
   .slice(0, 5)
   .map(([name, count]) => ({ name, count }));
 
-const urlHausRows = urlHausText
-  .split(/\r?\n/)
-  .filter((line) => line && !line.startsWith("#"))
-  .map(parseCsvLine);
-const dayAgo = Date.now() - 24 * 60 * 60 * 1000;
-const onlineUrls = urlHausRows.filter((row) => row[3] === "online");
-const urlsLast24Hours = urlHausRows.filter((row) => {
-  const timestamp = Date.parse(`${row[1]?.replace(" ", "T")}Z`);
-  return Number.isFinite(timestamp) && timestamp >= dayAgo;
-}).length;
-const commandAndControl = threatFoxItems.filter((item) => item.threat_type === "botnet_cc").length;
-
 const result = {
-  updatedAt: new Date().toISOString(),
+  updatedAt: feed.dateReleased,
+  catalogVersion: feed.catalogVersion,
   metrics: {
-    activeMaliciousUrls: onlineUrls.length,
-    urlsLast24Hours,
-    recentIocs: threatFoxItems.length,
-    commandAndControl,
+    knownExploitedVulnerabilities: Number.isFinite(feed.count) ? feed.count : vulnerabilities.length,
+    addedLast30Days: vulnerabilities.filter((item) => {
+      const dateAdded = Date.parse(`${item.dateAdded}T00:00:00Z`);
+      return Number.isFinite(dateAdded) && dateAdded >= cutoff.getTime();
+    }).length,
+    ransomwareLinked: vulnerabilities.filter((item) => item.knownRansomwareCampaignUse === "Known").length,
+    vendorsRepresented: vendors.size,
   },
-  topMalware,
+  topVendors,
   sources: [
-    { name: "URLhaus", href: "https://urlhaus.abuse.ch/" },
-    { name: "ThreatFox", href: "https://threatfox.abuse.ch/" },
+    { name: "CISA KEV Catalog", href: "https://www.cisa.gov/known-exploited-vulnerabilities-catalog" },
+    { name: "CISA official GitHub mirror", href: "https://github.com/cisagov/kev-data" },
   ],
 };
 
@@ -81,7 +57,7 @@ await writeFile(outputPath, `${JSON.stringify(result, null, 2)}\n`);
 
 try {
   const current = JSON.parse(await readFile(outputPath, "utf8"));
-  console.log(`Threat data synchronized at ${current.updatedAt}`);
+  console.log(`CISA KEV data synchronized at ${current.updatedAt}`);
 } catch {
-  console.log("Threat data synchronized");
+  console.log("CISA KEV data synchronized");
 }

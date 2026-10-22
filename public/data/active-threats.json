@@ -1,41 +1,42 @@
 {
-  "updatedAt": "2026-10-21T13:06:01.103Z",
+  "updatedAt": "2026-10-21T14:04:39.8983Z",
+  "catalogVersion": "2026.10.21",
   "metrics": {
-    "activeMaliciousUrls": 16618,
-    "urlsLast24Hours": 565,
-    "recentIocs": 7982,
-    "commandAndControl": 5525
+    "knownExploitedVulnerabilities": 1754,
+    "addedLast30Days": 33,
+    "ransomwareLinked": 361,
+    "vendorsRepresented": 290
   },
-  "topMalware": [
+  "topVendors": [
     {
-      "name": "Cobalt Strike",
-      "count": 1236
+      "name": "Microsoft",
+      "count": 390
     },
     {
-      "name": "Vidar",
-      "count": 823
+      "name": "Cisco",
+      "count": 101
     },
     {
-      "name": "IClickFix",
-      "count": 708
+      "name": "Apple",
+      "count": 95
     },
     {
-      "name": "Unknown malware",
-      "count": 632
+      "name": "Adobe",
+      "count": 82
     },
     {
-      "name": "PureRAT",
-      "count": 627
+      "name": "Google",
+      "count": 75
     }
   ],
   "sources": [
     {
-      "name": "URLhaus",
-      "href": "https://urlhaus.abuse.ch/"
+      "name": "CISA KEV Catalog",
+      "href": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
     },
     {
-      "name": "ThreatFox",
-      "href": "https://threatfox.abuse.ch/"
+      "name": "CISA official GitHub mirror",
+      "href": "https://github.com/cisagov/kev-data"
     }
   ]
 }

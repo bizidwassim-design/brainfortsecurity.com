@@ -1,15 +1,15 @@
-name: Sync active threat metrics
+name: Sync CISA KEV metrics
 
 on:
   schedule:
-    - cron: "*/30 * * * *"
+    - cron: "17 8 * * *"
   workflow_dispatch:
 
 permissions:
   contents: write
 
 concurrency:
-  group: sync-active-threat-metrics
+  group: sync-cisa-kev-metrics
   cancel-in-progress: true
 
 jobs:
@@ -20,7 +20,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Fetch and aggregate public threat feeds
+      - name: Fetch and aggregate CISA KEV data
         run: node scripts/sync-threat-data.mjs
       - name: Commit updated metrics
         run: |
@@ -31,5 +31,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add public/data/active-threats.json
-          git commit -m "chore: refresh active threat metrics"
+          git commit -m "chore: refresh CISA KEV metrics"
           git push
