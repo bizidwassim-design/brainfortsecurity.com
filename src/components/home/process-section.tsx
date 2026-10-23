@@ -24,9 +24,9 @@ export function ProcessSection({ dict }: ProcessSectionProps) {
           {dict.process.items.map((item, index) => {
             const Icon = icons[index] ?? Activity;
             return (
-              <li key={item.title} className="relative">
-                <Reveal delay={index * 0.08}>
-                  <div className="group h-full rounded-2xl border border-border bg-background/90 p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_18px_45px_-24px_rgba(122,95,22,0.35)]">
+              <li key={item.title} className="relative h-full">
+                <Reveal delay={index * 0.08} className="h-full">
+                  <div className="group flex h-full flex-col rounded-2xl border border-border bg-background/90 p-6 shadow-sm transition duration-300 hover:border-primary/40 hover:shadow-[0_18px_45px_-24px_rgba(122,95,22,0.35)]">
                     <div className="flex items-center justify-between">
                       <span className="relative z-10 flex size-16 items-center justify-center rounded-2xl border border-primary/25 bg-[#171513] text-[#efd878] shadow-lg">
                         <Icon className="size-6 transition-transform duration-300 group-hover:scale-110" aria-hidden="true" />
@@ -35,7 +35,9 @@ export function ProcessSection({ dict }: ProcessSectionProps) {
                     </div>
                     <h3 className="mt-6 text-lg font-bold text-foreground">{item.title}</h3>
                     <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.description}</p>
-                    <p className="mt-5 border-t border-border pt-4 text-xs font-semibold uppercase tracking-wide text-[#7a5f16]">{item.deliverable}</p>
+                    <div className="mt-auto pt-5">
+                      <p className="min-h-14 border-t border-border pt-4 text-xs font-semibold uppercase tracking-wide text-[#7a5f16]">{item.deliverable}</p>
+                    </div>
                   </div>
                 </Reveal>
               </li>
