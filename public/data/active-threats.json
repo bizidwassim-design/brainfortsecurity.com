@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-10-21T14:04:39.8983Z",
-  "catalogVersion": "2026.10.21",
+  "updatedAt": "2026-10-23T19:30:18.9209Z",
+  "catalogVersion": "2026.10.23",
   "metrics": {
-    "knownExploitedVulnerabilities": 1754,
+    "knownExploitedVulnerabilities": 1756,
     "addedLast30Days": 33,
     "ransomwareLinked": 361,
-    "vendorsRepresented": 290
+    "vendorsRepresented": 291
   },
   "topVendors": [
     {
