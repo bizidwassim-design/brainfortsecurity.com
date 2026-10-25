@@ -3,7 +3,7 @@
   "catalogVersion": "2026.10.23",
   "metrics": {
     "knownExploitedVulnerabilities": 1756,
-    "addedLast30Days": 33,
+    "addedLast30Days": 30,
     "ransomwareLinked": 361,
     "vendorsRepresented": 291
   },
