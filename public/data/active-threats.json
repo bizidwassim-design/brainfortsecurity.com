@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-10-26T22:24:24.6101Z",
-  "catalogVersion": "2026.10.26",
+  "updatedAt": "2026-10-27T19:00:02.2307Z",
+  "catalogVersion": "2026.10.27",
   "metrics": {
-    "knownExploitedVulnerabilities": 1758,
-    "addedLast30Days": 30,
+    "knownExploitedVulnerabilities": 1760,
+    "addedLast30Days": 32,
     "ransomwareLinked": 361,
     "vendorsRepresented": 291
   },
@@ -22,11 +22,11 @@
     },
     {
       "name": "Adobe",
-      "count": 82
+      "count": 83
     },
     {
       "name": "Google",
-      "count": 75
+      "count": 76
     }
   ],
   "sources": [
