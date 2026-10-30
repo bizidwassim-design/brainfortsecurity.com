@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-10-28T19:00:04.8077Z",
-  "catalogVersion": "2026.10.28",
+  "updatedAt": "2026-10-29T19:09:34.4003Z",
+  "catalogVersion": "2026.10.29",
   "metrics": {
-    "knownExploitedVulnerabilities": 1762,
-    "addedLast30Days": 33,
+    "knownExploitedVulnerabilities": 1764,
+    "addedLast30Days": 34,
     "ransomwareLinked": 361,
     "vendorsRepresented": 291
   },
@@ -14,7 +14,7 @@
     },
     {
       "name": "Cisco",
-      "count": 101
+      "count": 102
     },
     {
       "name": "Apple",
