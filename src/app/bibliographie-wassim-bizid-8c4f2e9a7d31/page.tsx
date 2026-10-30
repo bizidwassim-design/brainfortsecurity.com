@@ -37,7 +37,7 @@ const linkedInUrl = "https://www.linkedin.com/in/wassim-bizid/";
 export const metadata: Metadata = {
   title: "Bibliographie professionnelle — Wassim Bizid",
   description:
-    "Portfolio professionnel privé de Wassim Bizid : leadership cybersécurité, gouvernance, risques, conformité, IAM, vulnérabilités et sécurité augmentée par l’IA.",
+    "Portfolio professionnel non répertorié de Wassim Bizid : leadership cybersécurité, gouvernance, risques, conformité, IAM, vulnérabilités et sécurité augmentée par l’IA.",
   referrer: "no-referrer",
   alternates: { canonical: portfolioUrl },
   robots: {
@@ -475,7 +475,7 @@ export default function PrivatePortfolioPage() {
               </div>
 
               <p className="mt-8 font-mono text-sm font-semibold uppercase tracking-[0.2em] text-[#efd878]">
-                Wassim Bizid · MBA · CISSP · CISM
+                Wassim Bizid · Mini-MBA · CISSP · CISM
               </p>
               <h1 className="mt-5 max-w-4xl text-4xl font-black leading-[1.06] tracking-[-0.035em] text-white sm:text-6xl lg:text-7xl">
                 Gouverner le risque.
@@ -532,8 +532,8 @@ export default function PrivatePortfolioPage() {
                   <div className="flex size-24 items-center justify-center rounded-[1.75rem] border border-[#efd878]/35 bg-[#efd878]/10 font-mono text-4xl font-black text-[#efd878] shadow-inner">
                     WB
                   </div>
-                  <span className="rounded-full border border-emerald-300/20 bg-emerald-300/10 px-3 py-1 text-xs font-bold text-emerald-200">
-                    Disponible
+                  <span className="rounded-full border border-[#efd878]/25 bg-[#efd878]/10 px-3 py-1 text-xs font-bold text-[#efd878]">
+                    Leadership GRC
                   </span>
                 </div>
                 <div className="relative mt-8">
