@@ -531,7 +531,7 @@ function ProjectCard({ project }: { project: Project }) {
   const Icon = project.icon;
 
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-[2rem] border border-[#D9E7EF] bg-white shadow-[0_18px_60px_-38px_rgba(47,128,237,0.35)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_70px_-38px_rgba(47,128,237,0.42)]">
+    <article className="group flex flex-col overflow-hidden rounded-[2rem] border border-[#D9E7EF] bg-white shadow-[0_18px_60px_-38px_rgba(47,128,237,0.35)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_70px_-38px_rgba(47,128,237,0.42)]">
       <div className="p-6 sm:p-8">
         <div className="flex items-start justify-between gap-4">
           <div
@@ -549,7 +549,7 @@ function ProjectCard({ project }: { project: Project }) {
         <p className="mt-4 leading-7 text-[#5C7287]">{project.summary}</p>
       </div>
 
-      <details className="mt-auto border-t border-[#E3EDF3] bg-[#FCFEFF] open:bg-white">
+      <details className="group mt-auto border-t border-[#E3EDF3] bg-[#FCFEFF] open:bg-white">
         <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 text-sm font-bold text-[#24445D] sm:px-8 [&::-webkit-details-marker]:hidden">
           Read the case study
           <ChevronDown className="size-5 text-[#2F80ED] transition group-open:rotate-180" aria-hidden="true" />
@@ -817,7 +817,7 @@ export default function WassimPortfolioPage() {
               <BookOpenCheck className="size-5" aria-hidden="true" /> 13 case studies
             </div>
           </div>
-          <div className="mt-12 grid gap-6 lg:grid-cols-2">
+          <div className="mt-12 grid items-start gap-6 lg:grid-cols-2">
             {projects.map((project) => <ProjectCard key={project.title} project={project} />)}
           </div>
         </SectionShell>
