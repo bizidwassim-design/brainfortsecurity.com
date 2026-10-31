@@ -32,16 +32,16 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0a0a0c",
+  themeColor: "#fffdf7",
 };
 
 export default function PrivatePortfolioLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="fr">
+    <html lang="en">
       <body
-        className={`${geist.variable} ${geistMono.variable} bg-background text-foreground antialiased`}
+        className={`${geist.variable} ${geistMono.variable} bg-[#fffdf7] text-[#24445d] antialiased`}
       >
         {children}
       </body>

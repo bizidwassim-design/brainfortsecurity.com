@@ -2,42 +2,45 @@ import type { Metadata } from "next";
 import type { LucideIcon } from "lucide-react";
 import {
   ArrowUpRight,
-  BadgeCheck,
-  Bot,
+  Award,
+  Blocks,
+  BookOpenCheck,
   BriefcaseBusiness,
-  Building2,
+  CalendarDays,
   CheckCircle2,
-  Code2,
+  ChevronDown,
+  CircleGauge,
+  CloudCog,
+  Database,
   ExternalLink,
   FileCheck2,
   Fingerprint,
   Globe2,
   GraduationCap,
-  KeyRound,
-  Languages,
-  Layers3,
+  LayoutDashboard,
   LockKeyhole,
   Mail,
-  MapPin,
   Network,
-  Scale,
+  Radar,
+  ScanSearch,
+  ServerCog,
   ShieldCheck,
   Sparkles,
-  Target,
-  TrendingUp,
   Users,
+  Workflow,
 } from "lucide-react";
 
 import { siteConfig } from "@/lib/site";
 
 const portfolioSlug = "bibliographie-wassim-bizid-8c4f2e9a7d31";
-const portfolioUrl = `${siteConfig.url}/${portfolioSlug}/`;
+const portfolioUrl = siteConfig.url + "/" + portfolioSlug + "/";
 const linkedInUrl = "https://www.linkedin.com/in/wassim-bizid/";
+const githubUrl = "https://github.com/bizidwassim-design";
 
 export const metadata: Metadata = {
-  title: "Bibliographie professionnelle — Wassim Bizid",
+  title: "Cybersecurity & GRC Portfolio — Wassim Bizid",
   description:
-    "Portfolio professionnel non répertorié de Wassim Bizid : leadership cybersécurité, gouvernance, risques, conformité, IAM, vulnérabilités et sécurité augmentée par l’IA.",
+    "Unlisted professional portfolio of Wassim Bizid: cybersecurity leadership, GRC, identity, vulnerability management, security engineering and automation.",
   referrer: "no-referrer",
   alternates: { canonical: portfolioUrl },
   robots: {
@@ -56,258 +59,439 @@ export const metadata: Metadata = {
   openGraph: {
     type: "profile",
     url: portfolioUrl,
-    title: "Wassim Bizid — Portfolio cybersécurité & GRC",
+    title: "Wassim Bizid — Cybersecurity & GRC Portfolio",
     description:
-      "Leadership cybersécurité, gouvernance des risques, conformité, IAM et automatisation sécurisée par l’IA.",
+      "Selected work across governance, risk, compliance, identity, SecOps and security automation.",
     siteName: siteConfig.name,
-    images: [
-      {
-        url: siteConfig.ogImage,
-        width: 1200,
-        height: 630,
-        alt: "Wassim Bizid — Portfolio cybersécurité et GRC",
-      },
-    ],
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Wassim Bizid — Portfolio cybersécurité & GRC",
+    card: "summary",
+    title: "Wassim Bizid — Cybersecurity & GRC Portfolio",
     description:
-      "Leadership cybersécurité, gouvernance des risques, conformité, IAM et automatisation sécurisée par l’IA.",
-    images: [siteConfig.ogImage],
+      "Selected work across governance, risk, compliance, identity, SecOps and security automation.",
   },
 };
 
+const palette = {
+  ink: "#24445D",
+  sky: "#2F80ED",
+  skyPale: "#EAF4FF",
+  coral: "#FF7A6B",
+  coralPale: "#FFF0EC",
+  mint: "#42C7A5",
+  mintPale: "#E7FAF4",
+  lilac: "#8B7CF6",
+  lilacPale: "#F0EEFF",
+  sun: "#F5C451",
+  sunPale: "#FFF8D8",
+} as const;
+
 const impactMetrics = [
-  { value: "15+", label: "ans en TI", detail: "Infrastructure, cloud, opérations et sécurité" },
-  { value: "10+", label: "ans en cybersécurité", detail: "Stratégie, architecture, GRC et SecOps" },
-  { value: "33→83%", label: "Microsoft Secure Score", detail: "Programme structuré de gouvernance et de durcissement" },
-  { value: "40+", label: "applications en SSO", detail: "Entra ID, MFA, Conditional Access et cycle JML" },
-  { value: "7", label: "experts dirigés", detail: "Équipe TI et cybersécurité multidisciplinaire" },
-  { value: "3", label: "régions desservies", detail: "Canada, Émirats arabes unis et Arabie saoudite" },
+  { value: "15+", label: "years in IT", detail: "Infrastructure, cloud, operations and security" },
+  { value: "10+", label: "years in cybersecurity", detail: "Strategy, architecture, GRC and SecOps" },
+  { value: "33→83%+", label: "Secure Score", detail: "Risk-led Microsoft security programme" },
+  { value: "40+", label: "applications in SSO", detail: "Identity governance and faster revocation" },
 ] as const;
 
-const grcPillars: Array<{
+const operatingPrinciples: Array<{
   title: string;
   description: string;
   icon: LucideIcon;
-  items: string[];
+  tone: string;
 }> = [
   {
-    title: "Gouvernance",
+    title: "Govern with evidence",
     description:
-      "Transformer les objectifs d’affaires en politiques, responsabilités et décisions de sécurité mesurables.",
-    icon: Building2,
-    items: ["Feuille de route cyber", "Politiques et standards", "Indicateurs exécutifs"],
+      "Translate policies and frameworks into named owners, measurable controls, audit-ready evidence and clear executive decisions.",
+    icon: FileCheck2,
+    tone: palette.skyPale,
   },
   {
-    title: "Gestion des risques",
+    title: "Engineer for reality",
     description:
-      "Identifier, prioriser et traiter les risques selon l’exposition réelle, l’impact métier et l’effort requis.",
-    icon: Target,
-    items: ["Registre des risques", "Plans de traitement", "Risque tiers et supply chain"],
+      "Build controls around actual identities, assets, traffic flows and operational constraints—not a paper-only target state.",
+    icon: Network,
+    tone: palette.mintPale,
   },
   {
-    title: "Conformité",
+    title: "Automate with accountability",
     description:
-      "Relier les contrôles techniques aux cadres de référence et préparer des preuves compréhensibles pour les auditeurs.",
-    icon: Scale,
-    items: ["ISO 27001", "NIST CSF", "CIS Controls et exigences assureurs"],
-  },
-  {
-    title: "Assurance continue",
-    description:
-      "Mesurer l’efficacité des contrôles, suivre la remédiation et maintenir la posture au-delà d’un audit ponctuel.",
-    icon: ShieldCheck,
-    items: ["Tests de contrôles", "Tableaux de bord", "Amélioration continue"],
+      "Use PowerShell, APIs, KQL and dashboards to remove repetitive work while keeping approvals and human judgment visible.",
+    icon: Workflow,
+    tone: palette.coralPale,
   },
 ];
 
 interface Project {
+  number: string;
   title: string;
   category: string;
   summary: string;
   challenge: string;
-  actions: string[];
-  outcomes: string[];
+  built: string[];
+  evidence: string;
   tools: string[];
   icon: LucideIcon;
-  source?: string;
+  tone: string;
+  accent: string;
 }
 
 const projects: Project[] = [
   {
-    title: "Programme de gouvernance Microsoft 365",
-    category: "GRC · Audit readiness · Microsoft Security",
+    number: "01",
+    title: "Enterprise security posture & endpoint hardening",
+    category: "GRC · Microsoft Security · Assurance",
     summary:
-      "Structuration d’un programme de gouvernance et de durcissement pour un environnement Microsoft 365 hybride et multisite.",
+      "A risk-led hardening programme that connected policy, GPO deployment, endpoint telemetry and executive posture reporting.",
     challenge:
-      "Prioriser un grand volume de recommandations, clarifier la propriété des contrôles et produire des preuves exploitables par la direction et les auditeurs.",
-    actions: [
-      "Établissement d’une baseline et d’une feuille de route fondée sur le risque.",
-      "Gouvernance des identités, MFA, Conditional Access, PIM, Defender et LAPS.",
-      "Suivi mensuel des écarts, responsables, échéances et indicateurs exécutifs.",
+      "Security recommendations were distributed across tools and teams, making ownership, prioritisation and proof of control effectiveness difficult.",
+    built: [
+      "A prioritised remediation roadmap mapped to Microsoft Secure Score and operational risk.",
+      "18 Defender Attack Surface Reduction rules in block mode across approximately 500 devices.",
+      "More than 60 Windows security GPOs covering Defender, identity, SMB, removable media, sessions and servers.",
+      "Telemetry-based validation to distinguish reporting discrepancies from actual control failure.",
     ],
-    outcomes: [
-      "Microsoft Secure Score amélioré de 33 % à 83 %.",
-      "Audit Microsoft 365 réalisé avec succès par un cabinet externe.",
-      "Plus de 40 applications intégrées au SSO et environ 700 appareils couverts par des contrôles renforcés.",
-    ],
-    tools: ["Entra ID", "Microsoft Defender XDR", "Intune", "PIM", "Secure Score"],
-    icon: TrendingUp,
+    evidence:
+      "Secure Score progressed from 33% to above 83%, with control status tracked through recurring governance reviews.",
+    tools: ["Microsoft Defender XDR", "Active Directory", "Group Policy", "NinjaOne", "PowerShell"],
+    icon: ShieldCheck,
+    tone: palette.skyPale,
+    accent: palette.sky,
   },
   {
-    title: "Gouvernance IAM et cycle Joiner–Mover–Leaver",
-    category: "IAM · Zero Trust · Gouvernance des accès",
+    number: "02",
+    title: "Identity lifecycle automation",
+    category: "IAM · Joiner–Mover–Leaver · ITSM",
     summary:
-      "Réduction du risque d’accès résiduel par la centralisation des identités et l’automatisation de l’approvisionnement et du retrait des accès.",
+      "An end-to-end onboarding and offboarding workflow designed to reduce forgotten access, licences and manual hand-offs.",
     challenge:
-      "Des applications SaaS gérées séparément créaient des délais d’offboarding et des risques de sessions encore actives après le départ d’un employé.",
-    actions: [
-      "Centralisation des accès via Entra ID avec SAML et SCIM.",
-      "Mise en place de MFA, Conditional Access, PIM et principes du moindre privilège.",
-      "Alignement du processus RH, des propriétaires d’applications et des contrôles de revue d’accès.",
+      "Manual requests could omit mailbox, group, application or licence actions and leave access active after a departure.",
+    built: [
+      "Reference-role provisioning to propose access based on a comparable employee, subject to review.",
+      "PowerShell automation for accounts, groups, mailboxes and licence actions in a Windows environment.",
+      "REST API calls that write traceable records into the ITSM workflow.",
+      "A revocation path that treats offboarding speed and completeness as security controls.",
     ],
-    outcomes: [
-      "Révocation d’accès ramenée à quelques minutes sur le périmètre automatisé.",
-      "Diminution des tâches manuelles et amélioration de la traçabilité des mouvements d’utilisateurs.",
-    ],
-    tools: ["Entra ID", "SAML", "SCIM", "Conditional Access", "PIM"],
+    evidence:
+      "Reduced repetitive technician effort while improving the consistency and traceability of identity changes.",
+    tools: ["PowerShell", "Active Directory", "Microsoft 365", "REST APIs", "ITSM"],
     icon: Fingerprint,
-    source:
-      "https://www.linkedin.com/posts/wassim-bizid_iam-cybersecurity-sso-activity-7459691983633076224-Jla4",
+    tone: palette.lilacPale,
+    accent: palette.lilac,
   },
   {
-    title: "Programme de gestion des vulnérabilités",
-    category: "Risk management · Vulnérabilités · Remédiation",
+    number: "03",
+    title: "Data governance, DLP & collaboration security",
+    category: "Microsoft 365 · Purview · Data Protection",
     summary:
-      "Création d’un cycle récurrent reliant inventaire, scan, validation, priorisation métier, remédiation et reddition de comptes.",
+      "A recurring governance cycle for SharePoint access, external sharing, retention and sensitivity labelling.",
     challenge:
-      "Passer d’une liste technique de vulnérabilités à un programme où chaque actif, exposition et action possède un propriétaire et une échéance.",
-    actions: [
-      "Déploiement de scans récurrents OpenVAS et validation des résultats à risque élevé.",
-      "Priorisation selon l’exploitabilité, l’exposition Internet, la criticité métier et les contrôles compensatoires.",
-      "Assignation des remédiations, suivi des exceptions et mesure du risque résiduel.",
+      "Orphaned accounts, inactive guests, indefinite external sharing and ageing data increased both exposure and storage cost.",
+    built: [
+      "Tenant-wide AvePoint assessments for orphaned, inactive and guest accounts plus stale external sharing.",
+      "Quarterly remediation cycles to revoke obsolete access and remove unneeded data.",
+      "Purview labels for Public, Internal and Sensitive information, with Internal as the default posture.",
+      "Hardened Teams and SharePoint defaults after an external support-impersonation incident.",
     ],
-    outcomes: [
-      "Cycle de remédiation structuré et reproductible pour les équipes systèmes et réseau.",
-      "Visibilité renforcée sur les actifs, versions, propriétaires et dépendances exposées.",
+    evidence:
+      "Reduced stale access and unnecessary storage while making external sharing an intentional, labelled decision.",
+    tools: ["AvePoint", "Microsoft Purview", "SharePoint", "Teams", "Entra ID"],
+    icon: CloudCog,
+    tone: palette.coralPale,
+    accent: palette.coral,
+  },
+  {
+    number: "04",
+    title: "Executive cyber risk dashboard",
+    category: "GRC · Power BI · CISO Reporting",
+    summary:
+      "A unified Power BI view connecting operational telemetry with risk, response and human-risk indicators.",
+    challenge:
+      "Leadership needed a concise view of control health without navigating multiple operational consoles.",
+    built: [
+      "MTTD, MTTR and response-time views for security operations.",
+      "Vulnerability ageing bands at 30, 60 and 90+ days to make remediation debt visible.",
+      "Awareness, phishing-simulation and training-compliance measures from MetaCompliance.",
+      "Microsoft 365 Defender and Secure Score inputs for an integrated posture narrative.",
     ],
-    tools: ["OpenVAS", "Defender Vulnerability Management", "NinjaOne", "Jira", "Meraki"],
+    evidence:
+      "Created a repeatable executive review that links trends and exceptions to accountable follow-up actions.",
+    tools: ["Power BI", "Microsoft Defender XDR", "Secure Score", "MetaCompliance"],
+    icon: LayoutDashboard,
+    tone: palette.sunPale,
+    accent: palette.sun,
+  },
+  {
+    number: "05",
+    title: "ELK SIEM engineering & KQL-driven response",
+    category: "SecOps · Detection Engineering · Automation",
+    summary:
+      "A practical monitoring and response capability combining centralised telemetry, analyst dashboards and repeatable investigation logic.",
+    challenge:
+      "Analysts needed faster paths from raw events to triage context, detection evidence and response actions.",
+    built: [
+      "An ELK-based SIEM pipeline with Elasticsearch storage and Kibana dashboards for operational visibility.",
+      "Purpose-built visualisations for alert volume, event sources, severity and investigation trends.",
+      "KQL detection and investigation logic to standardise common incident-response scenarios.",
+      "Automation patterns that preserve analyst review for consequential actions.",
+    ],
+    evidence:
+      "Turned fragmented security events into reusable views and consistent response workflows.",
+    tools: ["Elasticsearch", "Logstash", "Kibana", "KQL", "Microsoft Defender XDR"],
+    icon: Radar,
+    tone: palette.mintPale,
+    accent: palette.mint,
+  },
+  {
+    number: "06",
+    title: "Continuous vulnerability management",
+    category: "Vulnerability Management · OpenVAS · Remediation",
+    summary:
+      "A scheduled vulnerability-management workflow built on a dedicated Kali Linux and OpenVAS scanning platform.",
+    challenge:
+      "The programme needed consistent VLAN coverage and a way to separate new, persistent and remediated findings over time.",
+    built: [
+      "Installed and configured OpenVAS on a dedicated Kali Linux virtual machine.",
+      "Defined discovery and scanning scope across approved VLAN segments.",
+      "Scheduled monthly scans and comparison views for remediation tracking.",
+      "Structured follow-up around vulnerability age, exposure and responsible owners.",
+    ],
+    evidence:
+      "Established a recurring evidence trail for newly discovered, outstanding and remediated vulnerabilities.",
+    tools: ["Kali Linux", "OpenVAS", "VLAN discovery", "Scheduling", "Reporting"],
+    icon: ScanSearch,
+    tone: palette.skyPale,
+    accent: palette.sky,
+  },
+  {
+    number: "07",
+    title: "Firewall rule audit & network segmentation",
+    category: "Network Security · Cisco Meraki · Control Review",
+    summary:
+      "An automated firewall-rule assessment used to identify ineffective rules and support stronger VLAN segmentation.",
+    challenge:
+      "Rules with no observed hits could indicate obsolete, mis-scoped or ineffective controls and created unnecessary complexity.",
+    built: [
+      "Exported the firewall rule base and usage evidence into a structured Excel review workbook.",
+      "Flagged no-hit rules for validation rather than assuming that inactivity alone meant safe deletion.",
+      "Worked with the network architect to validate flows, ownership and business need.",
+      "Used findings to improve rule hygiene and segmentation between VLANs.",
+    ],
+    evidence:
+      "Produced an auditable review trail and a safer, evidence-based path to network-policy simplification.",
+    tools: ["Cisco Meraki", "Excel", "APIs", "Network architecture", "VLANs"],
     icon: Network,
-    source:
-      "https://www.linkedin.com/posts/wassim-bizid_cybersecurity-secops-vulnerabilitymanagement-activity-7461269048153010176-QEqj",
+    tone: palette.lilacPale,
+    accent: palette.lilac,
   },
   {
-    title: "Risque tiers et réponse supply chain",
-    category: "Third-party risk · Incident governance · Résilience",
+    number: "08",
+    title: "OT visibility & industrial remote-access governance",
+    category: "OT Security · Segmentation · Third-Party Access",
     summary:
-      "Encadrement du risque créé par un partenaire compromis et renforcement des mécanismes de validation des demandes sensibles.",
+      "A collaborative IT/OT programme to baseline industrial traffic and replace shared vendor access with accountable identities.",
     challenge:
-      "Limiter la propagation d’un incident fournisseur vers les employés, la finance et les opérations sans interrompre inutilement les échanges d’affaires.",
-    actions: [
-      "Coordination des parties prenantes internes, du fournisseur et des spécialistes externes.",
-      "Communication ciblée, validation hors bande et règles d’escalade pour les demandes inhabituelles.",
-      "Revue des dépendances, accès, échanges de fichiers et contrôles compensatoires.",
+      "Industrial operations required reliable vendor support while limiting unobserved traffic and generic privileged access.",
+    built: [
+      "Separated IT and OT zones with firewall controls and reviewed permitted cross-zone flows.",
+      "Used Armis visibility to understand device relationships, protocols and normal communication patterns.",
+      "Translated observed flows into a validated communication matrix and enforceable network policy.",
+      "Required named vendor accounts and MFA for remote industrial support instead of generic shared credentials.",
     ],
-    outcomes: [
-      "Réduction du risque de fraude et de compromission secondaire.",
-      "Formalisation d’un modèle de réponse réutilisable pour les incidents de partenaires.",
-    ],
-    tools: ["Third-party risk", "Incident response", "M365", "Defender", "Awareness"],
-    icon: KeyRound,
+    evidence:
+      "Improved industrial accountability and made deviations from expected device communications easier to identify and investigate.",
+    tools: ["Armis", "Cisco Meraki", "MFA", "OT asset visibility", "Remote access"],
+    icon: ServerCog,
+    tone: palette.coralPale,
+    accent: palette.coral,
   },
   {
-    title: "Gouvernance du risque humain",
-    category: "Awareness · Phishing · Mesure du comportement",
+    number: "09",
+    title: "Asset inventory reconciliation",
+    category: "GRC · CMDB · Security Automation",
     summary:
-      "Programme bilingue de sensibilisation et de simulations de phishing adapté aux réalités opérationnelles de plusieurs sites.",
+      "An automated control that compares Active Directory devices with the CMDB and opens exceptions in the ITSM platform.",
     challenge:
-      "Faire évoluer les comportements sans créer de fatigue, tout en donnant à la direction des indicateurs utiles et actionnables.",
-    actions: [
-      "Campagnes progressives en français et en anglais avec scénarios réalistes.",
-      "Segmentation des audiences, suivi des comportements à risque et formation ciblée.",
-      "Communication continue sur les fraudes, partenaires compromis et méthodes de validation.",
+      "Unknown or unregistered devices weaken asset ownership, patch governance, incident response and audit confidence.",
+    built: [
+      "PowerShell collection and normalisation of Active Directory computer objects.",
+      "Automated comparison against CMDB records through REST APIs.",
+      "Exception tickets routed to technicians when a device was missing from the inventory.",
+      "Traceable remediation rather than a one-time spreadsheet reconciliation.",
     ],
-    outcomes: [
-      "Programme étendu à plus de 450 employés.",
-      "Meilleure visibilité sur les comportements à risque et les besoins de coaching ciblé.",
+    evidence:
+      "Converted asset completeness into a continuous control with an accountable exception workflow.",
+    tools: ["PowerShell", "Active Directory", "CMDB", "REST APIs", "ITSM"],
+    icon: Database,
+    tone: palette.mintPale,
+    accent: palette.mint,
+  },
+  {
+    number: "10",
+    title: "Human-risk & awareness programme",
+    category: "Security Culture · Phishing · Multi-site Governance",
+    summary:
+      "A full-year awareness programme designed around engagement patterns, seasonal risk and friendly competition.",
+    challenge:
+      "Training engagement was strongest early in the year and declined unless content remained timely and personally relevant.",
+    built: [
+      "An annual curriculum planned in January with higher-value modules positioned while engagement is highest.",
+      "Seasonal campaigns for travel, public Wi-Fi, holiday offers and other context-specific risks.",
+      "October Cybersecurity Awareness Month challenges across Québec, British Columbia and Florida sites.",
+      "Scoreboards, recognition and phishing-reporting competitions to reinforce vigilance through participation.",
     ],
-    tools: ["MetaCompliance", "Phishing simulations", "Reporting", "Microsoft 365"],
+    evidence:
+      "Made awareness an ongoing behavioural programme instead of a once-a-year compliance exercise.",
+    tools: ["MetaCompliance", "Phishing simulation", "Learning design", "Power BI", "Campaign planning"],
     icon: Users,
+    tone: palette.sunPale,
+    accent: palette.sun,
   },
   {
-    title: "SOC augmenté par l’IA et gouverné par l’humain",
-    category: "AI governance · SecOps · Security automation",
+    number: "11",
+    title: "Layered web & collaboration protection",
+    category: "Defence in Depth · Endpoint · Network",
     summary:
-      "Conception d’une interface unifiée reliant les outils de sécurité à des agents IA via des serveurs MCP spécialisés.",
+      "Complementary endpoint, network and collaboration controls that reduce exposure beyond the office perimeter.",
     challenge:
-      "Réduire la fragmentation entre les consoles tout en conservant des limites d’autorisation, une validation humaine et une traçabilité complète.",
-    actions: [
-      "Développement de sept serveurs MCP pour exposer uniquement les opérations autorisées.",
-      "Orchestration de Defender, Microsoft 365, Meraki, NinjaOne, Kali, Jira et PRTG.",
-      "Définition de garde-fous, séparation lecture/écriture et approbation humaine des actions sensibles.",
+      "Users could encounter unwanted or high-risk content on corporate networks, remotely, or through external collaboration channels.",
+    built: [
+      "Defender for Endpoint web-content filtering for roaming and remote devices.",
+      "Cisco Meraki content controls as a second enforcement layer on managed networks.",
+      "Restricted unsolicited external Teams communication following a social-engineering incident.",
+      "Aligned exceptions and user communication with legitimate business needs.",
     ],
-    outcomes: [
-      "Réduction du changement de contexte pour une équipe de sept personnes.",
-      "Investigations accélérées sans déléguer les décisions de risque à l’IA.",
+    evidence:
+      "Reduced preventable exposure while maintaining controlled exception paths for business activity.",
+    tools: ["Defender for Endpoint", "Cisco Meraki", "Microsoft Teams", "Web filtering"],
+    icon: LockKeyhole,
+    tone: palette.skyPale,
+    accent: palette.sky,
+  },
+  {
+    number: "12",
+    title: "Patch, drift & endpoint operations automation",
+    category: "Security Operations · NinjaOne · Continuous Compliance",
+    summary:
+      "A recurring endpoint-control package that joins hardening, software updates, Windows patching and compliance visibility.",
+    challenge:
+      "A secure baseline can erode quickly when settings change, patches lag or risky local practices go unnoticed.",
+    built: [
+      "A NinjaOne hardening package that regularly validates and reapplies required endpoint settings.",
+      "Automated software and Windows patch deployment with operational follow-up.",
+      "Reporting to flag potential clear-text password storage in common document formats.",
+      "User guidance toward approved password-manager practices when risky storage was identified.",
     ],
-    tools: ["MCP", "Claude Code", "Defender XDR", "Meraki", "NinjaOne", "Jira"],
-    icon: Bot,
-    source:
-      "https://www.linkedin.com/posts/wassim-bizid_cybersecurity-ai-mcp-activity-7456818538046111744-oNdC",
+    evidence:
+      "Created a repeatable control loop for endpoint drift, patch status and selected risky behaviours.",
+    tools: ["NinjaOne", "Defender ASR", "Windows Update", "Automation", "Reporting"],
+    icon: CircleGauge,
+    tone: palette.lilacPale,
+    accent: palette.lilac,
+  },
+  {
+    number: "13",
+    title: "ISO 27001 ISMS implementation lab",
+    category: "PORTFOLIO LAB · ISO 27001:2022 · GRC",
+    summary:
+      "A complete, evidence-oriented ISMS build that demonstrates how ISO 27001 moves from a standard into a working governance system.",
+    challenge:
+      "A credible ISO 27001 programme needs more than policy templates: scope, risk decisions, control applicability, evidence, ownership and continual improvement must remain connected.",
+    built: [
+      "Define the organisational context, interested parties, ISMS scope, governance roles and measurable objectives.",
+      "Create the asset and risk registers, assessment method, risk-treatment plan and approval workflow.",
+      "Map all 93 ISO 27001:2022 Annex A controls in a Statement of Applicability with rationale, owners and evidence.",
+      "Model the internal-audit, management-review, corrective-action and continual-improvement cycle.",
+    ],
+    evidence:
+      "Portfolio lab in development. Planned public deliverables will use a fictional organisation and synthetic evidence; no certification claim is made.",
+    tools: ["ISO 27001:2022", "Annex A", "Statement of Applicability", "Risk register", "Audit programme"],
+    icon: BookOpenCheck,
+    tone: palette.sunPale,
+    accent: "#C79012",
   },
 ];
 
+const events = [
+  {
+    date: "2026",
+    title: "GISEC Global",
+    place: "Dubai, UAE",
+    note: "Adversarial testing of an AI security solution and field observations on prompt injection, jailbreaks and secure-by-design claims.",
+    href: "https://www.linkedin.com/posts/wassim-bizid_gisecglobal-gisec2026-gisecdubai-activity-7506328983148408832-Kgf1",
+    tone: palette.skyPale,
+  },
+  {
+    date: "2026",
+    title: "GoSec Conference",
+    place: "Montréal, Canada",
+    note: "Reflections on the speed asymmetry created by AI-enabled attacks, Zero Trust and machine-speed response.",
+    href: "https://www.linkedin.com/posts/wassim-bizid_gosec2026-cybers%C3%A9curit%C3%A9-ia-activity-7509056766341615616-rIGv",
+    tone: palette.coralPale,
+  },
+  {
+    date: "2026",
+    title: "Bell Cyber — AI-powered SOC",
+    place: "Canada",
+    note: "Exchange with public- and private-sector leaders on autonomous SOC operations, AI agents and Canadian digital sovereignty.",
+    href: "https://www.linkedin.com/posts/wassim-bizid_cybersecurity-artificialintelligence-ai-activity-7511480181333688320-kgOB",
+    tone: palette.mintPale,
+  },
+  {
+    date: "2026",
+    title: "IANS Agentic AI Threat Modeling Symposium",
+    place: "Virtual",
+    note: "Threat modeling for agentic systems, STRIDE, framework supply-chain risks, guardrail bypass and sensitive data in observability logs.",
+    href: "https://www.linkedin.com/posts/wassim-bizid_agentic-ai-threat-modeling-are-we-ready-activity-7438321739614474241-lB9k",
+    tone: palette.lilacPale,
+  },
+  {
+    date: "08 Sep 2026",
+    title: "5th MENA Cyber Security Conference",
+    place: "Riyadh, Saudi Arabia",
+    note: "Delegate participation focused on cyber resilience across the GCC, infrastructure security and trusted digital operations.",
+    tone: palette.sunPale,
+  },
+  {
+    date: "2024",
+    title: "GoSec Conference",
+    place: "Montréal, Canada",
+    note: "Two days of cybersecurity talks, solution briefings, peer exchange and professional networking.",
+    href: "https://www.linkedin.com/posts/wassim-bizid_gosec2024-cybersecurity-networking-activity-7239789607372959744-xKmU",
+    tone: palette.skyPale,
+  },
+] as const;
+
 const credentials = [
-  { name: "CISSP", issuer: "ISC2", focus: "Leadership et architecture de sécurité" },
-  { name: "CISM", issuer: "ISACA", focus: "Gouvernance, risque et programme cyber" },
-  { name: "Azure Security Engineer", issuer: "Microsoft", focus: "Sécurité Azure et identité" },
-  { name: "ITIL Foundation", issuer: "EXIN", focus: "Gestion et gouvernance des services TI" },
-  { name: "RHCSA", issuer: "Red Hat", focus: "Administration et sécurité Linux" },
-  { name: "MCSA Cloud Platform", issuer: "Microsoft", focus: "Infrastructure et plateforme cloud" },
-  { name: "Mini-MBA", issuer: "McGill — Desautels", focus: "Leadership, stratégie et affaires" },
+  { name: "CISSP", issuer: "ISC2", focus: "Security leadership & architecture" },
+  { name: "CISM", issuer: "ISACA", focus: "Governance, risk & cyber programmes" },
+  { name: "Azure Security Engineer", issuer: "Microsoft", focus: "Azure security & identity" },
+  { name: "ITIL Foundation", issuer: "EXIN", focus: "IT service governance" },
+  { name: "RHCSA", issuer: "Red Hat", focus: "Linux administration & security" },
+  { name: "MCSA Cloud Platform", issuer: "Microsoft", focus: "Cloud infrastructure" },
+  { name: "Mini-MBA", issuer: "McGill — Desautels", focus: "Leadership, strategy & business" },
 ] as const;
 
 const githubRoadmap = [
   {
     title: "M365 GRC Assessment Framework",
-    description: "Grille d’évaluation, niveaux de maturité, preuves attendues et plan de remédiation priorisé.",
+    description: "Maturity levels, expected evidence and a risk-prioritised remediation plan.",
   },
   {
     title: "Cyber Risk Register Starter Kit",
-    description: "Modèle de registre des risques, critères d’impact, appétit au risque et suivi des plans de traitement.",
+    description: "Risk statements, impact criteria, treatment decisions, owners and review cadence.",
   },
   {
     title: "Third-Party Cyber Risk Pack",
-    description: "Questionnaire fournisseur, matrice de criticité, clauses minimales et playbook d’incident tiers.",
+    description: "Supplier questionnaire, criticality model, minimum clauses and incident playbook.",
   },
   {
-    title: "AI Agent Security Governance Checklist",
-    description: "Contrôles d’identité non humaine, mémoire, autonomie, données, journalisation et approbation humaine.",
-  },
-] as const;
-
-const publicSources = [
-  {
-    label: "Profil professionnel LinkedIn",
-    href: linkedInUrl,
+    title: "AI Agent Security Checklist",
+    description: "Non-human identity, autonomy, memory, data, auditability and human approval controls.",
   },
   {
-    label: "SOC augmenté par sept serveurs MCP",
-    href: "https://www.linkedin.com/posts/wassim-bizid_cybersecurity-ai-mcp-activity-7456818538046111744-oNdC",
-  },
-  {
-    label: "Gouvernance IAM et offboarding par SSO",
-    href: "https://www.linkedin.com/posts/wassim-bizid_iam-cybersecurity-sso-activity-7459691983633076224-Jla4",
-  },
-  {
-    label: "Gouvernance des données avant l’adoption de l’IA",
-    href: "https://www.linkedin.com/posts/wassim-bizid_cybersecurity-artificialintelligence-ai-activity-7470606489867694080-2uQX",
-  },
-  {
-    label: "Évaluation adversariale d’une solution de sécurité IA",
-    href: "https://www.linkedin.com/posts/wassim-bizid_gisecglobal-gisec2026-gisecdubai-activity-7506328983148408832-Kgf1",
+    title: "ISO 27001 ISMS Builder",
+    description: "A fictional end-to-end ISMS with risk treatment, Statement of Applicability, evidence and audit cycle.",
   },
 ] as const;
 
@@ -322,507 +506,464 @@ function SectionTitle({
 }) {
   return (
     <div className="max-w-3xl">
-      <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#7a5f16]">
+      <p className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#2F80ED]">
         {eyebrow}
       </p>
-      <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
+      <h2 className="mt-3 text-3xl font-black tracking-[-0.035em] text-[#24445D] sm:text-4xl lg:text-5xl">
         {title}
       </h2>
-      <span className="mt-5 block h-1 w-14 rounded-full bg-primary" aria-hidden="true" />
-      {description && (
-        <p className="mt-5 text-base leading-7 text-muted-foreground sm:text-lg">
-          {description}
-        </p>
-      )}
+      {description ? (
+        <p className="mt-5 text-base leading-8 text-[#5C7287] sm:text-lg">{description}</p>
+      ) : null}
     </div>
   );
 }
 
-function ProjectCard({ project, index }: { project: Project; index: number }) {
+function Pill({ children }: { children: React.ReactNode }) {
+  return (
+    <span className="rounded-full border border-[#CFE0EC] bg-white px-3 py-1.5 text-xs font-semibold text-[#46647A]">
+      {children}
+    </span>
+  );
+}
+
+function ProjectCard({ project }: { project: Project }) {
   const Icon = project.icon;
 
   return (
-    <article className="overflow-hidden rounded-3xl border border-border bg-white shadow-[0_20px_55px_-38px_rgba(28,23,18,0.35)]">
-      <div className="grid lg:grid-cols-[0.72fr_1.28fr]">
-        <div className="relative overflow-hidden bg-[#11100e] p-7 text-white sm:p-9">
+    <article className="group flex h-full flex-col overflow-hidden rounded-[2rem] border border-[#D9E7EF] bg-white shadow-[0_18px_60px_-38px_rgba(47,128,237,0.35)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_70px_-38px_rgba(47,128,237,0.42)]">
+      <div className="p-6 sm:p-8">
+        <div className="flex items-start justify-between gap-4">
           <div
-            className="absolute inset-0 opacity-30 [background-image:linear-gradient(rgba(212,175,55,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(212,175,55,0.12)_1px,transparent_1px)] [background-size:36px_36px]"
-            aria-hidden="true"
-          />
-          <div className="relative">
-            <div className="flex items-center justify-between">
-              <span className="flex size-12 items-center justify-center rounded-2xl border border-[#efd878]/25 bg-[#efd878]/10 text-[#efd878]">
-                <Icon className="size-6" aria-hidden="true" />
-              </span>
-              <span className="font-mono text-xs font-semibold tracking-[0.18em] text-[#efd878]">
-                PROJET {String(index + 1).padStart(2, "0")}
-              </span>
-            </div>
-            <p className="mt-8 text-xs font-semibold uppercase tracking-[0.16em] text-[#efd878]">
-              {project.category}
-            </p>
-            <h3 className="mt-3 text-2xl font-bold leading-tight text-white">
-              {project.title}
-            </h3>
-            <p className="mt-4 text-sm leading-6 text-white/65">{project.summary}</p>
+            className="flex size-12 items-center justify-center rounded-2xl"
+            style={{ backgroundColor: project.tone, color: project.accent }}
+          >
+            <Icon className="size-6" aria-hidden="true" />
           </div>
+          <span className="font-mono text-sm font-bold text-[#90A8B8]">{project.number}</span>
         </div>
+        <p className="mt-6 text-xs font-bold uppercase tracking-[0.16em]" style={{ color: project.accent }}>
+          {project.category}
+        </p>
+        <h3 className="mt-3 text-2xl font-black tracking-tight text-[#24445D]">{project.title}</h3>
+        <p className="mt-4 leading-7 text-[#5C7287]">{project.summary}</p>
+      </div>
 
-        <div className="p-7 sm:p-9">
-          <div className="grid gap-7 sm:grid-cols-2">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#7a5f16]">
-                Enjeu
-              </p>
-              <p className="mt-3 text-sm leading-6 text-muted-foreground">
-                {project.challenge}
-              </p>
-            </div>
-            <div>
-              <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#7a5f16]">
-                Actions clés
-              </p>
-              <ul className="mt-3 space-y-2.5">
-                {project.actions.map((action) => (
-                  <li key={action} className="flex gap-2.5 text-sm leading-6 text-muted-foreground">
-                    <CheckCircle2 className="mt-1 size-4 shrink-0 text-[#7a5f16]" aria-hidden="true" />
-                    <span>{action}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+      <details className="mt-auto border-t border-[#E3EDF3] bg-[#FCFEFF] open:bg-white">
+        <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 text-sm font-bold text-[#24445D] sm:px-8 [&::-webkit-details-marker]:hidden">
+          Read the case study
+          <ChevronDown className="size-5 text-[#2F80ED] transition group-open:rotate-180" aria-hidden="true" />
+        </summary>
+        <div className="space-y-6 px-6 pb-8 sm:px-8">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#90A8B8]">Challenge</p>
+            <p className="mt-2 leading-7 text-[#5C7287]">{project.challenge}</p>
           </div>
-
-          <div className="mt-7 rounded-2xl border border-primary/25 bg-primary/[0.07] p-5">
-            <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#7a5f16]">
-              Résultats et valeur
-            </p>
-            <ul className="mt-3 grid gap-2.5 sm:grid-cols-2">
-              {project.outcomes.map((outcome) => (
-                <li key={outcome} className="flex gap-2.5 text-sm leading-6 text-foreground/80">
-                  <TrendingUp className="mt-1 size-4 shrink-0 text-[#7a5f16]" aria-hidden="true" />
-                  <span>{outcome}</span>
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#90A8B8]">What I built</p>
+            <ul className="mt-3 space-y-3">
+              {project.built.map((item) => (
+                <li key={item} className="flex gap-3 text-sm leading-6 text-[#5C7287]">
+                  <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-[#42C7A5]" aria-hidden="true" />
+                  {item}
                 </li>
               ))}
             </ul>
           </div>
-
-          <div className="mt-6 flex flex-wrap items-center gap-2">
-            {project.tools.map((tool) => (
-              <span
-                key={tool}
-                className="rounded-full border border-border bg-muted/55 px-3 py-1 text-xs font-medium text-muted-foreground"
-              >
-                {tool}
-              </span>
-            ))}
-            {project.source && (
-              <a
-                href={project.source}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="ms-auto inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold text-[#7a5f16] transition-colors hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-              >
-                Publication associée
-                <ExternalLink className="size-3.5" aria-hidden="true" />
-              </a>
-            )}
+          <div className="rounded-2xl bg-[#E7FAF4] p-4">
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#238D73]">Evidence of impact</p>
+            <p className="mt-2 text-sm leading-6 text-[#416779]">{project.evidence}</p>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {project.tools.map((tool) => <Pill key={tool}>{tool}</Pill>)}
           </div>
         </div>
-      </div>
+      </details>
     </article>
   );
 }
 
-export default function PrivatePortfolioPage() {
+function DashboardHeader({ title, label }: { title: string; label: string }) {
   return (
-    <main className="overflow-hidden">
-      <section className="relative isolate overflow-hidden bg-[#0a0a0c] text-white">
-        <div className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_18%_12%,rgba(212,175,55,0.28),transparent_32%),radial-gradient(circle_at_82%_40%,rgba(156,31,31,0.2),transparent_36%)]" />
-        <div
-          className="absolute inset-0 -z-10 opacity-40 [background-image:linear-gradient(rgba(212,175,55,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(212,175,55,0.08)_1px,transparent_1px)] [background-size:52px_52px]"
-          aria-hidden="true"
-        />
+    <div className="flex items-center justify-between gap-4 border-b border-[#DCEAF2] px-5 py-4">
+      <div>
+        <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#90A8B8]">{label}</p>
+        <h3 className="mt-1 font-black text-[#24445D]">{title}</h3>
+      </div>
+      <span className="rounded-full bg-[#E7FAF4] px-3 py-1 text-[11px] font-bold text-[#238D73]">SYNTHETIC</span>
+    </div>
+  );
+}
 
-        <div className="mx-auto max-w-7xl px-4 pb-20 pt-7 sm:px-6 sm:pb-28 lg:px-8">
-          <div className="flex flex-col gap-4 border-b border-white/10 pb-6 sm:flex-row sm:items-center sm:justify-between">
-            <div className="flex items-center gap-3">
-              <span className="flex size-9 items-center justify-center rounded-xl border border-[#efd878]/30 bg-[#efd878]/10 text-[#efd878]">
-                <LockKeyhole className="size-4" aria-hidden="true" />
-              </span>
-              <div>
-                <p className="text-sm font-bold text-white">Portfolio professionnel</p>
-                <p className="text-xs text-white/50">Accès non répertorié · partage par lien</p>
-              </div>
+function CisoDashboard() {
+  const cards = [
+    ["MTTD", "24 min", "↓ 18%"],
+    ["MTTR", "58 min", "↓ 12%"],
+    ["90d+ vulns", "27", "↓ 9"],
+    ["Training", "84%", "↑ 6%"],
+  ] as const;
+  const bars = [42, 58, 51, 67, 72, 76, 83];
+
+  return (
+    <div className="overflow-hidden rounded-[1.75rem] border border-[#D7E8F2] bg-white shadow-[0_22px_70px_-45px_rgba(47,128,237,0.5)]">
+      <DashboardHeader title="Executive risk pulse" label="Power BI reconstruction" />
+      <div className="p-5">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+          {cards.map(([label, value, trend], index) => (
+            <div key={label} className="rounded-2xl p-3" style={{ backgroundColor: [palette.skyPale, palette.mintPale, palette.coralPale, palette.lilacPale][index] }}>
+              <p className="text-[10px] font-bold uppercase tracking-wide text-[#6C8395]">{label}</p>
+              <p className="mt-2 text-xl font-black text-[#24445D]">{value}</p>
+              <p className="mt-1 text-xs font-bold text-[#238D73]">{trend}</p>
             </div>
-            <p className="font-mono text-xs uppercase tracking-[0.18em] text-white/45">
-              Version initiale · Octobre 2026
-            </p>
+          ))}
+        </div>
+        <div className="mt-5 grid gap-4 sm:grid-cols-[1.4fr_0.6fr]">
+          <div className="rounded-2xl border border-[#E2EDF3] p-4">
+            <div className="flex items-center justify-between text-xs font-bold text-[#6C8395]">
+              <span>Posture trend</span><span>7 reviews</span>
+            </div>
+            <div className="mt-4 flex h-28 items-end gap-2">
+              {bars.map((height, index) => (
+                <div key={height + "-" + index} className="flex-1 rounded-t-md bg-[#8FC5FF]" style={{ height: height + "%" }} />
+              ))}
+            </div>
           </div>
-
-          <div className="grid items-center gap-12 pt-16 lg:grid-cols-[1.32fr_0.68fr] lg:pt-24">
-            <div>
-              <div className="flex flex-wrap gap-2">
-                <span className="rounded-full border border-[#efd878]/30 bg-[#efd878]/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-[#efd878]">
-                  Cybersecurity Leadership
-                </span>
-                <span className="rounded-full border border-white/15 bg-white/[0.06] px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-white/70">
-                  GRC
-                </span>
-                <span className="rounded-full border border-white/15 bg-white/[0.06] px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-white/70">
-                  AI Security
-                </span>
-              </div>
-
-              <p className="mt-8 font-mono text-sm font-semibold uppercase tracking-[0.2em] text-[#efd878]">
-                Wassim Bizid · Mini-MBA · CISSP · CISM
-              </p>
-              <h1 className="mt-5 max-w-4xl text-4xl font-black leading-[1.06] tracking-[-0.035em] text-white sm:text-6xl lg:text-7xl">
-                Gouverner le risque.
-                <span className="block bg-gradient-to-r from-[#efd878] via-[#d4af37] to-[#b68d24] bg-clip-text text-transparent">
-                  Transformer la sécurité.
-                </span>
-              </h1>
-              <p className="mt-7 max-w-3xl text-lg leading-8 text-white/65 sm:text-xl">
-                Leader trilingue en cybersécurité avec une expérience à l’intersection de la gouvernance,
-                du risque, de la conformité, des opérations de sécurité et de l’automatisation par l’IA.
-                Mon approche relie les contrôles techniques aux priorités d’affaires, aux audits et aux
-                décisions exécutives.
-              </p>
-
-              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                <a
-                  href={linkedInUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#efd878] px-5 py-3 text-sm font-bold text-[#171204] transition-colors hover:bg-[#f5e4a7] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#efd878] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0c]"
-                >
-                  Consulter mon profil LinkedIn
-                  <ArrowUpRight className="size-4" aria-hidden="true" />
-                </a>
-                <a
-                  href={`mailto:${siteConfig.email}`}
-                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/[0.06] px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-white/[0.1] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#efd878]"
-                >
-                  <Mail className="size-4" aria-hidden="true" />
-                  {siteConfig.email}
-                </a>
-              </div>
-
-              <div className="mt-9 flex flex-wrap gap-x-6 gap-y-3 text-sm text-white/55">
-                <span className="inline-flex items-center gap-2">
-                  <MapPin className="size-4 text-[#efd878]" aria-hidden="true" />
-                  Montréal · Dubai · GCC
-                </span>
-                <span className="inline-flex items-center gap-2">
-                  <Languages className="size-4 text-[#efd878]" aria-hidden="true" />
-                  Français · Arabe · Anglais
-                </span>
-                <span className="inline-flex items-center gap-2">
-                  <Globe2 className="size-4 text-[#efd878]" aria-hidden="true" />
-                  Canada · États-Unis · Moyen-Orient
-                </span>
-              </div>
-            </div>
-
-            <aside className="mx-auto w-full max-w-md lg:mx-0 lg:justify-self-end">
-              <div className="relative overflow-hidden rounded-[2rem] border border-[#efd878]/25 bg-white/[0.07] p-7 shadow-[0_30px_90px_-35px_rgba(212,175,55,0.45)] backdrop-blur-xl sm:p-9">
-                <div className="absolute -right-16 -top-16 size-52 rounded-full bg-[#d4af37]/15 blur-3xl" aria-hidden="true" />
-                <div className="relative flex items-start justify-between gap-5">
-                  <div className="flex size-24 items-center justify-center rounded-[1.75rem] border border-[#efd878]/35 bg-[#efd878]/10 font-mono text-4xl font-black text-[#efd878] shadow-inner">
-                    WB
+          <div className="rounded-2xl bg-[#FFF8D8] p-4">
+            <p className="text-xs font-bold text-[#6C8395]">Vulnerability age</p>
+            <div className="mt-4 space-y-3">
+              {([
+                ["0–30d", 78, palette.mint],
+                ["31–60d", 48, palette.sun],
+                ["61–90d", 31, palette.coral],
+                ["90d+", 18, palette.lilac],
+              ] as const).map(([label, width, color]) => (
+                <div key={label}>
+                  <div className="mb-1 flex justify-between text-[10px] font-bold text-[#6C8395]">
+                    <span>{label}</span><span>{width}%</span>
                   </div>
-                  <span className="rounded-full border border-[#efd878]/25 bg-[#efd878]/10 px-3 py-1 text-xs font-bold text-[#efd878]">
-                    Leadership GRC
-                  </span>
-                </div>
-                <div className="relative mt-8">
-                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#efd878]">
-                    Positionnement
-                  </p>
-                  <p className="mt-3 text-2xl font-bold leading-tight text-white">
-                    Cybersecurity & GRC Leader
-                  </p>
-                  <p className="mt-3 text-sm leading-6 text-white/60">
-                    Gouvernance pragmatique, architecture de sécurité, IAM, cyber-risque, conformité et
-                    transformation des opérations.
-                  </p>
-                </div>
-                <div className="relative mt-7 grid grid-cols-2 gap-3">
-                  {[
-                    ["Stratégie", "GRC"],
-                    ["Identité", "Zero Trust"],
-                    ["Opérations", "SecOps"],
-                    ["Innovation", "AI Security"],
-                  ].map(([label, value]) => (
-                    <div key={label} className="rounded-2xl border border-white/10 bg-black/20 p-4">
-                      <p className="text-[11px] uppercase tracking-[0.12em] text-white/40">{label}</p>
-                      <p className="mt-1.5 text-sm font-bold text-white/85">{value}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </aside>
-          </div>
-        </div>
-      </section>
-
-      <section className="relative z-10 -mt-8 pb-16 sm:-mt-10 sm:pb-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid overflow-hidden rounded-3xl border border-border bg-white shadow-[0_28px_70px_-38px_rgba(28,23,18,0.38)] sm:grid-cols-2 lg:grid-cols-3">
-            {impactMetrics.map((metric, index) => (
-              <div
-                key={metric.label}
-                className={`p-6 sm:p-7 ${index % 3 !== 2 ? "lg:border-r lg:border-border" : ""} ${index < 3 ? "border-b border-border" : ""}`}
-              >
-                <p className="text-3xl font-black tracking-tight text-[#7a5f16]">{metric.value}</p>
-                <p className="mt-1 text-sm font-bold text-foreground">{metric.label}</p>
-                <p className="mt-2 text-xs leading-5 text-muted-foreground">{metric.detail}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="pb-20 sm:pb-28" aria-labelledby="profile-title">
-        <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.7fr_1.3fr] lg:px-8">
-          <SectionTitle eyebrow="Profil" title="Qui je suis" />
-          <div className="space-y-6 text-base leading-8 text-muted-foreground sm:text-lg">
-            <p>
-              Je suis un leader en cybersécurité possédant plus de quinze ans d’expérience en TI et plus
-              de dix ans en sécurité. Mon parcours couvre l’infrastructure, le cloud, l’identité, les
-              opérations, l’architecture et la gouvernance — un avantage important pour évaluer un risque
-              dans son contexte réel plutôt que comme un simple écart de conformité.
-            </p>
-            <p>
-              J’ai dirigé une équipe multidisciplinaire dans un environnement multisite au Canada et aux
-              États-Unis, tout en soutenant des initiatives au Moyen-Orient. Je traduis les exigences des
-              cadres de référence en actions réalisables, puis je mesure leur adoption, leur efficacité et
-              leur contribution à la résilience de l’organisation.
-            </p>
-            <div className="grid gap-4 pt-2 sm:grid-cols-3">
-              {[
-                { icon: BriefcaseBusiness, label: "Leadership", text: "Stratégie, budget, feuille de route et équipe" },
-                { icon: FileCheck2, label: "Assurance", text: "Audit readiness, preuves et efficacité des contrôles" },
-                { icon: Sparkles, label: "Innovation", text: "Automatisation sécurisée et gouvernance de l’IA" },
-              ].map(({ icon: Icon, label, text }) => (
-                <div key={label} className="rounded-2xl border border-border bg-white p-5 shadow-sm">
-                  <Icon className="size-5 text-[#7a5f16]" aria-hidden="true" />
-                  <p className="mt-3 text-sm font-bold text-foreground">{label}</p>
-                  <p className="mt-1 text-xs leading-5 text-muted-foreground">{text}</p>
+                  <div className="h-2 rounded-full bg-white">
+                    <div className="h-2 rounded-full" style={{ width: width + "%", backgroundColor: color }} />
+                  </div>
                 </div>
               ))}
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  );
+}
 
-      <section className="border-y border-border bg-[#efeade]/60 py-20 sm:py-28" aria-labelledby="grc-title">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionTitle
-            eyebrow="Modèle de pratique"
-            title="La GRC comme système de décision"
-            description="Ma démarche relie quatre capacités complémentaires. L’objectif n’est pas de produire plus de documents, mais de donner aux décideurs une vision fiable du risque et aux équipes un chemin clair vers la remédiation."
-          />
-          <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-            {grcPillars.map(({ title, description, icon: Icon, items }, index) => (
-              <article key={title} className="flex h-full flex-col rounded-3xl border border-border bg-white p-6 shadow-sm">
-                <div className="flex items-center justify-between">
-                  <span className="flex size-12 items-center justify-center rounded-2xl bg-[#171513] text-[#efd878]">
-                    <Icon className="size-6" aria-hidden="true" />
-                  </span>
-                  <span className="font-mono text-xs font-bold text-[#7a5f16]">0{index + 1}</span>
-                </div>
-                <h3 className="mt-6 text-xl font-bold text-foreground">{title}</h3>
-                <p className="mt-3 text-sm leading-6 text-muted-foreground">{description}</p>
-                <ul className="mt-auto space-y-2 border-t border-border pt-5">
-                  {items.map((item) => (
-                    <li key={item} className="flex items-center gap-2 text-xs font-semibold text-foreground/70">
-                      <span className="size-1.5 rounded-full bg-primary" aria-hidden="true" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </article>
+function SiemDashboard() {
+  const points = [28, 46, 35, 70, 54, 82, 62, 88, 72, 94, 79, 86];
+
+  return (
+    <div className="overflow-hidden rounded-[1.75rem] border border-[#D7E8F2] bg-white shadow-[0_22px_70px_-45px_rgba(139,124,246,0.5)]">
+      <DashboardHeader title="Detection & investigation" label="Kibana reconstruction" />
+      <div className="p-5">
+        <div className="grid grid-cols-3 gap-3">
+          {[
+            ["Alerts", "1,284", palette.skyPale],
+            ["High severity", "37", palette.coralPale],
+            ["Sources", "18", palette.mintPale],
+          ].map(([label, value, tone]) => (
+            <div key={label} className="rounded-2xl p-3" style={{ backgroundColor: tone }}>
+              <p className="text-[10px] font-bold uppercase text-[#6C8395]">{label}</p>
+              <p className="mt-2 text-xl font-black text-[#24445D]">{value}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-5 rounded-2xl border border-[#E2EDF3] p-4">
+          <div className="flex items-center justify-between text-xs font-bold text-[#6C8395]">
+            <span>Events over time</span><span>24 hours</span>
+          </div>
+          <div className="mt-5 flex h-28 items-end gap-1.5">
+            {points.map((height, index) => (
+              <div key={height + "-" + index} className="flex-1 rounded-t bg-gradient-to-t from-[#8B7CF6] to-[#B9AEFF]" style={{ height: height + "%" }} />
             ))}
           </div>
         </div>
-      </section>
+        <div className="mt-4 grid grid-cols-3 gap-2 text-center text-[10px] font-bold text-[#5C7287]">
+          <span className="rounded-xl bg-[#EAF4FF] py-2">Identity</span>
+          <span className="rounded-xl bg-[#E7FAF4] py-2">Endpoint</span>
+          <span className="rounded-xl bg-[#FFF0EC] py-2">Network</span>
+        </div>
+      </div>
+    </div>
+  );
+}
 
-      <section className="py-20 sm:py-28" aria-labelledby="projects-title">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionTitle
-            eyebrow="Études de cas"
-            title="Projets sélectionnés"
-            description="Les exemples suivants présentent le problème, la méthode et la valeur produite. Les noms de clients, architectures détaillées et données opérationnelles ont été volontairement anonymisés."
-          />
-          <div className="mt-12 space-y-7">
-            {projects.map((project, index) => (
-              <ProjectCard key={project.title} project={project} index={index} />
+function SectionShell({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  return <div className={["mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10", className].join(" ")}>{children}</div>;
+}
+
+export default function WassimPortfolioPage() {
+  return (
+    <main className="min-h-screen overflow-hidden bg-[#FFFDF7] text-[#24445D] selection:bg-[#BDE2FF] selection:text-[#24445D]">
+      <header className="sticky top-0 z-50 border-b border-[#DCE9EF]/90 bg-[#FFFDF7]/90 backdrop-blur-xl">
+        <SectionShell className="flex min-h-20 items-center justify-between gap-6 py-3">
+          <a href="#top" className="flex items-center gap-3" aria-label="Back to the top">
+            <span className="flex size-11 items-center justify-center rounded-2xl bg-[#2F80ED] text-sm font-black text-white shadow-[0_10px_24px_-12px_rgba(47,128,237,0.9)]">WB</span>
+            <span>
+              <span className="block text-sm font-black tracking-tight text-[#24445D]">Wassim Bizid</span>
+              <span className="block text-[10px] font-bold uppercase tracking-[0.16em] text-[#7D95A6]">Cybersecurity & GRC</span>
+            </span>
+          </a>
+          <nav className="hidden items-center gap-7 text-sm font-bold text-[#5C7287] lg:flex" aria-label="Portfolio navigation">
+            <a className="transition hover:text-[#2F80ED]" href="#work">Selected work</a>
+            <a className="transition hover:text-[#2F80ED]" href="#dashboards">Dashboards</a>
+            <a className="transition hover:text-[#2F80ED]" href="#events">Events</a>
+            <a className="transition hover:text-[#2F80ED]" href="#credentials">Credentials</a>
+          </nav>
+          <a href={linkedInUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-[#BFDDF5] bg-white px-4 py-2.5 text-sm font-bold text-[#2F80ED] transition hover:-translate-y-0.5 hover:border-[#2F80ED]">
+            LinkedIn <ArrowUpRight className="size-4" aria-hidden="true" />
+          </a>
+        </SectionShell>
+      </header>
+
+      <section id="top" className="relative isolate scroll-mt-24 border-b border-[#DCE9EF]">
+        <div className="absolute -left-24 top-12 -z-10 size-72 rounded-full bg-[#D9EEFF] blur-3xl" />
+        <div className="absolute -right-24 top-0 -z-10 size-80 rounded-full bg-[#FFE1DB] blur-3xl" />
+        <div className="absolute bottom-0 left-1/2 -z-10 size-72 -translate-x-1/2 rounded-full bg-[#DDF8EF] blur-3xl" />
+        <SectionShell className="grid gap-12 py-20 sm:py-28 lg:grid-cols-[1.2fr_0.8fr] lg:items-center lg:py-32">
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#CBE2F2] bg-white/80 px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] text-[#52758C] shadow-sm">
+              <Sparkles className="size-4 text-[#FF7A6B]" aria-hidden="true" />
+              Security leadership · GRC · Engineering
+            </div>
+            <h1 className="mt-7 max-w-4xl text-5xl font-black leading-[0.98] tracking-[-0.055em] text-[#24445D] sm:text-6xl lg:text-7xl">
+              I turn security telemetry into
+              <span className="block text-[#2F80ED]">accountable risk decisions.</span>
+            </h1>
+            <p className="mt-7 max-w-2xl text-lg leading-8 text-[#5C7287] sm:text-xl">
+              Cybersecurity and IT leader connecting governance, identity, cloud, endpoints, SecOps and industrial environments—then making the programme measurable for executives and practical for operators.
+            </p>
+            <div className="mt-9 flex flex-wrap gap-3">
+              <a href="#work" className="inline-flex items-center gap-2 rounded-full bg-[#2F80ED] px-6 py-3.5 text-sm font-black text-white shadow-[0_14px_30px_-15px_rgba(47,128,237,0.8)] transition hover:-translate-y-0.5 hover:bg-[#2673D7]">
+                Explore selected work <ArrowUpRight className="size-4" aria-hidden="true" />
+              </a>
+              <a href={"mailto:" + siteConfig.email} className="inline-flex items-center gap-2 rounded-full border border-[#BFDDF5] bg-white px-6 py-3.5 text-sm font-black text-[#24445D] transition hover:-translate-y-0.5 hover:border-[#2F80ED]">
+                <Mail className="size-4 text-[#FF7A6B]" aria-hidden="true" /> Contact
+              </a>
+            </div>
+            <p className="mt-5 flex items-center gap-2 text-xs leading-5 text-[#7D95A6]">
+              <LockKeyhole className="size-4 shrink-0 text-[#42C7A5]" aria-hidden="true" />
+              Unlisted portfolio · no search indexing · shareable only by direct link
+            </p>
+          </div>
+
+          <aside className="relative mx-auto w-full max-w-lg">
+            <div className="absolute -left-6 -top-6 size-24 rounded-[2rem] bg-[#FFF0EC]" />
+            <div className="absolute -bottom-6 -right-6 size-28 rounded-full bg-[#E7FAF4]" />
+            <div className="relative overflow-hidden rounded-[2.5rem] border border-[#D6E7F0] bg-white p-7 shadow-[0_32px_90px_-48px_rgba(47,128,237,0.5)] sm:p-9">
+              <div className="flex items-center justify-between gap-4">
+                <div className="flex size-20 items-center justify-center rounded-[1.75rem] bg-gradient-to-br from-[#EAF4FF] via-[#F0EEFF] to-[#FFF0EC] text-2xl font-black text-[#2F80ED]">WB</div>
+                <span className="rounded-full bg-[#E7FAF4] px-4 py-2 text-xs font-bold text-[#238D73]">Open to strategic conversations</span>
+              </div>
+              <h2 className="mt-8 text-3xl font-black tracking-tight text-[#24445D]">Wassim Bizid</h2>
+              <p className="mt-2 font-bold text-[#2F80ED]">MBA · CISSP · CISM · ITIL</p>
+              <div className="mt-7 space-y-4 border-t border-[#E1ECF2] pt-7 text-sm text-[#5C7287]">
+                <p className="flex items-start gap-3"><BriefcaseBusiness className="mt-0.5 size-5 shrink-0 text-[#FF7A6B]" aria-hidden="true" /><span><strong className="text-[#24445D]">Focus:</strong> cyber strategy, GRC, identity, Zero Trust and security automation</span></p>
+                <p className="flex items-start gap-3"><Globe2 className="mt-0.5 size-5 shrink-0 text-[#42C7A5]" aria-hidden="true" /><span><strong className="text-[#24445D]">Perspective:</strong> Canada, United States and the Middle East</span></p>
+                <p className="flex items-start gap-3"><Users className="mt-0.5 size-5 shrink-0 text-[#8B7CF6]" aria-hidden="true" /><span><strong className="text-[#24445D]">Leadership:</strong> multidisciplinary IT and cybersecurity teams</span></p>
+              </div>
+              <div className="mt-7 flex flex-wrap gap-2">
+                {["English", "French", "Arabic"].map((language, index) => (
+                  <span key={language} className="rounded-full px-3 py-1.5 text-xs font-bold text-[#46647A]" style={{ backgroundColor: [palette.skyPale, palette.coralPale, palette.sunPale][index] }}>{language}</span>
+                ))}
+              </div>
+            </div>
+          </aside>
+        </SectionShell>
+
+        <SectionShell className="pb-16 sm:pb-20">
+          <div className="grid overflow-hidden rounded-[2rem] border border-[#D8E7EF] bg-white sm:grid-cols-2 lg:grid-cols-4">
+            {impactMetrics.map((metric, index) => (
+              <div key={metric.label} className={"p-6 sm:p-7 " + (index > 0 ? "border-t border-[#E1ECF2] sm:border-l sm:border-t-0 " : "") + (index === 2 ? "lg:border-l" : "")}>
+                <p className="text-3xl font-black tracking-tight text-[#2F80ED]">{metric.value}</p>
+                <p className="mt-1 text-sm font-black text-[#24445D]">{metric.label}</p>
+                <p className="mt-2 text-xs leading-5 text-[#7D95A6]">{metric.detail}</p>
+              </div>
             ))}
           </div>
-        </div>
+        </SectionShell>
       </section>
 
-      <section className="border-y border-border bg-[#11100e] py-20 text-white sm:py-28" aria-labelledby="credentials-title">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-[0.72fr_1.28fr]">
+      <section className="py-20 sm:py-28" aria-labelledby="approach-title">
+        <SectionShell>
+          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+            <SectionTitle eyebrow="My operating model" title="Controls that survive contact with operations." description="I work across the full control lifecycle: define the risk, design the guardrail, automate what is repeatable, measure effectiveness and return evidence to governance." />
+            <div className="grid gap-4 sm:grid-cols-3">
+              {operatingPrinciples.map((principle) => {
+                const Icon = principle.icon;
+                return (
+                  <article key={principle.title} className="rounded-[1.75rem] border border-[#DCE9EF] p-5" style={{ backgroundColor: principle.tone }}>
+                    <Icon className="size-6 text-[#2F80ED]" aria-hidden="true" />
+                    <h3 className="mt-5 text-lg font-black text-[#24445D]">{principle.title}</h3>
+                    <p className="mt-3 text-sm leading-6 text-[#5C7287]">{principle.description}</p>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        </SectionShell>
+      </section>
+
+      <section id="work" className="scroll-mt-24 border-y border-[#DCE9EF] bg-[#F8FCFF] py-20 sm:py-28" aria-labelledby="work-title">
+        <SectionShell>
+          <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
+            <SectionTitle eyebrow="Selected work" title="Programmes built from policy to proof." description="A curated set of hands-on programmes across GRC, security engineering and operations. Client names, internal identifiers and sensitive topology details are intentionally removed." />
+            <div className="flex shrink-0 items-center gap-3 rounded-2xl bg-[#E7FAF4] px-5 py-4 text-sm font-bold text-[#238D73]">
+              <BookOpenCheck className="size-5" aria-hidden="true" /> 13 case studies
+            </div>
+          </div>
+          <div className="mt-12 grid gap-6 lg:grid-cols-2">
+            {projects.map((project) => <ProjectCard key={project.title} project={project} />)}
+          </div>
+        </SectionShell>
+      </section>
+
+      <section id="dashboards" className="scroll-mt-24 py-20 sm:py-28" aria-labelledby="dashboards-title">
+        <SectionShell>
+          <SectionTitle eyebrow="Dashboard gallery" title="From raw signals to an executive narrative." description="These light-theme reconstructions illustrate the information architecture of dashboards I designed. All numbers shown here are synthetic and do not represent any client environment." />
+          <div className="mt-12 grid gap-6 xl:grid-cols-2">
+            <CisoDashboard />
+            <SiemDashboard />
+          </div>
+          <div className="mt-6 grid gap-6 md:grid-cols-2">
+            <article className="rounded-[1.75rem] border border-[#D7E8F2] bg-[#E7FAF4] p-6 sm:p-8">
+              <div className="flex items-center justify-between gap-4">
+                <div><p className="text-xs font-bold uppercase tracking-[0.16em] text-[#238D73]">OpenVAS programme</p><h3 className="mt-2 text-xl font-black text-[#24445D]">Remediation movement</h3></div>
+                <ScanSearch className="size-7 text-[#42C7A5]" aria-hidden="true" />
+              </div>
+              <div className="mt-7 space-y-4">
+                {([
+                  ["Remediated", 74, palette.mint],
+                  ["In progress", 47, palette.sky],
+                  ["Accepted risk", 22, palette.sun],
+                ] as const).map(([label, width, color]) => (
+                  <div key={label}>
+                    <div className="mb-2 flex justify-between text-xs font-bold text-[#5C7287]"><span>{label}</span><span>{width}%</span></div>
+                    <div className="h-3 rounded-full bg-white"><div className="h-3 rounded-full" style={{ width: width + "%", backgroundColor: color }} /></div>
+                  </div>
+                ))}
+              </div>
+            </article>
+            <article className="rounded-[1.75rem] border border-[#D7E8F2] bg-[#FFF0EC] p-6 sm:p-8">
+              <div className="flex items-center justify-between gap-4">
+                <div><p className="text-xs font-bold uppercase tracking-[0.16em] text-[#C95D50]">Human risk programme</p><h3 className="mt-2 text-xl font-black text-[#24445D]">Reporting behaviour</h3></div>
+                <Users className="size-7 text-[#FF7A6B]" aria-hidden="true" />
+              </div>
+              <div className="mt-7 grid grid-cols-3 gap-3 text-center">
+                {[
+                  ["Phish reported", "↑ 31%"],
+                  ["Repeat clicks", "↓ 18%"],
+                  ["Training", "84%"],
+                ].map(([label, value], index) => (
+                  <div key={label} className="rounded-2xl bg-white p-4"><p className="text-lg font-black" style={{ color: [palette.sky, palette.mint, palette.lilac][index] }}>{value}</p><p className="mt-2 text-[10px] font-bold uppercase leading-4 text-[#6C8395]">{label}</p></div>
+                ))}
+              </div>
+            </article>
+          </div>
+        </SectionShell>
+      </section>
+
+      <section id="events" className="scroll-mt-24 border-y border-[#DCE9EF] bg-[#FFF9ED] py-20 sm:py-28" aria-labelledby="events-title">
+        <SectionShell>
+          <div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr]">
             <div>
-              <p className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#efd878]">
-                Formation et certifications
-              </p>
-              <h2 id="credentials-title" className="mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-                Une base technique, managériale et GRC
-              </h2>
-              <span className="mt-5 block h-1 w-14 rounded-full bg-[#d4af37]" aria-hidden="true" />
-              <p className="mt-5 max-w-xl text-base leading-7 text-white/60 sm:text-lg">
-                Des certifications de gouvernance et d’architecture, complétées par une formation en
-                leadership et en stratégie d’affaires à McGill.
-              </p>
+              <SectionTitle eyebrow="Industry engagement" title="Learning in the field—and testing the claims." description="Selected cybersecurity events documented through public posts and event credentials. I use conferences to challenge assumptions, compare operating models and bring practical lessons back into security programmes." />
+              <a href={linkedInUrl} target="_blank" rel="noreferrer" className="mt-7 inline-flex items-center gap-2 text-sm font-black text-[#2F80ED] hover:underline">View the complete LinkedIn activity <ExternalLink className="size-4" aria-hidden="true" /></a>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {events.map((event) => (
+                <article key={event.title + "-" + event.date} className="rounded-[1.75rem] border border-[#DCE7ED] p-6" style={{ backgroundColor: event.tone }}>
+                  <div className="flex items-center justify-between gap-3">
+                    <span className="rounded-full bg-white px-3 py-1 text-xs font-black text-[#2F80ED]">{event.date}</span>
+                    <CalendarDays className="size-5 text-[#8B7CF6]" aria-hidden="true" />
+                  </div>
+                  <h3 className="mt-5 text-xl font-black text-[#24445D]">{event.title}</h3>
+                  <p className="mt-1 text-sm font-bold text-[#5C7287]">{event.place}</p>
+                  <p className="mt-4 text-sm leading-6 text-[#5C7287]">{event.note}</p>
+                  {"href" in event ? (
+                    <a href={event.href} target="_blank" rel="noreferrer" className="mt-5 inline-flex items-center gap-2 text-xs font-black text-[#2F80ED] hover:underline">Public field note <ArrowUpRight className="size-4" aria-hidden="true" /></a>
+                  ) : (
+                    <p className="mt-5 text-xs font-bold text-[#7D95A6]">Verified from event credential</p>
+                  )}
+                </article>
+              ))}
+            </div>
+          </div>
+        </SectionShell>
+      </section>
+
+      <section id="credentials" className="scroll-mt-24 py-20 sm:py-28" aria-labelledby="credentials-title">
+        <SectionShell>
+          <div className="grid gap-14 lg:grid-cols-[0.7fr_1.3fr]">
+            <div>
+              <SectionTitle eyebrow="Credentials" title="Technical depth, governance perspective." description="Formal security and technology credentials reinforced by business leadership education and continuous field learning." />
+              <div className="mt-8 rounded-[1.75rem] bg-[#EAF4FF] p-6">
+                <GraduationCap className="size-7 text-[#2F80ED]" aria-hidden="true" />
+                <p className="mt-4 font-black text-[#24445D]">Framework fluency</p>
+                <p className="mt-2 text-sm leading-6 text-[#5C7287]">NIST CSF · ISO 27001 · CIS Controls · Zero Trust · Microsoft security architecture · risk treatment and audit evidence</p>
+              </div>
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
               {credentials.map((credential, index) => (
-                <article
-                  key={credential.name}
-                  className={`rounded-2xl border border-white/10 bg-white/[0.05] p-5 ${index === credentials.length - 1 ? "sm:col-span-2" : ""}`}
-                >
-                  <div className="flex items-start gap-4">
-                    <span className="flex size-10 shrink-0 items-center justify-center rounded-xl border border-[#efd878]/25 bg-[#efd878]/10 text-[#efd878]">
-                      {index === credentials.length - 1 ? (
-                        <GraduationCap className="size-5" aria-hidden="true" />
-                      ) : (
-                        <BadgeCheck className="size-5" aria-hidden="true" />
-                      )}
-                    </span>
-                    <div>
-                      <h3 className="font-bold text-white">{credential.name}</h3>
-                      <p className="mt-1 text-xs font-semibold uppercase tracking-[0.12em] text-[#efd878]">
-                        {credential.issuer}
-                      </p>
-                      <p className="mt-2 text-sm leading-5 text-white/55">{credential.focus}</p>
-                    </div>
-                  </div>
+                <article key={credential.name} className="flex gap-4 rounded-[1.5rem] border border-[#DCE9EF] bg-white p-5 shadow-[0_18px_50px_-42px_rgba(47,128,237,0.5)]">
+                  <span className="flex size-11 shrink-0 items-center justify-center rounded-2xl" style={{ backgroundColor: [palette.skyPale, palette.coralPale, palette.mintPale, palette.lilacPale][index % 4] }}><Award className="size-5 text-[#2F80ED]" aria-hidden="true" /></span>
+                  <div><h3 className="font-black text-[#24445D]">{credential.name}</h3><p className="mt-1 text-xs font-bold text-[#2F80ED]">{credential.issuer}</p><p className="mt-2 text-sm leading-5 text-[#5C7287]">{credential.focus}</p></div>
                 </article>
               ))}
             </div>
           </div>
-        </div>
+        </SectionShell>
       </section>
 
-      <section className="py-20 sm:py-28" aria-labelledby="github-title">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-[0.72fr_1.28fr]">
+      <section className="border-y border-[#DCE9EF] bg-[#F8FCFF] py-20 sm:py-28" aria-labelledby="github-title">
+        <SectionShell>
+          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
             <div>
-              <span className="flex size-12 items-center justify-center rounded-2xl bg-[#171513] text-[#efd878]">
-                <Code2 className="size-6" aria-hidden="true" />
-              </span>
-              <h2 id="github-title" className="mt-6 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
-                Prochainement sur GitHub
-              </h2>
-              <p className="mt-5 text-base leading-7 text-muted-foreground">
-                Ces livrables seront progressivement publiés sous forme de modèles réutilisables, sans
-                données clients ni informations confidentielles.
-              </p>
+              <SectionTitle eyebrow="Public lab roadmap" title="Turning field experience into reusable GRC assets." description="The following repositories are being prepared for publication. They are presented as a roadmap—not as already released work." />
+              <a href={githubUrl} target="_blank" rel="noreferrer" className="mt-7 inline-flex items-center gap-2 rounded-full bg-[#2F80ED] px-5 py-3 text-sm font-black text-white transition hover:-translate-y-0.5">GitHub profile <ExternalLink className="size-4" aria-hidden="true" /></a>
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
-              {githubRoadmap.map((item) => (
-                <article key={item.title} className="group rounded-2xl border border-border bg-white p-6 shadow-sm">
-                  <div className="flex items-start justify-between gap-4">
-                    <Layers3 className="size-5 text-[#7a5f16]" aria-hidden="true" />
-                    <span className="rounded-full bg-muted px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-muted-foreground">
-                      En préparation
-                    </span>
-                  </div>
-                  <h3 className="mt-5 text-base font-bold text-foreground">{item.title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-muted-foreground">{item.description}</p>
+              {githubRoadmap.map((item, index) => (
+                <article key={item.title} className="rounded-[1.75rem] border border-[#DCE9EF] p-6" style={{ backgroundColor: [palette.skyPale, palette.mintPale, palette.coralPale, palette.lilacPale][index % 4] }}>
+                  <div className="flex items-center justify-between gap-4"><Blocks className="size-6 text-[#2F80ED]" aria-hidden="true" /><span className="rounded-full bg-white px-3 py-1 text-[10px] font-black uppercase tracking-wide text-[#7D95A6]">In preparation</span></div>
+                  <h3 className="mt-5 text-lg font-black text-[#24445D]">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-[#5C7287]">{item.description}</p>
                 </article>
               ))}
             </div>
           </div>
-        </div>
+        </SectionShell>
       </section>
 
-      <section className="border-t border-border bg-[#efeade]/60 py-20 sm:py-24" aria-labelledby="sources-title">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-[0.72fr_1.28fr]">
-            <div>
-              <span className="flex size-12 items-center justify-center rounded-2xl border border-border bg-white text-[#7a5f16] shadow-sm">
-                <ExternalLink className="size-5" aria-hidden="true" />
-              </span>
-              <h2 id="sources-title" className="mt-6 text-2xl font-extrabold text-foreground sm:text-3xl">
-                Références publiques
-              </h2>
-              <p className="mt-4 text-sm leading-6 text-muted-foreground">
-                Profil et publications professionnelles utilisés pour documenter cette première version.
-              </p>
+      <section className="py-20 sm:py-28">
+        <SectionShell>
+          <div className="relative overflow-hidden rounded-[2.5rem] border border-[#CFE4F2] bg-gradient-to-br from-[#EAF4FF] via-white to-[#FFF0EC] px-6 py-14 text-center sm:px-12 sm:py-20">
+            <div className="absolute left-8 top-8 size-20 rounded-full bg-[#E7FAF4]" />
+            <div className="absolute bottom-8 right-8 size-24 rounded-[2rem] bg-[#FFF8D8]" />
+            <div className="relative mx-auto max-w-3xl">
+              <p className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#2F80ED]">Let’s compare notes</p>
+              <h2 className="mt-4 text-4xl font-black tracking-[-0.04em] text-[#24445D] sm:text-5xl">Security should be measurable, explainable and usable.</h2>
+              <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-[#5C7287]">For conversations about cybersecurity leadership, GRC transformation, identity, SecOps or secure AI adoption.</p>
+              <div className="mt-8 flex flex-wrap justify-center gap-3">
+                <a href={"mailto:" + siteConfig.email} className="inline-flex items-center gap-2 rounded-full bg-[#2F80ED] px-6 py-3.5 text-sm font-black text-white transition hover:-translate-y-0.5"><Mail className="size-4" aria-hidden="true" />{siteConfig.email}</a>
+                <a href={linkedInUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-[#BFDDF5] bg-white px-6 py-3.5 text-sm font-black text-[#24445D] transition hover:-translate-y-0.5">Connect on LinkedIn <ArrowUpRight className="size-4 text-[#2F80ED]" aria-hidden="true" /></a>
+              </div>
             </div>
-            <ul className="divide-y divide-border overflow-hidden rounded-2xl border border-border bg-white shadow-sm">
-              {publicSources.map((source) => (
-                <li key={source.href}>
-                  <a
-                    href={source.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-between gap-4 px-5 py-4 text-sm font-semibold text-foreground transition-colors hover:bg-muted/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring"
-                  >
-                    <span>{source.label}</span>
-                    <ArrowUpRight className="size-4 shrink-0 text-[#7a5f16]" aria-hidden="true" />
-                  </a>
-                </li>
-              ))}
-            </ul>
           </div>
-        </div>
+        </SectionShell>
       </section>
 
-      <section className="bg-[#0a0a0c] py-16 text-white sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-8 border-b border-white/10 pb-12 lg:grid-cols-[1fr_auto] lg:items-end">
-            <div>
-              <p className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#efd878]">
-                Échange professionnel
-              </p>
-              <h2 className="mt-3 max-w-3xl text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-                Parlons gouvernance, cyber-risque et transformation sécurisée.
-              </h2>
-            </div>
-            <div className="flex flex-col gap-3 sm:flex-row">
-              <a
-                href={linkedInUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#efd878] px-5 py-3 text-sm font-bold text-[#171204] transition-colors hover:bg-[#f5e4a7] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#efd878]"
-              >
-                LinkedIn
-                <ArrowUpRight className="size-4" aria-hidden="true" />
-              </a>
-              <a
-                href={`mailto:${siteConfig.email}`}
-                className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-white/[0.08] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#efd878]"
-              >
-                Me contacter
-                <Mail className="size-4" aria-hidden="true" />
-              </a>
-            </div>
-          </div>
-
-          <div className="flex flex-col gap-5 pt-8 text-xs leading-5 text-white/40 sm:flex-row sm:items-start sm:justify-between">
-            <div className="max-w-3xl">
-              <p className="font-semibold text-white/60">Confidentialité et accès</p>
-              <p className="mt-1.5">
-                Cette page n’est liée à aucun menu, n’apparaît pas dans le sitemap et demande aux moteurs
-                de recherche de ne pas l’indexer. Elle demeure toutefois accessible à toute personne qui
-                obtient ou partage son URL; il ne s’agit pas d’une authentification par mot de passe.
-              </p>
-            </div>
-            <p className="shrink-0 sm:text-right">
-              © 2026 Wassim Bizid
-              <br />
-              Bibliographie professionnelle
-            </p>
-          </div>
-        </div>
-      </section>
+      <footer className="border-t border-[#DCE9EF] bg-white py-10">
+        <SectionShell className="flex flex-col gap-6 text-sm text-[#6C8395] sm:flex-row sm:items-center sm:justify-between">
+          <div><p className="font-black text-[#24445D]">Wassim Bizid · Cybersecurity & GRC Portfolio</p><p className="mt-1 text-xs">Selected work has been anonymised; dashboard values are illustrative.</p></div>
+          <div className="flex flex-wrap gap-5 text-xs font-bold"><a href={linkedInUrl} target="_blank" rel="noreferrer" className="hover:text-[#2F80ED]">LinkedIn</a><a href={githubUrl} target="_blank" rel="noreferrer" className="hover:text-[#2F80ED]">GitHub</a><a href={"mailto:" + siteConfig.email} className="hover:text-[#2F80ED]">Email</a></div>
+        </SectionShell>
+      </footer>
     </main>
   );
 }
