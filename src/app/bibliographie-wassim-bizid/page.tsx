@@ -703,6 +703,49 @@ const credentials = [
   { name: "ISO/IEC 42001 Auditor", issuer: "In preparation", focus: "AI management systems & audit readiness" },
 ] as const;
 
+const ownTool = {
+  name: "CSF Posture Dashboard",
+  description:
+    "An original, offline-first dashboard I built from scratch: score 24 controls across the six NIST CSF 2.0 functions, compare current vs target maturity on a radar, get a prioritised gap list, and track risks on a likelihood × impact heatmap. Nothing leaves your browser.",
+  href: "/tools/csf-posture/",
+  tags: ["NIST CSF 2.0", "Maturity radar", "Risk heatmap", "100% local"],
+} as const;
+
+const referenceTools = [
+  {
+    name: "Cybether",
+    author: "jccyberx",
+    description: "Open-source GRC dashboard covering threats, maturity, risk and compliance views.",
+    license: "No licence published",
+    upstream: "https://github.com/jccyberx/Cybether",
+    fork: "https://github.com/bizidwassim-design/Cybether",
+  },
+  {
+    name: "CISO-Dashboard",
+    author: "SiteQ8",
+    description: "Starter CISO dashboard for KPIs, control coverage, incidents and risk posture.",
+    license: "MIT",
+    upstream: "https://github.com/SiteQ8/CISO-Dashboard",
+    fork: "https://github.com/bizidwassim-design/CISO-Dashboard",
+  },
+  {
+    name: "security-leadership-panel",
+    author: "SiteQ8",
+    description: "Security governance panel mapped to NIST CSF 2.0 and CIS Controls v8.",
+    license: "MIT",
+    upstream: "https://github.com/SiteQ8/security-leadership-panel",
+    fork: "https://github.com/bizidwassim-design/security-leadership-panel",
+  },
+  {
+    name: "ciso-maturity-tool",
+    author: "DYasmanovych",
+    description: "Local-first security maturity assessment across 19 foundational processes.",
+    license: "No licence published",
+    upstream: "https://github.com/DYasmanovych/ciso-maturity-tool",
+    fork: "https://github.com/bizidwassim-design/ciso-maturity-tool",
+  },
+] as const;
+
 const githubRoadmap = [
   {
     title: "M365 GRC Assessment Framework",
@@ -1217,6 +1260,39 @@ export default function WassimPortfolioPage() {
                 ))}
               </div>
             </article>
+          </div>
+        </SectionShell>
+      </section>
+
+      <section id="toolkit" className="scroll-mt-24 py-20 sm:py-28" aria-labelledby="toolkit-title">
+        <SectionShell>
+          <div>
+            <SectionTitle id="toolkit-title" eyebrow="Project evidence · GRC toolkit" title="One tool I built, four I study." description="I build my own tooling where I can and learn from the open-source community where it already does the job well. Reference projects below are the work of their authors, credited and linked; the first card is original work." />
+            <article className="mt-10 rounded-[1.75rem] border border-[#CFE4F2] bg-gradient-to-br from-[#EAF4FF] via-white to-[#E7FAF4] p-7 sm:p-9">
+              <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+                <div className="max-w-3xl">
+                  <span className="rounded-full bg-[#2F80ED] px-3 py-1 text-[10px] font-black uppercase tracking-wide text-white">Original · built by me</span>
+                  <h3 className="mt-4 text-2xl font-black text-[#24445D]">{ownTool.name}</h3>
+                  <p className="mt-3 text-sm leading-7 text-[#5C7287] sm:text-base">{ownTool.description}</p>
+                  <div className="mt-4 flex flex-wrap gap-2">{ownTool.tags.map((tag) => (<span key={tag} className="rounded-full bg-white px-3 py-1 text-xs font-bold text-[#4B6A82]">{tag}</span>))}</div>
+                </div>
+                <a href={ownTool.href} className="inline-flex shrink-0 items-center gap-2 rounded-full bg-[#2F80ED] px-6 py-3.5 text-sm font-black text-white transition hover:-translate-y-0.5">Open the tool <ArrowUpRight className="size-4" aria-hidden="true" /></a>
+              </div>
+            </article>
+            <div className="mt-5 grid gap-4 sm:grid-cols-2">
+              {referenceTools.map((tool, index) => (
+                <article key={tool.name} className="flex flex-col rounded-[1.75rem] border border-[#DCE9EF] p-6" style={{ backgroundColor: [palette.skyPale, palette.mintPale, palette.coralPale, palette.lilacPale][index % 4] }}>
+                  <div className="flex items-center justify-between gap-4"><LayoutDashboard className="size-6 text-[#2F80ED]" aria-hidden="true" /><span className="rounded-full bg-white px-3 py-1 text-[10px] font-black uppercase tracking-wide text-[#7D95A6]">{tool.license}</span></div>
+                  <h3 className="mt-5 text-lg font-black text-[#24445D]">{tool.name}</h3>
+                  <p className="mt-1 text-xs font-bold text-[#7D95A6]">by {tool.author}</p>
+                  <p className="mt-3 flex-1 text-sm leading-6 text-[#5C7287]">{tool.description}</p>
+                  <div className="mt-5 flex flex-wrap gap-4 text-sm font-black">
+                    <a href={tool.upstream} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-[#2F80ED] hover:underline">Original repo <ExternalLink className="size-3.5" aria-hidden="true" /></a>
+                    <a href={tool.fork} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-[#4B6A82] hover:underline">My fork <ExternalLink className="size-3.5" aria-hidden="true" /></a>
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
         </SectionShell>
       </section>

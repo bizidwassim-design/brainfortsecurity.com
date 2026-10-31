@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<title>CSF Posture Dashboard — Wassim Bizid</title>
+<style>
+:root{
+  --ink:#24445D;--muted:#5C7287;--faint:#7D95A6;--line:#DCE9EF;
+  --blue:#2F80ED;--sky:#EAF4FF;--mint:#E7FAF4;--coral:#FFF0EC;--sun:#FFF9ED;--bg:#F8FCFF;
+  --low:#1E8E5A;--mod:#B7791F;--high:#D9534F;--crit:#8E1B3A;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+header.top{background:#fff;border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding:16px 20px}
+h1{font-size:1.25rem;margin:0;letter-spacing:-.02em}
+.sub{font-size:.8rem;color:var(--faint);margin:2px 0 0}
+a.back{font-size:.85rem;font-weight:700;color:var(--blue);text-decoration:none}
+nav.tabs{display:flex;gap:8px;margin:24px 0 8px;flex-wrap:wrap}
+nav.tabs button{border:1px solid var(--line);background:#fff;color:var(--muted);padding:10px 18px;border-radius:999px;font-weight:800;font-size:.9rem;cursor:pointer}
+nav.tabs button[aria-selected="true"]{background:var(--blue);border-color:var(--blue);color:#fff}
+button:focus-visible,select:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid #9CC4F7;outline-offset:2px}
+.panel{display:none;padding:12px 0 56px}
+.panel.active{display:block}
+.card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:24px}
+.intro{color:var(--muted);max-width:760px;margin:8px 0 20px}
+.fn{margin-top:18px}
+.fn h2{font-size:1.05rem;margin:0 0 10px;display:flex;align-items:center;gap:10px}
+.fn h2 .tag{font:700 .7rem ui-monospace,Menlo,monospace;background:var(--sky);color:var(--blue);padding:3px 9px;border-radius:999px}
+.ctl{display:grid;gap:10px;padding:14px 0;border-top:1px solid var(--line)}
+.ctl p{margin:0;font-weight:600}
+.scales{display:flex;flex-wrap:wrap;gap:18px}
+.scale{display:flex;align-items:center;gap:8px;font-size:.78rem;color:var(--faint);font-weight:700}
+.scale .seg{display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.seg button{border:0;border-inline-end:1px solid var(--line);background:#fff;min-width:38px;height:36px;font-weight:800;color:var(--muted);cursor:pointer}
+.seg button:last-child{border-inline-end:0}
+.seg button[aria-pressed="true"]{background:var(--blue);color:#fff}
+.tgt .seg button[aria-pressed="true"]{background:#24445D}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.78rem;color:var(--muted);margin:0 0 6px}
+.kpis{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+.kpi{border-radius:20px;padding:18px;border:1px solid var(--line)}
+.kpi b{display:block;font-size:2rem;letter-spacing:-.03em;line-height:1.1}
+.kpi span{font-size:.8rem;color:var(--muted);font-weight:700}
+.grid2{display:grid;gap:18px;margin-top:18px;grid-template-columns:1fr}
+@media(min-width:900px){.grid2{grid-template-columns:1.1fr .9fr}}
+.bar{margin:12px 0}
+.bar .row{display:flex;justify-content:space-between;font-size:.85rem;font-weight:700;margin-bottom:5px}
+.bar .track{height:10px;border-radius:99px;background:#EAF1F6;position:relative;overflow:hidden}
+.bar .fill{position:absolute;inset:0 auto 0 0;background:var(--blue);border-radius:99px}
+.bar .goal{position:absolute;top:-2px;bottom:-2px;width:3px;background:var(--ink)}
+svg text{font:700 11px system-ui,sans-serif;fill:var(--ink)}
+.gaps{list-style:none;margin:0;padding:0}
+.gaps li{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-top:1px solid var(--line);font-size:.9rem}
+.pill{flex:none;font:800 .68rem system-ui;padding:3px 10px;border-radius:99px;color:#fff;margin-top:2px}
+.p-high{background:var(--high)}.p-med{background:var(--mod)}.p-low{background:var(--low)}.p-crit{background:var(--crit)}
+.muted{color:var(--muted)}.small{font-size:.8rem}
+form.risk{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));align-items:end}
+label{font-size:.78rem;font-weight:800;color:var(--muted);display:grid;gap:4px}
+input[type=text],select{border:1px solid var(--line);border-radius:12px;padding:10px 12px;font:inherit;background:#fff;color:var(--ink);min-width:0}
+.btn{border:0;border-radius:999px;background:var(--blue);color:#fff;padding:11px 20px;font-weight:800;cursor:pointer;font-size:.9rem}
+.btn.alt{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.btn.danger{background:#fff;color:var(--high);border:1px solid #F3C9C7}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.heat{display:grid;grid-template-columns:auto repeat(5,1fr);gap:4px;max-width:520px;margin-top:8px}
+.heat .cell{aspect-ratio:1/.8;border-radius:10px;display:grid;place-items:center;font-weight:900;color:#fff;font-size:.95rem}
+.heat .ax{font-size:.7rem;font-weight:800;color:var(--faint);display:grid;place-items:center}
+.rlist{list-style:none;margin:16px 0 0;padding:0}
+.rlist li{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:12px 0;border-top:1px solid var(--line)}
+.rlist .meta{min-width:0}.rlist .meta b{display:block;overflow-wrap:anywhere}
+footer.note{font-size:.78rem;color:var(--faint);padding:0 0 40px}
+@media print{header.top .wrap a,nav.tabs,.toolbar,form.risk,.seg button:not([aria-pressed="true"]){display:none!important}.panel{display:block!important;page-break-inside:avoid}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <div><h1>CSF Posture Dashboard</h1><p class="sub">Score your security programme against NIST CSF 2.0 — runs entirely in your browser</p></div>
+  <a class="back" href="/bibliographie-wassim-bizid/#toolkit">← Back to portfolio</a>
+</div></header>
+
+<main class="wrap">
+  <nav class="tabs" role="tablist" aria-label="Sections">
+    <button role="tab" id="t-assess" aria-selected="true" aria-controls="p-assess" data-tab="assess">1 · Assess</button>
+    <button role="tab" id="t-dash" aria-selected="false" aria-controls="p-dash" data-tab="dash">2 · Dashboard</button>
+    <button role="tab" id="t-risk" aria-selected="false" aria-controls="p-risk" data-tab="risk">3 · Risks</button>
+  </nav>
+
+  <section class="panel active" id="p-assess" role="tabpanel" aria-labelledby="t-assess">
+    <p class="intro">For each control, set where you are today (<b>Current</b>) and where you intend to be (<b>Target</b>). Be honest and evidence-based: a control is only “Managed” if you can show it working.</p>
+    <p class="legend"><span><b>0</b> Not in place</span><span><b>1</b> Ad hoc</span><span><b>2</b> Defined</span><span><b>3</b> Managed</span><span><b>4</b> Optimised</span></p>
+    <p class="muted small" id="progress" aria-live="polite"></p>
+    <div class="card" id="assess-body"></div>
+  </section>
+
+  <section class="panel" id="p-dash" role="tabpanel" aria-labelledby="t-dash" hidden>
+    <div class="kpis" id="kpis"></div>
+    <div class="grid2">
+      <div class="card"><h2 style="margin:0 0 4px;font-size:1.05rem">Maturity radar</h2><p class="muted small" style="margin:0 0 8px">Filled = current · dashed = target</p><div id="radar"></div></div>
+      <div class="card"><h2 style="margin:0 0 4px;font-size:1.05rem">By function</h2><p class="muted small" style="margin:0 0 8px">Bar = current · dark marker = target</p><div id="bars"></div></div>
+    </div>
+    <div class="card" style="margin-top:18px"><h2 style="margin:0 0 4px;font-size:1.05rem">Priority gaps</h2><p class="muted small" id="gapnote" style="margin:0 0 6px"></p><ul class="gaps" id="gaps"></ul></div>
+    <div class="toolbar">
+      <button class="btn" id="b-csv">Export controls (CSV)</button>
+      <button class="btn alt" id="b-json">Save assessment (JSON)</button>
+      <label class="btn alt" style="display:inline-block;cursor:pointer">Load JSON<input type="file" id="b-load" accept="application/json" hidden></label>
+      <button class="btn alt" id="b-print">Print</button>
+      <button class="btn danger" id="b-reset">Reset all</button>
+    </div>
+  </section>
+
+  <section class="panel" id="p-risk" role="tabpanel" aria-labelledby="t-risk" hidden>
+    <div class="card">
+      <h2 style="margin:0 0 12px;font-size:1.05rem">Add a risk</h2>
+      <form class="risk" id="risk-form">
+        <label>Risk statement<input type="text" id="r-title" maxlength="140" required placeholder="e.g. Ransomware encrypts file servers"></label>
+        <label>Owner<input type="text" id="r-owner" maxlength="60" placeholder="e.g. IT Director"></label>
+        <label>Likelihood<select id="r-l"><option value="1">1 · Rare</option><option value="2">2 · Unlikely</option><option value="3" selected>3 · Possible</option><option value="4">4 · Likely</option><option value="5">5 · Almost certain</option></select></label>
+        <label>Impact<select id="r-i"><option value="1">1 · Minor</option><option value="2">2 · Moderate</option><option value="3" selected>3 · Significant</option><option value="4">4 · Major</option><option value="5">5 · Severe</option></select></label>
+        <label>Treatment<select id="r-t"><option>Mitigate</option><option>Accept</option><option>Transfer</option><option>Avoid</option></select></label>
+        <button class="btn" type="submit">Add risk</button>
+      </form>
+    </div>
+    <div class="grid2">
+      <div class="card"><h2 style="margin:0;font-size:1.05rem">Heatmap</h2><p class="muted small" style="margin:0 0 4px">Number of risks per likelihood × impact cell</p><div class="heat" id="heat"></div></div>
+      <div class="card"><h2 style="margin:0;font-size:1.05rem">Register</h2><p class="muted small" id="rcount" style="margin:0"></p><ul class="rlist" id="rlist"></ul></div>
+    </div>
+  </section>
+
+  <footer class="note">Original tool by Wassim Bizid. Framework structure follows the public NIST Cybersecurity Framework 2.0 (Govern, Identify, Protect, Detect, Respond, Recover). Control wording is my own. Data is stored only in this browser (localStorage) — nothing is sent anywhere. Scores are a self-assessment aid, not an audit result.</footer>
+</main>
+
+<script>
+(function(){
+"use strict";
+var FUNCS=[
+ {id:"GV",name:"Govern",items:[
+  "Cybersecurity roles and accountability are assigned at executive level",
+  "A risk appetite statement guides security decisions",
+  "Security policies are approved, published and reviewed every year",
+  "Supplier and third-party cyber risk is assessed before onboarding"]},
+ {id:"ID",name:"Identify",items:[
+  "Hardware, software and data assets are inventoried with named owners",
+  "Risks are recorded, scored and reviewed in a register",
+  "Vulnerabilities are scanned for and tracked through to closure",
+  "Critical business processes and their dependencies are mapped"]},
+ {id:"PR",name:"Protect",items:[
+  "Multi-factor authentication covers all remote and privileged access",
+  "Access follows least privilege and is reviewed on a schedule",
+  "Devices are hardened, patched and encrypted",
+  "Staff receive security awareness training suited to their role"]},
+ {id:"DE",name:"Detect",items:[
+  "Logs from identity, endpoints and cloud are collected centrally",
+  "Alerts are triaged against defined severities and response times",
+  "Threat intelligence feeds into detection content",
+  "Detection coverage is tested through exercises or simulations"]},
+ {id:"RS",name:"Respond",items:[
+  "An incident response plan names roles, contacts and decision rights",
+  "Playbooks exist for the most likely incident types",
+  "Leadership, regulators and clients are informed as required",
+  "Every incident ends with a documented lessons-learned review"]},
+ {id:"RC",name:"Recover",items:[
+  "Critical data is backed up with at least one offline or immutable copy",
+  "Restoration is tested against recovery time and point objectives",
+  "A continuity plan covers loss of key systems and sites",
+  "Recovery priorities are agreed with business owners"]}
+];
+var CTL=[];FUNCS.forEach(function(f){f.items.forEach(function(t,i){CTL.push({id:f.id+(i+1),fn:f.id,fname:f.name,text:t});});});
+var KEY="csf-posture-v1";
+var state={cur:{},tgt:{},risks:[]};
+function load(){try{var s=JSON.parse(localStorage.getItem(KEY)||"null");if(s&&typeof s==="object")state=sanitize(s);}catch(e){}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}}
+function clamp(n,a,b){n=Math.round(Number(n));return isFinite(n)?Math.max(a,Math.min(b,n)):a;}
+function str(v,max){return String(v==null?"":v).slice(0,max);}
+function sanitize(s){
+  var out={cur:{},tgt:{},risks:[]};
+  CTL.forEach(function(c){
+    if(s.cur&&s.cur[c.id]!=null&&s.cur[c.id]!==""){out.cur[c.id]=clamp(s.cur[c.id],0,4);}
+    if(s.tgt&&s.tgt[c.id]!=null&&s.tgt[c.id]!==""){out.tgt[c.id]=clamp(s.tgt[c.id],0,4);}
+  });
+  if(Array.isArray(s.risks)){s.risks.slice(0,200).forEach(function(r){
+    if(!r||typeof r!=="object")return;
+    var t=str(r.title,140).trim();if(!t)return;
+    out.risks.push({id:str(r.id,24)||String(Date.now()+Math.random()),title:t,owner:str(r.owner,60),l:clamp(r.l,1,5),i:clamp(r.i,1,5),treat:["Mitigate","Accept","Transfer","Avoid"].indexOf(r.treat)>-1?r.treat:"Mitigate"});
+  });}
+  return out;
+}
+function tgt(id){return state.tgt[id]==null?3:state.tgt[id];}
+function h(tag,attrs){
+  var el=document.createElement(tag);
+  if(attrs)for(var k in attrs){if(k==="text")el.textContent=attrs[k];else if(k==="class")el.className=attrs[k];else el.setAttribute(k,attrs[k]);}
+  for(var i=2;i<arguments.length;i++){var c=arguments[i];if(c!=null)el.appendChild(typeof c==="string"?document.createTextNode(c):c);}
+  return el;
+}
+function svgEl(tag,attrs){var el=document.createElementNS("http://www.w3.org/2000/svg",tag);for(var k in attrs)el.setAttribute(k,attrs[k]);return el;}
+
+/* ---------- Assess ---------- */
+function seg(id,kind){
+  var wrap=h("div",{class:"seg",role:"group","aria-label":(kind==="cur"?"Current maturity for ":"Target maturity for ")+id});
+  for(var v=0;v<=4;v++){(function(v){
+    var b=h("button",{type:"button","data-id":id,"data-kind":kind,"data-v":String(v),text:String(v),"aria-pressed":"false"});
+    b.addEventListener("click",function(){
+      if(kind==="cur")state.cur[id]=v;else state.tgt[id]=v;
+      save();syncAssess();
+    });
+    wrap.appendChild(b);
+  })(v);}
+  return wrap;
+}
+function buildAssess(){
+  var body=document.getElementById("assess-body");body.textContent="";
+  FUNCS.forEach(function(f,fi){
+    var sec=h("div",{class:"fn"});
+    sec.appendChild(h("h2",null,h("span",{class:"tag",text:f.id}),f.name));
+    CTL.filter(function(c){return c.fn===f.id;}).forEach(function(c){
+      var row=h("div",{class:"ctl"});
+      row.appendChild(h("p",{text:c.id+" — "+c.text}));
+      var sc=h("div",{class:"scales"});
+      var a=h("div",{class:"scale"},"Current",seg(c.id,"cur"));
+      var b=h("div",{class:"scale tgt"},"Target",seg(c.id,"tgt"));
+      sc.appendChild(a);sc.appendChild(b);row.appendChild(sc);sec.appendChild(row);
+    });
+    body.appendChild(sec);
+  });
+  syncAssess();
+}
+function syncAssess(){
+  var btns=document.querySelectorAll("#assess-body button[data-id]");
+  for(var i=0;i<btns.length;i++){
+    var b=btns[i],id=b.getAttribute("data-id"),k=b.getAttribute("data-kind"),v=+b.getAttribute("data-v");
+    var cur=k==="cur"?state.cur[id]:tgt(id);
+    b.setAttribute("aria-pressed",cur===v?"true":"false");
+  }
+  var n=Object.keys(state.cur).length;
+  document.getElementById("progress").textContent=n+" of "+CTL.length+" controls assessed";
+  renderDash();
+}
+
+/* ---------- Dashboard ---------- */
+function fnStats(){
+  return FUNCS.map(function(f){
+    var ids=CTL.filter(function(c){return c.fn===f.id;}).map(function(c){return c.id;});
+    var answered=ids.filter(function(id){return state.cur[id]!=null;});
+    var cur=answered.length?answered.reduce(function(s,id){return s+state.cur[id];},0)/answered.length:0;
+    var t=ids.reduce(function(s,id){return s+tgt(id);},0)/ids.length;
+    return {id:f.id,name:f.name,cur:cur,tgt:t,answered:answered.length,total:ids.length};
+  });
+}
+function renderDash(){
+  var st=fnStats();
+  var answeredAll=Object.keys(state.cur).length;
+  var overall=answeredAll?CTL.reduce(function(s,c){return s+(state.cur[c.id]||0);},0)/CTL.length/4*100:null;
+  var target=CTL.reduce(function(s,c){return s+tgt(c.id);},0)/CTL.length/4*100;
+  var gaps=CTL.filter(function(c){return state.cur[c.id]!=null&&tgt(c.id)>state.cur[c.id];}).map(function(c){return {c:c,gap:tgt(c.id)-state.cur[c.id]};})
+    .sort(function(a,b){return b.gap-a.gap||(a.c.id<b.c.id?-1:1);});
+  var k=document.getElementById("kpis");k.textContent="";
+  [["Current maturity",overall==null?"—":Math.round(overall)+"%","var(--sky)"],["Target maturity",Math.round(target)+"%","var(--mint)"],
+   ["Gap to close",overall==null?"—":Math.max(0,Math.round(target-overall))+" pts","var(--coral)"],["Controls assessed",answeredAll+" / "+CTL.length,"var(--sun)"]]
+  .forEach(function(x){var d=h("div",{class:"kpi"},h("b",{text:x[1]}),h("span",{text:x[0]}));d.style.background=x[2];k.appendChild(d);});
+
+  /* radar */
+  var R=document.getElementById("radar");R.textContent="";
+  var cx=170,cy=165,rad=110,svg=svgEl("svg",{viewBox:"0 0 340 330",role:"img","aria-label":"Radar chart of current versus target maturity per CSF function",width:"100%"});
+  function pt(i,val){var a=(-90+i*60)*Math.PI/180,r=rad*val/4;return [cx+r*Math.cos(a),cy+r*Math.sin(a)];}
+  for(var ring=1;ring<=4;ring++){svg.appendChild(svgEl("polygon",{points:st.map(function(_,i){return pt(i,ring).join(",");}).join(" "),fill:"none",stroke:"#DCE9EF","stroke-width":1}));}
+  st.forEach(function(s,i){var p=pt(i,4);svg.appendChild(svgEl("line",{x1:cx,y1:cy,x2:p[0],y2:p[1],stroke:"#DCE9EF"}));
+    var lp=pt(i,4.75),t=svgEl("text",{x:lp[0],y:lp[1]+4,"text-anchor":"middle"});t.textContent=s.name;svg.appendChild(t);});
+  svg.appendChild(svgEl("polygon",{points:st.map(function(s,i){return pt(i,s.tgt).join(",");}).join(" "),fill:"none",stroke:"#24445D","stroke-width":2,"stroke-dasharray":"5 4"}));
+  svg.appendChild(svgEl("polygon",{points:st.map(function(s,i){return pt(i,s.cur).join(",");}).join(" "),fill:"rgba(47,128,237,.25)",stroke:"#2F80ED","stroke-width":2.5}));
+  R.appendChild(svg);
+
+  /* bars */
+  var B=document.getElementById("bars");B.textContent="";
+  st.forEach(function(s){
+    var row=h("div",{class:"bar"});
+    row.appendChild(h("div",{class:"row"},h("span",{text:s.name}),h("span",{class:"muted",text:s.answered?s.cur.toFixed(1)+" / 4 → target "+s.tgt.toFixed(1):"not assessed"})));
+    var tr=h("div",{class:"track"});
+    var f=h("div",{class:"fill"});f.style.width=(s.cur/4*100)+"%";
+    var g=h("div",{class:"goal"});g.style.left="calc("+(s.tgt/4*100)+"% - 1px)";
+    tr.appendChild(f);tr.appendChild(g);row.appendChild(tr);B.appendChild(row);
+  });
+
+  /* gaps */
+  var G=document.getElementById("gaps");G.textContent="";
+  var top=gaps.slice(0,8);
+  document.getElementById("gapnote").textContent=answeredAll===0?"Assess some controls to see your priorities.":(gaps.length?"Largest distance between current and target first ("+gaps.length+" gap"+(gaps.length>1?"s":"")+" in total).":"No gaps: every assessed control meets its target.");
+  top.forEach(function(x){
+    var lvl=x.gap>=3?["High","p-high"]:x.gap===2?["Medium","p-med"]:["Low","p-low"];
+    G.appendChild(h("li",null,h("span",{class:"pill "+lvl[1],text:lvl[0]}),h("span",null,h("b",{text:x.c.id+" · "+x.c.fname}),h("br"),x.c.text+" — current "+state.cur[x.c.id]+", target "+tgt(x.c.id))));
+  });
+}
+
+/* ---------- Risks ---------- */
+function band(score){return score>=16?["Critical","p-crit","#8E1B3A"]:score>=10?["High","p-high","#D9534F"]:score>=5?["Moderate","p-med","#B7791F"]:["Low","p-low","#1E8E5A"];}
+function renderRisks(){
+  var heat=document.getElementById("heat");heat.textContent="";
+  heat.appendChild(h("div",{class:"ax"}));
+  for(var l=1;l<=5;l++)heat.appendChild(h("div",{class:"ax",text:"L"+l}));
+  for(var i=5;i>=1;i--){
+    heat.appendChild(h("div",{class:"ax",text:"I"+i}));
+    for(var l2=1;l2<=5;l2++){
+      var n=state.risks.filter(function(r){return r.l===l2&&r.i===i;}).length;
+      var cell=h("div",{class:"cell",text:n?String(n):"","aria-label":"Likelihood "+l2+", impact "+i+": "+n+" risk"+(n===1?"":"s")});
+      cell.style.background=band(l2*i)[2];cell.style.opacity=n?"1":".28";heat.appendChild(cell);
+    }
+  }
+  var list=document.getElementById("rlist");list.textContent="";
+  document.getElementById("rcount").textContent=state.risks.length?state.risks.length+" risk"+(state.risks.length>1?"s":"")+" recorded":"No risks recorded yet.";
+  state.risks.slice().sort(function(a,b){return b.l*b.i-a.l*a.i;}).forEach(function(r){
+    var bd=band(r.l*r.i);
+    var del=h("button",{class:"btn danger",type:"button","aria-label":"Delete risk: "+r.title,text:"Delete"});
+    del.addEventListener("click",function(){state.risks=state.risks.filter(function(x){return x.id!==r.id;});save();renderRisks();});
+    list.appendChild(h("li",null,
+      h("div",{class:"meta"},h("b",{text:r.title}),h("span",{class:"muted small",text:(r.owner?r.owner+" · ":"")+r.treat+" · L"+r.l+" × I"+r.i+" = "+r.l*r.i})),
+      h("span",{class:"pill "+bd[1],text:bd[0]}),del));
+  });
+}
+
+/* ---------- Wiring ---------- */
+function showTab(name){
+  ["assess","dash","risk"].forEach(function(n){
+    var on=n===name,p=document.getElementById("p-"+n),t=document.getElementById("t-"+n);
+    p.classList.toggle("active",on);p.hidden=!on;t.setAttribute("aria-selected",on?"true":"false");
+  });
+}
+document.querySelectorAll("nav.tabs button").forEach(function(b){b.addEventListener("click",function(){showTab(b.getAttribute("data-tab"));});});
+function download(name,mime,text){var a=document.createElement("a");a.href=URL.createObjectURL(new Blob([text],{type:mime}));a.download=name;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},500);}
+function csvCell(v){v=String(v);if(/^[=+\-@]/.test(v))v="'"+v;return '"'+v.replace(/"/g,'""')+'"';}
+document.getElementById("b-csv").addEventListener("click",function(){
+  var rows=[["id","function","control","current","target","gap"].join(",")];
+  CTL.forEach(function(c){var cu=state.cur[c.id],t=tgt(c.id);rows.push([c.id,c.fname,c.text,cu==null?"":cu,t,cu==null?"":Math.max(0,t-cu)].map(csvCell).join(","));});
+  download("csf-posture-controls.csv","text/csv",rows.join("\r\n"));
+});
+document.getElementById("b-json").addEventListener("click",function(){download("csf-posture-assessment.json","application/json",JSON.stringify(state,null,2));});
+document.getElementById("b-load").addEventListener("change",function(e){
+  var f=e.target.files&&e.target.files[0];if(!f)return;
+  if(f.size>500000){alert("File too large.");return;}
+  var rd=new FileReader();
+  rd.onload=function(){try{state=sanitize(JSON.parse(String(rd.result)));save();buildAssess();renderRisks();}catch(err){alert("This file is not a valid assessment.");}};
+  rd.readAsText(f);e.target.value="";
+});
+document.getElementById("b-print").addEventListener("click",function(){window.print();});
+document.getElementById("b-reset").addEventListener("click",function(){
+  if(confirm("Erase the whole assessment and risk register from this browser?")){state={cur:{},tgt:{},risks:[]};save();buildAssess();renderRisks();}
+});
+document.getElementById("risk-form").addEventListener("submit",function(e){
+  e.preventDefault();
+  var t=document.getElementById("r-title").value.trim();if(!t)return;
+  state.risks.push({id:String(Date.now()),title:t.slice(0,140),owner:document.getElementById("r-owner").value.trim().slice(0,60),l:clamp(document.getElementById("r-l").value,1,5),i:clamp(document.getElementById("r-i").value,1,5),treat:document.getElementById("r-t").value});
+  save();e.target.reset();document.getElementById("r-l").value="3";document.getElementById("r-i").value="3";renderRisks();
+});
+load();buildAssess();renderRisks();
+})();
+</script>
+</body>
+</html>
