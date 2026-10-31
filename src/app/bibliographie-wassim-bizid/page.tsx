@@ -962,13 +962,23 @@ export default function WassimPortfolioPage() {
               <span className="block text-[10px] font-bold uppercase tracking-[0.16em] text-[#7D95A6]">Cybersecurity & GRC</span>
             </span>
           </a>
-          <nav className="hidden items-center gap-5 text-xs font-bold text-[#5C7287] xl:flex" aria-label="Portfolio navigation">
-            <a className="transition hover:text-[#2F80ED]" href="#about">Biography</a>
-            <a className="transition hover:text-[#2F80ED]" href="#strengths">Strengths</a>
-            <a className="transition hover:text-[#2F80ED]" href="#value">Business value</a>
-            <a className="transition hover:text-[#2F80ED]" href="#work">Projects</a>
-            <a className="transition hover:text-[#2F80ED]" href="#events">Engagement</a>
-            <a className="transition hover:text-[#2F80ED]" href="#values">Values</a>
+          <nav className="hidden items-center gap-2 text-xs font-bold text-[#5C7287] xl:flex" aria-label="Portfolio navigation">
+            {[
+              ["Biography", "#about"],
+              ["Strengths", "#strengths"],
+              ["Business value", "#value"],
+              ["Projects", "#work"],
+              ["Engagement", "#events"],
+              ["Values", "#values"],
+            ].map(([label, href]) => (
+              <a
+                key={href}
+                className="rounded-full border border-[#D7E8F2] bg-white px-3.5 py-2 shadow-sm transition hover:-translate-y-0.5 hover:border-[#8FC5FF] hover:bg-[#EAF4FF] hover:text-[#2F80ED] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2F80ED]"
+                href={href}
+              >
+                {label}
+              </a>
+            ))}
           </nav>
           <a href={linkedInUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-[#BFDDF5] bg-white px-4 py-2.5 text-sm font-bold text-[#2F80ED] transition hover:-translate-y-0.5 hover:border-[#2F80ED]">
             LinkedIn <ArrowUpRight className="size-4" aria-hidden="true" />
