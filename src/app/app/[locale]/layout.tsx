@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import { Cairo, Geist } from "next/font/google";
 
 import {
   defaultLocale,
@@ -9,13 +8,6 @@ import {
 } from "@/i18n";
 
 import "../../globals.css";
-
-const geist = Geist({ subsets: ["latin"], variable: "--font-geist-sans" });
-const cairo = Cairo({
-  subsets: ["arabic", "latin"],
-  weight: ["400", "600", "700", "800"],
-  variable: "--font-arabic",
-});
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -41,9 +33,7 @@ export default async function AppLayout({ children, params }: LayoutProps) {
 
   return (
     <html lang={locale} dir={localeDirection[locale]}>
-      <body
-        className={`${geist.variable} ${cairo.variable} bg-background text-foreground antialiased`}
-      >
+      <body className="bg-background text-foreground antialiased">
         {children}
       </body>
     </html>

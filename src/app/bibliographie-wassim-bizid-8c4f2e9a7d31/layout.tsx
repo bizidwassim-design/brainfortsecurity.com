@@ -1,19 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 
 import "../globals.css";
-
-const geist = Geist({
-  subsets: ["latin"],
-  variable: "--font-geist-sans",
-  display: "swap",
-});
-
-const geistMono = Geist_Mono({
-  subsets: ["latin"],
-  variable: "--font-geist-mono",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   robots: {
@@ -40,9 +27,7 @@ export default function PrivatePortfolioLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geist.variable} ${geistMono.variable} bg-[#fffdf7] text-[#24445d] antialiased`}
-      >
+      <body className="bg-[#fffdf7] text-[#24445d] antialiased">
         {children}
       </body>
     </html>

@@ -1,6 +1,9 @@
 @import "tailwindcss";
 
 :root {
+  --font-geist-sans: "Segoe UI", Arial, Helvetica, sans-serif;
+  --font-geist-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --font-arabic: Tahoma, Arial, sans-serif;
   --background: #f7f5ee;
   --foreground: #1c1712;
   --card: #ffffff;
