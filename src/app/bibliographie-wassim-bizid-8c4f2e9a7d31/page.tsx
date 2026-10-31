@@ -455,6 +455,27 @@ const projects: Project[] = [
     tone: palette.skyPale,
     accent: palette.sky,
   },
+  {
+    number: "16",
+    title: "Vendor renewal & cost optimisation",
+    category: "THIRD-PARTY RISK · COMMERCIAL GOVERNANCE · FINOPS",
+    summary:
+      "A structured renewal and negotiation practice that balances cost reduction, service quality, security obligations and operational continuity.",
+    challenge:
+      "Automatic renewals, unused licences, overlapping capabilities and weak commercial visibility can increase cost without creating equivalent business or security value.",
+    built: [
+      "Created a renewal view covering service owners, contract dates, licence usage, dependencies and decision deadlines.",
+      "Reviewed adoption, redundant functionality, support needs and total cost before entering supplier discussions.",
+      "Negotiated pricing, licence quantities, renewal terms and service conditions with vendors on the client’s behalf.",
+      "Kept security requirements, data handling, SLA expectations and exit risk visible throughout the commercial decision.",
+    ],
+    evidence:
+      "Reduced recurring cost and improved renewal visibility without trading away required security or service outcomes; commercial figures remain confidential.",
+    tools: ["Renewal calendar", "Licence analysis", "Vendor scorecards", "TCO review", "Contract negotiation"],
+    icon: BriefcaseBusiness,
+    tone: palette.mintPale,
+    accent: palette.mint,
+  },
 ];
 
 const events = [
@@ -874,7 +895,7 @@ export default function WassimPortfolioPage() {
           <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
             <SectionTitle eyebrow="Selected work" title="Programmes built from policy to proof." description="A curated set of hands-on programmes across GRC, security engineering and operations. Client names, internal identifiers and sensitive topology details are intentionally removed." />
             <div className="flex shrink-0 items-center gap-3 rounded-2xl bg-[#E7FAF4] px-5 py-4 text-sm font-bold text-[#238D73]">
-              <BookOpenCheck className="size-5" aria-hidden="true" /> 15 case studies
+              <BookOpenCheck className="size-5" aria-hidden="true" /> 16 case studies
             </div>
           </div>
           <div className="mt-12 grid items-start gap-6 lg:grid-cols-2">
