@@ -93,32 +93,96 @@ const impactMetrics = [
   { value: "40+", label: "applications in SSO", detail: "Identity governance and faster revocation" },
 ] as const;
 
-const operatingPrinciples: Array<{
+interface ProfilePoint {
   title: string;
   description: string;
   icon: LucideIcon;
   tone: string;
-}> = [
+}
+
+const strengths: ProfilePoint[] = [
   {
-    title: "Govern with evidence",
+    title: "Attention to detail",
     description:
-      "Translate policies and frameworks into named owners, measurable controls, audit-ready evidence and clear executive decisions.",
+      "I verify the evidence, exceptions and operational reality behind a control—not only whether a box is checked.",
     icon: FileCheck2,
     tone: palette.skyPale,
   },
   {
-    title: "Engineer for reality",
+    title: "Trust-based relationships",
     description:
-      "Build controls around actual identities, assets, traffic flows and operational constraints—not a paper-only target state.",
-    icon: Network,
+      "I create constructive relationships with colleagues, architects, operations teams, leaders and suppliers to move security work forward.",
+    icon: Users,
     tone: palette.mintPale,
   },
   {
-    title: "Automate with accountability",
+    title: "Operational efficiency",
     description:
-      "Use PowerShell, APIs, KQL and dashboards to remove repetitive work while keeping approvals and human judgment visible.",
+      "I simplify workflows, remove repetitive effort and focus teams on decisions where human judgment creates the most value.",
     icon: Workflow,
     tone: palette.coralPale,
+  },
+  {
+    title: "Fast learning",
+    description:
+      "I quickly learn new platforms, technologies and business contexts, then turn that knowledge into practical results.",
+    icon: Sparkles,
+    tone: palette.lilacPale,
+  },
+];
+
+const businessValue: ProfilePoint[] = [
+  {
+    title: "Risk clarity",
+    description:
+      "I turn technical signals into prioritised decisions, accountable owners and evidence that leadership can act on.",
+    icon: ShieldCheck,
+    tone: palette.skyPale,
+  },
+  {
+    title: "Efficiency & cost control",
+    description:
+      "Automation, licence analysis and supplier negotiation reduce avoidable effort and recurring cost without weakening security outcomes.",
+    icon: CircleGauge,
+    tone: palette.mintPale,
+  },
+  {
+    title: "Cross-functional delivery",
+    description:
+      "I connect security, IT, OT, HR, finance, legal and vendors so that controls can be adopted and sustained in daily operations.",
+    icon: BriefcaseBusiness,
+    tone: palette.coralPale,
+  },
+  {
+    title: "Secure innovation",
+    description:
+      "I explore AI and emerging technology with practical guardrails, using innovation to accelerate work while protecting accountability.",
+    icon: CloudCog,
+    tone: palette.lilacPale,
+  },
+];
+
+const personalValues: ProfilePoint[] = [
+  {
+    title: "Automate the repeatable",
+    description:
+      "If a process is predictable and repeated, I look for a safe way to automate it, measure it and keep an exception path for people.",
+    icon: Workflow,
+    tone: palette.skyPale,
+  },
+  {
+    title: "Use AI as an accelerator",
+    description:
+      "AI should reduce investigation time and surface context, while important risk decisions remain transparent and human-owned.",
+    icon: Sparkles,
+    tone: palette.coralPale,
+  },
+  {
+    title: "Stay curious",
+    description:
+      "New technologies deserve both curiosity and adversarial testing. I learn continuously, experiment and question marketing claims.",
+    icon: Globe2,
+    tone: palette.mintPale,
   },
 ];
 
@@ -562,10 +626,12 @@ const githubRoadmap = [
 ] as const;
 
 function SectionTitle({
+  id,
   eyebrow,
   title,
   description,
 }: {
+  id?: string;
   eyebrow: string;
   title: string;
   description?: string;
@@ -575,7 +641,7 @@ function SectionTitle({
       <p className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#2F80ED]">
         {eyebrow}
       </p>
-      <h2 className="mt-3 text-3xl font-black tracking-[-0.035em] text-[#24445D] sm:text-4xl lg:text-5xl">
+      <h2 id={id} className="mt-3 text-3xl font-black tracking-[-0.035em] text-[#24445D] sm:text-4xl lg:text-5xl">
         {title}
       </h2>
       {description ? (
@@ -597,51 +663,56 @@ function ProjectCard({ project }: { project: Project }) {
   const Icon = project.icon;
 
   return (
-    <article className="group flex flex-col overflow-hidden rounded-[2rem] border border-[#D9E7EF] bg-white shadow-[0_18px_60px_-38px_rgba(47,128,237,0.35)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_70px_-38px_rgba(47,128,237,0.42)]">
-      <div className="p-6 sm:p-8">
-        <div className="flex items-start justify-between gap-4">
-          <div
-            className="flex size-12 items-center justify-center rounded-2xl"
-            style={{ backgroundColor: project.tone, color: project.accent }}
-          >
-            <Icon className="size-6" aria-hidden="true" />
-          </div>
-          <span className="font-mono text-sm font-bold text-[#90A8B8]">{project.number}</span>
-        </div>
-        <p className="mt-6 text-xs font-bold uppercase tracking-[0.16em]" style={{ color: project.accent }}>
-          {project.category}
-        </p>
-        <h3 className="mt-3 text-2xl font-black tracking-tight text-[#24445D]">{project.title}</h3>
-        <p className="mt-4 leading-7 text-[#5C7287]">{project.summary}</p>
-      </div>
-
-      <details className="group mt-auto border-t border-[#E3EDF3] bg-[#FCFEFF] open:bg-white">
-        <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 text-sm font-bold text-[#24445D] sm:px-8 [&::-webkit-details-marker]:hidden">
-          Read the case study
-          <ChevronDown className="size-5 text-[#2F80ED] transition group-open:rotate-180" aria-hidden="true" />
+    <article className="border-b border-[#DCE9EF] last:border-b-0">
+      <details name="project-library" className="group bg-white open:bg-[#FCFEFF]">
+        <summary className="flex cursor-pointer list-none items-center justify-between gap-5 px-5 py-5 transition hover:bg-[#F4FAFF] sm:px-7 sm:py-6 [&::-webkit-details-marker]:hidden">
+          <span className="flex min-w-0 items-center gap-4 sm:gap-5">
+            <span
+              className="flex size-11 shrink-0 items-center justify-center rounded-2xl"
+              style={{ backgroundColor: project.tone, color: project.accent }}
+            >
+              <Icon className="size-5" aria-hidden="true" />
+            </span>
+            <span className="min-w-0">
+              <span className="block font-mono text-[10px] font-bold text-[#90A8B8]">PROJECT {project.number}</span>
+              <h3 className="mt-1 text-left text-base font-black tracking-tight text-[#24445D] sm:text-lg">
+                {project.title}
+              </h3>
+            </span>
+          </span>
+          <ChevronDown className="size-5 shrink-0 text-[#2F80ED] transition group-open:rotate-180" aria-hidden="true" />
         </summary>
-        <div className="space-y-6 px-6 pb-8 sm:px-8">
+
+        <div className="space-y-7 border-t border-[#E3EDF3] px-5 py-7 sm:px-24 sm:py-9">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#90A8B8]">Challenge</p>
-            <p className="mt-2 leading-7 text-[#5C7287]">{project.challenge}</p>
+            <p className="text-xs font-bold uppercase tracking-[0.16em]" style={{ color: project.accent }}>
+              {project.category}
+            </p>
+            <p className="mt-3 text-lg leading-8 text-[#46647A]">{project.summary}</p>
           </div>
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#90A8B8]">What I built</p>
-            <ul className="mt-3 space-y-3">
-              {project.built.map((item) => (
-                <li key={item} className="flex gap-3 text-sm leading-6 text-[#5C7287]">
-                  <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-[#42C7A5]" aria-hidden="true" />
-                  {item}
-                </li>
-              ))}
-            </ul>
+          <div className="grid gap-7 lg:grid-cols-[0.8fr_1.2fr]">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#90A8B8]">Challenge</p>
+              <p className="mt-2 leading-7 text-[#5C7287]">{project.challenge}</p>
+            </div>
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#90A8B8]">What I built</p>
+              <ul className="mt-3 space-y-3">
+                {project.built.map((item) => (
+                  <li key={item} className="flex gap-3 text-sm leading-6 text-[#5C7287]">
+                    <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-[#42C7A5]" aria-hidden="true" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
           {project.flow ? (
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#90A8B8]">Automation flow</p>
               <ol className="mt-3 grid gap-2 sm:grid-cols-5">
                 {project.flow.map((step, index) => (
-                  <li key={step} className="rounded-2xl border border-[#DDEAF1] bg-[#F8FCFF] p-3 text-xs font-bold leading-5 text-[#46647A]">
+                  <li key={step} className="rounded-2xl border border-[#DDEAF1] bg-white p-3 text-xs font-bold leading-5 text-[#46647A]">
                     <span className="mb-2 flex size-6 items-center justify-center rounded-full bg-[#EAF4FF] font-mono text-[10px] text-[#2F80ED]">
                       {index + 1}
                     </span>
@@ -651,7 +722,7 @@ function ProjectCard({ project }: { project: Project }) {
               </ol>
             </div>
           ) : null}
-          <div className="rounded-2xl bg-[#E7FAF4] p-4">
+          <div className="rounded-2xl bg-[#E7FAF4] p-5">
             <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#238D73]">Evidence of impact</p>
             <p className="mt-2 text-sm leading-6 text-[#416779]">{project.evidence}</p>
           </div>
@@ -790,11 +861,13 @@ export default function WassimPortfolioPage() {
               <span className="block text-[10px] font-bold uppercase tracking-[0.16em] text-[#7D95A6]">Cybersecurity & GRC</span>
             </span>
           </a>
-          <nav className="hidden items-center gap-7 text-sm font-bold text-[#5C7287] lg:flex" aria-label="Portfolio navigation">
-            <a className="transition hover:text-[#2F80ED]" href="#work">Selected work</a>
-            <a className="transition hover:text-[#2F80ED]" href="#dashboards">Dashboards</a>
-            <a className="transition hover:text-[#2F80ED]" href="#events">Events</a>
-            <a className="transition hover:text-[#2F80ED]" href="#credentials">Credentials</a>
+          <nav className="hidden items-center gap-5 text-xs font-bold text-[#5C7287] xl:flex" aria-label="Portfolio navigation">
+            <a className="transition hover:text-[#2F80ED]" href="#about">Biography</a>
+            <a className="transition hover:text-[#2F80ED]" href="#strengths">Strengths</a>
+            <a className="transition hover:text-[#2F80ED]" href="#value">Business value</a>
+            <a className="transition hover:text-[#2F80ED]" href="#work">Projects</a>
+            <a className="transition hover:text-[#2F80ED]" href="#events">Engagement</a>
+            <a className="transition hover:text-[#2F80ED]" href="#values">Values</a>
           </nav>
           <a href={linkedInUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-[#BFDDF5] bg-white px-4 py-2.5 text-sm font-bold text-[#2F80ED] transition hover:-translate-y-0.5 hover:border-[#2F80ED]">
             LinkedIn <ArrowUpRight className="size-4" aria-hidden="true" />
@@ -820,8 +893,8 @@ export default function WassimPortfolioPage() {
               Cybersecurity and IT leader connecting governance, identity, cloud, endpoints, SecOps and industrial environments—then making the programme measurable for executives and practical for operators.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
-              <a href="#work" className="inline-flex items-center gap-2 rounded-full bg-[#2F80ED] px-6 py-3.5 text-sm font-black text-white shadow-[0_14px_30px_-15px_rgba(47,128,237,0.8)] transition hover:-translate-y-0.5 hover:bg-[#2673D7]">
-                Explore selected work <ArrowUpRight className="size-4" aria-hidden="true" />
+              <a href="#about" className="inline-flex items-center gap-2 rounded-full bg-[#2F80ED] px-6 py-3.5 text-sm font-black text-white shadow-[0_14px_30px_-15px_rgba(47,128,237,0.8)] transition hover:-translate-y-0.5 hover:bg-[#2673D7]">
+                Discover my story <ArrowUpRight className="size-4" aria-hidden="true" />
               </a>
               <a href={"mailto:" + siteConfig.email} className="inline-flex items-center gap-2 rounded-full border border-[#BFDDF5] bg-white px-6 py-3.5 text-sm font-black text-[#24445D] transition hover:-translate-y-0.5 hover:border-[#2F80ED]">
                 <Mail className="size-4 text-[#FF7A6B]" aria-hidden="true" /> Contact
@@ -870,18 +943,74 @@ export default function WassimPortfolioPage() {
         </SectionShell>
       </section>
 
-      <section className="py-20 sm:py-28" aria-labelledby="approach-title">
+      <section id="about" className="scroll-mt-24 py-20 sm:py-28" aria-labelledby="about-title">
         <SectionShell>
-          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
-            <SectionTitle eyebrow="My operating model" title="Controls that survive contact with operations." description="I work across the full control lifecycle: define the risk, design the guardrail, automate what is repeatable, measure effectiveness and return evidence to governance." />
-            <div className="grid gap-4 sm:grid-cols-3">
-              {operatingPrinciples.map((principle) => {
-                const Icon = principle.icon;
+          <div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:items-start">
+            <SectionTitle id="about-title" eyebrow="01 · Biography" title="A bridge between cyber strategy and execution." description="My career has developed across infrastructure, cloud, IT operations and cybersecurity—giving me the context to connect board-level risk with the day-to-day reality of technical teams." />
+            <article className="rounded-[2rem] border border-[#D8E7EF] bg-white p-7 shadow-[0_24px_70px_-48px_rgba(47,128,237,0.45)] sm:p-10">
+              <p className="text-xl font-bold leading-9 text-[#24445D]">
+                I am a cybersecurity and IT leader with more than 15 years in technology and more than 10 years focused on security.
+              </p>
+              <div className="mt-6 space-y-5 text-base leading-8 text-[#5C7287]">
+                <p>
+                  My work spans governance, risk and compliance, identity, Microsoft security, vulnerability management, network segmentation, SecOps, industrial environments and automation. I am equally comfortable discussing risk treatment with leadership and working with technical teams to make the control operational.
+                </p>
+                <p>
+                  I have led multidisciplinary teams and delivered programmes across multi-site environments in Canada and the United States, while maintaining an active professional perspective on the Middle East cybersecurity ecosystem.
+                </p>
+                <p>
+                  What defines my approach is the combination of governance discipline, hands-on engineering and trusted collaboration. I want security to be measurable, understandable and sustainable—not a collection of disconnected tools.
+                </p>
+              </div>
+              <div className="mt-8 grid gap-3 sm:grid-cols-3">
+                {[
+                  ["Governance", "Clear ownership"],
+                  ["Engineering", "Practical controls"],
+                  ["Leadership", "Trusted delivery"],
+                ].map(([label, value], index) => (
+                  <div key={label} className="rounded-2xl p-4" style={{ backgroundColor: [palette.skyPale, palette.mintPale, palette.coralPale][index] }}>
+                    <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#7D95A6]">{label}</p>
+                    <p className="mt-1 text-sm font-black text-[#24445D]">{value}</p>
+                  </div>
+                ))}
+              </div>
+            </article>
+          </div>
+        </SectionShell>
+      </section>
+
+      <section id="strengths" className="scroll-mt-24 border-y border-[#DCE9EF] bg-[#FFF9ED] py-20 sm:py-28" aria-labelledby="strengths-title">
+        <SectionShell>
+          <SectionTitle id="strengths-title" eyebrow="02 · Strengths" title="How I show up at work." description="Technical capability matters, but dependable execution also comes from how a person learns, collaborates and takes care of the details." />
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {strengths.map((strength) => {
+              const Icon = strength.icon;
+              return (
+                <article key={strength.title} className="rounded-[1.75rem] border border-[#DCE9EF] p-6" style={{ backgroundColor: strength.tone }}>
+                  <Icon className="size-7 text-[#2F80ED]" aria-hidden="true" />
+                  <h3 className="mt-5 text-xl font-black text-[#24445D]">{strength.title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-[#5C7287]">{strength.description}</p>
+                </article>
+              );
+            })}
+          </div>
+        </SectionShell>
+      </section>
+
+      <section id="value" className="scroll-mt-24 py-20 sm:py-28" aria-labelledby="value-title">
+        <SectionShell>
+          <div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:items-start">
+            <SectionTitle id="value-title" eyebrow="03 · Business value" title="What I bring to an organisation." description="My value is not limited to deploying controls. I help an organisation decide what matters, deliver it efficiently and make the result visible to the people accountable for risk." />
+            <div className="grid gap-4 sm:grid-cols-2">
+              {businessValue.map((item) => {
+                const Icon = item.icon;
                 return (
-                  <article key={principle.title} className="rounded-[1.75rem] border border-[#DCE9EF] p-5" style={{ backgroundColor: principle.tone }}>
-                    <Icon className="size-6 text-[#2F80ED]" aria-hidden="true" />
-                    <h3 className="mt-5 text-lg font-black text-[#24445D]">{principle.title}</h3>
-                    <p className="mt-3 text-sm leading-6 text-[#5C7287]">{principle.description}</p>
+                  <article key={item.title} className="rounded-[1.75rem] border border-[#DCE9EF] bg-white p-6 shadow-[0_18px_55px_-45px_rgba(47,128,237,0.45)]">
+                    <span className="flex size-11 items-center justify-center rounded-2xl" style={{ backgroundColor: item.tone }}>
+                      <Icon className="size-5 text-[#2F80ED]" aria-hidden="true" />
+                    </span>
+                    <h3 className="mt-5 text-xl font-black text-[#24445D]">{item.title}</h3>
+                    <p className="mt-3 text-sm leading-6 text-[#5C7287]">{item.description}</p>
                   </article>
                 );
               })}
@@ -893,12 +1022,12 @@ export default function WassimPortfolioPage() {
       <section id="work" className="scroll-mt-24 border-y border-[#DCE9EF] bg-[#F8FCFF] py-20 sm:py-28" aria-labelledby="work-title">
         <SectionShell>
           <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
-            <SectionTitle eyebrow="Selected work" title="Programmes built from policy to proof." description="A curated set of hands-on programmes across GRC, security engineering and operations. Client names, internal identifiers and sensitive topology details are intentionally removed." />
+            <SectionTitle id="work-title" eyebrow="04 · Project library" title="Select a project to read the full story." description="The list stays concise. Open any project to see the challenge, what I built, the evidence of impact and the technologies involved. Client names and sensitive details are intentionally removed." />
             <div className="flex shrink-0 items-center gap-3 rounded-2xl bg-[#E7FAF4] px-5 py-4 text-sm font-bold text-[#238D73]">
               <BookOpenCheck className="size-5" aria-hidden="true" /> 16 case studies
             </div>
           </div>
-          <div className="mt-12 grid items-start gap-6 lg:grid-cols-2">
+          <div className="mt-12 overflow-hidden rounded-[2rem] border border-[#D8E7EF] bg-white shadow-[0_24px_70px_-50px_rgba(47,128,237,0.45)]">
             {projects.map((project) => <ProjectCard key={project.title} project={project} />)}
           </div>
         </SectionShell>
@@ -906,7 +1035,7 @@ export default function WassimPortfolioPage() {
 
       <section id="dashboards" className="scroll-mt-24 py-20 sm:py-28" aria-labelledby="dashboards-title">
         <SectionShell>
-          <SectionTitle eyebrow="Dashboard gallery" title="From raw signals to an executive narrative." description="These light-theme reconstructions illustrate the information architecture of dashboards I designed. All numbers shown here are synthetic and do not represent any client environment." />
+          <SectionTitle id="dashboards-title" eyebrow="Project evidence · Dashboard gallery" title="From raw signals to an executive narrative." description="These light-theme reconstructions illustrate the information architecture of dashboards I designed. All numbers shown here are synthetic and do not represent any client environment." />
           <div className="mt-12 grid gap-6 xl:grid-cols-2">
             <CisoDashboard />
             <SiemDashboard />
@@ -953,7 +1082,7 @@ export default function WassimPortfolioPage() {
         <SectionShell>
           <div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr]">
             <div>
-              <SectionTitle eyebrow="Industry engagement" title="Learning in the field—and testing the claims." description="Selected cybersecurity events documented through public posts and event credentials. I use conferences to challenge assumptions, compare operating models and bring practical lessons back into security programmes." />
+              <SectionTitle id="events-title" eyebrow="05 · Professional engagement" title="Learning in the field—and contributing to the conversation." description="Selected conferences, seminars and cybersecurity events documented through public posts and event credentials. I use them to challenge assumptions, exchange with peers and bring practical lessons back into security programmes." />
               <a href={linkedInUrl} target="_blank" rel="noreferrer" className="mt-7 inline-flex items-center gap-2 text-sm font-black text-[#2F80ED] hover:underline">View the complete LinkedIn activity <ExternalLink className="size-4" aria-hidden="true" /></a>
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
@@ -978,11 +1107,40 @@ export default function WassimPortfolioPage() {
         </SectionShell>
       </section>
 
+      <section id="values" className="scroll-mt-24 border-b border-[#DCE9EF] bg-[#F8FCFF] py-20 sm:py-28" aria-labelledby="values-title">
+        <SectionShell>
+          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+            <div>
+              <SectionTitle id="values-title" eyebrow="06 · Motto & values" title="Automate. Augment. Stay curious." description="Three principles guide how I approach technology, improvement and responsible innovation." />
+              <blockquote className="mt-8 rounded-[1.75rem] border border-[#CFE4F2] bg-white p-6 text-lg font-bold leading-8 text-[#24445D] shadow-[0_20px_60px_-48px_rgba(47,128,237,0.5)]">
+                “Automate the repeatable. Use AI to accelerate good judgment. Stay curious enough to keep learning—and critical enough to keep testing.”
+              </blockquote>
+            </div>
+            <div className="grid gap-4">
+              {personalValues.map((value, index) => {
+                const Icon = value.icon;
+                return (
+                  <article key={value.title} className="flex gap-5 rounded-[1.75rem] border border-[#DCE9EF] p-6" style={{ backgroundColor: value.tone }}>
+                    <span className="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-white">
+                      <Icon className="size-6" style={{ color: [palette.sky, palette.coral, palette.mint][index] }} aria-hidden="true" />
+                    </span>
+                    <div>
+                      <h3 className="text-xl font-black text-[#24445D]">{value.title}</h3>
+                      <p className="mt-2 text-sm leading-6 text-[#5C7287]">{value.description}</p>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        </SectionShell>
+      </section>
+
       <section id="credentials" className="scroll-mt-24 py-20 sm:py-28" aria-labelledby="credentials-title">
         <SectionShell>
           <div className="grid gap-14 lg:grid-cols-[0.7fr_1.3fr]">
             <div>
-              <SectionTitle eyebrow="Credentials" title="Technical depth, governance perspective." description="Formal security and technology credentials reinforced by business leadership education and continuous field learning." />
+              <SectionTitle id="credentials-title" eyebrow="Additional · Credentials" title="Technical depth, governance perspective." description="Formal security and technology credentials reinforced by business leadership education and continuous field learning." />
               <div className="mt-8 rounded-[1.75rem] bg-[#EAF4FF] p-6">
                 <GraduationCap className="size-7 text-[#2F80ED]" aria-hidden="true" />
                 <p className="mt-4 font-black text-[#24445D]">Framework fluency</p>
@@ -1005,7 +1163,7 @@ export default function WassimPortfolioPage() {
         <SectionShell>
           <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
             <div>
-              <SectionTitle eyebrow="Public lab roadmap" title="Turning field experience into reusable GRC assets." description="The following repositories are being prepared for publication. They are presented as a roadmap—not as already released work." />
+              <SectionTitle id="github-title" eyebrow="Public lab roadmap" title="Turning field experience into reusable GRC assets." description="The following repositories are being prepared for publication. They are presented as a roadmap—not as already released work." />
               <a href={githubUrl} target="_blank" rel="noreferrer" className="mt-7 inline-flex items-center gap-2 rounded-full bg-[#2F80ED] px-5 py-3 text-sm font-black text-white transition hover:-translate-y-0.5">GitHub profile <ExternalLink className="size-4" aria-hidden="true" /></a>
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
