@@ -99,9 +99,9 @@ const sectorExperience = [
   { sector: "Financial services", organisation: "Desjardins" },
   { sector: "Physical security", organisation: "GardaWorld" },
   { sector: "Pharmaceutical", organisation: "Pharmascience" },
-  { sector: "Managed security services", organisation: "F5 Silicon" },
+  { sector: "Managed security services", organisation: "FXInnovation" },
   { sector: "Real estate", organisation: "Centris" },
-  { sector: "Manufacturing · IT/OT", organisation: "Fresh Pro" },
+  { sector: "Manufacturing · IT/OT", organisation: "VegPro" },
   { sector: "Technology consulting", organisation: "IBM" },
 ] as const;
 
