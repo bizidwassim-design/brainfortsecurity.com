@@ -1056,29 +1056,31 @@ export default function WassimPortfolioPage() {
 
       <section id="about" className="scroll-mt-24 py-20 sm:py-28" aria-labelledby="about-title">
         <SectionShell>
-          <div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:items-start">
+          <div>
             <SectionTitle id="about-title" eyebrow="01 · Biography" title="A bridge between cyber strategy and execution." description="My career has developed across infrastructure, cloud, IT operations and cybersecurity—giving me the context to connect board-level risk with the day-to-day reality of technical teams." />
-            <article className="rounded-[2rem] border border-[#D8E7EF] bg-white p-7 shadow-[0_24px_70px_-48px_rgba(47,128,237,0.45)] sm:p-10">
-              <p className="text-xl font-bold leading-9 text-[#24445D]">
-                I am a cybersecurity and IT leader with more than 15 years in technology and more than 10 years focused on security.
-              </p>
-              <div className="mt-6 space-y-5 text-base leading-8 text-[#5C7287]">
-                <p>
-                  My work spans governance, risk and compliance, identity, Microsoft security, vulnerability management, network segmentation, SecOps, industrial environments and automation. I am equally comfortable discussing risk treatment with leadership and working with technical teams to make the control operational.
+            <article className="mt-10 rounded-[2rem] border border-[#D8E7EF] bg-white p-7 shadow-[0_24px_70px_-48px_rgba(47,128,237,0.45)] sm:p-10">
+              <div className="grid gap-7 lg:grid-cols-[0.72fr_1.28fr] lg:gap-12">
+                <p className="text-xl font-bold leading-9 text-[#24445D]">
+                  I am a cybersecurity and IT leader with more than 15 years in technology and more than 10 years focused on security.
                 </p>
-                <p>
-                  I have led multidisciplinary teams and delivered programmes across multi-site environments in Canada and the United States, while maintaining an active professional perspective on the Middle East cybersecurity ecosystem.
-                </p>
-                <p>
-                  What defines my approach is the combination of governance discipline, hands-on engineering and trusted collaboration. I want security to be measurable, understandable and sustainable—not a collection of disconnected tools.
-                </p>
+                <div className="space-y-5 text-base leading-8 text-[#5C7287]">
+                  <p>
+                    My work spans governance, risk and compliance, identity, Microsoft security, vulnerability management, network segmentation, SecOps, industrial environments and automation. I am equally comfortable discussing risk treatment with leadership and working with technical teams to make the control operational.
+                  </p>
+                  <p>
+                    I have led multidisciplinary teams and delivered programmes across multi-site environments in Canada and the United States, while maintaining an active professional perspective on the Middle East cybersecurity ecosystem.
+                  </p>
+                  <p>
+                    What defines my approach is the combination of governance discipline, hands-on engineering and trusted collaboration. I want security to be measurable, understandable and sustainable—not a collection of disconnected tools.
+                  </p>
+                </div>
               </div>
               <div className="mt-9 border-t border-[#E1ECF2] pt-8">
                 <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#2F80ED]">Selected industry experience</p>
                 <p className="mt-3 max-w-3xl text-sm leading-7 text-[#5C7287]">
                   My professional journey has crossed very different operating and regulatory environments. That range helps me adapt security controls to the business instead of forcing every organisation into the same model.
                 </p>
-                <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                   {sectorExperience.map((item, index) => (
                     <div key={item.sector} className="rounded-2xl border border-[#E0EBF1] p-4" style={{ backgroundColor: [palette.skyPale, palette.mintPale, palette.coralPale, palette.lilacPale][index % 4] }}>
                       <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#7D95A6]">{item.sector}</p>
@@ -1089,7 +1091,7 @@ export default function WassimPortfolioPage() {
               </div>
               <div className="mt-8 border-t border-[#E1ECF2] pt-8">
                 <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#2F80ED]">Technology foundation</p>
-                <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                   {[
                     ["Microsoft Azure", "Azure administration, cloud operations, security and identity"],
                     ["VMware", "VCP Data Center expertise and virtual infrastructure operations"],
@@ -1221,12 +1223,12 @@ export default function WassimPortfolioPage() {
 
       <section id="events" className="scroll-mt-24 border-y border-[#DCE9EF] bg-[#FFF9ED] py-20 sm:py-28" aria-labelledby="events-title">
         <SectionShell>
-          <div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr]">
-            <div>
+          <div>
+            <div className="flex flex-col gap-7 lg:flex-row lg:items-end lg:justify-between">
               <SectionTitle id="events-title" eyebrow="05 · Professional engagement" title="Learning in the field—and contributing to the conversation." description="Selected conferences, seminars and cybersecurity events documented through public posts and event credentials. I use them to challenge assumptions, exchange with peers and bring practical lessons back into security programmes." />
-              <a href={linkedInUrl} target="_blank" rel="noreferrer" className="mt-7 inline-flex items-center gap-2 text-sm font-black text-[#2F80ED] hover:underline">View the complete LinkedIn activity <ExternalLink className="size-4" aria-hidden="true" /></a>
+              <a href={linkedInUrl} target="_blank" rel="noreferrer" className="inline-flex shrink-0 items-center gap-2 text-sm font-black text-[#2F80ED] hover:underline">View the complete LinkedIn activity <ExternalLink className="size-4" aria-hidden="true" /></a>
             </div>
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {events.map((event) => (
                 <article key={event.title + "-" + event.date} className="rounded-[1.75rem] border border-[#DCE7ED] p-6" style={{ backgroundColor: event.tone }}>
                   <div className="flex items-center justify-between gap-3">
@@ -1302,12 +1304,12 @@ export default function WassimPortfolioPage() {
 
       <section className="border-y border-[#DCE9EF] bg-[#F8FCFF] py-20 sm:py-28" aria-labelledby="github-title">
         <SectionShell>
-          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
-            <div>
+          <div>
+            <div className="flex flex-col gap-7 lg:flex-row lg:items-end lg:justify-between">
               <SectionTitle id="github-title" eyebrow="Public lab roadmap" title="Turning field experience into reusable GRC assets." description="The following repositories are being prepared for publication. They are presented as a roadmap—not as already released work." />
-              <a href={githubUrl} target="_blank" rel="noreferrer" className="mt-7 inline-flex items-center gap-2 rounded-full bg-[#2F80ED] px-5 py-3 text-sm font-black text-white transition hover:-translate-y-0.5">GitHub profile <ExternalLink className="size-4" aria-hidden="true" /></a>
+              <a href={githubUrl} target="_blank" rel="noreferrer" className="inline-flex shrink-0 items-center gap-2 rounded-full bg-[#2F80ED] px-5 py-3 text-sm font-black text-white transition hover:-translate-y-0.5">GitHub profile <ExternalLink className="size-4" aria-hidden="true" /></a>
             </div>
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {githubRoadmap.map((item, index) => (
                 <article key={item.title} className="rounded-[1.75rem] border border-[#DCE9EF] p-6" style={{ backgroundColor: [palette.skyPale, palette.mintPale, palette.coralPale, palette.lilacPale][index % 4] }}>
                   <div className="flex items-center justify-between gap-4"><Blocks className="size-6 text-[#2F80ED]" aria-hidden="true" /><span className="rounded-full bg-white px-3 py-1 text-[10px] font-black uppercase tracking-wide text-[#7D95A6]">In preparation</span></div>
