@@ -1155,7 +1155,7 @@ export default function WassimPortfolioPage() {
           <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
             <SectionTitle id="work-title" eyebrow="04 · Project library" title="Select a project to read the full story." description="The list stays concise. Open any project to see the challenge, what I built, the evidence of impact and the technologies involved. Client names and sensitive details are intentionally removed." />
             <div className="flex shrink-0 items-center gap-3 rounded-2xl bg-[#E7FAF4] px-5 py-4 text-sm font-bold text-[#238D73]">
-              <BookOpenCheck className="size-5" aria-hidden="true" /> 16 case studies
+              <BookOpenCheck className="size-5" aria-hidden="true" /> {projects.length} case studies
             </div>
           </div>
           <div className="mt-12 overflow-hidden rounded-[2rem] border border-[#D8E7EF] bg-white shadow-[0_24px_70px_-50px_rgba(47,128,237,0.45)]">
