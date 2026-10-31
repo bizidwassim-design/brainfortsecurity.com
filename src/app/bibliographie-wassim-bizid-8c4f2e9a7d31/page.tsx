@@ -131,6 +131,7 @@ interface Project {
   built: string[];
   evidence: string;
   tools: string[];
+  flow?: string[];
   icon: LucideIcon;
   tone: string;
   accent: string;
@@ -223,7 +224,7 @@ const projects: Project[] = [
   },
   {
     number: "05",
-    title: "ELK SIEM engineering & KQL-driven response",
+    title: "ELK SIEM engineering & KQL-driven detection",
     category: "SecOps · Detection Engineering · Automation",
     summary:
       "A practical monitoring and response capability combining centralised telemetry, analyst dashboards and repeatable investigation logic.",
@@ -410,6 +411,50 @@ const projects: Project[] = [
     tone: palette.sunPale,
     accent: "#C79012",
   },
+  {
+    number: "14",
+    title: "TheHive automated incident-response flow",
+    category: "SOAR · CASE MANAGEMENT · INCIDENT RESPONSE",
+    summary:
+      "A structured TheHive workflow that carries one alert from detection through investigation, response and auditable closure.",
+    challenge:
+      "Alerts can lose time and context when analysts manually rebuild the same tasks, evidence and response sequence for each incident.",
+    built: [
+      "Automated alert intake that preserves the source, observable data, severity and detection context.",
+      "Case templates that create consistent investigation tasks, ownership and response checkpoints.",
+      "A structured path for triage, enrichment, containment, remediation and post-incident closure.",
+      "API-oriented automation with human validation before consequential containment actions.",
+    ],
+    evidence:
+      "Demonstrated an end-to-end alert-to-response workflow with consistent task sequencing, analyst accountability and a reusable audit trail.",
+    tools: ["TheHive", "SOAR", "Case templates", "REST APIs", "Incident-response playbooks"],
+    flow: ["Alert detected", "Case created", "Enrich & triage", "Contain & remediate", "Close & learn"],
+    icon: Workflow,
+    tone: palette.coralPale,
+    accent: palette.coral,
+  },
+  {
+    number: "15",
+    title: "Let’sDefend SOC analyst simulation",
+    category: "PORTFOLIO LAB · SOC ANALYST · INCIDENT TRIAGE",
+    summary:
+      "Hands-on alert triage and investigation in a simulated SOC portal designed around realistic analyst decisions and case documentation.",
+    challenge:
+      "SOC knowledge becomes operational only when an analyst can examine evidence, form a defensible conclusion and document why an alert was escalated or closed.",
+    built: [
+      "Worked from the SOC alert queue to review detection context, severity and the affected entities.",
+      "Investigated available evidence and reconstructed the sequence of activity before deciding disposition.",
+      "Recorded investigation notes, decision rationale and next actions in a consistent case workflow.",
+      "Used each simulation to strengthen triage discipline and connect detection theory to analyst practice.",
+    ],
+    evidence:
+      "Lab in progress. Verified ticket and investigation totals will be added once the final portal metrics are confirmed.",
+    tools: ["Let’sDefend", "SOC simulation", "Alert triage", "Case documentation", "Incident response"],
+    flow: ["Alert queue", "Review context", "Investigate evidence", "Escalate or close", "Document lessons"],
+    icon: Radar,
+    tone: palette.skyPale,
+    accent: palette.sky,
+  },
 ];
 
 const events = [
@@ -570,6 +615,21 @@ function ProjectCard({ project }: { project: Project }) {
               ))}
             </ul>
           </div>
+          {project.flow ? (
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#90A8B8]">Automation flow</p>
+              <ol className="mt-3 grid gap-2 sm:grid-cols-5">
+                {project.flow.map((step, index) => (
+                  <li key={step} className="rounded-2xl border border-[#DDEAF1] bg-[#F8FCFF] p-3 text-xs font-bold leading-5 text-[#46647A]">
+                    <span className="mb-2 flex size-6 items-center justify-center rounded-full bg-[#EAF4FF] font-mono text-[10px] text-[#2F80ED]">
+                      {index + 1}
+                    </span>
+                    {step}
+                  </li>
+                ))}
+              </ol>
+            </div>
+          ) : null}
           <div className="rounded-2xl bg-[#E7FAF4] p-4">
             <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#238D73]">Evidence of impact</p>
             <p className="mt-2 text-sm leading-6 text-[#416779]">{project.evidence}</p>
@@ -814,7 +874,7 @@ export default function WassimPortfolioPage() {
           <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
             <SectionTitle eyebrow="Selected work" title="Programmes built from policy to proof." description="A curated set of hands-on programmes across GRC, security engineering and operations. Client names, internal identifiers and sensitive topology details are intentionally removed." />
             <div className="flex shrink-0 items-center gap-3 rounded-2xl bg-[#E7FAF4] px-5 py-4 text-sm font-bold text-[#238D73]">
-              <BookOpenCheck className="size-5" aria-hidden="true" /> 13 case studies
+              <BookOpenCheck className="size-5" aria-hidden="true" /> 15 case studies
             </div>
           </div>
           <div className="mt-12 grid items-start gap-6 lg:grid-cols-2">
